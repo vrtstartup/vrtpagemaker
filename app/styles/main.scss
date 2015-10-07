@@ -1,0 +1,288 @@
+// bower:scss
+// endbower
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    // max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+
+
+
+
+
+
+// BEM Mixin
+
+@mixin element($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+/// Block Modifier
+/// @access public
+/// @param {String} $modifier - Modifier's name
+@mixin modifier($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}
+
+/// @alias element
+@mixin e($element) {
+    @include element($element) {
+        @content;
+    }
+}
+
+/// @alias modifier
+@mixin m($modifier) {
+    @include modifier($modifier) {
+        @content;
+    }
+}
+
+
+
+
+
+
+@import "../blocks/text/textBlockView";
+@import "../blocks/text/textBlockDialog";
+
+@import "../blocks/image/imageBlockView";
+@import "../blocks/image/imageBlockDialog";
+
+@import "../blocks/parallax/parallaxBlockView";
+@import "../blocks/parallax/parallaxBlockDialog";
+
+@import "../blocks/video/videoBlockView";
+@import "../blocks/video/videoBlockDialog";
+
+@import "../blocks/twitter/twitterBlockView";
+@import "../blocks/twitter/twitterBlockDialog";
+
+@import "../blocks/facebook/facebookBlockView";
+@import "../blocks/facebook/facebookBlockDialog";
+
+
+
+
+@import "ngDialog";
+@import "ngDialog-theme";
+@import "editBlock";
+
+
+
+
+
+/*
+
+http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/
+http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+
+    * Base:
+
+    ** The top-level ‘Block’ of a component.
+
+        .modal {}
+
+
+    ** An ‘Element’ that is a part of the larger Block.
+
+        .modal__title {}
+
+
+    ** A ‘Modifier’ of the Block.
+
+        .modal--large {}
+
+
+    <div class="modal  modal--large">
+
+        <h1 class="modal__title">Sign into your account</h1>
+
+        <div class="modal__content">
+
+            <form class="form-login">
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    * Namespaces
+
+
+        ** o-
+
+            Signify that something is an Object, and that it may be used in any number of unrelated
+            contexts to the one you can currently see it in. Making modifications to these types of class could
+            potentially have knock-on effects in a lot of other unrelated places. Tread carefully.
+
+
+        ** c-
+
+            Signify that something is a Component. This is a concrete, implementation-specific piece of UI.
+            All of the changes you make to its styles should be detectable in the context you’re currently
+            looking at. Modifying these styles should be safe and have no side effects.
+
+
+        ** u-
+
+            Signify that this class is a Utility class. It has a very specific role (often providing only
+            one declaration) and should not be bound onto or changed. It can be reused and is not tied to any
+            specific piece of UI. You will probably recognise this namespace from libraries and methodologies
+            like SUIT.
+
+
+        ** t-
+
+            Signify that a class is responsible for adding a Theme to a view. It lets us know that UI
+            Components’ current cosmetic appearance may be due to the presence of a theme.
+
+
+        ** s-
+
+            Signify that a class creates a new styling context or Scope. Similar to a Theme, but not
+            necessarily cosmetic, these should be used sparingly—they can be open to abuse and lead to poor CSS
+            if not used wisely.
+
+
+        ** is-, has-
+
+        Signify that the piece of UI in question is currently styled a certain way because of a
+        state or condition. This stateful namespace is gorgeous, and comes from SMACSS. It tells us that the
+        DOM currently has a temporary, optional, or short-lived style applied to it due to a certain state
+        being invoked.
+
+
+        ** _
+
+            Signify that this class is the worst of the worst—a hack! Sometimes, although incredibly rarely,
+            we need to add a class in our markup in order to force something to work. If we do this, we need to
+            let others know that this class is less than ideal, and hopefully temporary (i.e. do not bind onto
+            this).
+
+
+        ** js-
+
+            Signify that this piece of the DOM has some behaviour acting upon it, and that JavaScript binds
+            onto it to provide that behaviour. If you’re not a developer working with JavaScript, leave these
+            well alone.
+
+
+        ** qa-
+
+            Signify that a QA or Test Engineering team is running an automated UI test which needs to find
+            or bind onto these parts of the DOM. Like the JavaScript namespace, this basically just reserves
+            hooks in the DOM for non-CSS purposes.
+
+
+
+    * Responsive suffixes
+
+        <div class="o-media@md  c-user  c-user--premium">
+            <img src="" alt="" class="o-media__img@md  c-user__photo  c-avatar" />
+            <p class="o-media__body@md  c-user__bio">...</p>
+        </div>
+
+        o-media@md - the media object will have this style at the Medium-breakpuoint
+        u-hidden@print – a utility class to hide things when in print context.
+        u-1/4@lg – a utility to make something a quarter width in the large breakpoint.
+        o-layout@md – a layout object in the medium breakpoint.
+
+        N.B.: You have to escape the @ symbol in your CSS file, like so:
+
+        @media print {
+            .u-hidden\@print {
+                display: none;
+            }
+        }
+
+ */

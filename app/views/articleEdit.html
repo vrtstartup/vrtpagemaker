@@ -1,0 +1,53 @@
+<form>
+    Title:
+    <br>
+    <input type="text" ng-model="data.title" name="title">
+    <br> auteur:
+    <br>
+    <input type="text" ng-model="data.author" name="author">
+</form>
+<!-- <ul>
+    <li ng-repeat="item in list | filter:name">{{ item | json }}</li>
+</ul>
+ -->
+
+<ul data-as-sortable="dragControlListeners" data-ng-model="list">
+   <li data-ng-repeat="item in list" data-as-sortable-item>
+        {{item.type}}
+      <div data-as-sortable-item-handle>:::</div>
+
+    {{item | json}}
+   </li>
+</ul>
+
+
+
+<div ng-repeat="(key, value) in data.blocks | toArray | orderBy: 'key'">
+{{value}}
+    <div ng-click="editBlock(key, value)">Edit</div>
+    <div ng-click="openDialog('delete', key)">Delete</div>
+    <blocks type="value.type" parameters="value.parameters"></blocks>
+</div>
+<div ng-click="ui.blockChooser = true">Add block</div>
+<div ng-show="ui.blockChooser" ng-init="ui.blockChooser = false">
+    <ul>
+        <li>
+            <div ng-click="addBlock('text', {'text': ''})">Text</div>
+        </li>
+        <li>
+            <div ng-click="openDialog('image', null)">Image</div>
+        </li>
+        <li>
+            <div ng-click="openDialog('parallax', null)">Parallax</div>
+        </li>
+        <li>
+            <div ng-click="openDialog('video', null)">Video</div>
+        </li>
+        <li>
+            <div ng-click="openDialog('twitter', null)">Twitter</div>
+        </li>
+<!--         <li>
+            <div ng-click="openDialog('facebook', null)">Facebook</div>
+        </li> -->
+    </ul>
+</div>

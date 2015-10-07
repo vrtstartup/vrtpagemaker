@@ -1,0 +1,19 @@
+<form>
+    Je voegt een {{ngDialogData.type}} toe. Url:
+    <br>
+    <button ng-click="pickFile('image/*')">Add image</button>
+    <input type="text" ng-model="block.url" name="url">
+    <label for="singleSelect"> Single select: </label>
+    <br>
+    <div></div>
+    <select name="singleSelect" ng-model="block.css">
+        <option value="full">Full width</option>
+        <option value="inline">Inline</option>
+    </select>
+    <br>
+    <div ng-show="ngDialogData.key == null">
+        <button ng-click="addBlock(ngDialogData.type, block)">Voeg toe</button>
+    </div>
+    {{ngDialogData.key}}
+    <button ng-click="closeThisDialog()">Sluit</button>
+</form>

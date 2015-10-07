@@ -1,0 +1,9 @@
+.o-block {
+    @include e('image') {
+        @include m('full') {
+            width: 100%;
+            height: auto;
+
+        }
+    }
+}

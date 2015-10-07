@@ -1,0 +1,11 @@
+<form>
+    Je voegt een tweet toe. Url:
+    <br>
+    <input type="text" ng-model="block.url" name="url">
+    <br>
+    <div ng-show="ngDialogData.key == null">
+        <button ng-click="addBlock(ngDialogData.type, block)">Voeg toe</button>
+    </div>
+    {{ngDialogData.key}}
+    <button ng-click="closeThisDialog()">Sluit</button>
+</form>
