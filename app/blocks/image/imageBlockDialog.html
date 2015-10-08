@@ -1,19 +1,40 @@
-<form>
-    Je voegt een {{ngDialogData.type}} toe. Url:
-    <br>
-    <button ng-click="pickFile('image/*')">Add image</button>
-    <input type="text" ng-model="block.url" name="url">
-    <label for="singleSelect"> Single select: </label>
-    <br>
-    <div></div>
-    <select name="singleSelect" ng-model="block.css">
-        <option value="full">Full width</option>
-        <option value="inline">Inline</option>
-    </select>
-    <br>
-    <div ng-show="ngDialogData.key == null">
-        <button ng-click="addBlock(ngDialogData.type, block)">Voeg toe</button>
+<md-content>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Je voegt een afbeelding toe</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button ng-click="pickFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe afbeelding</md-button>
+        <!-- Of kies eentje van de reeds geuploade afbeeldingen: -->
+        <!--     <ul>
+        <li ng-repeat="f in files">{{f.url}}</li>
+    </ul> -->
+    </section>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <p>Kies een stijl:</p>
+        <md-input-container>
+            <label>Stijl</label>
+            {{block.parameters.css}}
+            <md-select ng-model="block.parameters.css">
+                <md-option value="full">
+                    Full width
+                </md-option>
+                <md-option value="inline">
+                    Inline
+                </md-option>
+            </md-select>
+        </md-input-container>
+    </section>
+    <md-divider></md-divider>
+    <div class="md-actions" layout="row">
+        <md-button ng-hide="block.$id" ng-click="addBlock(articleId, block)" target="_blank" md-autofocus>
+            Voeg toe
+        </md-button>
+        <span flex></span>
+        <md-button ng-click="closeDialog()" style="margin-right:20px;">
+            Sluit
+        </md-button>
     </div>
-    {{ngDialogData.key}}
-    <button ng-click="closeThisDialog()">Sluit</button>
-</form>
+</md-content>

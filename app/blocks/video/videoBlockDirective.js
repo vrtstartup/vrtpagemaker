@@ -71,18 +71,29 @@ angular.module('immersiveAngularApp')
                     return null;
                 };
 
-                var videoUrl = getEmbedVideoURL(scope.parameters.url);
-                if (scope.parameters.filename) {
-                    var template = '<div class="o-block"><video src=" '+ scope.parameters.url +' " controls>Your browser does not support the <code>video</code> element.</video></div>';
-                    var compiled = $compile(template)(scope);
-                    elem.append(compiled);
 
-                } else if (videoUrl && !scope.parameters.filename) {
-                    var source = $sce.trustAsResourceUrl(videoUrl);
-                    var template = '<div class="o-block"><iframe  src="' + source + '" frameborder="0" allowfullscreen></iframe></div>';
-                    var compiled = $compile(template)(scope);
-                    elem.append(compiled);
-                }
+
+
+                scope.$watch('parameters.url', function(newValue, oldValue) {
+                    if (newValue) {
+                        var videoUrl = getEmbedVideoURL(newValue);
+                        if (scope.parameters.filename) {
+                            var template = '<div class="o-block__video--full"><video src=" ' + scope.parameters.url + ' " controls>Your browser does not support the <code>video</code> element.</video></div>';
+                            var compiled = $compile(template)(scope);
+                            elem.empty().append(compiled);
+
+                        } else if (videoUrl && !scope.parameters.filename) {
+                            var source = $sce.trustAsResourceUrl(videoUrl);
+                            var template = '<div class="o-block__video--full youtube embeds"><iframe  src="' + source + '" frameborder="0" allowfullscreen></iframe></div>';
+                            var compiled = $compile(template)(scope);
+                            elem.empty().append(compiled);
+                        }
+                    } else {
+                      console.log('chilling');
+                    }
+                });
+
+
 
             }
         };

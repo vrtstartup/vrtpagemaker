@@ -1,0 +1,9 @@
+.o-block {
+    @include e('video') {
+        @include m('full') {
+            width: 100vw;
+            height: auto;
+
+        }
+    }
+}

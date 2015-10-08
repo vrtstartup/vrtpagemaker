@@ -1,0 +1,9 @@
+.o-block {
+    @include e('text') {
+        @include m('full') {
+            width: 80%;
+            height: auto;
+
+        }
+    }
+}

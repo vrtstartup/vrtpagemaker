@@ -21,7 +21,9 @@ angular
         'ngParallax',
         'angular-medium-editor',
         'angular-filepicker',
-        'as.sortable'
+        'as.sortable',
+        'ngMaterial'
+
     ])
     .config(function($routeProvider) {
         $routeProvider

@@ -37,6 +37,8 @@ module.exports = function(config) {
       'bower_components/angular-medium-editor/dist/angular-medium-editor.js',
       'bower_components/angular-filepicker/dist/angular_filepicker.js',
       'bower_components/ng-sortable/dist/ng-sortable.js',
+      'bower_components/angular-aria/angular-aria.js',
+      'bower_components/angular-material/angular-material.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

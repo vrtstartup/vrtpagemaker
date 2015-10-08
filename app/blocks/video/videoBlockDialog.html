@@ -1,19 +1,27 @@
-<form>
-    Je voegt een {{ngDialogData.type}} toe. Url:
-    <br>
-    <input type="text" ng-model="block.url" name="url">
-    <label for="singleSelect"> Single select: </label>
-    <br>
-
-    <div></div>
-    <button ng-click="pickFile('video/*')">Add image</button>
-
-
-    <select name="singleSelect" ng-model="block.css">
-        <option value="full">Full width</option>
-        <option value="inline">Inline</option>
-    </select>
-    <br>
-    <button ng-click="addBlock(ngDialogData.type, block)">Voeg toe</button>
-    <button ng-click="closeThisDialog()">Sluit</button>
-</form>
+<md-content>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Je voegt een filmpje toe</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button ng-click="pickFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe filmpje</md-button>
+    </section>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Of plaats een url</label>
+            <input ng-model="block.parameters.url">
+        </md-input-container>
+    </section>
+    <md-divider></md-divider>
+    <div class="md-actions" layout="row">
+        <md-button ng-hide="block.$id" ng-click="addBlock(articleId, block)" target="_blank" md-autofocus>
+            Voeg toe
+        </md-button>
+        <span flex></span>
+        <md-button ng-click="closeDialog()" style="margin-right:20px;">
+            Sluit
+        </md-button>
+    </div>
+</md-content>

@@ -53,14 +53,30 @@ angular.module('immersiveAngularApp')
                     return null;
                 };
 
-                var tweetId = getTweetId(scope.parameters.url);
-                $http.jsonp('https://api.twitter.com/1/statuses/oembed.json?id=' + tweetId + '&callback=JSON_CALLBACK')
-                    .then(function(ref) {
-                        var tweet = '<div class="twitter embeds">' + ref.data.html + '</div>';
-                        var markup = $compile(tweet)(scope);
-                        el.append(markup);
-                        loadTweets.loadAllWidgets();
-                    });
+                scope.$watch('parameters.url', function(newValue, oldValue) {
+                    if (newValue) {
+                        var tweetId = getTweetId(newValue);
+                        $http.jsonp('https://api.twitter.com/1/statuses/oembed.json?id=' + tweetId + '&callback=JSON_CALLBACK')
+                            .then(function(ref) {
+                                var tweet = '<div class="twitter embeds">' + ref.data.html + '</div>';
+                                var markup = $compile(tweet)(scope);
+                                el.empty().append(markup);
+                                loadTweets.loadAllWidgets();
+                            });
+                    } else {
+                        console.log('chilling');
+                    }
+                });
+
+
+
+
+
+
             }
+
+
+
+
         };
     });

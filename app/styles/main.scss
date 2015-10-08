@@ -131,7 +131,6 @@ body {
 
 
 @import "../blocks/text/textBlockView";
-@import "../blocks/text/textBlockDialog";
 
 @import "../blocks/image/imageBlockView";
 @import "../blocks/image/imageBlockDialog";
@@ -154,7 +153,9 @@ body {
 @import "ngDialog";
 @import "ngDialog-theme";
 @import "editBlock";
-
+@import "FABDial";
+@import "edit";
+@import "embedsNUUUS";
 
 
 

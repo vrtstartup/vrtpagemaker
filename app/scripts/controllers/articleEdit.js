@@ -8,182 +8,195 @@
  * Controller of the immersiveAngularApp
  */
 angular.module('immersiveAngularApp')
-    .controller('ArticleEditCtrl', function($scope, $routeParams, FBArticle, ngDialog, filepickerService, $window) {
+    .controller('ArticleEditCtrl', function($scope, $routeParams, FBArticle, FBBlock, $window, $mdDialog, blocks, templates) {
 
-        var FURL = 'https://immersiveangular.firebaseio.com/';
+        /* Set the id of the article */
+        $scope.articleId = $routeParams.article;
 
-        FBArticle.get($routeParams.article, FURL)
-            .then(function(obj) {
-                obj.$bindTo($scope, "data");
+        /* Get  the article from the Firebase */
+        function getArticle() {
+            FBArticle.getArray($scope.articleId).then(function(list) {
+                $scope.list = list;
             });
-
-
-        $scope.list = FBArticle.list($routeParams.article, FURL);
+        };
 
 
 
-        var reorderList = function() {
+        /* Loop through articles and set Priority accordingly  Should Go To Service*/
+        function reorderList(startAt, inBetween) {
+            console.log('ik wil door de lijst gaan en starten bij ' + startAt + ' en de priority zetten.');
             var arrayLength = $scope.list.length;
-            for (var i = 0; i < arrayLength; i++) {
-                console.log($scope.list[i]);
-                FBArticle.setPriority($routeParams.article, FURL, $scope.list[i].$id, i);
+            for (var i = startAt; i < arrayLength; i++) {
+                if (inBetween) {
+                    FBBlock.getObject($scope.articleId, $scope.list[i].$id)
+                        .then(function(obj) {
+                            console.log(obj);
+                            var newPriority = obj.$priority++;
+                            FBArticle.setPriority($scope.articleId, obj.priorityid, newPriority);
+                        });
+
+                } else {
+                    console.log('reordering');
+                    FBArticle.setPriority($scope.articleId, $scope.list[i].$id, i);
+
+                }
+
+                // console.log('de priority voor ' + i + ' = ' + priority);
+                // FBArticle.setPriority($scope.articleId, $scope.list[i].$id);
             }
         };
 
 
+
+        /* Show the dialog */
+        function showDialog(template, type, id, $event) {
+            var parentEl = angular.element(document.body);
+            $mdDialog.show({
+                parent: parentEl,
+                targetEvent: $event,
+                templateUrl: template,
+                clickOutsideToClose: true,
+                locals: {
+                    id: id,
+                    article: $scope.articleId,
+                    type: type,
+
+                },
+                controller: DialogController
+            });
+        }
+
+
+        /* Listeners for dragging */
         $scope.dragControlListeners = {
-            // accept: function (sourceItemHandleScope, destSortableScope) {return boolean},
             itemMoved: function(event) {
                 console.log(event);
-
             },
             orderChanged: function(event) {
-                    console.log(event);
-                    reorderList();
-                }
-                // containment: '#board'//optional param.
-                // clone: true //optional param for clone feature.
-        };
+                console.log(event);
 
-
-
-
-
-
-
-        $scope.addBlock = function(type, parameters) {
-            console.log('adding a block of type ' + type);
-            FBArticle.add($routeParams.article, FURL, type, parameters).then(function() {});
-        };
-
-
-        $scope.saveEdit = function(type, parameters) {
-            console.log('adding a block of type ' + type);
-            FBArticle.add($routeParams.article, FURL, type, parameters).then(function() {});
-        };
-
-
-
-
-        $scope.editBlock = function(key, value) {
-            console.log('editing ' + key);
-            $scope.openDialog(value.type, key);
-            $scope.block = value.parameters;
-        };
-
-
-
-
-        $scope.deleteBlock = function(key) {
-            console.log('deleting ' + key);
-            FBArticle.delete($routeParams.article, FURL, key).then(function(ref) {
-                console.log('deleted ' + ref);
-            });
-        };
-
-
-
-        var theDialog = function(template, type, key) {
-            console.log(template);
-            ngDialog.open({
-                template: template,
-                data: {
-                    'type': type,
-                    'key': key
-                },
-                scope: $scope
-            });
-        };
-
-
-        $scope.openDialog = function(type, key) {
-
-            var template;
-            switch (type) {
-
-                case 'text':
-                    template = '../../blocks/text/textBlockDialog.html';
-                    theDialog(template, type, key);
-                    break;
-                case 'image':
-                    template = '../../blocks/image/imageBlockDialog.html';
-                    theDialog(template, type, key);
-                    break;
-                case 'parallax':
-                    template = '../../blocks/parallax/parallaxBlockDialog.html';
-                    theDialog(template, type, key);
-                    break;
-
-                case 'video':
-                    template = '../../blocks/video/videoBlockDialog.html';
-                    theDialog(template, type, key);
-                    break;
-
-                case 'twitter':
-                    template = '../../blocks/twitter/twitterBlockDialog.html';
-                    theDialog(template, type, key);
-                    break;
-
-                case 'facebook':
-                    template = '../../blocks/facebook/facebookBlockDialog.html';
-                    theDialog(template, type, key);
-                    break;
-
-                case 'delete':
-                    template = '../views/deleteDialog.html';
-                    theDialog(template, 'delete', key);
-                    break;
-
-                default:
-                    console.log('This dialog does not exist');
+                reorderList(0, false);
             }
         };
 
-
-
-
-        $scope.files = JSON.parse($window.localStorage.getItem('files') || '[]');
-
-
-
-
-        function onSuccess(Blob) {
-            $scope.files.push(Blob);
-            $window.localStorage.setItem('files', JSON.stringify($scope.files));
-            console.log(Blob);
-            $scope.block = Blob;
-        }
-
-
-        $scope.pickFile = function(type) {
-            filepickerService.pick({
-                    mimetype: type,
-                    Language: 'nl'
-
-
-                },
-                onSuccess
-            );
-
+        /* addBlock when called from text block */
+        $scope.addBlock = function(article, edit) {
+            blocks.add(article, edit).then(function(id) {
+                console.log(id);
+            });
         };
 
-        $scope.onSuccess = onSuccess;
 
-
-
-
-    }).filter('toArray', function() {
-
-        return function(obj) {
-            if (!(obj instanceof Object)) {
-                return obj;
-            }
-
-            return Object.keys(obj).map(function(key) {
-                return Object.defineProperty(obj[key], '$key', {
-                    __proto__: null,
-                    value: key
-                });
+        /* Starts the opening of the dialog. Is called from the Edit button in the view */
+        $scope.openDialog = function(article, type, id) {
+            console.log('dialog controller says: You want me to open the dialog for an object type "' + type + '+ of article ' + article);
+            templates.dialogTemplates(type).then(function(template) {
+                showDialog(template, type, id);
             });
-        }
+        };
+
+
+
+
+
+
+        // DIRTY
+        $scope.testAdd = function(key) {
+            console.log(key);
+            $scope.list.splice(key, 0, 'test')
+                // arr.splice(2, 0, "Lene");
+
+            // console.log('Ik klik op item ' + key);
+            // FBArticle.queryFrom($scope.articleId, key).then(function(list) {
+            //     var number = key + 1;
+            //     console.log('Ik wil dat de eerste volgende opschuift naar ' + number);
+            //     reorderList(number, true);
+            // });
+        };
+
+
+
+
+
+
+        /* In the beginning, there was the article. */
+        getArticle();
+
+
+
+
+
+
+
+
+
     });
+
+function DialogController($scope, $window, $mdDialog, filepickerService, id, article, type, FBArticle, FBBlock, blocks) {
+
+
+    $scope.id = id;
+    $scope.type = type;
+    $scope.articleId = article;
+
+
+    /* There is and id already, so we are editing this */
+    if ($scope.id) {
+        console.log('dialog controller says: You want me to edit ' + $scope.id + ' of type "' + $scope.type + '" in article ' + $scope.articleId);
+        /* Load the object from the Firebase */
+        FBBlock.getObject($scope.articleId, id).then(function(obj) {
+            obj.$bindTo($scope, "block");
+        });
+    }
+
+    /* There is no id, so we are not editing, but creating */
+    else {
+        console.log('dialog controller says: You want me to create an object of type "' + $scope.type + '" in article ' + $scope.articleId);
+        /* The only thing we know is the type of the dialog. */
+        $scope.block = {
+            'type': type
+        };
+    }
+
+
+    $scope.addBlock = function(articleId, block) {
+        console.log('dialog controller says: You want me to add a block of type "' + block.type + '" to article ' + articleId);
+        blocks.add(articleId, block).then(function(id) {
+            $scope.closeDialog();
+        });
+    };
+
+    $scope.deleteBlock = function(article, key) {
+        blocks.delete(article, key).then(function(id) {
+            $scope.closeDialog();
+        });
+    };
+
+    $scope.closeDialog = function() {
+        $mdDialog.hide();
+    }
+
+
+    /* Functions for the filepicker. Should Go To Service */
+    $scope.files = JSON.parse($window.localStorage.getItem('files') || '[]');
+
+    function onSuccess(Blob) {
+        $scope.files.push(Blob);
+        $window.localStorage.setItem('files', JSON.stringify($scope.files));
+        $scope.block.parameters = {
+            'url': Blob.url
+        }
+    };
+    $scope.pickFile = function(type) {
+        filepickerService.pick({
+                mimetype: type,
+                Language: 'nl'
+            },
+            onSuccess
+        );
+    };
+    $scope.onSuccess = onSuccess;
+
+
+
+}

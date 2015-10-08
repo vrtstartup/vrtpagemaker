@@ -1,52 +1,96 @@
-<form>
+<!-- <form>
     Title:
     <br>
     <input type="text" ng-model="data.title" name="title">
     <br> auteur:
     <br>
     <input type="text" ng-model="data.author" name="author">
-</form>
+</form> -->
 <!-- <ul>
     <li ng-repeat="item in list | filter:name">{{ item | json }}</li>
 </ul>
  -->
-
-<ul data-as-sortable="dragControlListeners" data-ng-model="list">
-   <li data-ng-repeat="item in list" data-as-sortable-item>
-        {{item.type}}
-      <div data-as-sortable-item-handle>:::</div>
-
-    {{item | json}}
-   </li>
-</ul>
-
-
-
-<div ng-repeat="(key, value) in data.blocks | toArray | orderBy: 'key'">
-{{value}}
-    <div ng-click="editBlock(key, value)">Edit</div>
-    <div ng-click="openDialog('delete', key)">Delete</div>
-    <blocks type="value.type" parameters="value.parameters"></blocks>
+<!-- <ul data-as-sortable="dragControlListeners" data-ng-model="list">
+    <li data-ng-repeat="item in list" data-as-sortable-item>
+        <div data-as-sortable-item-handle>::: {{item.type}} - {{item.$priority}}</div>
+    </li>
+</ul> -->
+<div layout="column" layout-align="start center" class="colorNested">
+    <div layout="column" layout-align="start center" class="colorNested" ng-repeat="(key,value) in list">
+        <div class="o-edit__buttons">
+            <md-fab-speed-dial ng-hide="this.hidden" md-direction="right" class="md-fling" md-open="this.isOpen" ng-mouseenter="this.isOpen=true" ng-mouseleave="this.isOpen=false">
+                <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab md-warn">
+                        <md-tooltip md-direction="bottom">Menu</md-tooltip>
+                        <md-icon md-svg-src="img/icons/menu.svg" aria-label="menu"></md-icon>
+                    </md-button>
+                </md-fab-trigger>
+                <md-fab-actions>
+                    <md-button aria-label="edit" class="md-fab md-raised md-mini" ng-click="openDialog(articleId, value.type, value.$id)">
+                        <md-tooltip md-direction="bottom">Edit</md-tooltip>
+                        <md-icon md-svg-src="{{item.icon}}" aria-label="edit"></md-icon>
+                    </md-button>
+                    <md-button aria-label="delete" class="md-fab md-raised md-mini" ng-click="openDialog(articleId, 'delete', key)">
+                        <md-tooltip md-direction="bottom">Delete</md-tooltip>
+                        <md-icon md-svg-src="{{item.icon}}" aria-label="delete"></md-icon>
+                    </md-button>
+                </md-fab-actions>
+            </md-fab-speed-dial>
+        </div>
+        <blocks-dispatcher type="value.type" parameters="value.parameters" id="value.$id" article="article.id"></blocks-dispatcher>
+        <!-- <div ng-click="testAdd(key)">TESTADD</div> -->
+    </div>
+</div>
+<div layout="column" layout-align="start center" class="colorNested">
+    <div class="o-edit__add">
+        <md-fab-speed-dial ng-hide="FABDial.hidden" md-direction="" class="md-fling" md-open="FABDial.isOpen" ng-mouseenter="FABDial.isOpen=true" ng-mouseleave="FABDial.isOpen=false">
+            <md-fab-trigger>
+                <md-button aria-label="Add block" class="md-fab md-warn">
+                    <md-tooltip md-direction="bottom">Add block</md-tooltip>
+                    <md-icon md-svg-src="img/icons/menu.svg" aria-label="Add block"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <md-button aria-label="edit" class="md-fab md-raised md-mini" ng-click="addBlock(articleId, {'type': 'text', 'parameters': ''})">
+                    <md-tooltip md-direction="bottom">Text</md-tooltip>
+                    <md-icon md-svg-src="{{item.icon}}" aria-label="edit"></md-icon>
+                </md-button>
+                <md-button aria-label="delete" class="md-fab md-raised md-mini" ng-click="openDialog(articleId, 'image', null)">
+                    <md-tooltip md-direction="bottom">Image</md-tooltip>
+                    <md-icon md-svg-src="{{item.icon}}" aria-label="delete"></md-icon>
+                </md-button>
+                <md-button aria-label="delete" class="md-fab md-raised md-mini" ng-click="openDialog(articleId, 'delete', key)">
+                    <md-tooltip md-direction="bottom">Video</md-tooltip>
+                    <md-icon md-svg-src="{{item.icon}}" aria-label="delete"></md-icon>
+                </md-button>
+                <md-button aria-label="delete" class="md-fab md-raised md-mini" ng-click="openDialog(articleId, 'delete', key)">
+                    <md-tooltip md-direction="bottom">Twitter</md-tooltip>
+                    <md-icon md-svg-src="{{item.icon}}" aria-label="delete"></md-icon>
+                </md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </div>
 </div>
 <div ng-click="ui.blockChooser = true">Add block</div>
 <div ng-show="ui.blockChooser" ng-init="ui.blockChooser = false">
     <ul>
         <li>
-            <div ng-click="addBlock('text', {'text': ''})">Text</div>
+            <div ng-click="addBlock(articleId, {'type': 'text', 'parameters': ''})">Text</div>
         </li>
         <li>
-            <div ng-click="openDialog('image', null)">Image</div>
+            <md-button ng-click="openDialog(articleId, 'image', null)" class="md-raised md-warn">Image</md-button>
+            <!-- <div ng-click="openDialog('image', null)">Image</div> -->
         </li>
         <li>
-            <div ng-click="openDialog('parallax', null)">Parallax</div>
+            <div ng-click="openDialog(articleId, 'parallax', null)">Parallax</div>
         </li>
         <li>
-            <div ng-click="openDialog('video', null)">Video</div>
+            <div ng-click="openDialog(articleId, 'video', null)">Video</div>
         </li>
         <li>
-            <div ng-click="openDialog('twitter', null)">Twitter</div>
+            <div ng-click="openDialog(articleId, 'twitter', null)">Twitter</div>
         </li>
-<!--         <li>
+        <!--         <li>
             <div ng-click="openDialog('facebook', null)">Facebook</div>
         </li> -->
     </ul>

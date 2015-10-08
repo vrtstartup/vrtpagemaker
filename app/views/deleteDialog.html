@@ -1,7 +1,17 @@
-<form>
-    Je wil dit blokje verwijderen. Ben je zeker?
-    <br>
-
-    <button ng-click="deleteBlock(ngDialogData.key)">Verwijder</button>
-    <button ng-click="closeThisDialog()">Sluit</button>
-</form>
+<md-content>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Je wil dit contentblok verwijderen. Ben je zeker?</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+    <div class="md-actions" layout="row">
+        <md-button ng-click="deleteBlock(articleId, block.$id)" target="_blank" md-autofocus>
+            Verwijder
+        </md-button>
+        <span flex></span>
+        <md-button ng-click="closeDialog()" style="margin-right:20px;">
+            Sluit
+        </md-button>
+    </div>
+</md-content>

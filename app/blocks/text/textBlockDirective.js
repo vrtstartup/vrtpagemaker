@@ -7,15 +7,19 @@
  * # blockText
  */
 angular.module('immersiveAngularApp')
-    .directive('blockText', function() {
+    .directive('blockText', function(FBBlock) {
         return {
-            template: '<div><p ng-model="parameters.text" medium-editor options="{{options}}" bind-options="mediumBindOptions"></p></div>',
+            template: '<div class="o-block__text--full colorNested"><p ng-model="data.text" medium-editor options="{{options}}" bind-options="mediumBindOptions"></p></div>',
             restrict: 'E',
-             scope: {
-                parameters: '='
+            scope: {
+                id: '=',
+                article: '='
             },
             link: function postLink(scope) {
-                console.log(scope.parameters.text);
+                /* Load the block */
+                FBBlock.getObject(scope.article, scope.id).then(function(obj) {
+                    obj.$bindTo(scope, "data");
+                });
 
                 scope.options = {
                     "buttons": ["bold", "italic", "highlight"]

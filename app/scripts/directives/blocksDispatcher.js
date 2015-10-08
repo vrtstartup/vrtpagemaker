@@ -7,13 +7,15 @@
  * # blocks
  */
 angular.module('immersiveAngularApp')
-    .directive('blocks', function($compile) {
+    .directive('blocksDispatcher', function($compile) {
         return {
             template: '<div></div>',
             restrict: 'E',
             scope: {
                 type: '=',
-                parameters: '='
+                parameters: '=',
+                id: '=',
+                article: '='
             },
             link: function postLink(scope, elem) {
 
@@ -21,25 +23,25 @@ angular.module('immersiveAngularApp')
                 var template;
                 switch (scope.type) {
                     case 'text':
-                        template = '<block-text parameters="parameters"></block-text>';
+                        template = '<block-text layout="column" layout-align="start center" id="id" article="article" ></block-text>';
                         break;
                     case 'image':
-                        template = '<block-image parameters="parameters"></block-image>';
+                        template = '<block-image layout="column" layout-align="start center" parameters="parameters"></block-image>';
                         break;
                     case 'parallax':
-                        template = '<block-parallax parameters="parameters"></block-parallax>';
+                        template = '<block-parallax layout="column" layout-align="start center" parameters="parameters"></block-parallax>';
                         break;
 
                     case 'video':
-                        template = '<block-video parameters="parameters"></block-video>';
+                        template = '<block-video layout="column" layout-align="start center" parameters="parameters"></block-video>';
                         break;
 
                     case 'twitter':
-                        template = '<block-twitter parameters="parameters"></block-twitter>';
+                        template = '<block-twitter  layout="column" layout-align="start center"parameters="parameters"></block-twitter>';
                         break;
 
                     case 'facebook':
-                        template = '<block-facebook parameters="parameters"></block-facebook>';
+                        template = '<block-facebook  layout="column" layout-align="start center" parameters="parameters"></block-facebook>';
                         break;
 
                     default:
@@ -47,11 +49,8 @@ angular.module('immersiveAngularApp')
                 }
 
 
-
-
-
                 var compiled = $compile(template)(scope);
-                elem.append(compiled);
+                elem.empty().append(compiled);
 
             }
         };

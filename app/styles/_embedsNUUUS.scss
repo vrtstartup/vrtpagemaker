@@ -1,0 +1,122 @@
+// All embeds
+
+// Instagram (from Embed Responsively)
+.instagram {
+    position: relative;
+    padding-bottom: 123%;
+    height: 0;
+    overflow: hidden;
+}
+.instagram iframe, .instagram object, .instagram embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+// Youtube
+.youtube {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+}
+.youtube iframe, .youtube object, .youtube embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+// iFrame Video
+.iframevideo {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+
+    padding-top: 25px;
+    height: 0;
+}
+.iframevideo iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// Vine
+.vine {
+    position: relative;
+    padding-bottom: 100%;
+    height: 0;
+    overflow: hidden;
+}
+
+.vine-postcard {
+    position: relative;
+    padding-bottom: 150%;
+    height: 0;
+    overflow: hidden;
+}
+
+
+.vine-postcard iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+}
+
+.vine iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+}
+
+
+// Twitter
+// Style the blockquote that appears before fully loading the tweet
+
+blockquote.twitter-tweet {
+  display: inline-block;
+  background-color: #fff;
+  padding: 16px;
+  margin: 10px 0;
+  max-width: 468px;
+  border: #ddd 1px solid;
+  border-top-color: #eee;
+  border-bottom-color: #bbb;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  font: bold 14px/18px Helvetica, Arial, sans-serif;
+  color: #000;
+}
+
+blockquote.twitter-tweet p {
+  font: normal 18px/24px Georgia, "Times New Roman", Palatino, serif;
+  margin: 0 5px 10px 0;
+}
+
+blockquote.twitter-tweet a[href^="https://twitter.com"] {
+  font-weight: normal;
+  color: #666;
+  font-size: 12px;
+}
+
+
+// Make it responsive
+.twitter iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+
+}
