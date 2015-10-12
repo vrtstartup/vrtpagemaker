@@ -1,9 +1,83 @@
-.o-block {
-    @include e('video') {
-        @include m('full') {
-            width: 100vw;
-            height: auto;
+.o-video {
+    position: absolute;
+    top: 0px;
+    left: 0px;
 
-        }
+    @include e('player') {
+        width: 100%;
+        height: auto;
+        z-index: 10
     }
+    @include e('overlay') {
+        position: absolute;
+        z-index: 20;
+        pointer-events: none;
+        background-color: red;
+        display: none;
+        width: 100%;
+        height: 100%;
+        opacity: .5;
+            top: 0px;
+    left: 0px;
+
+    }
+}
+
+.u-width--normal > .o-video {
+    height: 197px;
+}
+
+
+.o-video__player:hover~.o-video__overlay {display:block}
+
+
+// Spin animation
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.stroke-dotted {
+    opacity: 0;
+    stroke-dasharray: 4, 5;
+    stroke-width: 1px;
+    transform-origin: 50% 50%;
+    animation: spin 4s infinite linear;
+    transition: opacity 1s ease, stroke-width 1s ease;
+}
+
+.stroke-solid {
+    stroke-dashoffset: 0;
+    stroke-dashArray: 300;
+    stroke-width: 4px;
+    transition: stroke-dashoffset 1s ease, opacity 1s ease;
+}
+
+.icon {
+    transform-origin: 50% 50%;
+    transition: transform 200ms ease-out;
+}
+
+// Hover
+#play:hover {
+    .stroke-dotted {
+        stroke-width: 4px;
+        opacity: 1;
+    }
+    .stroke-solid {
+        opacity: 0;
+        stroke-dashoffset: 300;
+    }
+    .icon {
+        transform: scale(1.05);
+    }
+}
+
+#play {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
 }

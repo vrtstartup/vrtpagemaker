@@ -1,9 +1,45 @@
-.o-block {
-    @include e('text') {
-        @include m('full') {
-            width: 80%;
-            height: auto;
-
-        }
-    }
+.o-block__text--normal {
+    width: 100%;
 }
+
+p > p {
+    padding-left: $text-paragraph-padding;
+    padding-right: $text-paragraph-padding;
+    line-height: $text-paragraph-lineheight;
+}
+
+h1 {
+    color: $text-header1-color;
+    text-transform: uppercase;
+    font-size: $text-header1-size;
+}
+
+
+h3 {
+    color: $text-header1-color;
+    text-transform: uppercase;
+    font-size: $text-header1-size;
+}
+
+
+h2 {
+    color: $text-header1-color;
+
+}
+
+a {
+    color: $text-anchor-color;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: $text-anchor-color-hover;
+    text-decoration: underline;
+}
+
+// p {
+//         -webkit-margin-before: 0em;
+//     -webkit-margin-after: 0em;
+//     -webkit-margin-start: 0px;
+//     -webkit-margin-end: 0px;
+// }

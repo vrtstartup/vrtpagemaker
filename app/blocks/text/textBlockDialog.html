@@ -1,24 +1,15 @@
-<md-content ng-init="size = 'normal'">
+<md-content ng-init="block.parameters.text = ''; size = 'normal'">
     <md-toolbar class="md-warn">
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Je voegt een filmpje toe</h2>
+            <h2 class="md-flex">Je voegt tekst toe</h2>
         </div>
     </md-toolbar>
     <br/>
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-button ng-click="pickFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe filmpje</md-button>
-    </section>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-input-container flex>
-            <label>Of plaats een url</label>
-            <input ng-model="block.parameters.url">
-        </md-input-container>
-    </section>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <p>Kies een grootte:</p>
+
         <md-input-container>
             <label>Layout</label>
-            <md-select ng-model="size" ng-change="changeStyle(size)">
+            <md-select ng-model="size" ng-change="changeStyle(size)" >
                 <md-option value="small">
                     Klein
                 </md-option>

@@ -1,21 +1,19 @@
 <md-content ng-init="size = 'normal'">
     <md-toolbar class="md-warn">
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Je voegt een filmpje toe</h2>
+            <h2 class="md-flex">Je voegt een embedcode toe</h2>
         </div>
     </md-toolbar>
     <br/>
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-button ng-click="pickFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe filmpje</md-button>
-    </section>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
         <md-input-container flex>
-            <label>Of plaats een url</label>
-            <input ng-model="block.parameters.url">
+            <label>Plak je embedcode hier</label>
+            <input ng-model="block.parameters.code">
         </md-input-container>
     </section>
+
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <p>Kies een grootte:</p>
+        <p>Kies een stijl:</p>
         <md-input-container>
             <label>Layout</label>
             <md-select ng-model="size" ng-change="changeStyle(size)">

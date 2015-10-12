@@ -23,25 +23,30 @@ angular.module('immersiveAngularApp')
                 var template;
                 switch (scope.type) {
                     case 'text':
-                        template = '<block-text layout="column" layout-align="start center" id="id" article="article" ></block-text>';
+                        template = '<block-text class="o-container__block" id="id" article="article" ></block-text>';
                         break;
                     case 'image':
-                        template = '<block-image layout="column" layout-align="start center" parameters="parameters"></block-image>';
+                        template = '<block-image class="o-container__block" parameters="parameters"></block-image>';
                         break;
                     case 'parallax':
-                        template = '<block-parallax layout="column" layout-align="start center" parameters="parameters"></block-parallax>';
+                        template = '<block-parallax class="o-container__block" parameters="parameters"></block-parallax>';
                         break;
 
                     case 'video':
-                        template = '<block-video layout="column" layout-align="start center" parameters="parameters"></block-video>';
+                        template = '<block-video class="o-container__block" parameters="parameters"></block-video>';
                         break;
 
                     case 'twitter':
-                        template = '<block-twitter  layout="column" layout-align="start center"parameters="parameters"></block-twitter>';
+                        template = '<block-twitter class="o-container__block" parameters="parameters"></block-twitter>';
                         break;
 
                     case 'facebook':
-                        template = '<block-facebook  layout="column" layout-align="start center" parameters="parameters"></block-facebook>';
+                        template = '<block-facebook  class="o-container__block" parameters="parameters"></block-facebook>';
+                        break;
+
+
+                    case 'iframe':
+                        template = '<block-iframe  class="o-container__block" parameters="parameters"></block-iframe>';
                         break;
 
                     default:

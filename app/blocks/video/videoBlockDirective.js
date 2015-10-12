@@ -9,7 +9,6 @@
 angular.module('immersiveAngularApp')
     .directive('blockVideo', function($sce, $compile) {
         return {
-            template: '<div></div>',
             restrict: 'E',
             scope: {
                 parameters: '='
@@ -78,20 +77,30 @@ angular.module('immersiveAngularApp')
                     if (newValue) {
                         var videoUrl = getEmbedVideoURL(newValue);
                         if (scope.parameters.filename) {
-                            var template = '<div class="o-block__video--full"><video src=" ' + scope.parameters.url + ' " controls>Your browser does not support the <code>video</code> element.</video></div>';
+                            var template = '<div class="{{style}}"><video src=" ' + scope.parameters.url + ' " controls>Your browser does not support the <code>video</code> element.</video></div>';
                             var compiled = $compile(template)(scope);
                             elem.empty().append(compiled);
 
                         } else if (videoUrl && !scope.parameters.filename) {
                             var source = $sce.trustAsResourceUrl(videoUrl);
-                            var template = '<div class="o-block__video--full youtube embeds"><iframe  src="' + source + '" frameborder="0" allowfullscreen></iframe></div>';
+                            var template = '<div class="{{style}}"><div class="o-video__player youtube embeds"><iframe  src="' + source + '" frameborder="0" allowfullscreen></iframe></div></div>';
                             var compiled = $compile(template)(scope);
                             elem.empty().append(compiled);
                         }
                     } else {
-                      console.log('chilling');
+                        console.log('chilling');
                     }
                 });
+
+
+                scope.$watch('parameters.css', function(newValue, oldValue) {
+                    if (newValue) {
+                        scope.style = 'u-width--' + newValue;
+                    } else {
+                        scope.style = 'u-width--normal';
+                    }
+                });
+
 
 
 

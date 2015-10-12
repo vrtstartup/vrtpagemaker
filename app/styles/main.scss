@@ -128,7 +128,7 @@ body {
 
 
 
-
+@import "blocks";
 
 @import "../blocks/text/textBlockView";
 
@@ -147,6 +147,8 @@ body {
 @import "../blocks/facebook/facebookBlockView";
 @import "../blocks/facebook/facebookBlockDialog";
 
+@import "../blocks/iframe/iframeBlockView";
+@import "../blocks/iframe/iframeBlockDialog";
 
 
 

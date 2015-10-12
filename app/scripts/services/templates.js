@@ -24,6 +24,10 @@ angular.module('immersiveAngularApp')
                 var template;
                 /* Depending of the type of the dialog, we choose a template, and after that open up the dialog. */
                 switch (type) {
+                    case 'text':
+                        template = '../../blocks/text/textBlockDialog.html';
+                        deferred.resolve(template);
+                        break;
                     case 'image':
                         template = '../../blocks/image/imageBlockDialog.html';
                         deferred.resolve(template);
@@ -48,6 +52,11 @@ angular.module('immersiveAngularApp')
                         deferred.resolve(template);
                         break;
 
+                    case 'iframe':
+                        template = '../../blocks/iframe/iframeBlockDialog.html';
+                        deferred.resolve(template);
+                        break;
+
                     case 'delete':
                         template = '../views/deleteDialog.html';
                         deferred.resolve(template);
@@ -55,11 +64,9 @@ angular.module('immersiveAngularApp')
 
                     default:
                         console.log('This dialog does not exist');
-                };
+                }
                 return deferred.promise;
             }
-
-
 
         };
     }]);

@@ -10,8 +10,6 @@
 angular.module('immersiveAngularApp')
     .factory('blocks', ['$q', 'FBArticle', function($q, FBArticle) {
 
-
-
         /*
             All functions available in the Blocks Service
         */

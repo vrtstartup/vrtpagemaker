@@ -9,7 +9,7 @@
 angular.module('immersiveAngularApp')
     .directive('blockImage', function() {
         return {
-            template: '<div class="o-block"><img ng-src="{{url}}" class="{{style}}"></div>',
+            template: '<div class="o-block__text {{style}} "><img ng-src="{{url}}"></div>',
             restrict: 'E',
             scope: {
                 parameters: '='
@@ -20,11 +20,22 @@ angular.module('immersiveAngularApp')
                 scope.$watch('parameters.css', function(newValue, oldValue) {
 
                     if (newValue) {
-                        scope.style = 'o-block__image--' + newValue;
+                        scope.style = 'u-width--' + newValue;
                     } else {
-                        scope.style = 'o-block__image';
+                        scope.style = 'u-width--normal';
                     }
                 });
+
+
+                scope.$watch('parameters.flex', function(newValue, oldValue) {
+
+                    if (newValue) {
+                        scope.flex = 'u-width--' + newValue;
+                    } else {
+                        scope.flex = 'u-width--normal';
+                    }
+                });
+
 
                 scope.$watch('parameters.url', function(newValue, oldValue) {
                     if (newValue) {

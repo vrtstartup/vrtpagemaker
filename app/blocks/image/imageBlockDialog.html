@@ -1,4 +1,4 @@
-<md-content>
+<md-content ng-init="size = 'normal'">
     <md-toolbar class="md-warn">
         <div class="md-toolbar-tools">
             <h2 class="md-flex">Je voegt een afbeelding toe</h2>
@@ -15,14 +15,22 @@
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
         <p>Kies een stijl:</p>
         <md-input-container>
-            <label>Stijl</label>
-            {{block.parameters.css}}
-            <md-select ng-model="block.parameters.css">
-                <md-option value="full">
-                    Full width
+            <label>Layout</label>
+            <md-select ng-model="size" ng-change="changeStyle(size)">
+                <md-option value="small">
+                    Klein
                 </md-option>
-                <md-option value="inline">
-                    Inline
+                 <md-option value="smallGrid">
+                    Klein in grid
+                </md-option>
+                <md-option value="normal">
+                    Normaal
+                </md-option>
+                <md-option value="wide">
+                    Breed
+                </md-option>
+                <md-option value="full">
+                    Volledige breedte
                 </md-option>
             </md-select>
         </md-input-container>

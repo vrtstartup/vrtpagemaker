@@ -39,6 +39,12 @@ module.exports = function(config) {
       'bower_components/ng-sortable/dist/ng-sortable.js',
       'bower_components/angular-aria/angular-aria.js',
       'bower_components/angular-material/angular-material.js',
+      'bower_components/rangy/rangy-core.js',
+      'bower_components/rangy/rangy-classapplier.js',
+      'bower_components/rangy/rangy-highlighter.js',
+      'bower_components/rangy/rangy-selectionsaverestore.js',
+      'bower_components/rangy/rangy-serializer.js',
+      'bower_components/rangy/rangy-textrange.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
