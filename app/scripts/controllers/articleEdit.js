@@ -73,7 +73,6 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
     };
 
 
-
     $scope.addBlock = function(articleId, block) {
         console.log('dialog controller says: You want me to add a block of type "' + block.type + '" to article ' + articleId);
 
@@ -99,13 +98,19 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
     $scope.files = JSON.parse($window.localStorage.getItem('files') || '[]');
 
     function onSuccess(Blob) {
+        console.log('got the file');
         $scope.files.push(Blob);
         $window.localStorage.setItem('files', JSON.stringify($scope.files));
+        console.log(Blob);
         $scope.block.parameters = {
-            'url': Blob.url
+            'url': Blob.url,
+            'client': Blob.url
         };
     }
+
     $scope.pickFile = function(type) {
+        console.log('picking file of type ' + type);
+        console.log(filepickerService);
         filepickerService.pick({
                 mimetype: type,
                 Language: 'nl'
@@ -114,8 +119,6 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
         );
     };
     $scope.onSuccess = onSuccess;
-
-
 
 }
 
@@ -153,7 +156,7 @@ angular.module('immersiveAngularApp')
                 console.log(obj);
                 /* Save article to Live*/
                 FBArticle.live(articleId, obj).then(function(obj) {
-                console.log(obj);
+                    console.log(obj);
                 });
             });
         };
