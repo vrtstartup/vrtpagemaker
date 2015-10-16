@@ -21,7 +21,9 @@ angular
         'angular-medium-editor',
         'angular-filepicker',
         'as.sortable',
-        'ngMaterial'
+        'ngMaterial',
+        'angulartics',
+        'angulartics.google.analytics'
 
     ])
     .config(function($routeProvider) {
@@ -34,17 +36,14 @@ angular
             .when('/articles/:article', {
                 templateUrl: 'views/articleView.html',
                 controller: 'ArticleViewCtrl',
-
             })
             .when('/edit/:article', {
                 templateUrl: 'views/articleEdit.html',
                 controller: 'ArticleEditCtrl',
-
             })
             .when('/edit', {
                 templateUrl: 'views/edit.html',
                 controller: 'EditCtrl',
-
             })
             .when('/info', {
                 templateUrl: 'views/info.html',
