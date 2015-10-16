@@ -120,10 +120,8 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
 }
 
 
-
-
 angular.module('immersiveAngularApp')
-    .controller('ArticleEditCtrl', function($scope, $routeParams, FBArticle, FBBlock, $window, $mdDialog, blocks, templates, $timeout, $mdSidenav, $mdUtil, $log, $location, $document) {
+    .controller('ArticleEditCtrl', function($scope, $routeParams, FBArticle, FBBlock, FBStory, $window, $mdDialog, blocks, templates, $timeout, $mdSidenav, $mdUtil, $log, $location) {
 
         /* Set the id of the article */
         $scope.articleId = $routeParams.article;
@@ -145,21 +143,6 @@ angular.module('immersiveAngularApp')
 
         }
 
-
-
-        // // Get scrollposition
-        // var getPositionInTekst = function(height, dom, scroll) {
-
-        //     $scope.positionInStory = (100 / (height - dom) * scroll);
-        //     console.log($scope.positionInStory);
-
-        // };
-
-
-
-
-
-
         $scope.goHome = function() {
             $location.path('/edit/');
 
@@ -169,7 +152,9 @@ angular.module('immersiveAngularApp')
             FBArticle.getArticle($scope.articleId).then(function(obj) {
                 console.log(obj);
                 /* Save article to Live*/
-                FBArticle.live(articleId, obj).then(function(obj) {});
+                FBArticle.live(articleId, obj).then(function(obj) {
+                console.log(obj);
+                });
             });
         };
 
@@ -191,19 +176,22 @@ angular.module('immersiveAngularApp')
         };
 
 
+        var updatePriority = function(article, id) {
+            FBBlock.getObject(article, id)
+                .then(function(obj) {
+                    var newPriority = obj.$priority++;
+                    FBArticle.setPriority($scope.articleId, obj.priorityid, newPriority);
+                });
+        };
+
+
         /* Loop through articles and set Priority accordingly  Should Go To Service*/
         function reorderList(startAt, inBetween) {
             console.log('ik wil door de lijst gaan en starten bij ' + startAt + ' en de priority zetten.');
             var arrayLength = $scope.list.length;
             for (var i = startAt; i < arrayLength; i++) {
                 if (inBetween) {
-                    FBBlock.getObject($scope.articleId, $scope.list[i].$id)
-                        .then(function(obj) {
-                            console.log(obj);
-                            var newPriority = obj.$priority++;
-                            FBArticle.setPriority($scope.articleId, obj.priorityid, newPriority);
-                        });
-
+                    updatePriority($scope.articleId, $scope.list[i].$id);
                 } else {
                     console.log('reordering');
                     FBArticle.setPriority($scope.articleId, $scope.list[i].$id, i);
@@ -214,8 +202,6 @@ angular.module('immersiveAngularApp')
                 // FBArticle.setPriority($scope.articleId, $scope.list[i].$id);
             }
         }
-
-
 
         /* All the "new block"-buttons*/
         $scope.templates = [{
@@ -254,7 +240,6 @@ angular.module('immersiveAngularApp')
             });
         }
 
-
         /* Listeners for dragging */
         $scope.dragControlListeners = {
             itemMoved: function(event) {
@@ -274,7 +259,6 @@ angular.module('immersiveAngularApp')
             });
         };
 
-
         /* Starts the opening of the dialog. Is called from the Edit button in the view */
         $scope.openDialog = function(article, type, id) {
             console.log('dialog controller says: You want me to open the dialog for an object type "' + type + '" of article ' + article);
@@ -285,49 +269,26 @@ angular.module('immersiveAngularApp')
 
 
 
-
-
-        /* Everything Menu */
-
-
-
-
-
-        $scope.toggleMenu = buildToggler('menu');
-
-
-        $scope.isOpenRight = function() {
-            return $mdSidenav('menu').isOpen();
-        };
-
-
         function buildToggler(navID) {
             var debounceFn = $mdUtil.debounce(function() {
-
-
-
-                // if ($scope.menuOpen === true) {
-                //     $scope.menuOpen = false
-                // } else {
-                //     $scope.menuOpen = true;
-                // }
-
                 $mdSidenav(navID)
-
-                .toggle()
-
-                .then(function() {
-                    $log.debug("toggle " + navID + " is done");
-
-
-                });
-
+                    .toggle()
+                    .then(function() {
+                        $log.debug("toggle " + navID + " is done");
+                    });
             }, 200);
             return debounceFn;
         }
 
 
+        /* Everything Menu Maybe create a directive? */
+        $scope.toggleMenu = buildToggler('menu');
 
+
+
+        $scope.isOpenLeft = function() {
+            return $mdSidenav('menu').isOpen();
+        };
 
 
         /* In the beginning, there was the article. */
@@ -340,4 +301,4 @@ angular.module('immersiveAngularApp')
 
 
 
-    })
+    });

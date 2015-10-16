@@ -61,7 +61,7 @@ angular.module('immersiveAngularApp')
 
 
 
-        add: function(articleId, block, priority) {
+        add: function(articleId, block) {
             console.log('adding ' + block + ' to article ' + articleId);
             console.log(block);
             var deferred = $q.defer();
@@ -94,8 +94,7 @@ angular.module('immersiveAngularApp')
             obj.live = true;
 
 
-            obj.$save().then(function(ref) {
-                ref.key() === obj.$id; // true
+            obj.$save().then(function() {
                 deferred.resolve(obj);
             }, function(error) {
                 console.log("Error:", error);
@@ -183,8 +182,6 @@ angular.module('immersiveAngularApp')
 
 .factory('FBBlock', ['$firebaseObject', '$q', function($firebaseObject, $q) {
     var FURLStaging = 'https://immersiveangular.firebaseio.com/staging/';
-    var FURLLive = 'https://immersiveangular.firebaseio.com/live/';
-
 
     /*
         All functions available in the FBBlock Service
@@ -217,7 +214,7 @@ angular.module('immersiveAngularApp')
 
 
     /*
-        All functions available in the FBBlock Service
+        All functions available in the FBStory Service
     */
     return {
 
@@ -271,9 +268,7 @@ angular.module('immersiveAngularApp')
             var ref = new Firebase(FURL).child('articles/' + articleId);
 
             var obj = $firebaseObject(ref);
-            obj.$remove().then(function(ref) {
-                // data has been deleted locally and in the database
-                console.log(obj);
+            obj.$remove().then(function() {
                 deferred.resolve(obj);
             }, function(error) {
                 console.log("Error:", error);
@@ -292,7 +287,7 @@ angular.module('immersiveAngularApp')
     var FURL = 'https://immersiveangular.firebaseio.com/';
 
     /*
-        All functions available in the FBBlock Service
+        All functions available in the FBMain Service
     */
     return {
 

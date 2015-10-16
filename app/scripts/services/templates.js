@@ -8,7 +8,7 @@
  * Service in the immersiveAngularApp.
  */
 angular.module('immersiveAngularApp')
-    .factory('templates', ['$q', 'FBArticle', function($q, FBArticle) {
+    .factory('templates', ['$q', 'FBArticle', function($q) {
 
 
 
@@ -16,8 +16,6 @@ angular.module('immersiveAngularApp')
             All functions available in the Templates Service
         */
         return {
-
-
 
             dialogTemplates: function(type) {
                 var deferred = $q.defer();

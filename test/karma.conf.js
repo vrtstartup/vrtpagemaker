@@ -33,6 +33,7 @@ module.exports = function(config) {
       'bower_components/angularfire/dist/angularfire.js',
       'bower_components/medium-editor/dist/js/medium-editor.js',
       'bower_components/angular-medium-editor/dist/angular-medium-editor.js',
+      'bower_components/filepicker-js/filepicker.min.js',
       'bower_components/angular-filepicker/dist/angular_filepicker.js',
       'bower_components/ng-sortable/dist/ng-sortable.js',
       'bower_components/angular-aria/angular-aria.js',
