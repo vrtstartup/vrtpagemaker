@@ -289,9 +289,16 @@ angular.module('immersiveAngularApp')
     /*
         All functions available in the FBMain Service
     */
+
+
+    var getReadableDate = function() {
+        return Date(Firebase.ServerValue.TIMESTAMP * 1000);
+    };
+
     return {
 
-        addFeedback: function(name, feedback, userAgent, width, height) {
+
+        addFeedback: function(name, feedback, userAgent, width, height, article) {
             console.log('adding feedback from ' + name);
             var deferred = $q.defer();
             var ref = new Firebase(FURL).child('feedback/');
@@ -299,10 +306,11 @@ angular.module('immersiveAngularApp')
             list.$add({
                 'feedback': feedback,
                 'name': name,
-                'createdAt': Firebase.ServerValue.TIMESTAMP,
+                'createdAt': getReadableDate(),
                 'userAgent': userAgent,
                 'width': width,
-                'height': height
+                'height': height,
+                'article': article
             }).then(function(ref) {
                 var id = ref.key();
                 deferred.resolve(id);
