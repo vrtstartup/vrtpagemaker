@@ -45,8 +45,8 @@
         </div>
     </md-toolbar>
     <md-content layout-padding>
-        <ul data-as-sortable="dragControlListeners" data-ng-model="list">
-            <li data-ng-repeat="(key,item) in list" data-as-sortable-item>
+        <ul data-as-sortable="dragControlListeners" data-ng-model="list" layout="row" layout-wrap layout-align="center start" >
+            <li flex="{{item.parameters.width}}" data-ng-repeat="(key,item) in list" data-as-sortable-item >
                 <div data-as-sortable-item-handle class="o-sortable o-sortable__{{item.type}}"></div>
             </li>
             </a>
