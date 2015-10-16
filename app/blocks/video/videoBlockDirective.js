@@ -73,18 +73,22 @@ angular.module('immersiveAngularApp')
 
 
 
-                scope.$watch('parameters.url', function(newValue, oldValue) {
+                scope.$watch('parameters.url', function(newValue) {
                     if (newValue) {
                         var videoUrl = getEmbedVideoURL(newValue);
-                        if (scope.parameters.filename) {
-                            var template = '<div class="{{style}}"><video src=" ' + scope.parameters.url + ' " controls>Your browser does not support the <code>video</code> element.</video></div>';
-                            var compiled = $compile(template)(scope);
+                        var template;
+                        var compiled;
+                        if (scope.parameters.client) {
+                            console.log('self hosted video');
+                            template = '<div class="{{style}}"><video src=" ' + scope.parameters.url + ' " controls>Your browser does not support the <code>video</code> element.</video></div>';
+                            compiled = $compile(template)(scope);
                             elem.empty().append(compiled);
 
-                        } else if (videoUrl && !scope.parameters.filename) {
+                        } else if (videoUrl && !scope.parameters.client) {
+                            console.log('embedded video');
                             var source = $sce.trustAsResourceUrl(videoUrl);
-                            var template = '<div class="{{style}}"><div class="o-video__player youtube embeds"><iframe  src="' + source + '" frameborder="0" allowfullscreen></iframe></div></div>';
-                            var compiled = $compile(template)(scope);
+                            template = '<div class="{{style}}"><div class="o-video__player youtube embeds"><iframe  src="' + source + '" frameborder="0" allowfullscreen></iframe></div></div>';
+                            compiled = $compile(template)(scope);
                             elem.empty().append(compiled);
                         }
                     } else {
@@ -93,7 +97,7 @@ angular.module('immersiveAngularApp')
                 });
 
 
-                scope.$watch('parameters.css', function(newValue, oldValue) {
+                scope.$watch('parameters.css', function(newValue) {
                     if (newValue) {
                         scope.style = 'u-width--' + newValue;
                     } else {

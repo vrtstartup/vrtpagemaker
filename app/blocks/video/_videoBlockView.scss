@@ -21,11 +21,19 @@
     left: 0px;
 
     }
+
+
 }
 
 .u-width--normal > .o-video {
     height: 197px;
 }
+
+
+video {
+    width: 100%;
+}
+
 
 
 .o-video__player:hover~.o-video__overlay {display:block}
