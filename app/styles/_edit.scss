@@ -213,9 +213,11 @@ $z-index-navigation-inner: $z-index-navigation-button + 25;
 }
 
 .o-sortable {
-    height: 8em;
+    height: 6em;
     width: 100%;
     margin-bottom: 1em;
+    border-color: #fff;
+    border-style: solid;
     @include e('text') {
         background: $color2 url('../images/sortable-text.svg') no-repeat center;
         background-size: 80% 80%;
