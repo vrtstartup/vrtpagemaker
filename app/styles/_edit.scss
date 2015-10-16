@@ -259,7 +259,7 @@ $z-index-navigation-inner: $z-index-navigation-button + 25;
         background: url('../images/sortable-image.svg') no-repeat center;
         background-size: 80% 80%;
     }
-    @include e('embed') {
+    @include e('iframe') {
         background: url('../images/sortable-embed.svg') no-repeat center;
         background-size: 80% 80%;
     }

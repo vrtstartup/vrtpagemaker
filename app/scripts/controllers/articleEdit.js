@@ -218,7 +218,7 @@ angular.module('immersiveAngularApp')
             'name': 'Video'
 
         }, {
-            'type': 'embed',
+            'type': 'iframe',
             'name': 'Embedcode'
 
         }];

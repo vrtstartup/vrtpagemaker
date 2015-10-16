@@ -7,7 +7,7 @@
  * # blockImage
  */
 angular.module('immersiveAngularApp')
-    .directive('blockIframe', function($sce) {
+    .directive('viewIframe', function($sce) {
         return {
             template: '<div class="iframe"><iframe width="100%" height="auto" src="{{iframe}}" frameborder="0" webkit-playsinline allowfullscreen></iframe></div>',
             restrict: 'E',
