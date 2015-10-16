@@ -123,18 +123,72 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
 
 
 angular.module('immersiveAngularApp')
-    .controller('ArticleEditCtrl', function($scope, $routeParams, FBArticle, FBBlock, $window, $mdDialog, blocks, templates, $timeout, $mdSidenav, $mdUtil, $log) {
+    .controller('ArticleEditCtrl', function($scope, $routeParams, FBArticle, FBBlock, $window, $mdDialog, blocks, templates, $timeout, $mdSidenav, $mdUtil, $log, $location, $document) {
 
         /* Set the id of the article */
         $scope.articleId = $routeParams.article;
 
         /* Get  the article from the Firebase */
         function getArticle() {
+
+
+            /*  Get the array of blocks */
             FBArticle.getArray($scope.articleId).then(function(list) {
                 $scope.list = list;
             });
+
+            /*  Get meta of the article */
+            FBArticle.getArticle($scope.articleId).then(function(obj) {
+                console.log(obj);
+                obj.$bindTo($scope, "articleMeta");
+            });
+
         }
 
+
+
+        // // Get scrollposition
+        // var getPositionInTekst = function(height, dom, scroll) {
+
+        //     $scope.positionInStory = (100 / (height - dom) * scroll);
+        //     console.log($scope.positionInStory);
+
+        // };
+
+
+
+
+
+
+        $scope.goHome = function() {
+            $location.path('/edit/');
+
+        };
+        $scope.addToLive = function(articleId) {
+            /* Get Article */
+            FBArticle.getArticle($scope.articleId).then(function(obj) {
+                console.log(obj);
+                /* Save article to Live*/
+                FBArticle.live(articleId, obj).then(function(obj) {});
+            });
+        };
+
+
+        $scope.removeFromLive = function(articleId) {
+            FBArticle.deleteArticle(articleId, 'live');
+        };
+
+
+        $scope.deleteArticle = function(articleId) {
+            FBStory.delete(articleId, 'live').then(function() {
+                FBStory.delete(articleId, 'staging').then(function() {
+                    console.log('deleted everything');
+                    $location.path('/edit/');
+
+                });
+            });
+
+        };
 
 
         /* Loop through articles and set Priority accordingly  Should Go To Service*/
@@ -162,6 +216,26 @@ angular.module('immersiveAngularApp')
         }
 
 
+
+        /* All the "new block"-buttons*/
+        $scope.templates = [{
+            'type': 'text',
+            'name': 'tekst'
+
+
+        }, {
+            'type': 'image',
+            'name': 'afbeelding'
+
+        }, {
+            'type': 'video',
+            'name': 'Video'
+
+        }, {
+            'type': 'embed',
+            'name': 'Embedcode'
+
+        }];
 
         /* Show the dialog */
         function showDialog(template, type, id, $event) {
@@ -213,35 +287,30 @@ angular.module('immersiveAngularApp')
 
 
 
+        /* Everything Menu */
 
-        // DIRTY
-        $scope.testAdd = function(key) {
-            console.log(key);
-            $scope.list.splice(key, 0, 'test');
-            // arr.splice(2, 0, "Lene");
 
-            // console.log('Ik klik op item ' + key);
-            // FBArticle.queryFrom($scope.articleId, key).then(function(list) {
-            //     var number = key + 1;
-            //     console.log('Ik wil dat de eerste volgende opschuift naar ' + number);
-            //     reorderList(number, true);
-            // });
+
+
+
+        $scope.toggleMenu = buildToggler('menu');
+
+
+        $scope.isOpenRight = function() {
+            return $mdSidenav('menu').isOpen();
         };
 
-
-
-        /* Everything Menu */
-        $scope.toggleMenu = buildToggler('menu');
 
         function buildToggler(navID) {
             var debounceFn = $mdUtil.debounce(function() {
 
 
-                if ($scope.menuOpen === true) {
-                    $scope.menuOpen = false
-                } else {
-                    $scope.menuOpen = true;
-                }
+
+                // if ($scope.menuOpen === true) {
+                //     $scope.menuOpen = false
+                // } else {
+                //     $scope.menuOpen = true;
+                // }
 
                 $mdSidenav(navID)
 

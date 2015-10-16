@@ -1,5 +1,7 @@
-.o-block__text--normal {
+.o-block__text {
     width: 100%;
+    position: relative;
+    z-index: 50;
 }
 
 p > p {

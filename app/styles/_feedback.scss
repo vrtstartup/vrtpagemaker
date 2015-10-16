@@ -1,0 +1,16 @@
+.o-feedback {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: 60;
+
+    #feedbackButton {
+        margin: 1em;
+        width: 3em;
+        height: 3em;
+        fill: $color1;
+        &:hover {
+            fill: $color2;
+        }
+    }
+}

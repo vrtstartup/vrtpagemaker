@@ -1,0 +1,23 @@
+<md-content>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Start een nieuw verhaal</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Kies een werktitel van het verhaal</label>
+            <input ng-model="article.workingtitle">
+        </md-input-container>
+    </section>
+    <div class="md-actions" layout="row">
+        <md-button ng-click="createStory(article.workingtitle)" target="_blank" md-autofocus>
+            Start
+        </md-button>
+        <span flex></span>
+        <md-button ng-click="closeDialog()" style="margin-right:20px;">
+            Sluit
+        </md-button>
+    </div>
+</md-content>

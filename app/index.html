@@ -9,8 +9,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.css" />
-    <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.css" />
     <link rel="stylesheet" href="bower_components/medium-editor/dist/css/medium-editor.css" />
     <link rel="stylesheet" href="bower_components/medium-editor/dist/css/themes/default.css" />
     <link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.css" />
@@ -60,8 +58,6 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
-    <script src="bower_components/ng-dialog/js/ngDialog.js"></script>
-    <script src="bower_components/ng-simple-parallax/js/ngParallax.js"></script>
     <script src="bower_components/medium-editor/dist/js/medium-editor.js"></script>
     <script src="bower_components/angular-medium-editor/dist/angular-medium-editor.js"></script>
     <script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
@@ -74,6 +70,8 @@
     <script src="bower_components/rangy/rangy-selectionsaverestore.js"></script>
     <script src="bower_components/rangy/rangy-serializer.js"></script>
     <script src="bower_components/rangy/rangy-textrange.js"></script>
+    <script src="bower_components/angular-scroll/angular-scroll.js"></script>
+    <script src="bower_components/ng-parallax/angular-parallax.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -81,6 +79,7 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/articleView.js"></script>
     <script src="scripts/controllers/articleEdit.js"></script>
+    <script src="scripts/controllers/edit.js"></script>
     <script src="scripts/controllers/info.js"></script>
     <script src="scripts/services/firebase.js"></script>
     <script src="scripts/directives/blocksDispatcher.js"></script>
@@ -96,6 +95,16 @@
     <script src="scripts/services/blocks.js"></script>
     <script src="scripts/services/filepicker.js"></script>
     <script src="scripts/services/templates.js"></script>
+
+
+    <script src="scripts/directives/blocksviewdispatcher.js"></script>
+    <script src="blocks/text/textViewDirective.js"></script>
+    <script src="blocks/video/videoViewDirective.js"></script>
+    <script src="blocks/image/imageViewDirective.js"></script>
+    <script src="blocks/iframe/iframeViewDirective.js"></script>
+    <script src="scripts/directives/feedback.js"></script>
+    <script src="scripts/directives/positioninpage.js"></script>
+    <script src="scripts/services/dialog.js"></script>
     <!-- endbuild -->
 </body>
 

@@ -31,8 +31,6 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/firebase/firebase.js',
       'bower_components/angularfire/dist/angularfire.js',
-      'bower_components/ng-dialog/js/ngDialog.js',
-      'bower_components/ng-simple-parallax/js/ngParallax.js',
       'bower_components/medium-editor/dist/js/medium-editor.js',
       'bower_components/angular-medium-editor/dist/angular-medium-editor.js',
       'bower_components/angular-filepicker/dist/angular_filepicker.js',
@@ -45,6 +43,8 @@ module.exports = function(config) {
       'bower_components/rangy/rangy-selectionsaverestore.js',
       'bower_components/rangy/rangy-serializer.js',
       'bower_components/rangy/rangy-textrange.js',
+      'bower_components/angular-scroll/angular-scroll.js',
+      'bower_components/ng-parallax/angular-parallax.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

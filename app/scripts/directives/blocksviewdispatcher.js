@@ -7,7 +7,7 @@
  * # blocks
  */
 angular.module('immersiveAngularApp')
-    .directive('blocksDispatcher', function($compile) {
+    .directive('blocksViewDispatcher', function($compile) {
         return {
             template: '<div></div>',
             restrict: 'E',
@@ -19,38 +19,41 @@ angular.module('immersiveAngularApp')
             },
             link: function postLink(scope, elem) {
 
+
                 var template;
                 switch (scope.type) {
                     case 'text':
-                        template = '<block-text class="o-container__block" id="id" article="article" parameters="parameters"></block-text>';
+                        template = '<view-text class="o-container__block" id="id" article="article" parameters="parameters"></view-text>';
+                    console.log('text');
                         break;
                     case 'image':
-                        template = '<block-image class="o-container__block" parameters="parameters"></block-image>';
+                        template = '<view-image class="o-container__block" parameters="parameters"></view-image>';
                         break;
                     case 'parallax':
-                        template = '<block-parallax class="o-container__block" parameters="parameters"></block-parallax>';
+                        template = '<view-parallax class="o-container__block" parameters="parameters"></view-parallax>';
                         break;
 
                     case 'video':
-                        template = '<block-video class="o-container__block" parameters="parameters"></block-video>';
+                        template = '<view-video class="o-container__block" parameters="parameters"></view-video>';
                         break;
 
                     case 'twitter':
-                        template = '<block-twitter class="o-container__block" parameters="parameters"></block-twitter>';
+                        template = '<view-twitter class="o-container__block" parameters="parameters"></view-twitter>';
                         break;
 
                     case 'facebook':
-                        template = '<block-facebook  class="o-container__block" parameters="parameters"></block-facebook>';
+                        template = '<view-facebook  class="o-container__block" parameters="parameters"></view-facebook>';
                         break;
 
 
                     case 'iframe':
-                        template = '<block-iframe  class="o-container__block" parameters="parameters"></block-iframe>';
+                        template = '<view-iframe  class="o-container__block" parameters="parameters"></view-iframe>';
                         break;
 
                     default:
                         console.log('This is not a valid contentblock');
                 }
+
 
                 var compiled = $compile(template)(scope);
                 elem.empty().append(compiled);

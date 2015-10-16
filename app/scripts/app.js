@@ -17,8 +17,7 @@ angular
         'ngSanitize',
         'ngTouch',
         'firebase',
-        'ngDialog',
-        'ngParallax',
+        'duParallax',
         'angular-medium-editor',
         'angular-filepicker',
         'as.sortable',
@@ -40,6 +39,11 @@ angular
             .when('/edit/:article', {
                 templateUrl: 'views/articleEdit.html',
                 controller: 'ArticleEditCtrl',
+
+            })
+            .when('/edit', {
+                templateUrl: 'views/edit.html',
+                controller: 'EditCtrl',
 
             })
             .when('/info', {

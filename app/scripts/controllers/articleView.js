@@ -8,45 +8,18 @@
  * Controller of the immersiveAngularApp
  */
 angular.module('immersiveAngularApp')
-    .controller('ArticleViewCtrl', function($scope, $routeParams, FBArticle)  {
-        console.log($routeParams.article);
+    .controller('ArticleViewCtrl', function($scope, $routeParams, FBArticle) {
+        /* Set the id of the article */
+        $scope.articleId = $routeParams.article;
 
-        // function Highlighter() {
-        //     this.button = document.createElement('button');
-        //     this.button.className = 'medium-editor-action';
-        //     this.button.innerText = 'H';
-        //     this.button.onclick = this.onClick.bind(this);
-        //     this.classApplier = rangy.createCssClassApplier('highlight', {
-        //         elementTagName: 'mark',
-        //         normalize: true
-        //     });
-        // }
-        // Highlighter.prototype.onClick = function() {
-        //     this.classApplier.toggleSelection();
-        // };
-        // Highlighter.prototype.getButton = function() {
-        //     return this.button;
-        // };
-        // Highlighter.prototype.checkState = function(node) {
-        //     if (node.tagName == 'MARK') {
-        //         this.button.classList.add('medium-editor-button-active');
-        //     }
-        // };
+        /* Get  the article from the Firebase */
+        function getArticle() {
+            FBArticle.getArray($scope.articleId).then(function(list) {
+                $scope.list = list;
+            });
+        }
 
-        // this.mediumBindOptions = {
-        //     extensions: {
-        //         'highlight': new Highlighter()
-        //     }
-        // };
+        getArticle();
 
-
-
-
-
-          FBArticle.get($routeParams.article)
-                .then(function(firebaseObj) {
-                    console.log(firebaseObj);
-
-                });
 
     });

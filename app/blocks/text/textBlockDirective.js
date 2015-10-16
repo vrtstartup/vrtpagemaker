@@ -9,11 +9,12 @@
 angular.module('immersiveAngularApp')
     .directive('blockText', function(FBBlock) {
         return {
-            template: '<div class="o-block__text"><p ng-model="data.text" medium-editor options="{{options}}" bind-options="mediumBindOptions"></p></div>',
+            template: '<div class="o-block__text"><p ng-model="data.parameters.text" medium-editor options="{{options}}" bind-options="mediumBindOptions"></p></div>',
             restrict: 'E',
             scope: {
                 id: '=',
-                article: '='
+                article: '=',
+                parameters: '='
             },
             link: function postLink(scope) {
                 /* Load the block */
@@ -24,8 +25,6 @@ angular.module('immersiveAngularApp')
                 scope.options = {
                     "buttons": ["bold", "italic", "anchor", "header1", "header2", "quote", "orderedlist", "justifyCenter", "justifyFull", "justifyLeft", "justifyRight", "underline", "strikethrough", "superscript", "subscript", "highlight"]
                 };
-
-
 
                 function Highlighter() {
                     this.button = document.createElement('button');
@@ -53,18 +52,6 @@ angular.module('immersiveAngularApp')
                         'highlight': new Highlighter()
                     }
                 }
-
-
-
-
-
             }
-
-
-
         };
-
-
-
-
     });

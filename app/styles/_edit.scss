@@ -1,9 +1,13 @@
+// This needs cleaning, deadline pressure
 .o-edit__buttons {
     left: .3em;
     padding: .2em;
     position: absolute;
     top: 0.5em;
     z-index: 50;
+    &.text {
+        left: -1.5em;
+    }
     #editButton {
         opacity: .5;
         width: 1em;
@@ -28,6 +32,7 @@
     }
 }
 
+// Should go to a template file
 $nav-size: 50px;
 $nav-color: #fff;
 $nav-color-active: $color1;
@@ -43,8 +48,9 @@ $z-index-navigation-inner: $z-index-navigation-button + 25;
 
 .o-menu {
     @include e('toggle') {
+        top: 0px;
         cursor: pointer;
-        position: absolute;
+        position: fixed;
         z-index: 70;
         padding: ($nav-size / 4);
         width: $nav-size;
@@ -61,6 +67,13 @@ $z-index-navigation-inner: $z-index-navigation-button + 25;
                 height: 100%;
                 background-color: $nav-color-active;
                 animation: material-menu-background $animation-time $animation-easing forwards;
+            }
+        }
+        &:hover {
+            span,
+            span:before,
+            span:after {
+                background-color: $color2;
             }
         }
         span {
@@ -102,6 +115,14 @@ $z-index-navigation-inner: $z-index-navigation-button + 25;
                     animation: material-arrow-background $animation-time $animation-easing forwards;
                 }
             }
+             &:hover {
+            span,
+            span:before,
+            span:after {
+                background-color: $color2;
+            }
+        }
+
             span,
             span:before,
             span:after {
@@ -195,33 +216,51 @@ $z-index-navigation-inner: $z-index-navigation-button + 25;
     height: 8em;
     width: 100%;
     margin-bottom: 1em;
-
-
-
-
     @include e('text') {
-
         background: $color2 url('../images/sortable-text.svg') no-repeat center;
-           background-size: 80% 80%;
-
-
+        background-size: 80% 80%;
     }
     @include e('video') {
         background: $color2 url('../images/sortable-video.svg') no-repeat center;
-           background-size: 80% 80%;
-
+        background-size: 80% 80%;
     }
-    @include e('image') {}
-    @include e('embed') {}
+    @include e('image') {
+        background: $color2 url('../images/sortable-image.svg') no-repeat center;
+        background-size: 80% 80%;
+    }
+    @include e('embed') {
+        background: $color2 url('../images/sortable-embed.svg') no-repeat center;
+        background-size: 80% 80%;
+    }
 }
 
-
-.as-sortable-dragging
-{
- opacity: .8;
+.as-sortable-dragging {
+    opacity: .8;
 }
 
 .as-sortable-placeholder {
     background-color: $color2;
     opacity: .3;
+}
+
+.o-add {
+    height: 3em;
+    width: 100%;
+    margin-bottom: 1em;
+    @include e('text') {
+        background: url('../images/sortable-text.svg') no-repeat center;
+        background-size: 80% 80%;
+    }
+    @include e('video') {
+        background: url('../images/sortable-video.svg') no-repeat center;
+        background-size: 80% 80%;
+    }
+    @include e('image') {
+        background: url('../images/sortable-image.svg') no-repeat center;
+        background-size: 80% 80%;
+    }
+    @include e('embed') {
+        background: url('../images/sortable-embed.svg') no-repeat center;
+        background-size: 80% 80%;
+    }
 }

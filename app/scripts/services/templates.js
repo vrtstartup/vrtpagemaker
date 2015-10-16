@@ -25,40 +25,40 @@ angular.module('immersiveAngularApp')
                 /* Depending of the type of the dialog, we choose a template, and after that open up the dialog. */
                 switch (type) {
                     case 'text':
-                        template = '../../blocks/text/textBlockDialog.html';
+                        template = 'blocks/text/textBlockDialog.html';
                         deferred.resolve(template);
                         break;
                     case 'image':
-                        template = '../../blocks/image/imageBlockDialog.html';
+                        template = 'blocks/image/imageBlockDialog.html';
                         deferred.resolve(template);
                         break;
                     case 'parallax':
-                        template = '../../blocks/parallax/parallaxBlockDialog.html';
+                        template = 'blocks/parallax/parallaxBlockDialog.html';
                         deferred.resolve(template);
                         break;
 
                     case 'video':
-                        template = '../../blocks/video/videoBlockDialog.html';
+                        template = 'blocks/video/videoBlockDialog.html';
                         deferred.resolve(template);
                         break;
 
                     case 'twitter':
-                        template = '../../blocks/twitter/twitterBlockDialog.html';
+                        template = 'blocks/twitter/twitterBlockDialog.html';
                         deferred.resolve(template);
                         break;
 
                     case 'facebook':
-                        template = '../../blocks/facebook/facebookBlockDialog.html';
+                        template = 'blocks/facebook/facebookBlockDialog.html';
                         deferred.resolve(template);
                         break;
 
                     case 'iframe':
-                        template = '../../blocks/iframe/iframeBlockDialog.html';
+                        template = 'blocks/iframe/iframeBlockDialog.html';
                         deferred.resolve(template);
                         break;
 
                     case 'delete':
-                        template = '../views/deleteDialog.html';
+                        template = 'views/deleteDialog.html';
                         deferred.resolve(template);
                         break;
 

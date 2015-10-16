@@ -1,0 +1,29 @@
+<md-content>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Geef je feedback</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Wat is je naam?</label>
+            <input ng-model="feedback.name">
+        </md-input-container>
+    </section>
+     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Wat is je feedback?</label>
+            <textarea ng-model="feedback.text" columns="10"></textarea>
+        </md-input-container>
+    </section>
+    <div class="md-actions" layout="row">
+        <md-button ng-click="addFeedback(feedback.name, feedback.text)" target="_blank" md-autofocus>
+            Start
+        </md-button>
+        <span flex></span>
+        <md-button ng-click="closeDialog()" style="margin-right:20px;">
+            Sluit
+        </md-button>
+    </div>
+</md-content>
