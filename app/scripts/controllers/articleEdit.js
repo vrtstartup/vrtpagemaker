@@ -36,7 +36,7 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
         };
     }
 
-    // $scope.size = 'normal';
+    $scope.size = 'normal';
     // $scope.block.parameters.width = 50;
     // $scope.block.parameters.offset = 25;
 
