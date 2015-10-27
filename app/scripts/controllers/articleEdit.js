@@ -163,7 +163,12 @@ angular.module('immersiveAngularApp')
 
 
         $scope.removeFromLive = function(articleId) {
-            FBArticle.deleteArticle(articleId, 'live');
+            FBArticle.deleteLive(articleId, 'live');
+        };
+
+
+            $scope.goToLive = function(articleId) {
+                $location.path('/articles/' + articleId);
         };
 
 

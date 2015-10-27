@@ -14,8 +14,9 @@ angular.module('immersiveAngularApp')
 
         /* Get  the article from the Firebase */
         function getArticle() {
-            FBArticle.getArray($scope.articleId).then(function(list) {
-                $scope.list = list;
+            FBArticle.getLiveArticle($scope.articleId).then(function(list) {
+                $scope.list = list.blocks;
+                console.log(list);
             });
         }
 
