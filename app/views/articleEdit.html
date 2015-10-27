@@ -13,6 +13,7 @@
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
         <md-button class="md-raised" ng-show="!articleMeta.live" ng-click="addToLive(articleId, articleMeta.live);articleMeta.live = true">Zet live</md-button>
         <md-button class="md-raised" ng-show="articleMeta.live" ng-click="addToLive(articleId, articleMeta.live)">Zet veranderingen live</md-button>
+        <md-button class="md-raised" ng-show="articleMeta.live" ng-click="goToLive(articleId)">Open live Artikel</md-button>
         <md-button class="md-raised" ng-show="articleMeta.live" ng-click="removeFromLive(articleId, articleMeta.live);articleMeta.live = false">Verwijder van Live</md-button>
         <md-button class="md-raised" ng-click="deleteArticle(articleId, articleMeta.live)">Verwijder</md-button>
         <md-button class="md-raised" ng-click="goHome()">Ga naar begin</md-button>
@@ -105,7 +106,7 @@
                     <blocks-dispatcher type="value.type" parameters="value.parameters" id="value.$id" article="articleId"></blocks-dispatcher>
                 </div>
             </div>
-            <!-- <div ng-click="testAdd(key)">TESTADD</div> -->
+
         </div>
     </md-content>
 </div>
