@@ -9,7 +9,7 @@
 angular.module('immersiveAngularApp')
     .directive('blockImage', function() {
         return {
-            template: '<div><img ng-src="{{url}}"></div>',
+            template: '<div><figure class="{{filter}}"><img ng-src="{{url}}"></figure></div>',
             restrict: 'E',
             scope: {
                 parameters: '='
@@ -19,6 +19,12 @@ angular.module('immersiveAngularApp')
                 scope.$watch('parameters.url', function(newValue, oldValue) {
                     if (newValue) {
                         scope.url = newValue;
+                    };
+                });
+
+                scope.$watch('parameters.filter', function(newValue, oldValue) {
+                    if (newValue) {
+                        scope.filter = newValue;
                     };
                 });
             }
