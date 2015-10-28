@@ -19,6 +19,10 @@ angular.module('immersiveAngularApp')
 
         var blocks = {
             '0': {
+                'type': 'delete',
+                'dialog': 'views/deleteDialog.html',
+            },
+            '1': {
                 'type': 'text',
                 'dialog': 'blocks/text/textBlockDialog.html',
                 'edit': '<block-text class="o-container__block" id="id" article="article" parameters="parameters"></block-text>',
@@ -28,7 +32,7 @@ angular.module('immersiveAngularApp')
                     'name': 'tekst'
                 }
             },
-            '1': {
+            '2': {
                 'type': 'image',
                 'dialog': 'blocks/image/imageBlockDialog.html',
                 'edit': '<block-image class="o-container__block" id="id" article="article" parameters="parameters"></block-image>',
@@ -38,7 +42,7 @@ angular.module('immersiveAngularApp')
                     'name': 'afbeelding'
                 }
             },
-            '2': {
+            '3': {
                 'type': 'video',
                 'dialog': 'blocks/video/videoDialog.html',
                 'edit': '<block-video class="o-container__block" id="id" article="article" parameters="parameters"></block-video>',
@@ -48,7 +52,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Film'
                 }
             },
-            '3': {
+            '4': {
                 'type': 'iframe',
                 'dialog': 'blocks/iframe/iframeBlockDialog.html',
                 'edit': '<block-iframe class="o-container__block" id="id" article="article" parameters="parameters"></block-iframe>',
