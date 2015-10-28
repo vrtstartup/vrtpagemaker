@@ -185,6 +185,8 @@ angular.module('immersiveAngularApp')
                 }
 
 
+            filters: function() {
+                return filters;
             }
 
 
