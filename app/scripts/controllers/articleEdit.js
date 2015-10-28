@@ -48,7 +48,9 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
         $scope.block.parameters.width = s.width;
     };
 
-
+    if($scope.type === 'image' || 'hero'){
+        $scope.filters = blocksValues.filters();
+    }
     $scope.addBlock = function(articleId, block) {
         console.log('dialog controller says: You want me to add a block of type "' + block.type + '" to article ' + articleId);
 
