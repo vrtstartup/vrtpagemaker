@@ -122,8 +122,6 @@ angular.module('immersiveAngularApp')
                     if (blocks.hasOwnProperty(key)) {
                         if (type === blocks[key].type) {
                             deferred.resolve(blocks[key].dialog);
-                        } else {
-                            console.log('this dialog does not exist');
                         }
                     }
                 }
@@ -135,10 +133,7 @@ angular.module('immersiveAngularApp')
                     if (blocks.hasOwnProperty(key)) {
                         if (type === blocks[key].type) {
                             return blocks[key].edit;
-                        } else {
-                            console.log('this block does not exist');
                         }
-
                     }
                 }
             },
@@ -148,10 +143,7 @@ angular.module('immersiveAngularApp')
                     if (blocks.hasOwnProperty(key)) {
                         if (type === blocks[key].type) {
                             return blocks[key].view;
-                        } else {
-                            console.log('this block does not exist');
                         }
-
                     }
                 }
             },
@@ -164,9 +156,6 @@ angular.module('immersiveAngularApp')
                         buttons.push(blocks[key].button);
                     }
                 }
-
-
-
                 return buttons;
 
 
@@ -177,12 +166,11 @@ angular.module('immersiveAngularApp')
                     if (styles.hasOwnProperty(key)) {
                         if (style === styles[key].type) {
                             return styles[key];
-                        } else {
-                            console.log('this style does not exist');
                         }
-
                     }
                 }
+            },
+
 
 
             filters: function() {
