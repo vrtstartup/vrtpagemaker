@@ -150,22 +150,17 @@ angular.module('immersiveAngularApp')
 
 
         deleteLive: function(articleId) {
+            console.log(articleId);
             var deferred = $q.defer();
 
-
-            var list = $firebaseArray(new Firebase(FURLLive).child('articles/' + articleId));
-            list.$loaded()
-                .then(function(article) {
-                    console.log(article[key]);
-                    var item = article[key];
-                    list.$remove(item).then(function(ref) {
-                        // ref.key() === item.$id; // true
-                        deferred.resolve(ref);
-                    });
-                })
-                .catch(function(error) {
-                    console.log("Error:", error);
-                });
+            var ref = new Firebase(FURLLive).child('articles/' + articleId);
+            var obj = $firebaseObject(ref);
+            obj.$remove().then(function(ref) {
+                 deferred.resolve(ref);
+                // data has been deleted locally and in the database
+            }, function(error) {
+                console.log("Error:", error);
+            });
             return deferred.promise;
         },
 
