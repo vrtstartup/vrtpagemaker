@@ -265,4 +265,9 @@ $z-index-navigation-inner: $z-index-navigation-button + 25;
         background: url('../images/sortable-embed.svg') no-repeat center;
         background-size: 80% 80%;
     }
+
+        @include e('hero') {
+        background: url('../images/sortable-hero.svg') no-repeat center;
+        background-size: 80% 80%;
+    }
 }

@@ -61,6 +61,26 @@ angular.module('immersiveAngularApp')
                     'type': 'iframe',
                     'name': 'iframe'
                 }
+            },
+            '5': {
+                'type': 'hero',
+                'dialog': 'blocks/hero/heroBlockDialog.html',
+                'edit': '<block-hero class="o-container__block" id="id" article="article" parameters="parameters"></block-hero>',
+                'view': '<view-hero class="o-container__block" id="id" article="article" parameters="parameters"></view-hero>',
+                'button': {
+                    'type': 'hero',
+                    'name': 'Afbeelding met tekst'
+                }
+            },
+            '6': {
+                'type': 'parallax',
+                'dialog': 'blocks/parallax/parallaxBlockDialog.html',
+                'edit': '<block-parallax class="o-container__block" id="id" article="article" parameters="parameters"></block-parallax>',
+                'view': '<view-parallax class="o-container__block" id="id" article="article" parameters="parameters"></view-parallax>',
+                'button': {
+                    'type': 'parallax',
+                    'name': 'Parallax foto'
+                }
             }
         };
 
