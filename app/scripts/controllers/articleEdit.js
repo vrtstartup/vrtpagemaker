@@ -32,13 +32,15 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
         console.log('dialog controller says: You want me to create an object of type "' + $scope.type + '" in article ' + $scope.articleId);
         /* The only thing we know is the type of the dialog. */
         $scope.block = {
-            'type': type
+            'type': type,
+            'parameters': {
+                'width': 50,
+                'offset': 25
+            }
         };
     }
 
     $scope.size = 'normal';
-    // $scope.block.parameters.width = 50;
-    // $scope.block.parameters.offset = 25;
 
     $scope.changeStyle = function(style) {
         switch (style) {
@@ -50,6 +52,7 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
                 $scope.block.parameters.width = 33;
                 $scope.block.parameters.offset = 0;
                 break;
+
             case 'normal':
                 $scope.block.parameters.width = 50;
                 $scope.block.parameters.offset = 25;
