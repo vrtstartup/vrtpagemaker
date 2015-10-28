@@ -35,7 +35,6 @@ angular.module('immersiveAngularApp')
                     }
                 });
 
-
                 scope.background = parallaxHelper.createAnimator(-0.3);
 
 
