@@ -28,10 +28,11 @@
         </div>
     </md-toolbar>
     <ul layout="row" layout-wrap>
-        <div flex="33" data-ng-repeat="t in templates">
-            <li ng-click="openDialog(articleId, t.type, null)" class="o-add o-add__{{t.type}}">
+        <div flex="33" data-ng-repeat="b in buttons">
+            <li ng-click="openDialog(articleId, b.type, null)" class="o-add o-add__{{b.type}}">
                 <md-tooltip>
-                    {{t.name}}
+                {{b.name}}
+
                 </md-tooltip>
             </li>
         </div>

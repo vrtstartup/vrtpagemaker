@@ -7,7 +7,7 @@
  * # blocks
  */
 angular.module('immersiveAngularApp')
-    .directive('blocksDispatcher', function($compile) {
+    .directive('blocksDispatcher', function($compile, blocksValues) {
         return {
             template: '<div></div>',
             restrict: 'E',
@@ -18,40 +18,7 @@ angular.module('immersiveAngularApp')
                 article: '='
             },
             link: function postLink(scope, elem) {
-
-                var template;
-                switch (scope.type) {
-                    case 'text':
-                        template = '<block-text class="o-container__block" id="id" article="article" parameters="parameters"></block-text>';
-                        break;
-                    case 'image':
-                        template = '<block-image class="o-container__block" parameters="parameters"></block-image>';
-                        break;
-                    case 'parallax':
-                        template = '<block-parallax class="o-container__block" parameters="parameters"></block-parallax>';
-                        break;
-
-                    case 'video':
-                        template = '<block-video class="o-container__block" parameters="parameters"></block-video>';
-                        break;
-
-                    case 'twitter':
-                        template = '<block-twitter class="o-container__block" parameters="parameters"></block-twitter>';
-                        break;
-
-                    case 'facebook':
-                        template = '<block-facebook  class="o-container__block" parameters="parameters"></block-facebook>';
-                        break;
-
-
-                    case 'iframe':
-                        template = '<block-iframe  class="o-container__block" parameters="parameters"></block-iframe>';
-                        break;
-
-                    default:
-                        console.log('This is not a valid contentblock');
-                }
-
+                var template = blocksValues.editdirectives(scope.type);
                 var compiled = $compile(template)(scope);
                 elem.empty().append(compiled);
 

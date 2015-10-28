@@ -10,7 +10,7 @@
 
 
 
-function DialogController($scope, $window, $mdDialog, filepickerService, id, article, type, FBArticle, FBBlock, blocks) {
+function DialogController($scope, $window, $mdDialog, filepickerService, id, article, type, FBArticle, FBBlock, blocks, blocksValues) {
 
 
     $scope.id = id;
@@ -35,7 +35,7 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
             'type': type,
             'parameters': {
                 'width': 50,
-                'offset': 25
+                'class': 'normal'
             }
         };
     }
@@ -43,36 +43,9 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
     $scope.size = 'normal';
 
     $scope.changeStyle = function(style) {
-        switch (style) {
-            case 'small':
-                $scope.block.parameters.width = 33;
-                $scope.block.parameters.offset = 33;
-                break;
-            case 'smallGrid':
-                $scope.block.parameters.width = 33;
-                $scope.block.parameters.offset = 0;
-                break;
-
-            case 'normal':
-                $scope.block.parameters.width = 50;
-                $scope.block.parameters.offset = 25;
-                break;
-
-            case 'wide':
-                $scope.block.parameters.width = 80;
-                $scope.block.parameters.offset = 10;
-                break;
-
-            case 'full':
-                $scope.block.parameters.width = 100;
-                $scope.block.parameters.offset = 0;
-                break;
-
-            default:
-                console.log('This width does not exist');
-        }
-
-
+        var s = blocksValues.styles(style);
+        console.log(s);
+        $scope.block.parameters.width = s.width;
     };
 
 
@@ -127,7 +100,8 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
 
 
 angular.module('immersiveAngularApp')
-    .controller('ArticleEditCtrl', function($scope, $routeParams, FBArticle, FBBlock, FBStory, $window, $mdDialog, blocks, templates, $timeout, $mdSidenav, $mdUtil, $log, $location) {
+    .controller('ArticleEditCtrl', function($scope, $routeParams, FBArticle, FBBlock, FBStory, $window, $mdDialog, blocks, blocksValues, $timeout, $mdSidenav, $mdUtil, $log, $location) {
+
 
         /* Set the id of the article */
         $scope.articleId = $routeParams.article;
@@ -169,11 +143,9 @@ angular.module('immersiveAngularApp')
             FBArticle.deleteLive(articleId, 'live');
         };
 
-
-            $scope.goToLive = function(articleId) {
-                $location.path('/articles/' + articleId);
+        $scope.goToLive = function(articleId) {
+            $location.path('/articles/' + articleId);
         };
-
 
         $scope.deleteArticle = function(articleId) {
             FBStory.delete(articleId, 'live').then(function() {
@@ -185,7 +157,6 @@ angular.module('immersiveAngularApp')
             });
 
         };
-
 
         var updatePriority = function(article, id) {
             FBBlock.getObject(article, id)
@@ -211,28 +182,12 @@ angular.module('immersiveAngularApp')
 
                 // console.log('de priority voor ' + i + ' = ' + priority);
                 // FBArticle.setPriority($scope.articleId, $scope.list[i].$id);
+
             }
         }
 
         /* All the "new block"-buttons*/
-        $scope.templates = [{
-            'type': 'text',
-            'name': 'tekst'
-
-
-        }, {
-            'type': 'image',
-            'name': 'afbeelding'
-
-        }, {
-            'type': 'video',
-            'name': 'Video'
-
-        }, {
-            'type': 'iframe',
-            'name': 'Embedcode'
-
-        }];
+        $scope.buttons = blocksValues.buttons();
 
         /* Show the dialog */
         function showDialog(template, type, id, $event) {
@@ -273,12 +228,10 @@ angular.module('immersiveAngularApp')
         /* Starts the opening of the dialog. Is called from the Edit button in the view */
         $scope.openDialog = function(article, type, id) {
             console.log('dialog controller says: You want me to open the dialog for an object type "' + type + '" of article ' + article);
-            templates.dialogTemplates(type).then(function(template) {
+            blocksValues.dialogs(type).then(function(template) {
                 showDialog(template, type, id);
             });
         };
-
-
 
         function buildToggler(navID) {
             var debounceFn = $mdUtil.debounce(function() {
@@ -291,16 +244,12 @@ angular.module('immersiveAngularApp')
             return debounceFn;
         }
 
-
         /* Everything Menu Maybe create a directive? */
         $scope.toggleMenu = buildToggler('menu');
-
-
 
         $scope.isOpenLeft = function() {
             return $mdSidenav('menu').isOpen();
         };
-
 
         /* In the beginning, there was the article. */
         getArticle();
