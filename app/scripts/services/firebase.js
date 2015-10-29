@@ -42,10 +42,30 @@ angular.module('immersiveAngularApp')
             return deferred.promise;
         },
 
+
+
+
         getArticle: function(articleId) {
             var deferred = $q.defer();
 
             var ref = new Firebase(FURLStaging).child('articles/' + articleId);
+            var firebaseObj = $firebaseObject(ref);
+            firebaseObj.$loaded().then(function(obj) {
+                deferred.resolve(obj);
+
+            }, function(err) {
+                console.log('The article did not load from Firebase, this was your error: ' + err);
+                deferred.reject(err);
+            });
+            return deferred.promise;
+        },
+
+
+
+        getLiveArticle: function(articleId) {
+            var deferred = $q.defer();
+
+            var ref = new Firebase(FURLLive).child('articles/' + articleId);
             var firebaseObj = $firebaseObject(ref);
             firebaseObj.$loaded().then(function(obj) {
                 deferred.resolve(obj);
@@ -127,6 +147,22 @@ angular.module('immersiveAngularApp')
 
 
 
+
+
+        deleteLive: function(articleId) {
+            console.log(articleId);
+            var deferred = $q.defer();
+
+            var ref = new Firebase(FURLLive).child('articles/' + articleId);
+            var obj = $firebaseObject(ref);
+            obj.$remove().then(function(ref) {
+                 deferred.resolve(ref);
+                // data has been deleted locally and in the database
+            }, function(error) {
+                console.log("Error:", error);
+            });
+            return deferred.promise;
+        },
 
 
 

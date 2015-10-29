@@ -1,11 +1,18 @@
 <md-content ng-init="size = 'normal'">
     <md-toolbar class="md-warn">
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Je voegt een parallax toe</h2>
+            <h2 class="md-flex">Je voegt een afbeelding toe</h2>
         </div>
     </md-toolbar>
     <br/>
-    <section layout layout-sm="column">
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button ng-click="pickFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe afbeelding</md-button>
+        <!-- Of kies eentje van de reeds geuploade afbeeldingen: -->
+        <!--     <ul>
+        <li ng-repeat="f in files">{{f.url}}</li>
+    </ul> -->
+    </section>
+<!--         <section layout layout-sm="column">
         <md-input-container flex>
             <label>Rotation</label>
             <input ng-model="block.parameters.rotation" placeholder="10">
@@ -31,10 +38,7 @@
             <input ng-model="block.parameters.offset" placeholder="10">
         </md-input-container>
     </section>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-button ng-click="pickFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe afbeelding</md-button>
-
-    </section>
+ -->
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
         <p>Kies een instagramfilter:</p>
         <md-input-container>

@@ -9,7 +9,7 @@
 angular.module('immersiveAngularApp')
     .directive('viewImage', function() {
         return {
-            template: '<div><img ng-src="{{parameters.url}}"></div>',
+            template: '<div><figure class="{{parameters.filter}}"><img ng-src="{{parameters.url}}"></figure></div>',
             restrict: 'E',
             scope: {
                 parameters: '='

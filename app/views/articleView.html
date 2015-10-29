@@ -1,8 +1,8 @@
 <position-in-page article="articleId"></position-in-page>
 <md-content>
     <div class="o-container">
-        <div layout="row" layout-wrap layout-align="start start">
-            <div class="o-block" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" offset-gt-sm="{{value.parameters.offset}}" flex-sm="100"  offset-sm="0">
+        <div layout="row" layout-wrap layout-align="center start">
+            <div class="o-block {{value.parameters.class}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" offset-gt-sm="{{value.parameters.offset}}" flex-sm="100"  offset-sm="0">
                 <blocks-view-dispatcher type="value.type" parameters="value.parameters" id="value.$id" article="articleId"></blocks-view-dispatcher>
             </div>
         </div>

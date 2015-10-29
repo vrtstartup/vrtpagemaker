@@ -4,37 +4,21 @@
     z-index: 50;
 }
 
-p > p {
-    // padding-left: $text-paragraph-padding;
-    // padding-right: $text-paragraph-padding;
-    line-height: $text-paragraph-lineheight;
+// Layout (should this go to a layout.scss-file? Or make a mixin?)
+
+
+.small .o-block__text {
+    box-sizing: border-box;
+    padding-right: $text-grid-padding;
+    padding-left: $text-grid-padding;
 }
 
-h1 {
-    color: $text-header1-color;
-    text-transform: uppercase;
-    font-size: $text-header1-size;
-}
+.normal {}
 
+.wide {}
 
-h3 {
-    color: $text-header1-color;
-    text-transform: uppercase;
-    font-size: $text-header1-size;
-}
-
-
-h2 {
-    color: $text-header1-color;
-
-}
-
-a {
-    color: $text-anchor-color;
-    text-decoration: underline;
-}
-
-a:hover {
-    color: $text-anchor-color-hover;
-    text-decoration: underline;
+.full .o-block__text {
+    box-sizing: border-box;
+    padding-right: $text-grid-padding * 2;
+    padding-left: $text-grid-padding * 2;
 }

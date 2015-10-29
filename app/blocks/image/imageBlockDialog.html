@@ -13,28 +13,37 @@
     </ul> -->
     </section>
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <p>Kies een instagramfilter:</p>
+        <md-input-container>
+            <label>Filters</label>
+            <md-select ng-model="block.parameters.filter">
+                <md-option value="{{f}}" ng-repeat="f in filters">{{f}}</md-option>
+            </md-select>
+        </md-input-container>
+    </section>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
         <p>Kies een stijl:</p>
         <md-input-container>
             <label>Layout</label>
             <md-select ng-model="size" ng-change="changeStyle(size)">
                 <md-option value="small">
-                    Klein
-                </md-option>
-                 <md-option value="smallGrid">
-                    Klein in grid
+                    Klein (33% van het scherm)
                 </md-option>
                 <md-option value="normal">
-                    Normaal
+                    Normaal (50% van het scherm)
                 </md-option>
                 <md-option value="wide">
-                    Breed
+                    Breed (80% van het scherm)
                 </md-option>
                 <md-option value="full">
-                    Volledige breedte
+                    Volledige breedte (100% van het scherm)
                 </md-option>
             </md-select>
         </md-input-container>
     </section>
+    <!-- <section ng-show="block.parameters.url != null" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <figure class="{{block.parameters.filter}}"><img class="o-image--modal" src="{{block.parameters.url}}"></figure>
+    </section> -->
     <md-divider></md-divider>
     <div class="md-actions" layout="row">
         <md-button ng-hide="block.$id" ng-click="addBlock(articleId, block)" target="_blank" md-autofocus>
