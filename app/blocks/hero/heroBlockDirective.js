@@ -7,9 +7,9 @@
  * # blockHero
  */
 angular.module('immersiveAngularApp')
-    .directive('blockHero', function(FBBlock, parallaxHelper) {
+    .directive('blockHero', function(FBBlock) {
         return {
-            template: '<div class="o-hero" /><div class="o-hero__img" ><figure  du-parallax y="background" class="{{filter}}"><img ng-src="{{url}}" ></figure><div class="o-hero__text" layout="row" layout-align="center center"><div><p ng-model="data.parameters.text" medium-editor options="{{options}}" bind-options="mediumBindOptions"></p></div></div></div></div>',
+            template: '<div class="o-hero"  /><div class="o-hero__img" ><figure class="{{filter}}" ><img ng-src="{{url}}" ></figure><div class="o-hero__text" layout="row" layout-align="center center"><div><p ng-model="data.parameters.text" medium-editor options="{{options}}" bind-options="mediumBindOptions"></p></div></div></div></div>',
             restrict: 'E',
             scope: {
                 id: '=',
@@ -17,10 +17,7 @@ angular.module('immersiveAngularApp')
                 parameters: '='
             },
 
-            link: function postLink(scope, el) {
-
-                scope.background = parallaxHelper.createAnimator(-0.3, 150, -150);
-
+            link: function postLink(scope) {
 
 
                 FBBlock.getObject(scope.article, scope.id).then(function(obj) {
