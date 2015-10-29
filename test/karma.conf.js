@@ -46,6 +46,10 @@ module.exports = function(config) {
       'bower_components/rangy/rangy-textrange.js',
       'bower_components/angular-scroll/angular-scroll.js',
       'bower_components/ng-parallax/angular-parallax.min.js',
+      'bower_components/waypoints/lib/noframework.waypoints.min.js',
+      'bower_components/SHA-1/sha1.js',
+      'bower_components/angulartics/src/angulartics.js',
+      'bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
