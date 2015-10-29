@@ -3,3 +3,22 @@
     position: relative;
     z-index: 50;
 }
+
+// Layout (should this go to a layout.scss-file? Or make a mixin?)
+
+
+.small .o-block__text {
+    box-sizing: border-box;
+    padding-right: $text-grid-padding;
+    padding-left: $text-grid-padding;
+}
+
+.normal {}
+
+.wide {}
+
+.full .o-block__text {
+    box-sizing: border-box;
+    padding-right: $text-grid-padding * 2;
+    padding-left: $text-grid-padding * 2;
+}

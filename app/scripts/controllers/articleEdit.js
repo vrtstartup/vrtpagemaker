@@ -12,7 +12,6 @@
 
 function DialogController($scope, $window, $mdDialog, filepickerService, id, article, type, FBArticle, FBBlock, blocks, blocksValues) {
 
-
     $scope.id = id;
     $scope.type = type;
     $scope.articleId = article;
@@ -46,6 +45,7 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
         var s = blocksValues.styles(style);
         console.log(s);
         $scope.block.parameters.width = s.width;
+        $scope.block.parameters.class = style;
     };
 
     if($scope.type === 'image' || 'hero'){
@@ -62,6 +62,7 @@ function DialogController($scope, $window, $mdDialog, filepickerService, id, art
     };
 
     $scope.deleteBlock = function(article, key) {
+        console.log(article, key);
         blocks.delete(article, key).then(function() {
             $scope.closeDialog();
         });
@@ -255,12 +256,5 @@ angular.module('immersiveAngularApp')
 
         /* In the beginning, there was the article. */
         getArticle();
-
-
-
-
-
-
-
 
     });
