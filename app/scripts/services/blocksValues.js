@@ -84,7 +84,6 @@ angular.module('immersiveAngularApp')
             }
         };
 
-
         var styles = {
             '0': {
                 'type': 'small',
@@ -103,7 +102,6 @@ angular.module('immersiveAngularApp')
                 'width': 100
             }
         };
-
 
         var filters = [
             'geen', 'aden', 'reyes', 'perpetua', 'inkwell', 'toaster', 'walden', 'hudson', 'gingham', 'mayfair', 'lofi', 'xpro2', '_1977', 'brooklyn'
@@ -152,13 +150,11 @@ angular.module('immersiveAngularApp')
 
                 var buttons = [];
                 for (var key in blocks) {
-                    if (blocks.hasOwnProperty(key)) {
+                    if (blocks.hasOwnProperty(key) && blocks[key].button !== undefined) {
                         buttons.push(blocks[key].button);
                     }
                 }
                 return buttons;
-
-
             },
 
             styles: function(style) {
@@ -170,8 +166,6 @@ angular.module('immersiveAngularApp')
                     }
                 }
             },
-
-
 
             filters: function() {
                 return filters;
