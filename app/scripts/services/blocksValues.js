@@ -44,7 +44,7 @@ angular.module('immersiveAngularApp')
             },
             '3': {
                 'type': 'video',
-                'dialog': 'blocks/video/videoDialog.html',
+                'dialog': 'blocks/video/videoBlockDialog.html',
                 'edit': '<block-video class="o-container__block" id="id" article="article" parameters="parameters"></block-video>',
                 'view': '<view-video class="o-container__block" id="id" article="article" parameters="parameters"></view-video>',
                 'button': {
