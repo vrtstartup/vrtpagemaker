@@ -81,6 +81,16 @@ angular.module('immersiveAngularApp')
                     'type': 'parallax',
                     'name': 'Parallax foto'
                 }
+            },
+            '7': {
+                'type': 'break',
+                'dialog': 'blocks/break/breakBlockDialog.html',
+                'edit': '<block-break class="o-container__block" id="id" article="article" parameters="parameters"></block-break>',
+                'view': '<view-break class="o-container__block" id="id" article="article" parameters="parameters"></view-break>',
+                'button': {
+                    'type': 'break',
+                    'name': 'Break'
+                }
             }
         };
 

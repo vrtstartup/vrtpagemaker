@@ -1,0 +1,19 @@
+<md-content ng-init="size = 'full'">
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Je voegt een break toe</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+
+    <md-divider></md-divider>
+    <div class="md-actions" layout="row">
+        <md-button ng-hide="block.$id" ng-click="addBlock(articleId, block)" target="_blank" md-autofocus>
+            Voeg toe
+        </md-button>
+        <span flex></span>
+        <md-button ng-click="closeDialog()" style="margin-right:20px;">
+            Sluit
+        </md-button>
+    </div>
+</md-content>
