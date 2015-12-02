@@ -1,13 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:blocks
- * @description
- * # blocks
- */
 angular.module('immersiveAngularApp')
-    .directive('blocksDispatcher', function($compile, blocksValues) {
+    .directive('blocksEditDispatcher', function($compile, blocksValues) {
         return {
             template: '<div></div>',
             restrict: 'E',

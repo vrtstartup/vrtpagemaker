@@ -1,13 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:blockImage
- * @description
- * # blockImage
- */
 angular.module('immersiveAngularApp')
-    .directive('blockTwitter', function($http, $compile, loadTweets) {
+    .directive('editTwitter', function($http, $compile, loadTweets) {
         return {
             template: '<div></div>',
             restrict: 'E',

@@ -1,13 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:blockImage
- * @description
- * # blockImage
- */
 angular.module('immersiveAngularApp')
-    .directive('blockVideo', function($sce, $compile) {
+    .directive('editVideo', function($sce, $compile) {
         return {
             restrict: 'E',
             scope: {
@@ -80,14 +74,14 @@ angular.module('immersiveAngularApp')
                         var compiled;
                         if (scope.parameters.client) {
                             console.log('self hosted video');
-                            template = '<div class="{{style}}"><video src=" ' + scope.parameters.url + ' " controls>Your browser does not support the <code>video</code> element.</video></div>';
+                            template = '<div class="{{style}}"><figure class="{{parameters.filter}}"><video src=" ' + scope.parameters.url + ' " controls>Your browser does not support the <code>video</code> element.</video></figure></div>';
                             compiled = $compile(template)(scope);
                             elem.empty().append(compiled);
 
                         } else if (videoUrl && !scope.parameters.client) {
                             console.log('embedded video');
                             var source = $sce.trustAsResourceUrl(videoUrl);
-                            template = '<div class="{{style}}"><div class="o-video__player youtube embeds"><iframe  src="' + source + '" frameborder="0" allowfullscreen></iframe></div></div>';
+                            template = '<div class="{{style}}"><div class="o-video__player youtube embeds"><iframe  src="' + source + '" frameborder="0" allowfullscreen></iframe><figure class="{{parameters.filter}}"></figure></div></div>';
                             compiled = $compile(template)(scope);
                             elem.empty().append(compiled);
                         }

@@ -1,13 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:blockImage
- * @description
- * # blockImage
- */
 angular.module('immersiveAngularApp')
-    .directive('blockImage', function() {
+    .directive('editImage', function() {
         return {
             template: '<div><figure class="{{filter}}"><img ng-src="{{url}}"></figure></div>',
             restrict: 'E',

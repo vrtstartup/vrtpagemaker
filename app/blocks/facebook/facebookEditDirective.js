@@ -7,7 +7,7 @@
  * # blockImage
  */
 angular.module('immersiveAngularApp')
-    .directive('blockFacebook', function($sce) {
+    .directive('editFacebook', function($sce) {
         return {
             template: '<div></div>',
             restrict: 'E',

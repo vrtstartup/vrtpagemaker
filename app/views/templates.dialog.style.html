@@ -1,0 +1,20 @@
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <p>Kies een stijl:</p>
+        <md-input-container>
+            <label>Layout</label>
+           <md-select ng-model="size" ng-change="changeStyle(size)" >
+                <md-option value="33">
+                    Klein (33% van het scherm)
+                </md-option>
+                <md-option value="50">
+                    Normaal (50% van het scherm)
+                </md-option>
+                <md-option value="80">
+                    Breed (80% van het scherm)
+                </md-option>
+                <md-option value="100">
+                    Volledige breedte (100% van het scherm)
+                </md-option>
+            </md-select>
+        </md-input-container>
+    </section>

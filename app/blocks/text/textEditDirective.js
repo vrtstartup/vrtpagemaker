@@ -1,25 +1,17 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:blockHero
- * @description
- * # blockHero
- */
 angular.module('immersiveAngularApp')
-    .directive('blockHero', function(FBBlock) {
+    .directive('editText', function(FBBlock) {
         return {
-            template: '<div class="o-hero"  /><div class="o-hero__img" ><figure class="{{filter}}" ><img ng-src="{{url}}" ></figure><div class="o-hero__text" layout="row" layout-align="center center"><div><p ng-model="data.parameters.text" medium-editor options="{{options}}" bind-options="mediumBindOptions"></p></div></div></div></div>',
+            template: '<div class="o-block__text"><p ng-model="data.parameters.text" medium-editor options="{{options}}" bind-options="mediumBindOptions"></p></div>',
             restrict: 'E',
             scope: {
                 id: '=',
                 article: '=',
                 parameters: '='
             },
-
             link: function postLink(scope) {
-
-
+                /* Load the block */
                 FBBlock.getObject(scope.article, scope.id).then(function(obj) {
                     obj.$bindTo(scope, "data");
                 });
@@ -53,22 +45,7 @@ angular.module('immersiveAngularApp')
                     extensions: {
                         'highlight': new Highlighter()
                     }
-                };
-
-
-                scope.$watch('parameters.url', function(newValue, oldValue) {
-                    if (newValue) {
-                        scope.url = newValue;
-                    }
-                });
-
-                scope.$watch('parameters.filter', function(newValue, oldValue) {
-                    if (newValue) {
-                        scope.filter = newValue;
-                    };
-                });
-
-
+                }
             }
         };
     });

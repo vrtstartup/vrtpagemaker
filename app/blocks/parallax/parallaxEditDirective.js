@@ -1,13 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:blockImage
- * @description
- * # blockImage
- */
 angular.module('immersiveAngularApp')
-    .directive('blockParallax', function(parallaxHelper) {
+    .directive('editParallax', function(parallaxHelper) {
         return {
             // template: '<div class="o-block" ><img src="{{parameters.url}}" du-parallax y="background" alt="" rotation="rotation"  x="slideInFromLeft"/></div>',
             template: '<div class="o-block" ><img src="{{parameters.url}}" du-parallax y="background" alt=""  x="slideIn"/></div>',
