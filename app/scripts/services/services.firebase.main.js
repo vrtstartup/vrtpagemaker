@@ -3,7 +3,7 @@
 
 angular.module('immersiveAngularApp')
 
-.factory('services.firebase.main', ['$firebaseArray', '$firebaseObject', '$q', 'firebaseURL', function($firebaseArray, $firebaseObject, $q, firebaseURL) {
+.factory('firebaseMainService', ['$firebaseArray', '$firebaseObject', '$q', 'firebaseURL', function($firebaseArray, $firebaseObject, $q, firebaseURL) {
 
 
     var FURL =  firebaseURL.FURL;
