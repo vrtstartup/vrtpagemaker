@@ -23,7 +23,7 @@ angular
         'as.sortable',
         'ngMaterial',
         'angulartics',
-        'angulartics.google.analytics'
+        'angulartics.google.analytics',
         'angular-mapbox'
 
     ])
