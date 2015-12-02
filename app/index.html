@@ -29,18 +29,24 @@
         <div ng-view=""></div>
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-   <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
 
-  ga('create', 'UA-66111173-2', 'auto');
-
-</script>
+    ga('create', 'UA-66111173-2', 'auto');
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
-
+    <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
@@ -75,39 +81,52 @@
     <!-- endbuild -->
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <!-- Controllers -->
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/dialog.js"></script>
     <script src="scripts/controllers/articleView.js"></script>
     <script src="scripts/controllers/articleEdit.js"></script>
     <script src="scripts/controllers/edit.js"></script>
     <script src="scripts/controllers/info.js"></script>
+    <!-- Services -->
     <script src="scripts/services/firebase.js"></script>
-    <script src="scripts/directives/blocksDispatcher.js"></script>
-    <script src="blocks/text/textBlockDirective.js"></script>
-    <script src="blocks/image/imageBlockDirective.js"></script>
-    <script src="blocks/video/videoBlockDirective.js"></script>
-    <script src="blocks/parallax/parallaxBlockDirective.js"></script>
-    <script src="blocks/twitter/twitterBlockDirective.js"></script>
-    <script src="blocks/facebook/facebookBlockDirective.js"></script>
-    <script src="blocks/iframe/iframeBlockDirective.js"></script>
-    <script src="blocks/hero/heroBlockDirective.js"></script>
-    <script src="scripts/directives/showdown.js"></script>
-    <script src="scripts/services/loadtweets.js"></script>
     <script src="scripts/services/blocksActions.js"></script>
     <script src="scripts/services/blocksValues.js"></script>
+    <script src="scripts/services/dialog.js"></script>
     <script src="scripts/services/mapbox-service.js"></script>
+    <script src="scripts/services/loadtweets.js"></script>
     <script src="scripts/services/filepicker-service.js"></script>
+    <!-- Directives __  general -->
+    <script src="scripts/directives/showdown.js"></script>
+    <script src="scripts/directives/feedback.js"></script>
+    <script src="scripts/directives/positioninpage.js"></script>
+    <!-- Directives __ Blocks -->
+    <script src="scripts/directives/blocksEditDispatcher.js"></script>
     <script src="scripts/directives/blocksviewdispatcher.js"></script>
+    <!-- Directives __ Blocks __ Text -->
+    <script src="blocks/text/textEditDirective.js"></script>
     <script src="blocks/text/textViewDirective.js"></script>
-    <script src="blocks/video/videoViewDirective.js"></script>
+    <!-- Directives __ Blocks __ Image -->
+    <script src="blocks/image/imageEditDirective.js"></script>
     <script src="blocks/image/imageViewDirective.js"></script>
+    <!-- Directives __ Blocks __ Video -->
+    <script src="blocks/video/videoEditDirective.js"></script>
+    <script src="blocks/video/videoViewDirective.js"></script>
+    <!-- Directives __ Blocks __ Parallax -->
+    <script src="blocks/parallax/parallaxEditDirective.js"></script>
+    <!-- Directives __ Blocks __ Twitter -->
+    <script src="blocks/twitter/twitterEditDirective.js"></script>
+    <!-- Directives __ Blocks __ Facebook -->
+    <script src="blocks/facebook/facebookEditDirective.js"></script>
+    <!-- Directives __ Blocks __ iFrame -->
+    <script src="blocks/iframe/iframeEditDirective.js"></script>
     <script src="blocks/iframe/iframeViewDirective.js"></script>
+    <!-- Directives __ Blocks __ Hero -->
+    <script src="blocks/hero/heroEditDirective.js"></script>
     <script src="blocks/hero/heroViewDirective.js"></script>
     <!-- Directives __ Blocks __ Break -->
     <script src="blocks/break/breakEditDirective.js"></script>
     <script src="blocks/break/breakViewDirective.js"></script>
-    <script src="scripts/directives/feedback.js"></script>
-    <script src="scripts/directives/positioninpage.js"></script>
-    <script src="scripts/services/dialog.js"></script>
     <!-- Directives __ Blocks __ Map -->
     <script src="blocks/map/mapEditDirective.js"></script>
     <script src="blocks/map/mapViewDirective.js"></script>
