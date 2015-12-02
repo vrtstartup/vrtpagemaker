@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('ArticleEditCtrl', function($scope, $routeParams, FBArticle, FBBlock, FBStory, $window, $mdDialog, blocks, blocksValues, $timeout, $mdSidenav, $mdUtil, $log, $location) {
+    .controller('StoryEditController', function($scope, $routeParams, firebaseStoryService, firebaseBlocksService, firebaseStoriesService, $window, $mdDialog, valuesService, $timeout, $mdSidenav, $mdUtil, $log, $location) {
 
         /* Set the id of the article */
         $scope.articleId = $routeParams.article;
@@ -10,12 +10,12 @@ angular.module('immersiveAngularApp')
         function getArticle() {
 
             /*  Get the array of blocks */
-            FBArticle.getArray($scope.articleId).then(function(list) {
+            firebaseStoryService.getArray($scope.articleId).then(function(list) {
                 $scope.list = list;
             });
 
             /*  Get meta of the article */
-            FBArticle.getArticle($scope.articleId).then(function(obj) {
+            firebaseStoryService.getArticle($scope.articleId).then(function(obj) {
                 console.log(obj);
                 obj.$bindTo($scope, "articleMeta");
             });
@@ -28,10 +28,10 @@ angular.module('immersiveAngularApp')
         };
         $scope.addToLive = function(articleId) {
             /* Get Article */
-            FBArticle.getArticle($scope.articleId).then(function(obj) {
+            firebaseStoryService.getArticle($scope.articleId).then(function(obj) {
                 console.log(obj);
                 /* Save article to Live*/
-                FBArticle.live(articleId, obj).then(function(obj) {
+                firebaseStoryService.live(articleId, obj).then(function(obj) {
                     console.log(obj);
                 });
             });
@@ -39,7 +39,7 @@ angular.module('immersiveAngularApp')
 
 
         $scope.removeFromLive = function(articleId) {
-            FBArticle.deleteLive(articleId, 'live');
+            firebaseStoryService.deleteLive(articleId, 'live');
         };
 
         $scope.goToLive = function(articleId) {
@@ -47,8 +47,8 @@ angular.module('immersiveAngularApp')
         };
 
         $scope.deleteArticle = function(articleId) {
-            FBStory.delete(articleId, 'live').then(function() {
-                FBStory.delete(articleId, 'staging').then(function() {
+            firebaseStoriesService.delete(articleId, 'live').then(function() {
+                firebaseStoriesService.delete(articleId, 'staging').then(function() {
                     console.log('deleted everything');
                     $location.path('/edit/');
 
@@ -58,10 +58,10 @@ angular.module('immersiveAngularApp')
         };
 
         var updatePriority = function(article, id) {
-            FBBlock.getObject(article, id)
+            firebaseBlocksService.getObject(article, id)
                 .then(function(obj) {
                     var newPriority = obj.$priority++;
-                    FBArticle.setPriority($scope.articleId, obj.priorityid, newPriority);
+                    firebaseStoryService.setPriority($scope.articleId, obj.priorityid, newPriority);
                 });
         };
 
@@ -75,18 +75,18 @@ angular.module('immersiveAngularApp')
                     updatePriority($scope.articleId, $scope.list[i].$id);
                 } else {
                     console.log('reordering');
-                    FBArticle.setPriority($scope.articleId, $scope.list[i].$id, i);
+                    firebaseStoryService.setPriority($scope.articleId, $scope.list[i].$id, i);
 
                 }
 
                 // console.log('de priority voor ' + i + ' = ' + priority);
-                // FBArticle.setPriority($scope.articleId, $scope.list[i].$id);
+                // firebaseStoryService.setPriority($scope.articleId, $scope.list[i].$id);
 
             }
         }
 
         /* All the "new block"-buttons*/
-        $scope.buttons = blocksValues.buttons();
+        $scope.buttons = valuesService.buttons();
 
         /* Show the dialog */
         function showDialog(template, type, id, $event) {
@@ -101,7 +101,7 @@ angular.module('immersiveAngularApp')
                     article: $scope.articleId,
                     type: type
                 },
-                controller: 'DialogController'
+                controller: 'storyDialogController'
             });
         }
 
@@ -118,7 +118,7 @@ angular.module('immersiveAngularApp')
 
         /* addBlock when called from text block */
         $scope.addBlock = function(article, edit) {
-            blocks.add(article, edit).then(function(id) {
+            firebaseBlocksService.add(article, edit).then(function(id) {
                 console.log(id);
             });
         };
@@ -126,7 +126,7 @@ angular.module('immersiveAngularApp')
         /* Starts the opening of the dialog. Is called from the Edit button in the view */
         $scope.openDialog = function(article, type, id) {
             console.log('dialog controller says: You want me to open the dialog for an object type "' + type + '" of article ' + article);
-            blocksValues.dialogs(type).then(function(template) {
+            valuesService.dialogs(type).then(function(template) {
                 showDialog(template, type, id);
             });
         };

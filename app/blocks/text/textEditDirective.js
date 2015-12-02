@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .directive('editText', function(FBBlock) {
+    .directive('editText', function(firebaseBlocksService) {
         return {
             template: '<div class="o-block__text"><p ng-model="data.parameters.text" medium-editor options="{{options}}" bind-options="mediumBindOptions"></p></div>',
             restrict: 'E',
@@ -12,7 +12,7 @@ angular.module('immersiveAngularApp')
             },
             link: function postLink(scope) {
                 /* Load the block */
-                FBBlock.getObject(scope.article, scope.id).then(function(obj) {
+                firebaseBlocksService.getObject(scope.article, scope.id).then(function(obj) {
                     obj.$bindTo(scope, "data");
                 });
 

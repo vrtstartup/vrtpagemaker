@@ -7,7 +7,7 @@
  * # blockHero
  */
 angular.module('immersiveAngularApp')
-    .directive('editHero', function(FBBlock) {
+    .directive('editHero', function(firebaseBlocksService) {
         return {
             template: '<div class="o-hero"><div class="o-hero__img" ><figure class="{{filter}}" ><img ng-src="{{url}}" ></figure><div class="o-hero__text" layout="row" layout-align="center center"><div><p ng-model="data.parameters.text" medium-editor options="{{options}}" bind-options="mediumBindOptions"></p></div></div></div></div>',
             restrict: 'E',
@@ -20,7 +20,7 @@ angular.module('immersiveAngularApp')
             link: function postLink(scope) {
 
 
-                FBBlock.getObject(scope.article, scope.id).then(function(obj) {
+                firebaseBlocksService.getObject(scope.article, scope.id).then(function(obj) {
                     obj.$bindTo(scope, "data");
                 });
 

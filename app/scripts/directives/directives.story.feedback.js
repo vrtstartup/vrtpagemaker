@@ -1,6 +1,6 @@
 'use strict';
 
-function FeedbackController(scope, $window, $mdDialog, FBMain, article) {
+function FeedbackController(scope, $window, $mdDialog, firebaseMainService, article) {
 
     scope.closeDialog = function() {
         $mdDialog.cancel();
@@ -13,7 +13,7 @@ function FeedbackController(scope, $window, $mdDialog, FBMain, article) {
         var userAgent = window.navigator.userAgent;
 
         if (feedback) {
-            FBMain.addFeedback(name, feedback, userAgent, screenWidth, screenHeight, article).then(function() {
+            firebaseMainService.addFeedback(name, feedback, userAgent, screenWidth, screenHeight, article).then(function() {
                 $mdDialog.cancel();
             });
         }

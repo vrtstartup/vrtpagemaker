@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .directive('blocksViewDispatcher', function($compile, blocksValues) {
+    .directive('blocksDispatcherView', function($compile, valuesService) {
         return {
             template: '<div></div>',
             restrict: 'E',
@@ -12,7 +12,7 @@ angular.module('immersiveAngularApp')
                 article: '='
             },
             link: function postLink(scope, elem) {
-                var template = blocksValues.viewdirectives(scope.type);
+                var template = valuesService.viewdirectives(scope.type);
                 var compiled = $compile(template)(scope);
                 elem.empty().append(compiled);
 

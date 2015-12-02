@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .directive('editTwitter', function($http, $compile, loadTweets) {
+    .directive('editTwitter', function($http, $compile, loadTwitterService) {
         return {
             template: '<div></div>',
             restrict: 'E',

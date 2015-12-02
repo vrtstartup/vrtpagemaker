@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('EditCtrl', function($scope, $mdDialog, FBStory, $location) {
+    .controller('StoriesEditController', function($scope, $mdDialog, firebaseStoriesService, $location) {
 
 
         /* Get  the article from the Firebase */
@@ -9,7 +9,7 @@ angular.module('immersiveAngularApp')
 
             /*  Get the array of blocks */
 
-            FBStory.getArray(place).then(function(list) {
+            firebaseStoriesService.getArray(place).then(function(list) {
                 $scope.list = list;
             });
 
@@ -26,8 +26,8 @@ angular.module('immersiveAngularApp')
 
         $scope.removeArticle = function(article) {
             console.log(article);
-            FBStory.delete(article, 'staging');
-            FBStory.delete(article, 'live');
+            firebaseStoriesService.delete(article, 'staging');
+            firebaseStoriesService.delete(article, 'live');
         };
 
 
@@ -57,7 +57,7 @@ angular.module('immersiveAngularApp')
 
 
         $scope.createStory = function(title) {
-            FBStory.add(title).then(function(id) {
+            firebaseStoriesService.add(title).then(function(id) {
                 console.log(id);
                 console.log($location);
                 $location.path('/edit/' + id);

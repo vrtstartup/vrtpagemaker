@@ -3,7 +3,7 @@
     <div class="o-container">
         <div layout="row" layout-wrap layout-align="center start">
             <div class="o-block {{value.parameters.class}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" offset-gt-sm="{{value.parameters.offset}}" flex-sm="100"  offset-sm="0">
-                <blocks-view-dispatcher type="value.type" parameters="value.parameters" id="value.$id" article="articleId"></blocks-view-dispatcher>
+                <blocks-dispatcher-view type="value.type" parameters="value.parameters" id="value.$id" article="articleId"></blocks-dispatcher-view>
             </div>
         </div>
     </div>

@@ -2,19 +2,13 @@
 
 
 angular.module('immersiveAngularApp')
-    .factory('blocksValues', ['$q', 'FBArticle', function($q) {
-
-
-
-        /*
-            All functions available in the Templates Service
-        */
+    .factory('valuesService', ['$q', function($q) {
 
 
         var blocks = {
             '0': {
                 'type': 'delete',
-                'dialog': 'views/deleteDialog.html',
+                'dialog': 'views/templates.dialog.block.delete.html',
             },
             '1': {
                 'type': 'text',

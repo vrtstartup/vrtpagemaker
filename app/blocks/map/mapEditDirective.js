@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .directive('editMap', function(mapboxService, $timeout) {
+    .directive('editMap', function(mapMapboxService, $timeout) {
         return {
             template: '<div class="o-map"><mapbox map-id="licyeus.i9pkgkg8" lat="47.643569" lng="-122.329453" on-reposition="mapMovedCallback" on-zoom="mapZoomedCallback" zoom="12" scale-to-fit></mapbox></div>',
             restrict: 'E',

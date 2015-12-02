@@ -27,29 +27,29 @@ angular
         'angular-mapbox'
 
     ])
+    .constant("firebaseURL", {
+        "FURL": "https://immersiveangular.firebaseio.com/",
+        "FURLStaging": "https://immersiveangular.firebaseio.com/staging/",
+        "FURLLive": "https://immersiveangular.firebaseio.com/live/"
+    })
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'views/main.html',
-                controller: 'MainCtrl',
+                templateUrl: 'views/pages.main.html',
+                controller: 'MainController',
 
             })
             .when('/articles/:article', {
-                templateUrl: 'views/articleView.html',
-                controller: 'ArticleViewCtrl',
+                templateUrl: 'views/pages.story.edit.html',
+                controller: 'StoryViewController',
             })
             .when('/edit/:article', {
-                templateUrl: 'views/articleEdit.html',
-                controller: 'ArticleEditCtrl',
+                templateUrl: 'views/pages.story.edit.html',
+                controller: 'StoryEditController',
             })
             .when('/edit', {
-                templateUrl: 'views/edit.html',
-                controller: 'EditCtrl',
-            })
-            .when('/info', {
-                templateUrl: 'views/info.html',
-                controller: 'InfoCtrl',
-
+                templateUrl: 'views/pages.stories.edit.html',
+                controller: 'StoriesEditController',
             })
             .otherwise({
                 redirectTo: '/'

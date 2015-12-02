@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-  .controller('InfoCtrl', function () {
+  .controller('MainController', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

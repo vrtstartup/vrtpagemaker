@@ -1,16 +1,16 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('DialogController', function($scope, $window, $mdDialog, id, article, type, FBArticle, FBBlock, blocks, blocksValues, uploader) {
+    .controller('storyDialogController', function($scope, $window, $mdDialog, id, article, type, firebaseStoryService, firebaseBlocksService, valuesService, toolsUploaderService) {
 
 
 
         $scope.article = article;
-        $scope.filters = blocksValues.filters();
+        $scope.filters = valuesService.filters();
         $scope.templates = {
-            'style': '../views/templates.dialog.style.html',
-            'filters': '../views/templates.dialog.filters.html',
-            'buttons': '../views/templates.dialog.buttons.html'
+            'style': '../views/includes.dialog.style.html',
+            'filters': '../views/includes.dialog.filters.html',
+            'buttons': '../views/includes.dialog.buttons.html'
         };
 
         /* Add a new block */
@@ -18,7 +18,7 @@ angular.module('immersiveAngularApp')
             console.log(block);
             console.log('dialog controller says: You want me to add a block of type "' + block.type + '" to article ' + $scope.article);
             $scope.changeStyle($scope.size);
-            blocks.add($scope.article, block).then(function() {
+            firebaseBlocksService.add($scope.article, block).then(function() {
                 $scope.closeDialog();
             });
         };
@@ -26,7 +26,7 @@ angular.module('immersiveAngularApp')
         /* When changing the width of the block, this function is called */
         $scope.changeStyle = function(style) {
             console.log('test');
-            var s = blocksValues.styles(style);
+            var s = valuesService.styles(style);
             $scope.block.parameters.width = s.width;
         };
 
@@ -37,14 +37,14 @@ angular.module('immersiveAngularApp')
 
         /* Delete this block */
         $scope.deleteBlock = function(key) {
-            blocks.delete($scope.article, key).then(function() {
+            firebaseBlocksService.delete($scope.article, key).then(function() {
                 $scope.closeDialog();
             });
         };
 
         $scope.getFile = function(type) {
             console.log('getting file of ' + type);
-            uploader.uploadFile(type).then(function(Blob) {
+            toolsUploaderService.uploadFile(type).then(function(Blob) {
                 if ($scope.block) {
                     $scope.block.parameters.url = Blob.url;
                 } else {
@@ -62,7 +62,7 @@ angular.module('immersiveAngularApp')
             /* There is and id already, so we are editing this */
             if (id) {
                 /* Load the object from the Firebase */
-                FBBlock.getObject($scope.article, id).then(function(obj) {
+                firebaseBlocksService.getObject($scope.article, id).then(function(obj) {
                     obj.$bindTo($scope, "block").then(function() {
                         $scope.size = obj.parameters.width;
                     });

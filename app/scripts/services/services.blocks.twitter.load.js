@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .service('loadTweets', function() {
+    .service('loadTwitterService', function() {
         this.loadAllWidgets = function() {
 
             ! function(d, s, id) {
