@@ -1,10 +1,10 @@
 <feedback article="articleId">
 </feedback>
 <div class="editpage">
-    <div class="left" flex="20">
+    <div class="left" flex="{{menuWidth}}" ng-init="menuWidth = 20">
         <md-content layout="column">
             <md-toolbar class="md-accent">
-                <div class="md-toolbar-tools" layout="row">
+                <div class="md-toolbar-tools" layout="row" ng-click="toggleMenuWidth()">
                     <div flex offset="5">
                         <h3>
                     <span >Opties</span>
@@ -58,12 +58,12 @@
     <div class="right">
         <md-content>
             <div class="o-container">
-                <div ng-click="toggleMenu()">
+                <!-- <div ng-click="toggleMenu()">
                     <div class="o-menu__toggle" ng-class="{'material--arrow': isOpenLeft()}">
                         <span></span>
                         <md-tooltip>Menu</md-tooltip>
                     </div>
-                </div>
+                </div> -->
                 <div layout="row" layout-wrap layout-align="center start" layout-padding layout-margin layout-fill>
                     <div class="o-block {{value.parameters.class}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
                         <div class="o-block--hovered" ng-show="value.$id == activeBlock"></div>

@@ -37,12 +37,20 @@ angular.module('immersiveAngularApp')
             });
         };
 
-        $scope.setActiveBlock = function(block){
+        $scope.setActiveBlock = function(block) {
             $scope.activeBlock = block;
         };
 
-        $scope.removeActiveBlock = function(block){
+        $scope.removeActiveBlock = function(block) {
             $scope.activeBlock = '';
+        };
+
+        $scope.toggleMenuWidth = function() {
+            if ($scope.menuWidth === 20) {
+                $scope.menuWidth = 5;
+            } else {
+                $scope.menuWidth = 20;
+            }
         };
 
         $scope.removeFromLive = function(articleId) {
