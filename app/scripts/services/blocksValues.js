@@ -85,6 +85,16 @@ angular.module('immersiveAngularApp')
                     'type': 'break',
                     'name': 'Break'
                 }
+            },
+            '8': {
+                'type': 'map',
+                'dialog': 'blocks/map/mapBlockDialog.html',
+                'edit': '<edit-map class="o-container__block" id="id" article="article" parameters="parameters"></edit-map>',
+                'view': '<view-map class="o-container__block" id="id" article="article" parameters="parameters"></view-map>',
+                'button': {
+                    'type': 'map',
+                    'name': 'Map'
+                }
             }
         };
 
