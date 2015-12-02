@@ -180,3 +180,9 @@
     background: radial-gradient(circle, #E6E7E0 40%, rgba(43, 42, 161, .6) 110%);
     mix-blend-mode: color-burn
 }
+
+
+.blur {
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+}
