@@ -5,15 +5,7 @@
         </div>
     </md-toolbar>
     <br/>
-
     <md-divider></md-divider>
-    <div class="md-actions" layout="row">
-        <md-button ng-hide="block.$id" ng-click="addBlock(articleId, block)" target="_blank" md-autofocus>
-            Voeg toe
-        </md-button>
-        <span flex></span>
-        <md-button ng-click="closeDialog()" style="margin-right:20px;">
-            Sluit
-        </md-button>
-    </div>
+    <!-- Add / close buttons -->
+    <div ng-include="templates.buttons"></div>
 </md-content>
