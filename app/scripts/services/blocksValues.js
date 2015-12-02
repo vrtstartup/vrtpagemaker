@@ -90,19 +90,19 @@ angular.module('immersiveAngularApp')
 
         var styles = {
             '0': {
-                'type': 'small',
+                'type': '33',
                 'width': 33
             },
             '1': {
-                'type': 'normal',
+                'type': '50',
                 'width': 50
             },
-            '3': {
-                'type': 'wide',
+            '2': {
+                'type': '80',
                 'width': 80
             },
-            '4': {
-                'type': 'full',
+            '3': {
+                'type': '100',
                 'width': 100
             }
         };
