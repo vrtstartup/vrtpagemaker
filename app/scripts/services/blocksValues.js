@@ -19,7 +19,7 @@ angular.module('immersiveAngularApp')
             '1': {
                 'type': 'text',
                 'dialog': 'blocks/text/textBlockDialog.html',
-                'edit': '<block-text class="o-container__block" id="id" article="article" parameters="parameters"></block-text>',
+                'edit': '<edit-text class="o-container__block" id="id" article="article" parameters="parameters"></edit-text>',
                 'view': '<view-text class="o-container__block" id="id" article="article" parameters="parameters"></view-text>',
                 'button': {
                     'type': 'text',
@@ -29,7 +29,7 @@ angular.module('immersiveAngularApp')
             '2': {
                 'type': 'image',
                 'dialog': 'blocks/image/imageBlockDialog.html',
-                'edit': '<block-image class="o-container__block" id="id" article="article" parameters="parameters"></block-image>',
+                'edit': '<edit-image class="o-container__block" id="id" article="article" parameters="parameters"></edit-image>',
                 'view': '<view-image class="o-container__block" id="id" article="article" parameters="parameters"></view-image>',
                 'button': {
                     'type': 'image',
@@ -39,7 +39,7 @@ angular.module('immersiveAngularApp')
             '3': {
                 'type': 'video',
                 'dialog': 'blocks/video/videoBlockDialog.html',
-                'edit': '<block-video class="o-container__block" id="id" article="article" parameters="parameters"></block-video>',
+                'edit': '<edit-video class="o-container__block" id="id" article="article" parameters="parameters"></edit-video>',
                 'view': '<view-video class="o-container__block" id="id" article="article" parameters="parameters"></view-video>',
                 'button': {
                     'type': 'video',
@@ -49,7 +49,7 @@ angular.module('immersiveAngularApp')
             '4': {
                 'type': 'iframe',
                 'dialog': 'blocks/iframe/iframeBlockDialog.html',
-                'edit': '<block-iframe class="o-container__block" id="id" article="article" parameters="parameters"></block-iframe>',
+                'edit': '<edit-iframe class="o-container__block" id="id" article="article" parameters="parameters"></edit-iframe>',
                 'view': '<view-iframe class="o-container__block" id="id" article="article" parameters="parameters"></view-iframe>',
                 'button': {
                     'type': 'iframe',
@@ -59,7 +59,7 @@ angular.module('immersiveAngularApp')
             '5': {
                 'type': 'hero',
                 'dialog': 'blocks/hero/heroBlockDialog.html',
-                'edit': '<block-hero class="o-container__block" id="id" article="article" parameters="parameters"></block-hero>',
+                'edit': '<edit-hero class="o-container__block" id="id" article="article" parameters="parameters"></edit-hero>',
                 'view': '<view-hero class="o-container__block" id="id" article="article" parameters="parameters"></view-hero>',
                 'button': {
                     'type': 'hero',
@@ -69,7 +69,7 @@ angular.module('immersiveAngularApp')
             '6': {
                 'type': 'parallax',
                 'dialog': 'blocks/parallax/parallaxBlockDialog.html',
-                'edit': '<block-parallax class="o-container__block" id="id" article="article" parameters="parameters"></block-parallax>',
+                'edit': '<edit-parallax class="o-container__block" id="id" article="article" parameters="parameters"></edit-parallax>',
                 'view': '<view-parallax class="o-container__block" id="id" article="article" parameters="parameters"></view-parallax>',
                 'button': {
                     'type': 'parallax',
@@ -79,7 +79,7 @@ angular.module('immersiveAngularApp')
             '7': {
                 'type': 'break',
                 'dialog': 'blocks/break/breakBlockDialog.html',
-                'edit': '<block-break class="o-container__block" id="id" article="article" parameters="parameters"></block-break>',
+                'edit': '<edit-break class="o-container__block" id="id" article="article" parameters="parameters"></edit-break>',
                 'view': '<view-break class="o-container__block" id="id" article="article" parameters="parameters"></view-break>',
                 'button': {
                     'type': 'break',
