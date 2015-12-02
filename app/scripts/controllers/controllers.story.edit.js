@@ -37,6 +37,13 @@ angular.module('immersiveAngularApp')
             });
         };
 
+        $scope.setActiveBlock = function(block){
+            $scope.activeBlock = block;
+        };
+
+        $scope.removeActiveBlock = function(block){
+            $scope.activeBlock = '';
+        };
 
         $scope.removeFromLive = function(articleId) {
             firebaseStoryService.deleteLive(articleId, 'live');

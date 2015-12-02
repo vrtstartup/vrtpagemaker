@@ -71,6 +71,8 @@
                             <svg version="1.1" ng-click="openDialog(articleId, value.type, value.$id)" id="editButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 485.219 485.22" style="enable-background:new 0 0 485.219 485.22;" xml:space="preserve">
                                 <g>
                                     <path d="M467.476,146.438l-21.445,21.455L317.35,39.23l21.445-21.457c23.689-23.692,62.104-23.692,85.795,0l42.886,42.897
+                <ul data-as-sortable="dragControlListeners" data-ng-model="list" layout="row" layout-wrap layout-align="center start" >
+                    <li flex="{{item.parameters.width}}" data-ng-repeat="(key,item) in list" data-as-sortable-item ng-mouseover="setActiveBlock(item.$id)"  ng-mouseleave="removeActiveBlock()">
         C491.133,84.349,491.133,122.748,467.476,146.438z M167.233,403.748c-5.922,5.922-5.922,15.513,0,21.436
         c5.925,5.955,15.521,5.955,21.443,0L424.59,189.335l-21.469-21.457L167.233,403.748z M60,296.54c-5.925,5.927-5.925,15.514,0,21.44
         c5.922,5.923,15.518,5.923,21.443,0L317.35,82.113L295.914,60.67L60,296.54z M338.767,103.54L102.881,339.421
