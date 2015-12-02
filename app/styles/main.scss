@@ -89,14 +89,6 @@ body {
 }
 
 
-
-figure {
-  margin: 0; padding: 0;
-}
-
-
-
-
 @import "variables";
 
 // BEM Mixin
@@ -176,6 +168,7 @@ figure {
 @import "feedback";
 @import "embedsNUUUS";
 @import "cssgram";
+@import "shame";
 
 
 
