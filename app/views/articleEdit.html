@@ -1,5 +1,4 @@
 <feedback article="articleId"></feedback>
-
 <md-sidenav class="md-sidenav-left" md-component-id="menu">
     <md-toolbar class="md-accent">
         <div class="md-toolbar-tools" layout="row">
@@ -31,8 +30,7 @@
         <div flex="33" data-ng-repeat="b in buttons">
             <li ng-click="openDialog(articleId, b.type, null)" class="o-add o-add__{{b.type}}">
                 <md-tooltip>
-                {{b.name}}
-
+                    {{b.name}}
                 </md-tooltip>
             </li>
         </div>
@@ -48,8 +46,8 @@
         </div>
     </md-toolbar>
     <md-content layout-padding>
-        <ul data-as-sortable="dragControlListeners" data-ng-model="list" layout="row" layout-wrap layout-align="center start" >
-            <li flex="{{item.parameters.width}}" data-ng-repeat="(key,item) in list" data-as-sortable-item >
+        <ul data-as-sortable="dragControlListeners" data-ng-model="list" layout="row" layout-wrap layout-align="center start">
+            <li flex="{{item.parameters.width}}" data-ng-repeat="(key,item) in list" data-as-sortable-item>
                 <div data-as-sortable-item-handle class="o-sortable o-sortable__{{item.type}}"></div>
             </li>
             </a>
@@ -61,14 +59,13 @@
     <md-content>
         <div class="o-container">
             <div ng-click="toggleMenu()">
-                <div class="o-menu__toggle"  ng-class="{'material--arrow': isOpenLeft()}">
+                <div class="o-menu__toggle" ng-class="{'material--arrow': isOpenLeft()}">
                     <span></span>
-
-                <md-tooltip>Menu</md-tooltip>
+                    <md-tooltip>Menu</md-tooltip>
                 </div>
             </div>
             <div layout="row" layout-wrap layout-align="center start" layout-padding layout-margin layout-fill>
-                <div class="o-block {{value.parameters.class}}"  ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
+                <div class="o-block {{value.parameters.class}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
                     <div class="o-edit__buttons {{value.type}}" layout="column" layout-align="start start">
                         <div>
                             <svg version="1.1" ng-click="openDialog(articleId, value.type, value.$id)" id="editButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 485.219 485.22" style="enable-background:new 0 0 485.219 485.22;" xml:space="preserve">
@@ -104,10 +101,9 @@
                             </svg>
                         </div>
                     </div>
-                    <blocks-dispatcher type="value.type" analytics-on="scrollby" parameters="value.parameters" id="value.$id" article="articleId"></blocks-dispatcher>
+                    <blocks-edit-dispatcher type="value.type" analytics-on="scrollby" parameters="value.parameters" id="value.$id" article="articleId"></blocks-dispatcher>
                 </div>
             </div>
-
         </div>
     </md-content>
 </div>

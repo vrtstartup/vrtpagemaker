@@ -112,7 +112,6 @@ angular.module('immersiveAngularApp')
             },
             orderChanged: function(event) {
                 console.log(event);
-
                 reorderList(0, false);
             }
         };
@@ -132,6 +131,8 @@ angular.module('immersiveAngularApp')
             });
         };
 
+
+        // Function to toggle Menu
         function buildToggler(navID) {
             var debounceFn = $mdUtil.debounce(function() {
                 $mdSidenav(navID)
