@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:blockHero
- * @description
- * # blockImage
- */
 angular.module('immersiveAngularApp')
     .directive('viewHero', function() {
         return {

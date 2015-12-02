@@ -1,12 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc service
- * @name immersiveAngularApp.blocks
- * @description
- * # blocks
- * Service in the immersiveAngularApp.
- */
+
 angular.module('immersiveAngularApp')
     .factory('blocksValues', ['$q', 'FBArticle', function($q) {
 
@@ -117,15 +111,11 @@ angular.module('immersiveAngularApp')
             'geen', 'aden', 'reyes', 'perpetua', 'inkwell', 'toaster', 'walden', 'hudson', 'gingham', 'mayfair', 'lofi', 'xpro2', '_1977', 'brooklyn'
         ];
 
-
-
-
         return {
             dialogs: function(type) {
                 var deferred = $q.defer();
                 var template;
                 /* Depending of the type of the dialog, we choose a template, and after that open up the dialog. */
-
                 for (var key in blocks) {
                     if (blocks.hasOwnProperty(key)) {
                         if (type === blocks[key].type) {

@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:blocks
- * @description
- * # blocks
- */
 angular.module('immersiveAngularApp')
     .directive('blocksViewDispatcher', function($compile, blocksValues) {
         return {

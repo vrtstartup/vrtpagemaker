@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:blockText
- * @description
- * # blockText
- */
 angular.module('immersiveAngularApp')
     .directive('viewText', function($sce) {
         return {

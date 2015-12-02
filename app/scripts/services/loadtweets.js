@@ -1,12 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc service
- * @name immersiveAngularApp.loadTweets
- * @description
- * # loadTweets
- * Service in the immersiveAngularApp.
- */
 angular.module('immersiveAngularApp')
     .service('loadTweets', function() {
         this.loadAllWidgets = function() {

@@ -1,117 +1,13 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name immersiveAngularApp.controller:ArticleCtrl
- * @description
- * # ArticleCtrl
- * Controller of the immersiveAngularApp
- */
-
-
-
-function DialogController($scope, $window, $mdDialog, filepickerService, id, article, type, FBArticle, FBBlock, blocks, blocksValues) {
-
-    $scope.id = id;
-    $scope.type = type;
-    $scope.articleId = article;
-
-
-    /* There is and id already, so we are editing this */
-    if ($scope.id) {
-        console.log('dialog controller says: You want me to edit ' + $scope.id + ' of type "' + $scope.type + '" in article ' + $scope.articleId);
-        /* Load the object from the Firebase */
-        FBBlock.getObject($scope.articleId, id).then(function(obj) {
-            obj.$bindTo($scope, "block");
-        });
-    }
-
-    /* There is no id, so we are not editing, but creating */
-    else {
-        console.log('dialog controller says: You want me to create an object of type "' + $scope.type + '" in article ' + $scope.articleId);
-        /* The only thing we know is the type of the dialog. */
-        $scope.block = {
-            'type': type,
-            'parameters': {
-                'width': 50,
-                'class': 'normal'
-            }
-        };
-    }
-
-    $scope.size = 'normal';
-
-    $scope.changeStyle = function(style) {
-        var s = blocksValues.styles(style);
-        console.log(s);
-        $scope.block.parameters.width = s.width;
-        $scope.block.parameters.class = style;
-    };
-
-    if($scope.type === 'image' || 'hero'){
-        $scope.filters = blocksValues.filters();
-    }
-    $scope.addBlock = function(articleId, block) {
-        console.log('dialog controller says: You want me to add a block of type "' + block.type + '" to article ' + articleId);
-
-        $scope.changeStyle($scope.size);
-
-        blocks.add(articleId, block).then(function() {
-            $scope.closeDialog();
-        });
-    };
-
-    $scope.deleteBlock = function(article, key) {
-        console.log(article, key);
-        blocks.delete(article, key).then(function() {
-            $scope.closeDialog();
-        });
-    };
-
-    $scope.closeDialog = function() {
-        $mdDialog.hide();
-    };
-
-
-    /* Functions for the filepicker. Should Go To Service */
-    $scope.files = JSON.parse($window.localStorage.getItem('files') || '[]');
-
-    function onSuccess(Blob) {
-        console.log('got the file');
-        $scope.files.push(Blob);
-        $window.localStorage.setItem('files', JSON.stringify($scope.files));
-        console.log(Blob);
-        $scope.block.parameters = {
-            'url': Blob.url,
-            'client': Blob.url
-        };
-    }
-
-    $scope.pickFile = function(type) {
-        console.log('picking file of type ' + type);
-        console.log(filepickerService);
-        filepickerService.pick({
-                mimetype: type,
-                Language: 'nl'
-            },
-            onSuccess
-        );
-    };
-    $scope.onSuccess = onSuccess;
-
-}
-
-
 angular.module('immersiveAngularApp')
     .controller('ArticleEditCtrl', function($scope, $routeParams, FBArticle, FBBlock, FBStory, $window, $mdDialog, blocks, blocksValues, $timeout, $mdSidenav, $mdUtil, $log, $location) {
-
 
         /* Set the id of the article */
         $scope.articleId = $routeParams.article;
 
         /* Get  the article from the Firebase */
         function getArticle() {
-
 
             /*  Get the array of blocks */
             FBArticle.getArray($scope.articleId).then(function(list) {
@@ -205,7 +101,7 @@ angular.module('immersiveAngularApp')
                     article: $scope.articleId,
                     type: type
                 },
-                controller: DialogController
+                controller: 'DialogController'
             });
         }
 

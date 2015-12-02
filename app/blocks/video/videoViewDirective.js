@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:blockImage
- * @description
- * # blockImage
- */
 angular.module('immersiveAngularApp')
     .directive('viewVideo', function($sce, $compile) {
         return {

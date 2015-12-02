@@ -1,11 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:positionInPage
- * @description
- * # positionInPage
- */
 angular.module('immersiveAngularApp')
     .directive('positionInPage', function($window, $document, $analytics) {
         return {

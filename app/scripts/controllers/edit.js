@@ -1,12 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name immersiveAngularApp.controller:EditCtrl
- * @description
- * # EditCtrl
- * Controller of the immersiveAngularApp
- */
 angular.module('immersiveAngularApp')
     .controller('EditCtrl', function($scope, $mdDialog, FBStory, $location) {
 

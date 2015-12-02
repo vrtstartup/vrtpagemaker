@@ -1,20 +1,9 @@
 'use strict';
 
-/**
- * @ngdoc service
- * @name immersiveAngularApp.blocks
- * @description
- * # blocks
- * Service in the immersiveAngularApp.
- */
 angular.module('immersiveAngularApp')
     .factory('blocks', ['$q', 'FBArticle', function($q, FBArticle) {
 
-        /*
-            All functions available in the Blocks Service
-        */
         return {
-
             add: function(articleId, object) {
                 console.log('blocks service says: You want me to add a block of type "' + object.type + '" to article ' + articleId);
                 var deferred = $q.defer();
@@ -29,7 +18,6 @@ angular.module('immersiveAngularApp')
                 });
                 return deferred.promise;
             },
-
 
             delete: function(articleId, key) {
                 console.log('blocks service says: You want me to delete an object with key ' + key + 'from article ' + articleId);

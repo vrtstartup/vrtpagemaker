@@ -1,13 +1,6 @@
 /* globals Firebase */
 'use strict';
 
-/**
- * @ngdoc service
- * @name immersiveAngularApp.firebase
- * @description
- * # firebase
- * Service in the immersiveAngularApp.
- */
 angular.module('immersiveAngularApp')
 
 .factory('FBArticle', ['$firebaseArray', '$firebaseObject', '$q', function($firebaseArray, $firebaseObject, $q) {

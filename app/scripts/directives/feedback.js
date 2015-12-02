@@ -1,16 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name immersiveAngularApp.directive:feedback
- * @description
- * # feedback
- */
-
-
-
-
-
 function FeedbackController(scope, $window, $mdDialog, FBMain, article) {
 
     scope.closeDialog = function() {
