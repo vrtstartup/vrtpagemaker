@@ -24,6 +24,7 @@ angular
         'ngMaterial',
         'angulartics',
         'angulartics.google.analytics'
+        'angular-mapbox'
 
     ])
     .config(function($routeProvider) {
