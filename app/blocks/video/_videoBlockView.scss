@@ -7,6 +7,7 @@
         width: 100%;
         height: auto;
         z-index: 10
+
     }
     @include e('overlay') {
         position: absolute;
@@ -24,6 +25,18 @@
 
 
 }
+
+
+.o-video__player figure {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
 
 .u-width--normal > .o-video {
     height: 197px;
@@ -89,3 +102,10 @@ video {
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
 }
+
+
+
+
+
+
+
