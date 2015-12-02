@@ -2,3 +2,31 @@ figure {
     pointer-events:none;
     margin: 0;
 }
+
+
+
+
+.editpage {
+    display: flex;
+    overflow: hidden;
+    height: 100vh;
+    margin-top: -100px;
+    padding-top: 100px;
+    position: relative;
+    width: 100%;
+    backface-visibility: hidden;
+    will-change: overflow;
+}
+
+.left,
+.right {
+    overflow: auto;
+    height: auto;
+    padding: .5rem;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+}
+.left::-webkit-scrollbar,
+.right::-webkit-scrollbar {
+    display: none;
+}

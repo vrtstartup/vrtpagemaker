@@ -139,25 +139,6 @@ angular.module('immersiveAngularApp')
         };
 
 
-        // Function to toggle Menu
-        function buildToggler(navID) {
-            var debounceFn = $mdUtil.debounce(function() {
-                $mdSidenav(navID)
-                    .toggle()
-                    .then(function() {
-                        $log.debug("toggle " + navID + " is done");
-                    });
-            }, 200);
-            return debounceFn;
-        }
-
-        /* Everything Menu Maybe create a directive? */
-        $scope.toggleMenu = buildToggler('menu');
-
-        $scope.isOpenLeft = function() {
-            return $mdSidenav('menu').isOpen();
-        };
-
         /* In the beginning, there was the article. */
         getArticle();
 
