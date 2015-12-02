@@ -25,7 +25,6 @@ angular.module('immersiveAngularApp')
 
         /* When changing the width of the block, this function is called */
         $scope.changeStyle = function(style) {
-            console.log('test');
             var s = valuesService.styles(style);
             $scope.block.parameters.width = s.width;
         };
