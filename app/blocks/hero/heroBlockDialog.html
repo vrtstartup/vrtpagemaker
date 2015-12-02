@@ -39,43 +39,18 @@
         </md-input-container>
     </section>
  -->
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <p>Kies een instagramfilter:</p>
-        <md-input-container>
-            <label>Filters</label>
-            <md-select ng-model="block.parameters.filter">
-                <md-option value="{{f}}" ng-repeat="f in filters">{{f}}</md-option>
-            </md-select>
-        </md-input-container>
-    </section>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <p>Kies een stijl:</p>
-        <md-input-container>
-            <label>Layout</label>
-            <md-select ng-model="size" ng-change="changeStyle(size)">
-                <md-option value="small">
-                    Klein (33% van het scherm)
-                </md-option>
-                <md-option value="normal">
-                    Normaal (50% van het scherm)
-                </md-option>
-                <md-option value="wide">
-                    Breed (80% van het scherm)
-                </md-option>
-                <md-option value="full">
-                    Volledige breedte (100% van het scherm)
-                </md-option>
-            </md-select>
-        </md-input-container>
-    </section>
+
+    <!-- Instagram filters selector -->
+    <div ng-include="templates.filters"></div>
+
+    <!-- Width selector -->
+    <div ng-include="templates.style"></div>
     <md-divider></md-divider>
-    <div class="md-actions" layout="row">
-        <md-button ng-hide="block.$id" ng-click="addBlock(articleId, block)" target="_blank" md-autofocus>
-            Voeg toe
-        </md-button>
-        <span flex></span>
-        <md-button ng-click="closeDialog()" style="margin-right:20px;">
-            Sluit
-        </md-button>
-    </div>
+    <!-- Add / close buttons -->
+    <div ng-include="templates.buttons"></div>
+
+
+
+
+
 </md-content>

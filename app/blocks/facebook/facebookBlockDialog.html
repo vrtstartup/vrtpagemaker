@@ -3,9 +3,13 @@
     <br>
     <input type="text" ng-model="block.html" name="html">
     <br>
-    <div ng-show="ngDialogData.key == null">
-        <button ng-click="addBlock(ngDialogData.type, block)">Voeg toe</button>
-    </div>
-    {{ngDialogData.key}}
-    <button ng-click="closeThisDialog()">Sluit</button>
-</form>
+
+    <md-divider></md-divider>
+    <!-- Add / close buttons -->
+    <div ng-include="templates.buttons"></div>
+
+
+
+
+
+</md-content>
