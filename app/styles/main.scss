@@ -102,31 +102,31 @@ body {
 @import "blocks.filters";
 @import "blocks.embeds";
 
-@import "../blocks/text/textBlockView";
+@import "../blocks/text/text.view";
 
-@import "../blocks/image/imageBlockView";
-@import "../blocks/image/imageBlockDialog";
+@import "../blocks/image/image.view";
+@import "../blocks/image/image.dialog";
 
-@import "../blocks/parallax/parallaxBlockView";
-@import "../blocks/parallax/parallaxBlockDialog";
+@import "../blocks/parallax/parallax.view";
+@import "../blocks/parallax/parallax.dialog";
 
-@import "../blocks/video/videoBlockView";
-@import "../blocks/video/videoBlockDialog";
+@import "../blocks/video/video.view";
+@import "../blocks/video/video.dialog";
 
-@import "../blocks/twitter/twitterBlockView";
-@import "../blocks/twitter/twitterBlockDialog";
+@import "../blocks/twitter/twitter.view";
+@import "../blocks/twitter/twitter.dialog";
 
-@import "../blocks/facebook/facebookBlockView";
-@import "../blocks/facebook/facebookBlockDialog";
+@import "../blocks/facebook/facebook.view";
+@import "../blocks/facebook/facebook.dialog";
 
-@import "../blocks/iframe/iframeBlockView";
-@import "../blocks/iframe/iframeBlockDialog";
+@import "../blocks/iframe/iframe.view";
+@import "../blocks/iframe/iframe.dialog";
 
-@import "../blocks/hero/heroBlockView";
+@import "../blocks/hero/hero.view";
 
-@import "../blocks/break/breakBlockView";
+@import "../blocks/break/break.view";
 
-@import "../blocks/map/mapBlockView";
+@import "../blocks/map/map.view";
 
 
 @import "shame";
