@@ -15,14 +15,10 @@ angular.module('immersiveAngularApp')
 
         }
 
-
         $scope.editArticle = function(article) {
             $location.path('/edit/' + article);
 
         };
-
-
-
 
         $scope.removeArticle = function(article) {
             console.log(article);
@@ -38,7 +34,7 @@ angular.module('immersiveAngularApp')
             $mdDialog.show({
                 parent: parentEl,
                 targetEvent: $event,
-                templateUrl: 'views/newDialog.html',
+                templateUrl: 'views/templates.dialog.story.new.html',
                 clickOutsideToClose: true,
                 scope: $scope
             });
