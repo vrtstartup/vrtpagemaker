@@ -3,8 +3,6 @@
 angular.module('immersiveAngularApp')
     .controller('storyDialogController', function($scope, $window, $mdDialog, id, article, type, firebaseStoryService, firebaseBlocksService, valuesService, toolsUploaderService) {
 
-
-
         $scope.article = article;
         $scope.filters = valuesService.filters();
         $scope.templates = {
@@ -15,8 +13,6 @@ angular.module('immersiveAngularApp')
 
         /* Add a new block */
         $scope.addBlock = function(block) {
-            console.log(block);
-            console.log('dialog controller says: You want me to add a block of type "' + block.type + '" to article ' + $scope.article);
             $scope.changeStyle($scope.size);
             firebaseBlocksService.add($scope.article, block).then(function() {
                 $scope.closeDialog();
@@ -42,7 +38,6 @@ angular.module('immersiveAngularApp')
         };
 
         $scope.getFile = function(type) {
-            console.log('getting file of ' + type);
             toolsUploaderService.uploadFile(type).then(function(Blob) {
                 if ($scope.block) {
                     $scope.block.parameters.url = Blob.url;
@@ -78,7 +73,6 @@ angular.module('immersiveAngularApp')
                 };
                 $scope.size = '50';
             }
-
         };
 
         // Start
