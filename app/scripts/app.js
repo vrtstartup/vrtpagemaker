@@ -40,7 +40,7 @@ angular
 
             })
             .when('/articles/:article', {
-                templateUrl: 'views/pages.story.edit.html',
+                templateUrl: 'views/pages.story.view.html',
                 controller: 'StoryViewController',
             })
             .when('/edit/:article', {
