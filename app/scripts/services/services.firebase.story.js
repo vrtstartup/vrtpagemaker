@@ -114,7 +114,7 @@ angular.module('immersiveAngularApp')
             var list = $firebaseArray(new Firebase(FURLStaging).child('articles/' + articleId + '/blocks/'));
             list.$loaded()
                 .then(function(article) {
-                    console.log(article[key]);
+                    console.log(article);
                     var item = article[key];
                     list.$remove(item).then(function(ref) {
                         // ref.key() === item.$id; // true

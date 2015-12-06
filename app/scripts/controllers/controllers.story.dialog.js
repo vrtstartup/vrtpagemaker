@@ -31,8 +31,8 @@ angular.module('immersiveAngularApp')
         };
 
         /* Delete this block */
-        $scope.deleteBlock = function(key) {
-            firebaseBlocksService.delete($scope.article, key).then(function() {
+        $scope.deleteBlock = function() {
+            firebaseBlocksService.delete($scope.article, id).then(function() {
                 $scope.closeDialog();
             });
         };
@@ -56,6 +56,7 @@ angular.module('immersiveAngularApp')
             /* There is and id already, so we are editing this */
             if (id) {
                 /* Load the object from the Firebase */
+
                 firebaseBlocksService.getObject($scope.article, id).then(function(obj) {
                     obj.$bindTo($scope, "block").then(function() {
                         $scope.size = obj.parameters.width;
