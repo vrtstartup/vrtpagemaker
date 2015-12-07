@@ -37,7 +37,7 @@ angular.module('immersiveAngularApp')
                     $mdDialog.show({
                         parent: parentEl,
                         targetEvent: $event,
-                        templateUrl: 'views/feedbackDialog.html',
+                        templateUrl: 'views/templates.dialog.story.feedback.html',
                         clickOutsideToClose: true,
                         locals: {
                             article: scope.article
