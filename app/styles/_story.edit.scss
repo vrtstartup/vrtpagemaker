@@ -217,26 +217,25 @@ $z-index-navigation-inner: $z-index-navigation-button + 25;
 }
 
 .o-sortable {
-    height: 6em;
+    height: 2em;
     width: 100%;
-    margin-bottom: 1em;
     border-color: #fff;
     border-style: solid;
     @include e('text') {
         background: $color2 url('../images/sortable-text.svg') no-repeat center;
-        background-size: 80% 80%;
+        background-size: 50% 50%;
     }
     @include e('video') {
         background: $color2 url('../images/sortable-video.svg') no-repeat center;
-        background-size: 80% 80%;
+        background-size: 50% 50%;
     }
     @include e('image') {
         background: $color2 url('../images/sortable-image.svg') no-repeat center;
-        background-size: 80% 80%;
+        background-size: 50% 50%;
     }
     @include e('embed') {
         background: $color2 url('../images/sortable-embed.svg') no-repeat center;
-        background-size: 80% 80%;
+        background-size: 50% 50%;
     }
 }
 

@@ -32,12 +32,12 @@ angular.module('immersiveAngularApp')
                     deferred.resolve(ref);
                 });
                 return deferred.promise;
-
-
             },
+
             /*
             Load a Block
-        */
+            */
+
             getObject: function(articleId, objectId) {
                 var deferred = $q.defer();
                 console.log(articleId, objectId);

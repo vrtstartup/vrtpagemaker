@@ -107,18 +107,17 @@ angular.module('immersiveAngularApp')
         },
 
 
+        delete: function(articleId, id) {
 
-        delete: function(articleId, key) {
-            console.log('deleting ' + key + ' from article ' + articleId);
             var deferred = $q.defer();
-            var list = $firebaseArray(new Firebase(FURLStaging).child('articles/' + articleId + '/blocks/'));
-            list.$loaded()
-                .then(function(article) {
-                    console.log(article);
-                    var item = article[key];
-                    list.$remove(item).then(function(ref) {
-                        // ref.key() === item.$id; // true
+            var obj = $firebaseObject(new Firebase(FURLStaging).child('articles/' + articleId + '/blocks/' + id));
+            obj.$loaded()
+                .then(function() {
+
+                    obj.$remove().then(function(ref) {
                         deferred.resolve(ref);
+                    }, function(error) {
+                        console.log("Error:", error);
                     });
                 })
                 .catch(function(error) {
