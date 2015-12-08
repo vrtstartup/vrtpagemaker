@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('StoriesEditController', function($scope, $mdDialog, firebaseStoriesService, $location) {
-
+    .controller('StoriesEditController', function($scope, $mdDialog, firebaseStoriesService, firebaseStoryService, $location) {
 
         /* Get  the article from the Firebase */
         function getArticles(place) {
@@ -12,12 +11,33 @@ angular.module('immersiveAngularApp')
             firebaseStoriesService.getArray(place).then(function(list) {
                 $scope.list = list;
             });
-
         }
+
 
         $scope.editArticle = function(article) {
             $location.path('/edit/' + article);
 
+        };
+
+
+        $scope.changeLive = function(articleId, live) {
+            console.log(live);
+            if (live !== true) {
+                console.log('deleting article ' + articleId + ' from live');
+                firebaseStoryService.deleteLive(articleId, 'live');
+
+
+            } else {
+
+                /* Get Article */
+                firebaseStoryService.getArticle($scope.articleId).then(function(obj) {
+                    console.log(obj);
+                    /* Save article to Live*/
+                    firebaseStoryService.live(articleId).then(function(obj) {
+                        console.log(obj);
+                    });
+                });
+            }
         };
 
         $scope.removeArticle = function(article) {

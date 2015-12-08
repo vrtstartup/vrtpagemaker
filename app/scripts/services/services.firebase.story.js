@@ -97,26 +97,74 @@ angular.module('immersiveAngularApp')
         live: function(articleId, article) {
             console.log(article);
             console.log('pushing ' + articleId + ' to live');
+
             var deferred = $q.defer();
-            var ref = new Firebase(FURLLive).child('articles/' + articleId);
-            var obj = $firebaseObject(ref);
-            console.log(obj);
 
-            obj.title = article.title;
-            obj.createdAt = article.createdAt;
-            obj.updatedAt = Firebase.ServerValue.TIMESTAMP;
-            obj.blocks = article.blocks;
-            obj.live = true;
-
-
+            var stagingRefLive = new Firebase(FURLStaging).child('articles/' + articleId + '/live');
+            var obj = $firebaseObject(stagingRefLive);
+            obj.$value = true;
             obj.$save().then(function() {
-                deferred.resolve(obj);
+                var stagingRef = new Firebase(FURLStaging).child('articles/' + articleId);
+                var obj = $firebaseObject(stagingRef);
+                obj.$loaded().then(function() {
+                    console.log('loaded');
+                    var liveRef = new Firebase(FURLLive).child('articles/' + articleId);
+                    var liveObj = $firebaseObject(liveRef);
+
+
+                    liveObj.title = obj.title;
+                    liveObj.createdAt = obj.createdAt;
+                    liveObj.updatedAt = Firebase.ServerValue.TIMESTAMP;
+                    liveObj.blocks = obj.blocks;
+                    liveObj.live = true;
+
+
+                    liveObj.$save().then(function() {
+                        deferred.resolve();
+                    }, function(error) {
+                        console.log("Error:", error);
+                        deferred.reject(error);
+                    });
+
+                });
+
+
+
+
             }, function(error) {
                 console.log("Error:", error);
                 deferred.reject(error);
             });
+
+
             return deferred.promise;
         },
+
+
+        deleteLive: function(articleId) {
+            console.log(articleId);
+            var deferred = $q.defer();
+
+            var ref = new Firebase(FURLLive).child('articles/' + articleId);
+            var obj = $firebaseObject(ref);
+            obj.$remove().then(function(ref) {
+
+                var stagingRef = new Firebase(FURLStaging).child('articles/' + articleId + '/live');
+                var obj = $firebaseObject(stagingRef);
+                console.log(obj);
+                obj.$value = false;
+                obj.$save().then(function() {
+                    deferred.resolve(obj);
+                }, function(error) {
+                    console.log("Error:", error);
+                    deferred.reject(error);
+                });
+            }, function(error) {
+                console.log("Error:", error);
+            });
+            return deferred.promise;
+        },
+
 
 
         delete: function(articleId, id) {
@@ -139,20 +187,7 @@ angular.module('immersiveAngularApp')
         },
 
 
-        deleteLive: function(articleId) {
-            console.log(articleId);
-            var deferred = $q.defer();
 
-            var ref = new Firebase(FURLLive).child('articles/' + articleId);
-            var obj = $firebaseObject(ref);
-            obj.$remove().then(function(ref) {
-                deferred.resolve(ref);
-                // data has been deleted locally and in the database
-            }, function(error) {
-                console.log("Error:", error);
-            });
-            return deferred.promise;
-        },
 
 
 
