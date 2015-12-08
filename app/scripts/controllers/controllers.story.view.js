@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('StoryViewController', function($scope, $routeParams, firebaseStoryService) {
+    .controller('StoryViewController', function($scope, $routeParams, $css, firebaseStoryService) {
         /* Set the id of the article */
         $scope.articleId = $routeParams.article;
 
@@ -9,7 +9,7 @@ angular.module('immersiveAngularApp')
         function getArticle() {
             firebaseStoryService.getLiveArticle($scope.articleId).then(function(list) {
                 $scope.list = list.blocks;
-                console.log(list);
+                $css.add('styles/' + list.meta.brandname + '.css');
             });
         }
 
