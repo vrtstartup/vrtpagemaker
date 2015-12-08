@@ -10,6 +10,8 @@ angular.module('immersiveAngularApp')
             }
 
             filepickerService.pick({
+                    imageQuality: 80,
+                     imageMax: [2500, null],
                     mimetype: type,
                     Language: 'nl'
                 },
