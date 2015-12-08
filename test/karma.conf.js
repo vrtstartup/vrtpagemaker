@@ -50,6 +50,7 @@ module.exports = function(config) {
       'bower_components/SHA-1/sha1.js',
       'bower_components/angulartics/src/angulartics.js',
       'bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
+      'bower_components/angular-socialshare/dist/angular-socialshare.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
