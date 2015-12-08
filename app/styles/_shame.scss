@@ -22,7 +22,7 @@ figure {
 .right {
     overflow: auto;
     height: auto;
-    padding: .5rem;
+    padding: 0;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
 }
@@ -30,3 +30,4 @@ figure {
 .right::-webkit-scrollbar {
     display: none;
 }
+
