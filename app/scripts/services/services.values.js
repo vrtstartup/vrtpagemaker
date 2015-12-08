@@ -8,7 +8,7 @@ angular.module('immersiveAngularApp')
         var blocks = {
             '0': {
                 'type': 'meta',
-                'dialog': 'views/templates.dialog.block.meta.html',
+                'dialog': 'views/templates.dialog.story.meta.html',
             },
             '1': {
                 'type': 'text',
