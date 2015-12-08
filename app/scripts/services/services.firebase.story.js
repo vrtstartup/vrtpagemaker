@@ -117,7 +117,7 @@ angular.module('immersiveAngularApp')
                     liveObj.updatedAt = Firebase.ServerValue.TIMESTAMP;
                     liveObj.blocks = obj.blocks;
                     liveObj.live = true;
-
+                    liveObj.meta = obj.meta;
 
                     liveObj.$save().then(function() {
                         deferred.resolve();

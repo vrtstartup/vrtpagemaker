@@ -1,20 +1,15 @@
-<header layout="column" layout-align="space-around center" layout-padding ng-style="{ 'background-image':'url(' + image + ')' }">
+<header layout="column" layout-align="space-around center" layout-padding ng-style="{ 'background-image':'url(' + image + ')' }"  >
     <div flex="33" layout="row" layout-align="space-between start" style="width: 100%">
         <div hide-sm flex></div>
-
         <div hide-sm flex layout="row" layout-align="center center">
             <img class="brand" src="{{ brand.url }}">
         </div>
-
         <div hide-sm flex class="social" layout="row" layout-align="end start">
             <social text="" image=""></social>
         </div>
     </div>
-
     <h1 hide-sm flex="33" layout="row" layout-padding layout-align="center center">{{ title }}</h1>
-
     <p hide-sm flex="13" layout="row" layout-padding layout-align="center center">Door {{ author }}</p>
-
     <div flex="20" layout="row" layout-padding layout-align="center end" href="#page-start" du-smooth-scroll duration="3000">
         <svg hide-sm class="arrow-bottom" enable-background="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="50px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect fill="none" height="50" width="50" />
@@ -22,18 +17,17 @@
         </svg>
     </div>
 </header>
-
-<div id="nav" hide-gt-sm layout="row">
-    <div flex layout="row" layout-align="start center">
-        <img class="brand" src="{{ brand.url }}">
+<div id="nav" hide-gt-sm >
+    <div class="nav__content" layout="row">
+        <div flex layout="row" layout-align="start center">
+            <img class="brand" src="{{ brand.url }}">
+        </div>
+        <div flex class="social" layout="row" layout-align="end start">
+            <social text="" image=""></social>
+        </div>
     </div>
-
-    <div flex class="social" layout="row" layout-align="end start">
-        <social text="" image=""></social>
-    </div>
+    <position-in-page article="articleId"></position-in-page>
 </div>
-
 <div id="page-start"></div>
-
 <h1 id="title" hide-gt-sm>{{ title }}</h1>
 <p hide-gt-sm>{{ author }}</p>

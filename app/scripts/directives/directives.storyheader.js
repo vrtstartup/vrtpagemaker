@@ -29,6 +29,8 @@
         var nav = document.getElementById('nav');
         var title = document.getElementById('title');
 
+
+
         function onScroll() {
             var scrollPosition = window.pageYOffset;
 

@@ -1,10 +1,7 @@
 figure {
-    pointer-events:none;
+    pointer-events: none;
     margin: 0;
 }
-
-
-
 
 .editpage {
     display: flex;
@@ -26,30 +23,32 @@ figure {
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
 }
+
 .left::-webkit-scrollbar,
 .right::-webkit-scrollbar {
     display: none;
 }
+
 
 /*
  * Start: Story Header
  */
 
 header {
+    z-index: 1;
+    position: relative;
     width: 100%;
     height: 50vh;
     overflow: hidden;
     background-position: top;
     background-size: cover;
     color: #ffffff;
-
     .social svg {
         margin: 5px;
         width: 20px;
         height: 20px;
         fill: #ffffff;
     }
-
     svg.arrow-bottom {
         fill: #ffffff;
         height: 50px;
@@ -58,9 +57,7 @@ header {
 
 #nav {
     z-index: 100;
-    background-color: #aaaaaa;
-    padding: 5px;
-
+    background-color: rgba(255, 255, 255, 0.5);
     .social svg {
         margin: 5px;
         width: 15px;
@@ -69,8 +66,11 @@ header {
     }
 }
 
+.nav__content {
+    padding: 5px;
+}
+
 #nav.show {
-    display: flex !important;
     position: fixed;
     top: 0;
     right: 0;
@@ -101,102 +101,299 @@ h1.title {
  * Feedback button
  */
 
- .feedback-button {
-     background: #aaaaaa;
-     padding: 7px 10px;
-     border-top-left-radius: 3px;
-     border-top-right-radius: 3px;
-     cursor: pointer;
-
-    svg {
-        width: 20px;
-        vertical-align: middle;
-    }
- }
-
- @media (min-width: 600px) {
-     .feedback-button {
+@media (min-width: 600px) {
+    .feedback-button {
         position: fixed;
         top: 50%;
-        right: -50px;
+        right: -40px;
         -ms-transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
         transform: rotate(-90deg);
-     }
- }
+    }
+}
 
- @import "compass/css3";
-
+@import "compass/css3";
 $heartbeat-color: #e87;
 $heartbeat-size: 36px; // must be divisible by 2 and 3
 $heartbeat-rotation: rotate(45deg);
-
 @mixin keyframes($name) {
-  @-webkit-keyframes #{$name} { @content }
-  @-moz-keyframes #{$name} { @content }
-  @-o-keyframes #{$name} { @content }
-  @keyframes #{$name} { @content }
+    @-webkit-keyframes #{$name} {
+        @content
+    }
+    @-moz-keyframes #{$name} {
+        @content
+    }
+    @-o-keyframes #{$name} {
+        @content
+    }
+    @keyframes #{$name} {
+        @content
+    }
 }
 
 @mixin experimental($property, $value, $moz: true, $webkit: true, $o: true, $ms: true, $khtml: true, $official: true) {
-  @if $webkit   { -webkit-#{$property} : $value; }
-  @if $khtml    {  -khtml-#{$property} : $value; }
-  @if $moz      {    -moz-#{$property} : $value; }
-  @if $ms       {     -ms-#{$property} : $value; }
-  @if $o        {      -o-#{$property} : $value; }
-  @if $official {         #{$property} : $value; }
+    @if $webkit {
+        -webkit-#{$property}: $value;
+    }
+    @if $khtml {
+        -khtml-#{$property}: $value;
+    }
+    @if $moz {
+        -moz-#{$property}: $value;
+    }
+    @if $ms {
+        -ms-#{$property}: $value;
+    }
+    @if $o {
+        -o-#{$property}: $value;
+    }
+    @if $official {
+        #{$property}: $value;
+    }
 }
 
 @mixin animation($value) {
-  @include experimental(animation, $value);
+    @include experimental(animation, $value);
 }
 
 @include keyframes(heartbeat) {
-  0%  { @include transform($heartbeat-rotation scale(1));   }
-  14% { @include transform($heartbeat-rotation scale(1.3)); }
-  28% { @include transform($heartbeat-rotation scale(1));   }
-  42% { @include transform($heartbeat-rotation scale(1.3)); }
-  70% { @include transform($heartbeat-rotation scale(1));   }
+    0% {
+        @include transform($heartbeat-rotation scale(1));
+    }
+    14% {
+        @include transform($heartbeat-rotation scale(1.3));
+    }
+    28% {
+        @include transform($heartbeat-rotation scale(1));
+    }
+    42% {
+        @include transform($heartbeat-rotation scale(1.3));
+    }
+    70% {
+        @include transform($heartbeat-rotation scale(1));
+    }
 }
+
 
 /* Styles for old versions of IE */
+
 .heartbeat {
-  font-family: sans-serif;
-  font-weight: 100;
+    font-family: sans-serif;
+    font-weight: 100;
 }
 
+
 /* :not(:required) hides this rule from IE9 and below */
+
 .heartbeat:not(:required) {
-  @include animation(heartbeat 1300ms ease 0s infinite normal);
-
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  text-indent: -9999px;
-  width: $heartbeat-size;
-  height: $heartbeat-size;
-  @include transform($heartbeat-rotation scale(1));
-  @include transform-origin(50%, 50%);
-
-  &:after, &:before {
-    position: absolute;
-    content: "";
-    background: $heartbeat-color;
-  }
-
-  &:before {
-    @include border-left-radius($heartbeat-size / 3);
-    top: ($heartbeat-size/3);
-    left: 0;
+    @include animation(heartbeat 1300ms ease 0s infinite normal);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-indent: -9999px;
     width: $heartbeat-size;
-    height: (2 * $heartbeat-size / 3);
-  }
+    height: $heartbeat-size;
+    @include transform($heartbeat-rotation scale(1));
+    @include transform-origin(50%, 50%);
+    &:after,
+    &:before {
+        position: absolute;
+        content: "";
+        background: $heartbeat-color;
+    }
+    &:before {
+        @include border-left-radius($heartbeat-size / 3);
+        top: ($heartbeat-size/3);
+        left: 0;
+        width: $heartbeat-size;
+        height: (2 * $heartbeat-size / 3);
+    }
+    &:after {
+        @include border-top-radius($heartbeat-size / 3);
+        top: 0;
+        left: ($heartbeat-size / 3);
+        width: (2 * $heartbeat-size / 3);
+        height: ($heartbeat-size / 3);
+    }
+}
 
-  &:after {
-    @include border-top-radius($heartbeat-size / 3);
-    top: 0;
-    left: ($heartbeat-size / 3);
-    width: (2 * $heartbeat-size / 3);
-    height: ($heartbeat-size / 3);
-  }
+// Laadscherm
+#load {
+    position: absolute;
+    width: 600px;
+    height: 36px;
+    left: 50%;
+    top: 40%;
+    margin-left: -300px;
+    overflow: visible;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+#load div {
+    position: absolute;
+    width: 20px;
+    height: 36px;
+    opacity: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    animation: move 2s linear infinite;
+    -o-animation: move 2s linear infinite;
+    -moz-animation: move 2s linear infinite;
+    -webkit-animation: move 2s linear infinite;
+    transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    color: #35C4F0;
+}
+
+#load div:nth-child(2) {
+    animation-delay: 0.2s;
+    -o-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    -webkit-animation-delay: 0.2s;
+}
+
+#load div:nth-child(3) {
+    animation-delay: 0.4s;
+    -o-animation-delay: 0.4s;
+    -webkit-animation-delay: 0.4s;
+    -webkit-animation-delay: 0.4s;
+}
+
+#load div:nth-child(4) {
+    animation-delay: 0.6s;
+    -o-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    -webkit-animation-delay: 0.6s;
+}
+
+#load div:nth-child(5) {
+    animation-delay: 0.8s;
+    -o-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    -webkit-animation-delay: 0.8s;
+}
+
+#load div:nth-child(6) {
+    animation-delay: 1s;
+    -o-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+}
+
+#load div:nth-child(7) {
+    animation-delay: 1.2s;
+    -o-animation-delay: 1.2s;
+    -moz-animation-delay: 1.2s;
+    -webkit-animation-delay: 1.2s;
+}
+
+@keyframes move {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+    35% {
+        left: 41%;
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    65% {
+        left: 59%;
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        -moz-transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes move {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+    35% {
+        left: 41%;
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    65% {
+        left: 59%;
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        -moz-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes move {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+    35% {
+        left: 41%;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    65% {
+        left: 59%;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+        opacity: 0;
+    }
+}
+
+@-o-keyframes move {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+    35% {
+        left: 41%;
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    65% {
+        left: 59%;
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+        opacity: 0;
+    }
 }
