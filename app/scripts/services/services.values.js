@@ -7,8 +7,8 @@ angular.module('immersiveAngularApp')
 
         var blocks = {
             '0': {
-                'type': 'delete',
-                'dialog': 'views/templates.dialog.block.delete.html',
+                'type': 'meta',
+                'dialog': 'views/templates.dialog.block.meta.html',
             },
             '1': {
                 'type': 'text',

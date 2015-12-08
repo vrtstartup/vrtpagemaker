@@ -47,8 +47,7 @@ angular.module('immersiveAngularApp')
                     deferred.resolve(obj);
                 });
                 return deferred.promise;
-            },
-
+            }
 
         };
     }]);

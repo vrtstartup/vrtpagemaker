@@ -1,0 +1,45 @@
+<md-content>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Informatie over dit artikel</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Titel</label>
+            <input ng-model="meta.title">
+        </md-input-container>
+    </section>
+     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Auteur</label>
+            <textarea ng-model="meta.author" columns="10"></textarea>
+        </md-input-container>
+    </section>
+
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Hoofdafbeelding</label>
+            <input ng-model="meta.headerImage">
+        </md-input-container>
+    </section>
+     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Link naar homepage</label>
+            <textarea ng-model="meta.referalUrl" columns="10"></textarea>
+        </md-input-container>
+    </section>
+       <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Tekst bij link naar hompeage</label>
+            <textarea ng-model="meta.referalText" columns="10"></textarea>
+        </md-input-container>
+    </section>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="closeDialog()" style="margin-right:20px;">
+            Sluit
+        </md-button>
+    </div>
+</md-content>

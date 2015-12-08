@@ -35,7 +35,6 @@ angular.module('immersiveAngularApp')
             var firebaseObj = $firebaseObject(ref);
             firebaseObj.$loaded().then(function(obj) {
                 deferred.resolve(obj);
-
             }, function(err) {
                 console.log('The article did not load from Firebase, this was your error: ' + err);
                 deferred.reject(err);
@@ -64,6 +63,7 @@ angular.module('immersiveAngularApp')
 
 
 
+
         add: function(articleId, block) {
             console.log('adding ' + block + ' to article ' + articleId);
             console.log(block);
@@ -77,6 +77,18 @@ angular.module('immersiveAngularApp')
                 var id = ref.key();
 
                 deferred.resolve(id);
+            });
+            return deferred.promise;
+        },
+
+
+
+        getMeta: function(articleId) {
+            var deferred = $q.defer();
+            var ref = new Firebase(FURLStaging).child('articles/' + articleId + '/meta/');
+            var obj = $firebaseObject(ref);
+            obj.$loaded().then(function() {
+                deferred.resolve(obj);
             });
             return deferred.promise;
         },

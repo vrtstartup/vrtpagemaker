@@ -26,8 +26,6 @@ angular.module('immersiveAngularApp')
             firebaseStoriesService.delete(article, 'live');
         };
 
-
-
         /* Show the dialog */
         function showDialog($event) {
             var parentEl = angular.element(document.body);
@@ -40,22 +38,8 @@ angular.module('immersiveAngularApp')
             });
         }
 
-        var originatorEv;
-        $scope.openMenu = function($mdOpenMenu, ev) {
-            originatorEv = ev;
-            $mdOpenMenu(ev);
-        };
-
-        $scope.startStory = function(edit) {
-            showDialog(edit);
-            originatorEv = null;
-        };
-
-
         $scope.createStory = function(title) {
             firebaseStoriesService.add(title).then(function(id) {
-                console.log(id);
-                console.log($location);
                 $location.path('/edit/' + id);
             });
         };

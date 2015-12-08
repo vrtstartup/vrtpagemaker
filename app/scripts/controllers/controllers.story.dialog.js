@@ -51,6 +51,14 @@ angular.module('immersiveAngularApp')
             });
         };
 
+        /* Save the meta info of a story */
+        var getMeta = function() {
+            firebaseStoryService.getMeta($scope.article).then(function(obj) {
+                obj.$bindTo($scope, "meta").then(function() {
+                });
+            });
+        };
+
         /* Function to populate the created dialog, depending on id of the block */
         var populateDialog = function() {
             /* There is and id already, so we are editing this */
@@ -77,7 +85,12 @@ angular.module('immersiveAngularApp')
         };
 
         // Start
-        if (type && $scope.article) {
+        if (type && type !== 'meta' && $scope.article) {
             populateDialog();
+        } else if (type === 'meta') {
+            getMeta();
+        } else {
+            console.log('do nothing');
         }
+
     });
