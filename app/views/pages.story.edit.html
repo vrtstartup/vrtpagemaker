@@ -13,6 +13,7 @@
                 </div>
             </md-toolbar>
             <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                <md-button class="md-raised" ng-click="openDialog(articleId, 'meta')">Stel informatie in</md-button>
                 <md-button class="md-raised" ng-show="!articleMeta.live" ng-click="addToLive(articleId, articleMeta.live);articleMeta.live = true">Zet live</md-button>
                 <md-button class="md-raised" ng-show="articleMeta.live" ng-click="addToLive(articleId, articleMeta.live)">Zet veranderingen live</md-button>
                 <md-button class="md-raised" ng-show="articleMeta.live" ng-click="goToLive(articleId)">Open live Artikel</md-button>
@@ -58,12 +59,6 @@
     <div class="right">
         <md-content>
             <div class="o-container">
-                <!-- <div ng-click="toggleMenu()">
-                    <div class="o-menu__toggle" ng-class="{'material--arrow': isOpenLeft()}">
-                        <span></span>
-                        <md-tooltip>Menu</md-tooltip>
-                    </div>
-                </div> -->
                 <div layout="row" layout-wrap layout-align="center start" layout-padding layout-margin layout-fill>
 
                     <story-header class="flex-100" image="'http://static2.businessinsider.com/image/5239d8ebeab8eae55d5ec37a/this-enormous-syrian-refugee-camp-is-now-jordans-fifth-largest-city-photos.jpg'"
@@ -71,7 +66,8 @@
                                   author="'Jordy De Loor'"
                                   brand="{url: 'http://news.mediaspecs.be/sites/default/files/canvas.png'}"></story-header>
 
-                    <div class="o-block {{value.parameters.class}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
+                    <div class="o-block size-{{value.parameters.width}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
+
                         <div class="o-block--hovered" ng-show="value.$id == activeBlock"></div>
                         <blocks-dispatcher-edit type="value.type" analytics-on="scrollby" parameters="value.parameters" id="value.$id" article="articleId"></blocks-dispatcher-edit>
                     </div>
