@@ -57,13 +57,15 @@
         </md-content>
     </div>
     <div class="right">
+
         <md-content>
+
             <div class="o-container">
                 <div layout="row" layout-wrap layout-align="center start" layout-padding layout-margin layout-fill>
 
-                    <story-header class="flex-100" image="'http://static2.businessinsider.com/image/5239d8ebeab8eae55d5ec37a/this-enormous-syrian-refugee-camp-is-now-jordans-fifth-largest-city-photos.jpg'"
-                                  title="'Test Story Header'"
-                                  author="'Jordy De Loor'"
+                    <story-header class="flex-100" image="articleMeta.meta.headerImage"
+                                  title="articleMeta.meta.title"
+                                  author="articleMeta.meta.author"
                                   brand="{url: 'http://news.mediaspecs.be/sites/default/files/canvas.png'}"></story-header>
 
                     <div class="o-block size-{{value.parameters.width}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
