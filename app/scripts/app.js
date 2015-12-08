@@ -24,8 +24,8 @@ angular
         'ngMaterial',
         'angulartics',
         'angulartics.google.analytics',
-        'angular-mapbox'
-
+        'angular-mapbox',
+        '720kb.socialshare'
     ])
     .constant("firebaseURL", {
         "FURL": "https://immersiveangular.firebaseio.com/",
