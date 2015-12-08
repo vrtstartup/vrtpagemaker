@@ -14,7 +14,7 @@ function FeedbackController(scope, $window, $mdDialog, firebaseMainService, arti
 
         if (feedback) {
             firebaseMainService.addFeedback(name, feedback, userAgent, screenWidth, screenHeight, article).then(function() {
-                $mdDialog.cancel();
+                scope.hasSend = true;
             });
         }
     };

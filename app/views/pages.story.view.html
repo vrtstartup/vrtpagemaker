@@ -11,6 +11,8 @@
             <div class="o-block {{value.parameters.class}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" offset-gt-sm="{{value.parameters.offset}}" flex-sm="100"  offset-sm="0">
                 <blocks-dispatcher-view type="value.type" parameters="value.parameters" id="value.$id" article="articleId"></blocks-dispatcher-view>
             </div>
+
+            <feedback-reader></feedback-reader>
         </div>
     </div>
 </md-content>
