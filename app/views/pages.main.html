@@ -1,1 +1,45 @@
-Home
+<md-content>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Log in</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+    <section ng-hide="hasSend" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Wat is je mailadres?</label>
+            <input type="email" ng-model="user.mail" md-autofocus>
+        </md-input-container>
+    </section>
+     <section ng-hide="hasSend" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Wat is je paswoord?</label>
+            <input type="password" ng-model="user.password" columns="10"></textarea>
+        </md-input-container>
+    </section>
+
+    <div class="md-actions" layout="row">
+        <md-button  ng-click="logIn(user)"  >
+            Verstuur
+        </md-button>
+    </div>
+</md-content>
+
+
+<!--
+
+Rules:
+
+{
+  "rules": {
+    "live": {
+      ".read": "true",
+      ".write": "auth !== null"
+      },
+      "staging"" {
+        ".read": "auth !== null",
+        ".write": "auth !== null"
+      }
+    }
+  }
+ -->

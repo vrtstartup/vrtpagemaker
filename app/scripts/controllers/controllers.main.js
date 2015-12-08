@@ -1,10 +1,14 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-  .controller('MainController', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('MainController', function($scope, firebaseUserService, $location) {
+
+        $scope.logIn = function(user) {
+            firebaseUserService.logIn(user).then(function(response) {
+                console.log(response);
+                if (response.uid) {
+                    $location.path('/edit/');
+                }
+            });
+        };
+    });
