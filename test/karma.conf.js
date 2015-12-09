@@ -47,11 +47,10 @@ module.exports = function(config) {
       'bower_components/waypoints/lib/noframework.waypoints.min.js',
       'bower_components/SHA-1/sha1.js',
       'bower_components/angulartics/src/angulartics.js',
-      'bower_components/angulartics-google-analytics/lib/angulartics-google-analytics.js',
+      'bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
       'bower_components/angular-socialshare/dist/angular-socialshare.min.js',
       'bower_components/angular-css/angular-css.js',
       'bower_components/medium-editor/dist/js/medium-editor.js',
-      'bower_components/angular-medium-editor/dist/angular-medium-editor.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
