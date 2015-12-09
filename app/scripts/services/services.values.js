@@ -89,6 +89,26 @@ angular.module('immersiveAngularApp')
                     'type': 'map',
                     'name': 'Map'
                 }
+            },
+            '9': {
+                'type': 'facebook',
+                'dialog': 'blocks/facebook/facebook.dialog.html',
+                'edit': '<edit-facebook class="o-container__block" id="id" article="article" parameters="parameters"></edit-facebook>',
+                'view': '<view-facebook class="o-container__block" id="id" article="article" parameters="parameters"></view-facebook>',
+                'button': {
+                    'type': 'facebook',
+                    'name': 'Facebook'
+                }
+            },
+            '10': {
+                'type': 'instagram',
+                'dialog': 'blocks/instagram/instagram.dialog.html',
+                'edit': '<edit-instagram class="o-container__block" id="id" article="article" parameters="parameters"></edit-instagram>',
+                'view': '<view-instagram class="o-container__block" id="id" article="article" parameters="parameters"></view-instagram>',
+                'button': {
+                    'type': 'instagram',
+                    'name': 'instagram'
+                }
             }
         };
 
