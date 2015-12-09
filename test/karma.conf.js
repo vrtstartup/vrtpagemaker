@@ -31,8 +31,6 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/firebase/firebase.js',
       'bower_components/angularfire/dist/angularfire.js',
-      'bower_components/medium-editor/dist/js/medium-editor.js',
-      'bower_components/angular-medium-editor/dist/angular-medium-editor.js',
       'bower_components/filepicker-js/filepicker.min.js',
       'bower_components/angular-filepicker/dist/angular_filepicker.js',
       'bower_components/ng-sortable/dist/ng-sortable.js',
@@ -52,6 +50,8 @@ module.exports = function(config) {
       'bower_components/angulartics-google-analytics/lib/angulartics-google-analytics.js',
       'bower_components/angular-socialshare/dist/angular-socialshare.min.js',
       'bower_components/angular-css/angular-css.js',
+      'bower_components/medium-editor/dist/js/medium-editor.js',
+      'bower_components/angular-medium-editor/dist/angular-medium-editor.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
