@@ -10,7 +10,7 @@
     function feedbackReader($mdDialog) {
         var directive = {
             restrict: 'E',
-            template: '<div class="feedback-button" ><md-button ng-click="showDialog()" class="md-raised md-primary">Feedback</md-button></div>',
+            template: '<div class="o-feedback"><md-button ng-click="showDialog()" class="md-raised md-primary">Feedback</md-button></div>',
             scope: {
                 article: '='
             },
