@@ -5,19 +5,19 @@ figure {
 
 .editpage {
     display: flex;
-    overflow: hidden;
     height: 100vh;
-    margin-top: -100px;
-    padding-top: 100px;
     position: relative;
     width: 100%;
     backface-visibility: hidden;
     will-change: overflow;
+
+    #nav {
+        left: $sidebar-width !important;
+    }
 }
 
 .left,
 .right {
-    overflow: auto;
     height: auto;
     padding: 0;
     -webkit-overflow-scrolling: touch;
@@ -29,6 +29,16 @@ figure {
     display: none;
 }
 
+.left {
+    position: fixed;
+    width: $sidebar-width;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.right {
+    margin-left: $sidebar-width;
+}
 
 /*
  * Start: Story Header
@@ -395,5 +405,26 @@ $heartbeat-rotation: rotate(45deg);
         -o-transform: rotate(-180deg);
         transform: rotate(-180deg);
         opacity: 0;
+    }
+}
+
+
+/*
+ * Medium Editor
+ */
+
+.medium-editor-action {
+    width: 20px;
+    height: 20px;
+
+    div {
+        width: 20px;
+        height: 20px;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: #ffffff;
     }
 }
