@@ -47,15 +47,15 @@ angular.module('immersiveAngularApp')
                     return null;
                 };
 
-                scope.$watch('parameters.url', function(newValue, oldValue) {
+                scope.$watch('parameters.id', function(newValue, oldValue) {
                     if (newValue) {
                         var tweetId = getTweetId(newValue);
                         $http.jsonp('https://api.twitter.com/1/statuses/oembed.json?id=' + tweetId + '&callback=JSON_CALLBACK')
                             .then(function(ref) {
-                                var tweet = '<div class="twitter embeds">' + ref.data.html + '</div>';
+                                var tweet = '<div class="twitter embeds" layout="row" layout-wrap layout-align="center start" layout-margin layout-fill>' + ref.data.html + '</div>';
                                 var markup = $compile(tweet)(scope);
                                 el.empty().append(markup);
-                                loadTweets.loadAllWidgets();
+                                loadTwitterService.loadAllWidgets();
                             });
                     } else {
                         console.log('chilling');

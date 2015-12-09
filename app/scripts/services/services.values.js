@@ -109,6 +109,16 @@ angular.module('immersiveAngularApp')
                     'type': 'instagram',
                     'name': 'instagram'
                 }
+            },
+            '11': {
+                'type': 'twitter',
+                'dialog': 'blocks/twitter/twitter.dialog.html',
+                'edit': '<edit-twitter class="o-container__block" id="id" article="article" parameters="parameters"></edit-twitter>',
+                'view': '<view-twitter class="o-container__block" id="id" article="article" parameters="parameters"></view-twitter>',
+                'button': {
+                    'type': 'twitter',
+                    'name': 'twitter'
+                }
             }
         };
 
