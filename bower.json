@@ -19,7 +19,7 @@
     "angulartics-google-analytics": "~0.1.1",
     "angular-socialshare": "angularjs-socialshare#~0.1.19",
     "angular-css": "~1.0.7",
-    "angular-medium-editor": "~1.1.0"
+    "medium-editor": "~5.11.0"
   },
   "overrides": {
     "angulartics": {
