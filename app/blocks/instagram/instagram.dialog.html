@@ -1,15 +1,21 @@
-<form>
-    Je voegt een instagram-update toe. Embedcode:
-    <br>
-    <input type="text" ng-model="block.parameters.id" name="id">
-    <br>
-
+<md-content>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Je voegt een instagram-update toe.</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Plak je embedcode hier</label>
+            <input ng-model="block.parameters.id">
+        </md-input-container>
+    </section>
+    <div ng-include="templates.style"></div>
     <md-divider></md-divider>
     <!-- Add / close buttons -->
     <div ng-include="templates.buttons"></div>
-
-
-
-
-
 </md-content>
+
+
+
