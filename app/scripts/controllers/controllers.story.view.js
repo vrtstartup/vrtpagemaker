@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('StoryViewController', function($scope, $routeParams, $css, firebaseStoryService, audioPlayerService) {
+    .controller('StoryViewController', function($scope, $routeParams, $css, firebaseStoryService) {
         $scope.loading = true;
         /* Set the id of the article */
         $scope.articleId = $routeParams.article;

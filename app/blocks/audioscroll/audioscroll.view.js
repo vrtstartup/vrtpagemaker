@@ -19,7 +19,7 @@
         return directive;
     }
 
-    function AudioScrollViewController($rootScope, audioPlayerService) {
+    function AudioScrollViewController($rootScope, AudioBackgroundService) {
         $rootScope.$on('duScrollspy:becameActive', function(event, element, target) {
             var mediaNode = element[0].attributes.media;
             var file = mediaNode.value;
@@ -27,9 +27,9 @@
             console.log(file);
 
             if (file) {
-                audioPlayerService.play(file);
+                AudioBackgroundService.play(file);
             } else {
-                audioPlayerService.stop();
+                AudioBackgroundService.stop();
             }
         });
     }

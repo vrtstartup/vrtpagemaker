@@ -3,11 +3,11 @@
 
     angular
         .module('immersiveAngularApp')
-        .factory('audioPlayerService', audioPlayerService);
+        .factory('AudioBackgroundService', AudioBackgroundService);
 
-    audioPlayerService.$inject = [ 'ngAudio' ];
+    AudioBackgroundService.$inject = [ 'ngAudio' ];
 
-    function audioPlayerService(ngAudio) {
+    function AudioBackgroundService(ngAudio) {
         var playing = false;
         var muted = false;
         var volume = 1;
@@ -55,7 +55,6 @@
     	        if (audio.volume < volume) {
     	            audio.volume += 0.05;
                     audio.volume = audio.volume.toFixed(2);
-                    console.log(audio.volume);
     	        } else {
     	            clearInterval(interval);
     	        }
@@ -69,7 +68,6 @@
     	        if (audio.volume > 0) {
     	            audio.volume -= 0.05;
                     audio.volume = audio.volume.toFixed(2);
-                    console.log(audio.volume);
     	        } else {
                     audio.stop();
                     if (file) {

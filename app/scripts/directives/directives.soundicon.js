@@ -17,29 +17,29 @@
         return directive;
     }
 
-    SoundIconController.$inject = [ '$scope', 'audioPlayerService' ];
+    SoundIconController.$inject = [ '$scope', 'AudioBackgroundService' ];
 
-    function SoundIconController($scope, audioPlayerService) {
-        $scope.muted = audioPlayerService.isMuted();
-        $scope.playing = audioPlayerService.isPlaying();
+    function SoundIconController($scope, AudioBackgroundService) {
+        $scope.muted = AudioBackgroundService.isMuted();
+        $scope.playing = AudioBackgroundService.isPlaying();
 
         $scope.$watch(function () {
-            return audioPlayerService.isPlaying();
+            return AudioBackgroundService.isPlaying();
         }, function (newValue, oldValue) {
             $scope.playing = newValue;
         });
 
         $scope.$watch(function () {
-            return audioPlayerService.isMuted();
+            return AudioBackgroundService.isMuted();
         }, function (newValue, oldValue) {
             $scope.muted = newValue;
         });
 
         $scope.onClick = function () {
-            if (audioPlayerService.isMuted()) {
-                audioPlayerService.mute(false);
+            if (AudioBackgroundService.isMuted()) {
+                AudioBackgroundService.mute(false);
             } else {
-                audioPlayerService.mute(true);
+                AudioBackgroundService.mute(true);
             }
         };
     }
