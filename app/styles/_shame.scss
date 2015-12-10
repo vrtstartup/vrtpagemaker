@@ -38,6 +38,7 @@ figure {
 
 .right {
     margin-left: $sidebar-width;
+    width: calc(100% - 250px);
 }
 
 /*

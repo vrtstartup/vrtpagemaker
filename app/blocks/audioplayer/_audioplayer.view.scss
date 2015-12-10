@@ -1,0 +1,18 @@
+.audio-player {
+    span.clickable {
+        cursor: pointer;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    span.upper {
+        vertical-align: top;
+    }
+
+    input {
+        width: calc(100% - 146px);
+    }
+}

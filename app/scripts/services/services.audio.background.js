@@ -49,6 +49,7 @@
             audio = ngAudio.load(file);
             playing = true;
             audio.volume = 0;
+            audio.loop = true;
             audio.play();
 
             var interval = setInterval(function() {

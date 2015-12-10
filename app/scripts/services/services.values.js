@@ -119,6 +119,16 @@ angular.module('immersiveAngularApp')
                     'type': 'audioscroll',
                     'name': 'Audioscroll'
                 }
+            },
+            '12': {
+                'type': 'audioplayer',
+                'dialog': 'blocks/audioplayer/audioplayer.dialog.html',
+                'edit': '<edit-audioplayer class="o-container__block" id="id" article="article" parameters="parameters"></edit-audioplayer>',
+                'view': '<view-audioplayer class="o-container__block" id="id" article="article" parameters="parameters"></view-audioplayer>',
+                'button': {
+                    'type': 'audioplayer',
+                    'name': 'Audioplayer'
+                }
             }
         };
 
