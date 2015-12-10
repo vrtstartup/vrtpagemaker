@@ -107,7 +107,17 @@ angular.module('immersiveAngularApp')
                 'view': '<view-instagram class="o-container__block" id="id" article="article" parameters="parameters"></view-instagram>',
                 'button': {
                     'type': 'instagram',
-                    'name': 'instagram'
+                    'name': 'Instagram'
+                }
+            },
+            '11': {
+                'type': 'audioscroll',
+                'dialog': 'blocks/audioscroll/audioscroll.dialog.html',
+                'edit': '<edit-audioscroll class="o-container__block" id="id" article="article" parameters="parameters"></edit-audioscroll>',
+                'view': '<view-audioscroll class="o-container__block" id="id" article="article" parameters="parameters"></view-audioscroll>',
+                'button': {
+                    'type': 'audioscroll',
+                    'name': 'Audioscroll'
                 }
             }
         };

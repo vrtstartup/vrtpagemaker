@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('StoryViewController', function($scope, $routeParams, $css, firebaseStoryService) {
+    .controller('StoryViewController', function($scope, $routeParams, $css, firebaseStoryService, audioPlayerService) {
         $scope.loading = true;
         /* Set the id of the article */
         $scope.articleId = $routeParams.article;
@@ -19,5 +19,5 @@ angular.module('immersiveAngularApp')
 
         getArticle();
 
-
+        // TODO: $on.destroy > stop audio
     });
