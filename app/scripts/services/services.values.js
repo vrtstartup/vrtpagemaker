@@ -179,6 +179,16 @@ angular.module('immersiveAngularApp')
                     'type': 'masonry',
                     'name': 'Masonry'
                 }
+            },
+            '18': {
+                'type': 'gif',
+                'dialog': 'blocks/gif/gif.dialog.html',
+                'edit': '<edit-gif class="o-container__block" id="id" article="article" parameters="parameters"></edit-gif>',
+                'view': '<view-gif class="o-container__block" id="id" article="article" parameters="parameters"></view-gif>',
+                'button': {
+                    'type': 'gif',
+                    'name': 'Gif'
+                }
             }
         };
 
