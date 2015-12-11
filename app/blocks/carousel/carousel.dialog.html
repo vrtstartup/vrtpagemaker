@@ -1,0 +1,27 @@
+<md-content>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Je voegt afbeeldingen toe</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button ng-click="getFiles('image/*')" target="_blank" class="md-raised" md-autofocus>Kies nieuwe afbeeldingen</md-button>
+        <!-- Of kies eentje van de reeds geuploade afbeeldingen: -->
+        <!--     <ul>
+        <li ng-repeat="f in files">{{f.url}}</li>
+    </ul> -->
+    </section>
+
+
+    <div ng-include="templates.filters"></div>
+    <div ng-include="templates.style"></div>
+    <div ng-include="templates.audio"></div>
+  <md-divider></md-divider>
+    <!-- Add / close buttons -->
+    <div ng-include="templates.buttons"></div>
+
+
+
+
+</md-content>

@@ -52,6 +52,24 @@ angular.module('immersiveAngularApp')
             });
         };
 
+        $scope.getFiles = function(type) {
+            toolsUploaderService.uploadMultiple(type).then(function(Blobs) {
+                if ($scope.block) {
+                    $scope.block.parameters.images = [];
+                } else {
+                    $scope.block = {
+                        parameters: {
+                            images: []
+                        }
+                    };
+                }
+
+                Blobs.forEach(function (Blob) {
+                    $scope.block.parameters.images.push(Blob.url);
+                });
+            });
+        };
+
         /* Save the meta info of a story */
         var getMeta = function() {
             firebaseStoryService.getMeta($scope.article).then(function(obj) {

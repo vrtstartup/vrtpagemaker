@@ -1,0 +1,63 @@
+.carousel {
+    position: relative;
+
+    figure {
+    	position: relative;
+    	padding-bottom: 56.25%; /* 16:9 */
+    	height: 0;
+        overflow: hidden;
+    }
+
+    img {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        transition: opacity 2s;
+    }
+
+    img.show {
+        opacity: 1;
+    }
+
+    .ap {
+        position: absolute;
+        width: 100%;
+    }
+
+    .btn {
+        z-index: 10;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        color: #ffffff;
+        cursor: pointer;
+
+        svg {
+            fill: rgba(255, 255, 255, .5);
+            height: 60px;
+            width: auto;
+        }
+    }
+
+    .btn:hover,
+    .btn:active {
+        svg {
+            fill: rgba(255, 255, 255, .9);
+        }
+    }
+
+    .btn:focus {
+        outline: none;
+    }
+
+    .btn-left {
+        @extend .btn;
+        left: 0;
+    }
+
+    .btn-right {
+        @extend .btn;
+        right: 0;
+    }
+}

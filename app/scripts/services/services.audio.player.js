@@ -14,7 +14,9 @@
         var service = {
             load: load,
             play: play,
-            playIfNot: playIfNot
+            playIfNot: playIfNot,
+            stop: stop,
+            get: get
         };
 
         return service;
@@ -26,7 +28,7 @@
         }
 
         function play(id) {
-            var audio = files[id];
+            var audio = get(id);
 
             if (currentPlaying && currentPlaying != audio) {
                 currentPlaying.pause();
@@ -42,7 +44,7 @@
         }
 
         function playIfNot(id) {
-            var audio = files[id];
+            var audio = get(id);
 
             if (currentPlaying && currentPlaying != audio) {
                 currentPlaying.pause();
@@ -52,6 +54,15 @@
                 audio.play();
                 currentPlaying = audio;
             }
+        }
+
+        function stop(id) {
+            var audio = get(id);
+            audio.stop();
+        }
+
+        function get(id) {
+            return files[id];
         }
     }
 })();

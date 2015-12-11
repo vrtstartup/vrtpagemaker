@@ -159,6 +159,16 @@ angular.module('immersiveAngularApp')
                     'type': 'svg',
                     'name': 'SVG-afbeelding'
                 }
+            },
+            '16': {
+                'type': 'carousel',
+                'dialog': 'blocks/carousel/carousel.dialog.html',
+                'edit': '<edit-carousel class="o-container__block carousel" id="id" article="article" parameters="parameters"></edit-carousel>',
+                'view': '<view-carousel class="o-container__block carousel" id="id" article="article" parameters="parameters"></view-carousel>',
+                'button': {
+                    'type': 'carousel',
+                    'name': 'Carousel'
+                }
             }
         };
 
