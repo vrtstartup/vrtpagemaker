@@ -1,0 +1,22 @@
+<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <p>Voeg muziek toe:</p>
+    <md-input-container>
+        <label>mp3-file url:</label>
+        <input type="text" ng-model="block.parameters.media" name="media">
+    </md-input-container>
+
+    <md-input-container>
+        <label>Actie</label>
+        <md-select ng-model="block.parameters.action">
+            <md-option value="none">
+                Geen
+            </md-option>
+            <md-option value="click">
+                Klik
+            </md-option>
+            <md-option value="hover">
+                Hover
+            </md-option>
+        </md-select>
+    </md-input-container>
+</section>

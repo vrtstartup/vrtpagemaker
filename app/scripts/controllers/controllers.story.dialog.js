@@ -8,6 +8,7 @@ angular.module('immersiveAngularApp')
         $scope.templates = {
             'style': '../views/includes.dialog.style.html',
             'filters': '../views/includes.dialog.filters.html',
+            'audio': '../views/includes.dialog.audio.html',
             'buttons': '../views/includes.dialog.buttons.html'
         };
 

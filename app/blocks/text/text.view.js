@@ -3,7 +3,7 @@
 angular.module('immersiveAngularApp')
     .directive('viewText', function($compile) {
         return {
-            template: '<div class="o-block__text" ng-bind-html="text"></div>',
+            template: '<div class="o-block__text" ng-bind-html="text"></div><view-audioplayer ng-if="parameters.media" id="id" parameters="parameters"></view-audioplayer>',
             restrict: 'E',
             scope: {
                 id: '=',

@@ -26,7 +26,8 @@ angular
         'angulartics.google.analytics',
         'angular-mapbox',
         '720kb.socialshare',
-        'door3.css'
+        'door3.css',
+        'ngAudio'
     ])
     .constant("firebaseURL", {
         "FURL": "https://immersiveangular.firebaseio.com/",

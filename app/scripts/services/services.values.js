@@ -107,10 +107,30 @@ angular.module('immersiveAngularApp')
                 'view': '<view-instagram class="o-container__block" id="id" article="article" parameters="parameters"></view-instagram>',
                 'button': {
                     'type': 'instagram',
-                    'name': 'instagram'
+                    'name': 'Instagram'
                 }
             },
             '11': {
+                'type': 'audioscroll',
+                'dialog': 'blocks/audioscroll/audioscroll.dialog.html',
+                'edit': '<edit-audioscroll class="o-container__block" id="id" article="article" parameters="parameters"></edit-audioscroll>',
+                'view': '<view-audioscroll class="o-container__block" id="id" article="article" parameters="parameters"></view-audioscroll>',
+                'button': {
+                    'type': 'audioscroll',
+                    'name': 'Audioscroll'
+                }
+            },
+            '12': {
+                'type': 'audioplayer',
+                'dialog': 'blocks/audioplayer/audioplayer.dialog.html',
+                'edit': '<edit-audioplayer class="o-container__block" id="id" article="article" parameters="parameters"></edit-audioplayer>',
+                'view': '<view-audioplayer class="o-container__block" id="id" article="article" parameters="parameters"></view-audioplayer>',
+                'button': {
+                    'type': 'audioplayer',
+                    'name': 'Audioplayer'
+                }
+            },
+            '13': {
                 'type': 'twitter',
                 'dialog': 'blocks/twitter/twitter.dialog.html',
                 'edit': '<edit-twitter class="o-container__block" id="id" article="article" parameters="parameters"></edit-twitter>',
@@ -120,7 +140,7 @@ angular.module('immersiveAngularApp')
                     'name': 'twitter'
                 }
             },
-            '12': {
+            '14': {
                 'type': 'linepainter',
                 'dialog': 'blocks/linepainter/linepainter.dialog.html',
                 'edit': '<edit-linepainter class="o-container__block" id="id" article="article" parameters="parameters"></edit-linepainter>',
@@ -130,7 +150,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Lijnentekening'
                 }
             },
-            '13': {
+            '15': {
                 'type': 'svg',
                 'dialog': 'blocks/svg/svg.dialog.html',
                 'edit': '<edit-svg class="o-container__block" id="id" article="article" parameters="parameters"></edit-svg>',

@@ -152,4 +152,6 @@ angular.module('immersiveAngularApp')
         */
         getArticle();
 
+
+        // TODO: $on.destroy > stop audio
     });

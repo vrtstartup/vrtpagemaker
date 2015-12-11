@@ -82,11 +82,12 @@
     <script src="bower_components/waypoints/lib/noframework.waypoints.min.js"></script>
     <script src="bower_components/SHA-1/sha1.js"></script>
     <script src="bower_components/angulartics/src/angulartics.js"></script>
-    <script src="bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js"></script>
+    <script src="bower_components/angulartics-google-analytics/lib/angulartics-google-analytics.js"></script>
     <script src="bower_components/angular-socialshare/dist/angular-socialshare.min.js"></script>
     <script src="bower_components/angular-css/angular-css.js"></script>
     <script src="bower_components/medium-editor/dist/js/medium-editor.js"></script>
     <script src="bower_components/vivus/dist/vivus.js"></script>
+    <script src="bower_components/angular-audio/app/angular.audio.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -110,6 +111,8 @@
     <script src="scripts/services/services.blocks.map.mapbox.js"></script>
     <script src="scripts/services/services.blocks.twitter.load.js"></script>
     <script src="scripts/services/services.values.js"></script>
+    <script src="scripts/services/services.audio.background.js"></script>
+    <script src="scripts/services/services.audio.player.js"></script>
     <!-- Directives __  general -->
     <script src="scripts/directives/directives.story.feedback.js"></script>
     <script src="scripts/directives/directives.story.positioninpage.js"></script>
@@ -118,6 +121,7 @@
     <script src="scripts/directives/directives.story.feedbackreader.js"></script>
     <script src="scripts/directives/directives.thirdparty.angularmediumeditor.js"></script>
     <script src="scripts/directives/directives.soundcite.js"></script>
+    <script src="scripts/directives/directives.soundicon.js"></script>
     <!-- Directives __ Blocks -->
     <script src="scripts/directives/directives.blocks.dispatcher.edit.js"></script>
     <script src="scripts/directives/directives.blocks.dispatcher.view.js"></script>
@@ -157,6 +161,13 @@
     <!-- Directives __ Blocks __ Linepainter -->
     <script src="blocks/svg/svg.edit.js"></script>
     <script src="blocks/svg/svg.view.js"></script>
+    <!-- Directives __ Blocks __ Audioscroll -->
+    <script src="blocks/audioscroll/audioscroll.edit.js"></script>
+    <script src="blocks/audioscroll/audioscroll.view.js"></script>
+    <!-- Directives __ Blocks __ Audioplayer -->
+    <script src="blocks/audioplayer/audioplayer.filter.js"></script>
+    <script src="blocks/audioplayer/audioplayer.edit.js"></script>
+    <script src="blocks/audioplayer/audioplayer.view.js"></script>
     <!-- endbuild -->
 </body>
 

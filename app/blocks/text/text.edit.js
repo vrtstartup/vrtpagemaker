@@ -3,7 +3,7 @@
 angular.module('immersiveAngularApp')
     .directive('editText', function(firebaseBlocksService) {
         return {
-            template: '<div class="o-block__text"><p ng-model="data.parameters.text" medium-editor bind-options="mediumBindOptions"></p></div>',
+            template: '<div class="o-block__text"><p ng-model="data.parameters.text" medium-editor bind-options="mediumBindOptions"></p></div><edit-audioplayer ng-if="parameters.media" id="id" parameters="parameters"></edit-audioplayer>',
             restrict: 'E',
             scope: {
                 id: '=',
