@@ -7,7 +7,6 @@ angular.module('immersiveAngularApp')
         function getArticles(place) {
 
             /*  Get the array of blocks */
-
             firebaseStoriesService.getArray(place).then(function(list) {
                 $scope.list = list;
             });
@@ -21,21 +20,11 @@ angular.module('immersiveAngularApp')
 
 
         $scope.changeLive = function(articleId, live) {
-            console.log(live);
             if (live !== true) {
-                console.log('deleting article ' + articleId + ' from live');
                 firebaseStoryService.deleteLive(articleId, 'live');
-
-
             } else {
-
-                /* Get Article */
-                firebaseStoryService.getArticle($scope.articleId).then(function(obj) {
+                firebaseStoryService.live(articleId).then(function(obj) {
                     console.log(obj);
-                    /* Save article to Live*/
-                    firebaseStoryService.live(articleId).then(function(obj) {
-                        console.log(obj);
-                    });
                 });
             }
         };

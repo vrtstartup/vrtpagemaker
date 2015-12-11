@@ -94,8 +94,8 @@ angular.module('immersiveAngularApp')
         },
 
 
-        live: function(articleId, article) {
-            console.log(article);
+        live: function(articleId) {
+
             console.log('pushing ' + articleId + ' to live');
 
             var deferred = $q.defer();
@@ -107,11 +107,11 @@ angular.module('immersiveAngularApp')
                 var stagingRef = new Firebase(FURLStaging).child('articles/' + articleId);
                 var obj = $firebaseObject(stagingRef);
                 obj.$loaded().then(function() {
-                    console.log('loaded');
+
                     var liveRef = new Firebase(FURLLive).child('articles/' + articleId);
                     var liveObj = $firebaseObject(liveRef);
 
-
+                    console.log(obj);
                     liveObj.title = obj.title;
                     liveObj.createdAt = obj.createdAt;
                     liveObj.updatedAt = Firebase.ServerValue.TIMESTAMP;

@@ -26,6 +26,21 @@ angular.module('immersiveAngularApp')
             $location.path('/edit/');
 
         };
+
+
+        $scope.changeLive = function(articleId, live) {
+            console.log(articleId);
+            if (live !== true) {
+                firebaseStoryService.deleteLive(articleId, 'live');
+            } else {
+                firebaseStoryService.live(articleId).then(function() {
+
+                });
+            }
+        };
+
+
+
         $scope.addToLive = function(articleId) {
             /* Get Article */
             firebaseStoryService.getArticle($scope.articleId).then(function(obj) {
@@ -36,6 +51,11 @@ angular.module('immersiveAngularApp')
                 });
             });
         };
+
+
+        // $scope.removeFromLive = function(articleId) {
+        //     firebaseStoryService.deleteLive(articleId, 'live');
+        // };
 
         $scope.setActiveBlock = function(block) {
             $scope.activeBlock = block;
@@ -53,9 +73,6 @@ angular.module('immersiveAngularApp')
             }
         };
 
-        $scope.removeFromLive = function(articleId) {
-            firebaseStoryService.deleteLive(articleId, 'live');
-        };
 
         $scope.goToLive = function(articleId) {
             $location.path('/articles/' + articleId);
