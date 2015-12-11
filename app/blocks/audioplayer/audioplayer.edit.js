@@ -11,7 +11,8 @@
             templateUrl: 'blocks/audioplayer/audioplayer.html',
             scope: {
                 id: '=',
-                parameters: '='
+                parameters: '=',
+                progress: '='
             },
             link: linkFunc,
             controller: EditAudioPlayerController
@@ -65,6 +66,20 @@
                 // play();
             }
         }
+
+        $scope.$watch(function () {
+            if (!isNaN($scope.audio.progress) && $scope.audio.progress.toFixed) {
+                return $scope.audio.progress.toFixed(3);
+            }
+        }, function (newValue) {
+            if ($scope.progress) {
+                $scope.progress(newValue);
+            }
+        });
+
+        $scope.$on('$destroy', function () {
+            AudioPlayerService.stop($scope.id);
+        });
 
         /*
         $rootScope.$on('duScrollspy:becameActive', function(event, element, target) {

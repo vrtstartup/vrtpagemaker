@@ -159,6 +159,36 @@ angular.module('immersiveAngularApp')
                     'type': 'svg',
                     'name': 'SVG-afbeelding'
                 }
+            },
+            '16': {
+                'type': 'carousel',
+                'dialog': 'blocks/carousel/carousel.dialog.html',
+                'edit': '<edit-carousel class="o-container__block carousel" id="id" article="article" parameters="parameters"></edit-carousel>',
+                'view': '<view-carousel class="o-container__block carousel" id="id" article="article" parameters="parameters"></view-carousel>',
+                'button': {
+                    'type': 'carousel',
+                    'name': 'Carousel'
+                }
+            },
+            '17': {
+                'type': 'masonry',
+                'dialog': 'blocks/masonry/masonry.dialog.html',
+                'edit': '<edit-masonry class="o-container__block" id="id" article="article" parameters="parameters"></edit-masonry>',
+                'view': '<view-masonry class="o-container__block" id="id" article="article" parameters="parameters"></view-masonry>',
+                'button': {
+                    'type': 'masonry',
+                    'name': 'Masonry'
+                }
+            },
+            '18': {
+                'type': 'gif',
+                'dialog': 'blocks/gif/gif.dialog.html',
+                'edit': '<edit-gif class="o-container__block" id="id" article="article" parameters="parameters"></edit-gif>',
+                'view': '<view-gif class="o-container__block" id="id" article="article" parameters="parameters"></view-gif>',
+                'button': {
+                    'type': 'gif',
+                    'name': 'Gif'
+                }
             }
         };
 

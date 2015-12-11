@@ -1,0 +1,33 @@
+.gif {
+    .current {
+        position: fixed;
+        top: 0;
+        width: calc(50% - 125px);
+        overflow: hidden;
+
+        img {
+            height: 100vh;
+            width: auto;
+        }
+    }
+
+    .images {
+        overflow-x: hidden;
+
+        img {
+            height: 100vh;
+            width: auto;
+        }
+    }
+
+    .text {
+        width: 50%;
+    }
+
+    .text.active {
+        width: calc(50% - 125px);
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+}

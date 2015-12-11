@@ -19,7 +19,7 @@
         return directive;
     }
 
-    function AudioScrollController($rootScope, AudioBackgroundService) {
+    function AudioScrollController($rootScope, $scope, AudioBackgroundService) {
         $rootScope.$on('duScrollspy:becameActive', function(event, element, target) {
             if (element[0].className.indexOf("audio-scroll") > -1) {
                 var mediaNode = element[0].attributes.media;
@@ -31,6 +31,10 @@
                     AudioBackgroundService.stop();
                 }
             }
+        });
+
+        $scope.$on('$destroy', function () {
+            AudioBackgroundService.stop();
         });
     }
 })();

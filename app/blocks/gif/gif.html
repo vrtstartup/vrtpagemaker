@@ -1,0 +1,21 @@
+<div class="gif" layout="row">
+    <div class="current">
+        <img ng-src="{{ current }}" />
+    </div>
+
+    <div flex="50" class="images">
+        <img id="{{ image }}" class="image-scroll" du-smooth-scroll du-scrollspy="{{ image }}"  ng-repeat="image in parameters.images" ng-src="{{ image }}" />
+    </div>
+
+    <div flex="50" class="text" ng-class="{ active: current }">
+        Tekstjkld qfj dsjl dsjlk <br>
+        Tekstjkld qfj dsjl dsjlk <br>
+        Tekstjkld qfj dsjl dsjlk <br>
+        Tekstjkld qfj dsjl dsjlk <br>
+        Tekstjkld qfj dsjl dsjlk <br>
+        Tekstjkld qfj dsjl dsjlk <br>
+        Tekstjkld qfj dsjl dsjlk <br>
+        Tekstjkld qfj dsjl dsjlk <br>
+        Tekstjkld qfj dsjl dsjlk <br>
+    </div>
+</div>
