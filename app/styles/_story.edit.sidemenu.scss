@@ -1,13 +1,19 @@
-.fabSpeedDialdemoMoreOptions .lock-size {
-  min-width: 300px;
-  min-height: 300px;
-  width: 300px;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto; }
-.fabSpeedDialdemoMoreOptions .md-fab.demo-fab.trigger-fab:hover, .fabSpeedDialdemoMoreOptions .md-fab.demo-fab.trigger-fab.md-focused, .fabSpeedDialdemoMoreOptions .md-fab.demo-fab.action-fab:hover, .fabSpeedDialdemoMoreOptions .md-fab.demo-fab.action-fab.md-focused {
-  background-color: #333; }
-.fabSpeedDialdemoMoreOptions .md-fab.demo-fab.action-fab {
-  background-color: #aaa; }
-.fabSpeedDialdemoMoreOptions md-content div[flex="50"] {
-  padding: 15px; }
+.c-sidemenu {
+width: $sidebar-width;
+    .c-sidemenu__icon {
+        padding-top: .6em;
+        margin-right: 1em;
+        &.c-sidemenu__icon--live {
+            padding-top: .0em;
+        }
+    }
+}
+
+.c-sidemenu__toggle {
+    height: 1em;
+    width: 1em;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    z-index: 5;
+}

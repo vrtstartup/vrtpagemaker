@@ -10,7 +10,6 @@ figure {
     width: 100%;
     backface-visibility: hidden;
     will-change: overflow;
-
     #nav {
         left: $sidebar-width !important;
     }
@@ -34,12 +33,23 @@ figure {
     width: $sidebar-width;
     height: 100vh;
     overflow-y: auto;
+    // border: none;
+    z-index: 2;
+    box-shadow: 1px 0px 1px #eee;
+        padding-top: 2em;
+    &.preview {
+        width: $sidebar-width-preview;
+    }
 }
 
 .right {
     margin-left: $sidebar-width;
     width: 100%;
+    &.preview {
+        margin-left: $sidebar-width-preview;
+    }
 }
+
 
 /*
  * Start: Story Header
@@ -106,7 +116,6 @@ h1.title {
         height: 100vh;
     }
 }
-
 
 // Laadscherm
 #load {
@@ -297,12 +306,10 @@ h1.title {
 .medium-editor-action {
     width: 20px;
     height: 20px;
-
     div {
         width: 20px;
         height: 20px;
     }
-
     svg {
         width: 20px;
         height: 20px;
