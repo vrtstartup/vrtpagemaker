@@ -1,4 +1,6 @@
 <div class="editpage">
+    <sound-icon></sound-icon>
+
     <div class="c-sidemenu__toggle" ng-init="preview = false" ng-click="preview = !preview">
         <div ng-include="'icons/menu.html'" class="c-sidemenu__icon"></div>
     </div>
@@ -42,24 +44,82 @@
                     <div ng-include="'icons/home.html'" class="c-sidemenu__icon"></div>
                     <p>{{b.name}}</p>
                 </md-list-item>
+
+<!--
+    <div class="left">
+        <md-content layout="column">
+            <md-toolbar class="md-accent">
+                <div class="md-toolbar-tools" layout="row" ng-click="toggleMenuWidth()">
+                    <div flex offset="5">
+                        <h3>
+                            <span >Opties</span>
+                        </h3>
+                    </div>
+                </div>
+            </md-toolbar>
+            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                <md-button class="md-raised" ng-click="openDialog(articleId, 'meta')">Stel informatie in</md-button>
+                <md-button class="md-raised" ng-show="!articleMeta.live" ng-click="addToLive(articleId, articleMeta.live)">Zet live</md-button>
+                <md-button class="md-raised" ng-show="articleMeta.live" ng-click="addToLive(articleId, articleMeta.live)">Zet veranderingen live</md-button>
+                <md-button class="md-raised" ng-show="articleMeta.live" ng-click="goToLive(articleId)">Open live Artikel</md-button>
+                <md-button class="md-raised" ng-show="articleMeta.live" ng-click="removeFromLive(articleId, articleMeta.live)">Verwijder van Live</md-button>
+                <md-button class="md-raised" ng-click="deleteArticle(articleId, articleMeta.live)">Verwijder</md-button>
+                <md-button class="md-raised" ng-click="goHome()">Ga naar begin</md-button>
+            </section>
+            <md-toolbar class="md-accent">
+                <div class="md-toolbar-tools" layout="row">
+                    <div flex offset="5">
+                        <h3><span >Voeg een blokje toe</span></h3>
+                    </div>
+                </div>
+            </md-toolbar>
+            <ul layout="row" layout-wrap>
+                <div flex="33" data-ng-repeat="b in buttons">
+                    <li ng-click="openDialog(articleId, b.type, null)" class="o-add o-add__{{b.type}}">
+                        <md-tooltip>
+                            {{b.name}}
+                        </md-tooltip>
+                    </li>
+                </div>
+            </ul>
+            <md-divider></md-divider>
+            <md-toolbar class="md-accent">
+                <div class="md-toolbar-tools" layout="row">
+                    <div flex offset="5">
+                        <h3><span >Toegevoegde blokjes </span></h3>
+                    </div>
+                </div>
+            </md-toolbar>
+
+            <md-content layout-padding>
+                <ul data-as-sortable="dragControlListeners" data-ng-model="list" layout="row" layout-wrap layout-align="center start" >
+                    <li flex="{{value.parameters.width}}" data-ng-repeat="(key,value) in list" ng-click="openDialog(articleId, value.type, value.$id)" data-as-sortable-item ng-mouseover="setActiveBlock(value.$id)"  ng-mouseleave="removeActiveBlock()">
+                        <div data-as-sortable-item-handle class="o-sortable o-sortable__{{value.type}}"></div>
+                    </li>
+                    </a>
+                </ul>
                 <md-divider></md-divider>
+-->
+
                 <md-subheader ng-show="!preview" class="md-no-sticky" ng-init="showOverview = true">
                     <p ng-click="showOverview = !showOverview">Overzicht</p>
                 </md-subheader>
+
+                <div ng-show="!preview">
+                    <md-content layout-padding ng-show="showOverview">
+                        <ul data-as-sortable="dragControlListeners" data-ng-model="list" layout="row" layout-wrap layout-align="center start">
+                            <li flex="{{value.parameters.width}}" data-ng-repeat="(key,value) in list" ng-click="openDialog(articleId, value.type, value.$id)" data-as-sortable-item ng-mouseover="setActiveBlock(value.$id)" ng-mouseleave="removeActiveBlock()">
+                                <div data-as-sortable-item-handle class="o-sortable o-sortable__{{value.type}}"></div>
+                            </li>
+                            </a>
+                        </ul>
+                        <md-divider></md-divider ng-show="!preview">
+                    </md-content>
+                </div>
             </md-list>
-            <div ng-show="!preview">
-                <md-content layout-padding ng-show="showOverview">
-                    <ul data-as-sortable="dragControlListeners" data-ng-model="list" layout="row" layout-wrap layout-align="center start">
-                        <li flex="{{value.parameters.width}}" data-ng-repeat="(key,value) in list" ng-click="openDialog(articleId, value.type, value.$id)" data-as-sortable-item ng-mouseover="setActiveBlock(value.$id)" ng-mouseleave="removeActiveBlock()">
-                            <div data-as-sortable-item-handle class="o-sortable o-sortable__{{value.type}}"></div>
-                        </li>
-                        </a>
-                    </ul>
-                    <md-divider></md-divider ng-show="!preview">
-                </md-content>
-            </div>
         </md-content>
     </div>
+
     <div class="right" ng-class="{preview: preview==true}">
         <md-content>
             <div class="o-container">

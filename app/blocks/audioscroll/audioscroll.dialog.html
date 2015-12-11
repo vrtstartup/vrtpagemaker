@@ -1,12 +1,11 @@
 <md-content ng-init="block.parameters.text = ''">
     <md-toolbar class="md-warn">
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Je voegt tekst toe</h2>
+            <h2 class="md-flex">Je voegt audio toe</h2>
         </div>
     </md-toolbar>
-    <br/>
-      <div ng-include="templates.style"></div>
-      <div ng-include="templates.audio"></div>
+    <br>
+    <input type="text" ng-model="block.parameters.media" name="media">
    <md-divider></md-divider>
     <!-- Add / close buttons -->
     <div ng-include="templates.buttons"></div>
