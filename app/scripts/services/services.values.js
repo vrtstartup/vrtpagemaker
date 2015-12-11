@@ -169,6 +169,16 @@ angular.module('immersiveAngularApp')
                     'type': 'carousel',
                     'name': 'Carousel'
                 }
+            },
+            '17': {
+                'type': 'masonry',
+                'dialog': 'blocks/masonry/masonry.dialog.html',
+                'edit': '<edit-masonry class="o-container__block" id="id" article="article" parameters="parameters"></edit-masonry>',
+                'view': '<view-masonry class="o-container__block" id="id" article="article" parameters="parameters"></view-masonry>',
+                'button': {
+                    'type': 'masonry',
+                    'name': 'Masonry'
+                }
             }
         };
 

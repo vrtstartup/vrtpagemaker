@@ -3,7 +3,7 @@
 angular.module('immersiveAngularApp')
     .directive('editCarousel', function() {
         return {
-            template: '<div><div class="btn-left" ng-click="onClickPrevious()" ng-include="\'icons/left-arrow.html\'" ng-hide="parameters.media"></div><div class="btn-right" ng-click="onClickNext()" ng-include="\'icons/right-arrow.html\'" ng-hide="parameters.media"></div><figure><img ng-class="{ show: current == $index }" ng-repeat="image in parameters.images" ng-src="{{ image }}"></figure><edit-audioplayer class="ap" ng-if="parameters.media" id="id" parameters="parameters" progress="onProgress"></edit-audioplayer></div>',
+            template: '<div><div class="btn-left" ng-click="onClickPrevious()" ng-include="\'icons/left-arrow.html\'" ng-hide="parameters.media"></div><div class="btn-right" ng-click="onClickNext()" ng-include="\'icons/right-arrow.html\'" ng-hide="parameters.media"></div><figure class="{{filter}}"><img ng-class="{ show: current == $index }" ng-repeat="image in parameters.images" ng-src="{{ image }}"></figure><edit-audioplayer class="ap" ng-if="parameters.media" id="id" parameters="parameters" progress="onProgress"></edit-audioplayer></div>',
             restrict: 'E',
             scope: {
                 id: '=',
