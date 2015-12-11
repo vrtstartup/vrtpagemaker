@@ -1,26 +1,21 @@
-<md-menu>
-    <md-button class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
-        Menu
-    </md-button>
-    <md-menu-content width="4">
-        <md-menu-item>
-            <md-button ng-click="startStory()">
-                Nieuw verhaal
-            </md-button>
-        </md-menu-item>
-    </md-menu-content>
-</md-menu>
+<md-toolbar class="md-warn">
+    <div class="md-toolbar-tools">
+        <md-button ng-click="startStory()">
+            Nieuw verhaal
+        </md-button>
+    </div>
+</md-toolbar>
 <md-content>
     <md-list>
         <md-subheader class="md-no-sticky">Artikels</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="(key,value) in list">
             <img ng-src="{{value.meta.headerImage}}" class="md-avatar" alt="{{value.title}}">
             <div class="md-list-item-text">
-                <h4 ng-click="editArticle(value.$id)">{{ value.title }}</h4>
+                <h4 ng-click="editArticle(value.$id)">{{ value.meta.title }}</h4>
                 <p>{{ value.meta.author }}</p>
                 <p>{{ value.$id }}</p>
             </div>
-            <md-switch ng-model="value.live" ng-change="changeLive(value.$id, value.live)" class="md-primary" aria-label="Live">
+            <md-switch ng-model="value.meta.live" ng-change="changeLive(value.$id, value.meta.live)" class="md-primary" aria-label="Live">
             </md-switch>
             <md-button class="md-raised md-warn" ng-click="removeArticle(value.$id)">Verwijder</md-button>
         </md-list-item>

@@ -18,9 +18,11 @@ angular.module('immersiveAngularApp')
             var ref = new Firebase(FURLStaging).child('articles/');
             var list = $firebaseArray(ref);
             list.$add({
-                'createdAt': Firebase.ServerValue.TIMESTAMP,
-                'live': false,
-                'title': title
+                'meta': {
+                    'createdAt': Firebase.ServerValue.TIMESTAMP,
+                    'live': false,
+                    'title': title
+                }
             }).then(function(ref) {
                 var id = ref.key();
                 deferred.resolve(id);

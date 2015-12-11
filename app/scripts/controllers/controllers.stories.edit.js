@@ -47,17 +47,14 @@ angular.module('immersiveAngularApp')
             });
         }
 
-        var originatorEv;
-        $scope.openMenu = function($mdOpenMenu, ev) {
-            originatorEv = ev;
-            $mdOpenMenu(ev);
-        };
-
         $scope.startStory = function(edit) {
             showDialog(edit);
-            originatorEv = null;
         };
 
+        /* Close the dialog */
+        $scope.closeDialog = function() {
+            $mdDialog.hide();
+        };
 
         $scope.createStory = function(title) {
             firebaseStoriesService.add(title).then(function(id) {
