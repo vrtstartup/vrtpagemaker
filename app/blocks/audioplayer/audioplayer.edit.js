@@ -10,32 +10,68 @@
             restrict: 'E',
             templateUrl: 'blocks/audioplayer/audioplayer.html',
             scope: {
+                id: '=',
                 parameters: '='
             },
+            link: linkFunc,
             controller: EditAudioPlayerController
         };
+
+        function linkFunc($scope, elements) {
+            elements[0].parentElement.addEventListener('click', function () {
+                $scope.onClick();
+            });
+
+            elements[0].parentElement.addEventListener('mouseenter', function () {
+                $scope.onHover();
+            });
+        }
 
         return directive;
     }
 
-    EditAudioPlayerController.$inject = [ '$scope', 'AudioPlayerService' ];
+    EditAudioPlayerController.$inject = [ '$rootScope', '$scope', 'AudioPlayerService' ];
 
-    function EditAudioPlayerController($scope, AudioPlayerService) {
+    function EditAudioPlayerController($rootScope, $scope, AudioPlayerService) {
         $scope.play = play;
         $scope.mute = mute;
+        $scope.onClick = onClick;
+        $scope.onHover = onHover;
 
         activate();
 
         function activate() {
-            $scope.audio = AudioPlayerService.load($scope.parameters.media);
+            $scope.audio = AudioPlayerService.load($scope.id, $scope.parameters.media);
         }
 
         function play() {
-            AudioPlayerService.play($scope.audio);
+            AudioPlayerService.play($scope.id);
         }
 
         function mute() {
             $scope.audio.muting = !$scope.audio.muting;
         }
+
+        function onClick() {
+            if ($scope.parameters.action == 'click' && $scope.audio.paused) {
+                // TODO
+                // play();
+            }
+        }
+
+        function onHover() {
+            if ($scope.parameters.action == 'hover' && $scope.audio.paused) {
+                // TODO
+                // play();
+            }
+        }
+
+        /*
+        $rootScope.$on('duScrollspy:becameActive', function(event, element, target) {
+            if (element[0].className.indexOf("audio-scroll") < 0) {
+                AudioPlayerService.playIfNot(element[0].id);
+            }
+        });
+        */
     }
 })();

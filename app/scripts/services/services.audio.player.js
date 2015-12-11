@@ -8,31 +8,50 @@
     AudioPlayerService.$inject = [ 'ngAudio' ];
 
     function AudioPlayerService(ngAudio) {
-        var last;
+        var files = {};
+        var currentPlaying;
 
         var service = {
             load: load,
-            play: play
+            play: play,
+            playIfNot: playIfNot
         };
 
         return service;
 
-        function load(file) {
-            return ngAudio.load(file);
+        function load(id, file) {
+            var audio = ngAudio.load(file);
+            files[id] = audio;
+            return audio;
         }
 
-        function play(audio) {
-            if (last && last != audio) {
-                last.pause();
+        function play(id) {
+            var audio = files[id];
+
+            if (currentPlaying && currentPlaying != audio) {
+                currentPlaying.pause();
             }
 
             if (audio.paused) {
                 audio.play();
+                currentPlaying = audio;
             } else {
                 audio.pause();
+                currentPlaying = null;
+            }
+        }
+
+        function playIfNot(id) {
+            var audio = files[id];
+
+            if (currentPlaying && currentPlaying != audio) {
+                currentPlaying.pause();
             }
 
-            last = audio;
+            if (audio.paused) {
+                audio.play();
+                currentPlaying = audio;
+            }
         }
     }
 })();

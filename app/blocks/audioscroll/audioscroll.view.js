@@ -8,10 +8,10 @@
     function viewAudioscroll() {
         var directive = {
             restrict: 'E',
-            template: '<div id="{{ id }}" du-smooth-scroll du-scrollspy="{{ id }}" media="{{ parameters.media }}">AUDIO</div>',
+            template: '<div id="{{ id }}" class="audio-scroll" du-smooth-scroll du-scrollspy="{{ id }}" media="{{ parameters.media }}">AUDIO</div>',
             scope: {
-                parameters: '=',
-                id: '='
+                id: '=',
+                parameters: '='
             },
             controller: AudioScrollViewController
         };
@@ -19,17 +19,17 @@
         return directive;
     }
 
-    function AudioScrollViewController($rootScope, AudioBackgroundService) {
+    function AudioScrollViewController($rootScope, $scope, AudioBackgroundService) {
         $rootScope.$on('duScrollspy:becameActive', function(event, element, target) {
-            var mediaNode = element[0].attributes.media;
-            var file = mediaNode.value;
+            if (element[0].className.indexOf("audio-scroll") > -1) {
+                var mediaNode = element[0].attributes.media;
+                var file = mediaNode.value;
 
-            console.log(file);
-
-            if (file) {
-                AudioBackgroundService.play(file);
-            } else {
-                AudioBackgroundService.stop();
+                if (file) {
+                    AudioBackgroundService.play(file);
+                } else {
+                    AudioBackgroundService.stop();
+                }
             }
         });
     }

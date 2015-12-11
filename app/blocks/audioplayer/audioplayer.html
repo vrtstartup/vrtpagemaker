@@ -1,4 +1,4 @@
-<div class="audio-player">
+<div class="audio-player" >
     <span class="clickable" ng-include="'icons/play.html'" ng-show="audio.paused" ng-click="play()"></span>
     <span class="clickable" ng-include="'icons/pause.html'" ng-hide="audio.paused" ng-click="play()"></span>
     <input type="range" min="0" max="1" step="0.001" ng-model="audio.progress">
@@ -6,3 +6,6 @@
     <span class="clickable" ng-hide="audio.muting" ng-click="mute()" ng-include="'icons/volume-on.html'"></span>
     <span class="clickable" ng-show="audio.muting" ng-click="mute()" ng-include="'icons/volume-off.html'"></span>
 </div>
+
+
+<!-- id="{{ id }}" du-smooth-scroll du-scrollspy="{{ id }}" -->
