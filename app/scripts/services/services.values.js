@@ -119,6 +119,26 @@ angular.module('immersiveAngularApp')
                     'type': 'twitter',
                     'name': 'twitter'
                 }
+            },
+            '12': {
+                'type': 'linepainter',
+                'dialog': 'blocks/linepainter/linepainter.dialog.html',
+                'edit': '<edit-linepainter class="o-container__block" id="id" article="article" parameters="parameters"></edit-linepainter>',
+                'view': '<view-linepainter class="o-container__block" id="id" article="article" parameters="parameters"></view-linepainter>',
+                'button': {
+                    'type': 'linepainter',
+                    'name': 'Lijnentekening'
+                }
+            },
+            '13': {
+                'type': 'svg',
+                'dialog': 'blocks/svg/svg.dialog.html',
+                'edit': '<edit-svg class="o-container__block" id="id" article="article" parameters="parameters"></edit-svg>',
+                'view': '<view-svg class="o-container__block" id="id" article="article" parameters="parameters"></view-svg>',
+                'button': {
+                    'type': 'svg',
+                    'name': 'SVG-afbeelding'
+                }
             }
         };
 

@@ -51,6 +51,7 @@ module.exports = function(config) {
       'bower_components/angular-socialshare/dist/angular-socialshare.min.js',
       'bower_components/angular-css/angular-css.js',
       'bower_components/medium-editor/dist/js/medium-editor.js',
+      'bower_components/vivus/dist/vivus.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
