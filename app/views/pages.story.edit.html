@@ -1,10 +1,11 @@
-<div class="editpage">
+<div class="c-editpage">
     <sound-icon></sound-icon>
 
     <div class="c-sidemenu__toggle" ng-init="preview = false" ng-click="preview = !preview">
         <div ng-include="'icons/menu.html'" class="c-sidemenu__icon"></div>
     </div>
-    <div class="left" ng-class="{preview: preview==true}">
+    <!-- <div ng-init="mobilePreview = false" ng-click="mobilePreview = !mobilePreview">IOS</div> -->
+    <div class="c-editpage__left" ng-class="{'c-editpage__left--preview': preview==true}">
         <md-content layout="column" class="c-sidemenu">
             <md-list>
                 <md-subheader class="md-sticky" ng-show="!preview">
@@ -45,62 +46,6 @@
                     <p>{{b.name}}</p>
                 </md-list-item>
 
-<!--
-    <div class="left">
-        <md-content layout="column">
-            <md-toolbar class="md-accent">
-                <div class="md-toolbar-tools" layout="row" ng-click="toggleMenuWidth()">
-                    <div flex offset="5">
-                        <h3>
-                            <span >Opties</span>
-                        </h3>
-                    </div>
-                </div>
-            </md-toolbar>
-            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                <md-button class="md-raised" ng-click="openDialog(articleId, 'meta')">Stel informatie in</md-button>
-                <md-button class="md-raised" ng-show="!articleMeta.live" ng-click="addToLive(articleId, articleMeta.live)">Zet live</md-button>
-                <md-button class="md-raised" ng-show="articleMeta.live" ng-click="addToLive(articleId, articleMeta.live)">Zet veranderingen live</md-button>
-                <md-button class="md-raised" ng-show="articleMeta.live" ng-click="goToLive(articleId)">Open live Artikel</md-button>
-                <md-button class="md-raised" ng-show="articleMeta.live" ng-click="removeFromLive(articleId, articleMeta.live)">Verwijder van Live</md-button>
-                <md-button class="md-raised" ng-click="deleteArticle(articleId, articleMeta.live)">Verwijder</md-button>
-                <md-button class="md-raised" ng-click="goHome()">Ga naar begin</md-button>
-            </section>
-            <md-toolbar class="md-accent">
-                <div class="md-toolbar-tools" layout="row">
-                    <div flex offset="5">
-                        <h3><span >Voeg een blokje toe</span></h3>
-                    </div>
-                </div>
-            </md-toolbar>
-            <ul layout="row" layout-wrap>
-                <div flex="33" data-ng-repeat="b in buttons">
-                    <li ng-click="openDialog(articleId, b.type, null)" class="o-add o-add__{{b.type}}">
-                        <md-tooltip>
-                            {{b.name}}
-                        </md-tooltip>
-                    </li>
-                </div>
-            </ul>
-            <md-divider></md-divider>
-            <md-toolbar class="md-accent">
-                <div class="md-toolbar-tools" layout="row">
-                    <div flex offset="5">
-                        <h3><span >Toegevoegde blokjes </span></h3>
-                    </div>
-                </div>
-            </md-toolbar>
-
-            <md-content layout-padding>
-                <ul data-as-sortable="dragControlListeners" data-ng-model="list" layout="row" layout-wrap layout-align="center start" >
-                    <li flex="{{value.parameters.width}}" data-ng-repeat="(key,value) in list" ng-click="openDialog(articleId, value.type, value.$id)" data-as-sortable-item ng-mouseover="setActiveBlock(value.$id)"  ng-mouseleave="removeActiveBlock()">
-                        <div data-as-sortable-item-handle class="o-sortable o-sortable__{{value.type}}"></div>
-                    </li>
-                    </a>
-                </ul>
-                <md-divider></md-divider>
--->
-
                 <md-subheader ng-show="!preview" class="md-no-sticky" ng-init="showOverview = true">
                     <p ng-click="showOverview = !showOverview">Overzicht</p>
                 </md-subheader>
@@ -120,11 +65,11 @@
         </md-content>
     </div>
 
-    <div class="right" ng-class="{preview: preview==true}">
+    <div class="c-editpage__center" ng-class="{'c-editpage__center--preview': preview==true}">
         <md-content>
             <div class="o-container">
                 <div layout="row" layout-wrap layout-align="center start" layout-margin layout-fill>
-                    <story-header class="flex-100" image="articleMeta.meta.headerImage" title="articleMeta.meta.headerTitle" author="articleMeta.meta.author" brand="{url: 'http://news.mediaspecs.be/sites/default/files/canvas.png'}"></story-header>
+                    <story-header class="flex-100" image="articleMeta.headerImage" title="articleMeta.headerTitle" author="articleMeta.author" brand="{url: 'http://news.mediaspecs.be/sites/default/files/canvas.png'}"></story-header>
                     <div class="o-block size-{{value.parameters.width}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
                         <div class="o-block--hovered" ng-show="value.$id == activeBlock"></div>
                         <blocks-dispatcher-edit type="value.type" analytics-on="scrollby" parameters="value.parameters" id="value.$id" article="articleId"></blocks-dispatcher-edit>
@@ -134,4 +79,21 @@
             </div>
         </md-content>
     </div>
+
+    <div class="c-editpage__right" ng-show="mobilePreview">
+        <md-content>
+            <div class="o-container">
+                <div layout="row" layout-wrap layout-align="center start" layout-margin layout-fill>
+                    <story-header class="flex-100" image="articleMeta.headerImage" title="articleMeta.headerTitle" author="articleMeta.author" brand="{url: 'http://news.mediaspecs.be/sites/default/files/canvas.png'}"></story-header>
+                    <div class="o-block size-{{value.parameters.width}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
+                        <div class="o-block--hovered" ng-show="value.$id == activeBlock"></div>
+                        <blocks-dispatcher-edit type="value.type" analytics-on="scrollby" parameters="value.parameters" id="value.$id" article="articleId"></blocks-dispatcher-edit>
+                    </div>
+                    <feedback article="articleId"></feedback>
+                </div>
+            </div>
+        </md-content>
+    </div>
+
+
 </div>

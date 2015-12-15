@@ -35,13 +35,13 @@
             var scrollPosition = window.pageYOffset;
 
             if (scrollPosition > header.clientHeight) {
-                if (nav.className.indexOf(' show') < 0) {
-                    nav.className += ' show';
+                if (nav.className.indexOf(' c-storyheader') < 0) {
+                    nav.className += ' c-storyheader';
                 }
 
                 title.style.marginTop = '55px';
             } else {
-                nav.className = nav.className.replace(' show', '');
+                nav.className = nav.className.replace(' c-storyheader', '');
                 title.style.marginTop = '20px';
             }
         }
