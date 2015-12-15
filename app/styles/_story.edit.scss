@@ -1,282 +1,54 @@
-// This needs cleaning, deadline pressure
-
-
-
-
-.o-edit__buttons {
-    left: .3em;
-    padding: .2em;
-    position: absolute;
-    top: 0.5em;
-    z-index: 50;
-    &.text {
-        left: -1.5em;
-    }
-    #editButton {
-        opacity: .5;
-        width: 1em;
-        height: 1em;
-        padding: 0.5em;
-        border-radius: 0.5em;
-        background-color: #fff;
-        &:hover {
-            opacity: 1;
-        }
-    }
-    #deleteButton {
-        opacity: .5;
-        width: 1em;
-        height: 1em;
-        padding: 0.5em;
-        border-radius: 0.5em;
-        background-color: #fff;
-        &:hover {
-            opacity: 1;
-        }
-    }
+.c-editpage__left,
+.c-editpage__center,
+.c-editpage__right {
+    height: auto;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
 }
 
-// Should go to a template file
-$nav-size: 50px;
-$nav-color: #fff;
-$nav-color-active: $color1;
-$hasBackground: false;
-// Advanced Config
-$animation-time: 300ms;
-$animation-easing: ease-in-out;
-$z-index-navigation-button: 500;
-$z-index-navigation-inner: $z-index-navigation-button + 25;
-@if $hasBackground==false {
-    $nav-color: $nav-color-active;
+.c-editpage__left::-webkit-scrollbar,
+.c-editpage__center::-webkit-scrollbar,
+.c-editpage__right::-webkit-scrollbar {
+    display: none;
 }
 
-.o-menu {
-    @include e('toggle') {
-        top: 0px;
-        cursor: pointer;
+.c-editpage {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    backface-visibility: hidden;
+    will-change: overflow;
+    @include e('left') {
         position: fixed;
-        z-index: 70;
-        padding: ($nav-size / 4);
-        width: $nav-size;
-        height: $nav-size;
-        @if $hasBackground==true {
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 0;
-                top: 0;
-                z-index: 70;
-                width: 100%;
-                height: 100%;
-                background-color: $nav-color-active;
-                animation: material-menu-background $animation-time $animation-easing forwards;
-            }
-        }
-        &:hover {
-            span,
-            span:before,
-            span:after {
-                background-color: $color2;
-            }
-        }
-        span {
-            top: 50%;
-            transform-origin: center center;
-            animation-name: material-menu;
-            &,
-            &:before,
-            &:after {
-                width: ($nav-size / 2);
-                background-color: $nav-color;
-                height: ceil($nav-size / 20);
-                position: absolute;
-                z-index: $z-index-navigation-inner;
-                animation-duration: $animation-time;
-                animation-fill-mode: forwards;
-                animation-timing-function: $animation-easing;
-                transition: background-color $animation-time $animation-easing;
-            }
-            &:before,
-            &:after {
-                content: '';
-                display: block;
-            }
-            &:before {
-                top: 300%;
-                transform-origin: right bottom;
-                animation-name: material-menu-before;
-            }
-            &:after {
-                bottom: 300%;
-                transform-origin: right top;
-                animation-name: material-menu-after;
-            }
-        }
-        &.material--arrow {
-            @if $hasBackground==true {
-                &:after {
-                    animation: material-arrow-background $animation-time $animation-easing forwards;
-                }
-            }
-             &:hover {
-            span,
-            span:before,
-            span:after {
-                background-color: $color2;
-            }
-        }
-
-            span,
-            span:before,
-            span:after {
-                animation-duration: $animation-time;
-                animation-fill-mode: forwards;
-                animation-timing-function: $animation-easing;
-                background-color: $nav-color-active;
-            }
-            span {
-                animation-name: material-arrow;
-            }
-            span:before {
-                animation-name: material-arrow-before;
-            }
-            span:after {
-                animation-name: material-arrow-after;
-            }
+        width: $sidebar-width;
+        height: 100vh;
+        overflow-y: auto;
+        // border: none;
+        z-index: 2;
+        box-shadow: 1px 0px 1px #eee;
+        padding-top: 2em;
+        @include m('preview') {
+            width: $sidebar-width-preview;
         }
     }
-    @include e('menu') {}
-}
-
-@if $hasBackground==true {
-    @keyframes material-arrow-background {
-        100% {
-            transform: rotate(180deg) scale(0);
+    @include e('center') {
+        margin-left: $sidebar-width;
+        width: 100%;
+        @include m('preview') {
+            margin-left: $sidebar-width-preview;
         }
     }
-    @keyframes material-menu-background {
-        0% {
-            transform: rotate(180deg) scale(0);
+    @include e('right') {
+        min-width: 320px;
+        width: 480px;
+        margin-left: .2em;
+        height: 100vh;
+    }
+    .storyheader {
+        @include e('nav') {
+            left: $sidebar-width !important;
         }
-        100% {
-            transform: rotate(360deg) scale(1);
-        }
     }
-}
-
-@keyframes material-arrow {
-    100% {
-        transform: rotate(180deg);
-    }
-}
-
-@keyframes material-arrow-before {
-    100% {
-        top: 0;
-        transform: rotate(-40deg) scaleX(0.7);
-    }
-}
-
-@keyframes material-arrow-after {
-    100% {
-        bottom: 0;
-        transform: rotate(40deg) scaleX(0.7);
-    }
-}
-
-@keyframes material-menu {
-    0% {
-        transform: rotate(180deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes material-menu-before {
-    0% {
-        top: 0;
-        transform: rotate(-40deg) scaleX(0.7);
-    }
-    100% {
-        top: 300%;
-        transform: rotate(0) scaleX(1);
-    }
-}
-
-@keyframes material-menu-after {
-    0% {
-        bottom: 0;
-        transform: rotate(40deg) scaleX(0.7);
-    }
-    100% {
-        bottom: 300%;
-        transform: rotate(0) scaleX(1);
-    }
-}
-
-.o-sortable {
-    height: 2em;
-    width: 100%;
-    border-color: #fff;
-    border-style: solid;
-    @include e('text') {
-        background: $color2 url('../images/sortable-text.svg') no-repeat center;
-        background-size: 50% 50%;
-    }
-    @include e('video') {
-        background: $color2 url('../images/sortable-video.svg') no-repeat center;
-        background-size: 50% 50%;
-    }
-    @include e('image') {
-        background: $color2 url('../images/sortable-image.svg') no-repeat center;
-        background-size: 50% 50%;
-    }
-    @include e('embed') {
-        background: $color2 url('../images/sortable-embed.svg') no-repeat center;
-        background-size: 50% 50%;
-    }
-}
-
-.as-sortable-dragging {
-    opacity: .8;
-}
-
-.as-sortable-placeholder {
-    background-color: $color2;
-    opacity: .3;
-}
-
-.o-add {
-    height: 3em;
-    width: 100%;
-    margin-bottom: 1em;
-    @include e('text') {
-        background: url('../images/sortable-text.svg') no-repeat center;
-        background-size: 80% 80%;
-    }
-    @include e('video') {
-        background: url('../images/sortable-video.svg') no-repeat center;
-        background-size: 80% 80%;
-    }
-    @include e('image') {
-        background: url('../images/sortable-image.svg') no-repeat center;
-        background-size: 80% 80%;
-    }
-    @include e('iframe') {
-        background: url('../images/sortable-embed.svg') no-repeat center;
-        background-size: 80% 80%;
-    }
-
-        @include e('hero') {
-        background: url('../images/sortable-hero.svg') no-repeat center;
-        background-size: 80% 80%;
-    }
-}
-
-
-
-.o-image--modal {
-    max-width: 200px;
 }

@@ -1,0 +1,22 @@
+
+/*
+ * Sound icon
+ */
+
+.sound-icon {
+    z-index: 1000;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.sound-icon:focus {
+    outline:0;
+}
+
+.sound-icon svg {
+    width: 40px;
+    height: auto;
+    fill: rgba(0, 0, 0, .5);
+}

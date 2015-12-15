@@ -1,3 +1,12 @@
+// This is the overlay that creates the filter (maybe use a class?
+
+figure {
+    pointer-events: none;
+    margin: 0;
+}
+
+// The filters. If you add one here, you also have to add it in services.value.js
+
 .aden {
     -webkit-filter: hue-rotate(-20deg) contrast(.9) saturate(.85) brightness(1.2);
     filter: hue-rotate(-20deg) contrast(.9) saturate(.85) brightness(1.2)

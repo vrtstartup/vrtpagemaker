@@ -1,21 +1,19 @@
-.o-block {
-    position: relative;
-    margin-bottom: $blockPaddingBottom;
-}
-
 .o-container {
     width: $container;
     max-width: $container;
     min-width: $container;
     position: relative;
-
 }
 
-.o-block--hovered {
-    position: absolute;
-    z-index: 2;
-    height: 100%;
-    width: 100%;
-    background-color: $color2;
-    opacity: .5;
+.o-block {
+    position: relative;
+    margin-bottom: $blockPaddingBottom;
+    @include m('hovered') {
+        position: absolute;
+        z-index: 2;
+        height: 100%;
+        width: 100%;
+        background-color: $color2;
+        opacity: .5;
+    }
 }
