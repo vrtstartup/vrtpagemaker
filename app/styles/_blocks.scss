@@ -10,7 +10,7 @@
     margin-bottom: $blockPaddingBottom;
     @include m('hovered') {
         position: absolute;
-        z-index: 2;
+        z-index: $block-container-hovered-z-index;
         height: 100%;
         width: 100%;
         background-color: $color2;

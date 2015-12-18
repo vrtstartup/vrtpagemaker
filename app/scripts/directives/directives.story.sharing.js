@@ -3,12 +3,12 @@
 
     angular
         .module('immersiveAngularApp')
-        .directive('social', social);
+        .directive('sharing', sharing);
 
-    function social() {
+    function sharing() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'views/social.html',
+            templateUrl: 'views/templates.story.sharing.html',
             scope: {
                 text: '=',
                 image: '='

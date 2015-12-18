@@ -3,7 +3,6 @@
 angular.module('immersiveAngularApp')
     .directive('viewText', function($compile) {
         return {
-            template: '<div class="o-block__text" ng-bind-html="text"></div><view-audioplayer ng-if="parameters.media" id="id" parameters="parameters"></view-audioplayer>',
             restrict: 'E',
             scope: {
                 id: '=',
@@ -11,9 +10,7 @@ angular.module('immersiveAngularApp')
                 parameters: '='
             },
             link: function postLink(scope, ele) {
-                // scope.text = $sce.trustAsHtml(scope.parameters.text);
-
-                ele.html(scope.parameters.text);
+                ele.html('<div class="o-block__text">' + scope.parameters.text + '</div><view-audioplayer ng-if="parameters.media" id="id" parameters="parameters"></view-audioplayer>');
                 $compile(ele.contents())(scope);
 
 

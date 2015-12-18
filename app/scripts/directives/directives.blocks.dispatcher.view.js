@@ -3,13 +3,14 @@
 angular.module('immersiveAngularApp')
     .directive('blocksDispatcherView', function($compile, valuesService) {
         return {
-            template: '<div></div>',
+            template: '<div ></div>',
             restrict: 'E',
             scope: {
                 type: '=',
                 parameters: '=',
                 id: '=',
-                article: '='
+                article: '=',
+                view: '='
             },
             link: function postLink(scope, elem) {
                 var template = valuesService.viewdirectives(scope.type);

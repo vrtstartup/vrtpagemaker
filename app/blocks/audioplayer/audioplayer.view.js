@@ -11,18 +11,19 @@
             templateUrl: 'blocks/audioplayer/audioplayer.html',
             scope: {
                 id: '=',
-                parameters: '='
+                parameters: '=',
+                start: '='
             },
             link: linkFunc,
             controller: ViewAudioPlayerController
         };
 
         function linkFunc($scope, elements) {
-            elements[0].parentElement.addEventListener('click', function () {
+            elements[0].parentElement.addEventListener('click', function() {
                 $scope.onClick();
             });
 
-            elements[0].parentElement.addEventListener('mouseenter', function () {
+            elements[0].parentElement.addEventListener('mouseenter', function() {
                 $scope.onHover();
             });
         }
@@ -30,9 +31,12 @@
         return directive;
     }
 
-    ViewAudioPlayerController.$inject = [ '$rootScope', '$scope', 'AudioPlayerService' ];
+    ViewAudioPlayerController.$inject = ['$rootScope', '$scope', 'AudioPlayerService'];
+
+
 
     function ViewAudioPlayerController($rootScope, $scope, AudioPlayerService) {
+        $scope.started = false;
         $scope.play = play;
         $scope.mute = mute;
         $scope.onClick = onClick;
@@ -42,6 +46,7 @@
 
         function activate() {
             $scope.audio = AudioPlayerService.load($scope.id, $scope.parameters.media);
+
         }
 
         function play() {
@@ -66,12 +71,14 @@
             }
         }
 
-        /*
-        $rootScope.$on('duScrollspy:becameActive', function(event, element, target) {
-            if (element[0].className.indexOf("audio-scroll") < 0) {
-                AudioPlayerService.playIfNot(element[0].id);
+        $scope.$watch('start', function(newValue) {
+            console.log(newValue);
+            if (newValue === 'top' && $scope.started === false) {
+                play();
+                $scope.started = true;
             }
         });
-        */
+
+
     }
 })();

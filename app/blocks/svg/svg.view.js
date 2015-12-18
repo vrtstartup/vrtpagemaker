@@ -3,15 +3,25 @@
 angular.module('immersiveAngularApp')
     .directive('viewSvg', function($compile) {
         return {
-            template: '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1280 800" style="enable-background:new 0 0 1280 800;" xml:space="preserve">{{svg}}</svg>',
-            templateNamespace: 'svg',
+            template: '<div></div>',
             restrict: 'E',
             replace: 'true',
             scope: {
-                parameters: '='
+                parameters: '=',
+                view:'='
             },
 
             link: function postLink(scope, ele) {
+
+                scope.$watch('view', function(newValue) {
+                    console.log(scope.view);
+                    if (newValue === 'top') {
+                        console.log(newValue);
+                         ele.html(scope.parameters.svg);
+                        $compile(ele.contents())(scope);
+                    }
+                });
+
                 scope.$watch('parameters.svg', function(newValue) {
                     if (newValue) {
                         ele.html(scope.parameters.svg);

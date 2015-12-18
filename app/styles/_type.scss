@@ -1,25 +1,28 @@
 
-p {
-    line-height: $text-paragraph-lineheight;
-    > p {
-        // padding-left: $text-paragraph-padding;
-        // padding-right: $text-paragraph-padding;
-        line-height: $text-paragraph-lineheight;
-    }
+
+
+html {
+
+}
+
+body {
+
+}
+
+
+h1 {
+
+}
+
+
+h2 {
+
 }
 
 h3 {
-    color: $text-header1-color;
-    text-transform: uppercase;
-    font-size: $text-header1-size;
-    line-height: $text-header1-lineheight;
+
 }
 
-h4 {
-    color: $text-header2-color;
-    font-size: $text-header2-size;
-        line-height: $text-header1-lineheight;
-}
 
 a {
     color: $text-anchor-color;
@@ -31,13 +34,10 @@ a:hover {
     text-decoration: underline;
 }
 
-
 blockquote {
     border-left: .2em solid $color2;
     padding: 1em;
     font-style: italic;
     background-color: rgba( $color2, .2);
     line-height: $text-blockquote-lineheight;
-
-
 }

@@ -1,42 +1,54 @@
 .c-sidemenu {
     width: $sidebar-width;
     @include e('icon') {
-        padding-top: .6em;
-        margin-right: 1em;
+        margin-right: $editpage-sidemenu-toggle-icon-size;
         &.c-sidemenu__icon--live {
             padding-top: .0em;
         }
     }
     @include e('toggle') {
-        height: 1em;
-        width: 1em;
+        height: $editpage-sidemenu-toggle-icon-size;
+        width: $editpage-sidemenu-toggle-icon-size;
         position: fixed;
-        top: 1em;
-        left: 1em;
-        z-index: 5;
+        top: $editpage-sidemenu-toggle-icon-size;
+        left: $editpage-sidemenu-toggle-icon-size;
+        z-index: $editpage-sidemenu-toggle;
     }
 }
 
+
+
 .o-sortable {
-    height: 2em;
-    width: 100%;
-    border-color: #fff;
-    border-style: solid;
+    @include e('list') {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 5rem;
+    li {
+        padding-right: 2px;
+    }
+    }
+    @include e('item') {
+        margin-bottom: 1rem;
+        height: $editpage-sidemenu-sortable-block-height;
+        width: 100%;
+        border-color: $color3;
+        border-style: solid;
+    }
     @include e('text') {
         background: $color2 url('../images/sortable-text.svg') no-repeat center;
-        background-size: 50% 50%;
+        background-size: $editpage-sidemenu-sortable-block-background-size;
     }
     @include e('video') {
         background: $color2 url('../images/sortable-video.svg') no-repeat center;
-        background-size: 50% 50%;
+        background-size: $editpage-sidemenu-sortable-block-background-size;
     }
     @include e('image') {
         background: $color2 url('../images/sortable-image.svg') no-repeat center;
-        background-size: 50% 50%;
+        background-size: $editpage-sidemenu-sortable-block-background-size;
     }
     @include e('embed') {
         background: $color2 url('../images/sortable-embed.svg') no-repeat center;
-        background-size: 50% 50%;
+        background-size: $editpage-sidemenu-sortable-block-background-size;
     }
 }
 

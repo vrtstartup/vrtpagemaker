@@ -19,6 +19,8 @@ $text-grid-padding: 1em;
 // Colors
 $color1: #37393A;
 $color2: #7DD1D1;
+$color3: #fff;
+$color4: grey;
 
 $text-header1-color: $color1;
 $text-header2-color: $color1;
@@ -27,12 +29,90 @@ $text-anchor-color: $color2;
 $text-anchor-color-hover: $color1;
 
 // Font sizes
+$text-h1-size: 5em;
 $text-paragraph-size: 1em;
 $text-header1-size: 2em;
 $text-header2-size: 1.5em;
-
 $blockPaddingBottom: 3em;
-
-
 $sidebar-width: 250px;
 $sidebar-width-preview: 3.5em;
+
+
+// Rythm
+
+
+
+/*
+    Edit
+*/
+
+//sidemenu
+$editpage-sidemenu-toggle-icon-size: 1rem;
+$editpage-sidemenu-sortable-block-height: 2rem;
+$editpage-sidemenu-sortable-block-background-size: 50% 50%;
+
+// Medium
+$medium-edictor-icon-size: 1rem;
+$medium-edictor-icon-color: #fff;
+
+
+/*
+    View
+*/
+
+// Storyheader
+$storyheader-title-mobile-margin: 1rem;
+$storyheader-arrow-height: 3rem;
+$storyheader-brand-logo-height: 1.5rem;
+
+// Nav
+$nav-background-color: rgba(255, 255, 255, 0.5);
+$nav-content-color: $color2;
+
+
+// Sharing
+$sharing-icon-margin: 5px;
+$sharing-icon-size: 1rem;
+$sharing-icon-color: $color3;
+
+/*
+    Blocks
+*/
+
+// Audio
+$block-audio-icon-size: 1rem;
+$block-audio-range-width: calc(100% - 146px);
+
+// Audio Background
+$block-audiobackground-icon-size: 2rem;
+$block-audiobackground-icon-color: rgba(0, 0, 0, .5);;
+
+// Carousel
+$block-carousel-icon-color: #fff;
+$block-carousel-icon-size: 3rem;
+
+// Masonry
+$block-masonry-column-count: 4;
+$block-masonry-column-gap: 0; // in px of rem
+
+// Text
+
+// Hero
+
+
+
+
+
+/*
+    Z-index
+*/
+
+$block-mutebackground-icon-z-index: 1000;
+$block-carousel-button-z-index: 10;
+$block-hero-text-z-index: 2;
+$block-video-player-z-index: 20;
+$block-container-hovered-z-index: 2;
+$editpage-left: 2;
+$editpage-sidemenu-toggle: 5;
+$article-storyheader: 5;
+$article-nav: 4;

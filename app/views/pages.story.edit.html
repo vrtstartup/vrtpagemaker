@@ -1,3 +1,4 @@
+
 <div class="c-editpage">
     <sound-icon></sound-icon>
 
@@ -19,7 +20,7 @@
                     <div ng-include="'icons/live.html'" class="c-sidemenu__icon c-sidemenu__icon--live"></div>
                     <p>Live</p>
                     <md-switch ng-model="articleMeta.live" class="md-secondary" ng-change="changeLive(articleId, articleMeta.live)" aria-label="Live">
-
+{{scrollby}} | {{inviewscroll}}
                 </md-list-item>
                 <md-list-item ng-show="articleMeta.live" ng-click="addToLive(articleId, articleMeta.live)">
                     <div ng-include="'icons/save.html'" class="c-sidemenu__icon"></div>
@@ -52,9 +53,9 @@
 
                 <div ng-show="!preview">
                     <md-content layout-padding ng-show="showOverview">
-                        <ul data-as-sortable="dragControlListeners" data-ng-model="list" layout="row" layout-wrap layout-align="center start">
+                        <ul data-as-sortable="dragControlListeners" class="o-sortable__list" data-ng-model="list" layout="row" layout-wrap layout-align="center start">
                             <li flex="{{value.parameters.width}}" data-ng-repeat="(key,value) in list" ng-click="openDialog(articleId, value.type, value.$id)" data-as-sortable-item ng-mouseover="setActiveBlock(value.$id)" ng-mouseleave="removeActiveBlock()">
-                                <div data-as-sortable-item-handle class="o-sortable o-sortable__{{value.type}}"></div>
+                                <div data-as-sortable-item-handle class="o-sortable__item o-sortable__{{value.type}}"></div>
                             </li>
                             </a>
                         </ul>
@@ -65,7 +66,7 @@
         </md-content>
     </div>
 
-    <div class="c-editpage__center" ng-class="{'c-editpage__center--preview': preview==true}">
+    <div class="c-editpage__center typeset" ng-class="{'c-editpage__center--preview': preview==true}">
         <md-content>
             <div class="o-container">
                 <div layout="row" layout-wrap layout-align="center start" layout-margin layout-fill>
@@ -85,9 +86,10 @@
             <div class="o-container">
                 <div layout="row" layout-wrap layout-align="center start" layout-margin layout-fill>
                     <story-header class="flex-100" image="articleMeta.headerImage" title="articleMeta.headerTitle" author="articleMeta.author" brand="{url: 'http://news.mediaspecs.be/sites/default/files/canvas.png'}"></story-header>
-                    <div class="o-block size-{{value.parameters.width}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
+                    <div  du-scrollspy class="o-block size-{{value.parameters.width}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
                         <div class="o-block--hovered" ng-show="value.$id == activeBlock"></div>
-                        <blocks-dispatcher-edit type="value.type" analytics-on="scrollby" parameters="value.parameters" id="value.$id" article="articleId"></blocks-dispatcher-edit>
+
+                        <blocks-dispatcher-edit  type="value.type" analytics-on="scrollby" parameters="value.parameters" id="value.$id" article="articleId"></blocks-dispatcher-edit>
                     </div>
                     <feedback article="articleId"></feedback>
                 </div>

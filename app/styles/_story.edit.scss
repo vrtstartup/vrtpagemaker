@@ -25,8 +25,8 @@
         width: $sidebar-width;
         height: 100vh;
         overflow-y: auto;
-        // border: none;
-        z-index: 2;
+        border: none;
+        z-index: $editpage-left;
         box-shadow: 1px 0px 1px #eee;
         padding-top: 2em;
         @include m('preview') {

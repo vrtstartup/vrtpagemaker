@@ -8,7 +8,7 @@
     function soundIcon() {
         var directive = {
             restrict: 'E',
-            template: '<div class="sound-icon" ng-show="playing && !muted" ng-click="onClick()" ng-include="\'icons/volume-on.html\'"></div><div class="sound-icon" ng-show="playing && muted" ng-click="onClick()" ng-include="\'icons/volume-off.html\'"></div>',
+            template: '<div class="c-mutebackground" ng-show="playing && !muted" ng-click="onClick()" ng-include="\'icons/volume-on.html\'"></div><div class="c-mutebackground" ng-show="playing && muted" ng-click="onClick()" ng-include="\'icons/volume-off.html\'"></div>',
             scope: {
             },
             controller: SoundIconController

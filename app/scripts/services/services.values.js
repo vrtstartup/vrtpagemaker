@@ -23,8 +23,8 @@ angular.module('immersiveAngularApp')
             '2': {
                 'type': 'image',
                 'dialog': 'blocks/image/image.dialog.html',
-                'edit': '<edit-image class="o-container__block" id="id" article="article" parameters="parameters"></edit-image>',
-                'view': '<view-image class="o-container__block" id="id" article="article" parameters="parameters"></view-image>',
+                'edit': '<edit-image class="o-container__block" view="view" id="id" article="article" parameters="parameters"></edit-image>',
+                'view': '<view-image class="o-container__block" view="view" id="id" article="article" parameters="parameters"></view-image>',
                 'button': {
                     'type': 'image',
                     'name': 'afbeelding'
@@ -153,8 +153,8 @@ angular.module('immersiveAngularApp')
             '15': {
                 'type': 'svg',
                 'dialog': 'blocks/svg/svg.dialog.html',
-                'edit': '<edit-svg class="o-container__block" id="id" article="article" parameters="parameters"></edit-svg>',
-                'view': '<view-svg class="o-container__block" id="id" article="article" parameters="parameters"></view-svg>',
+                'edit': '<edit-svg class="o-container__block" id="id" view="view" article="article" parameters="parameters"></edit-svg>',
+                'view': '<view-svg class="o-container__block" id="id" view="view" article="article" parameters="parameters"></view-svg>',
                 'button': {
                     'type': 'svg',
                     'name': 'SVG-afbeelding'
@@ -208,6 +208,10 @@ angular.module('immersiveAngularApp')
             '3': {
                 'type': '100',
                 'width': 100
+            },
+            '4': {
+                'type': '20',
+                'width': 20
             }
         };
 

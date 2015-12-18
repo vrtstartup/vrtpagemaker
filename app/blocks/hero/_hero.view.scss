@@ -1,19 +1,17 @@
 .o-hero {
-
-    color: #fff;
-    text-shadow: .2px .2px grey;
-    h3, h4 {
-        color: #fff;
-    text-shadow: .2px .2px grey;
+    // color: $color1;
+    // text-shadow: .2px .2px grey;
+    h3,
+    h4 {
+        // color: $color1;
+        // text-shadow: .2px .2px grey;
     }
     position: relative;
-
-     @include e('text') {
+    @include e('text') {
         position: absolute;
-        z-index: 2;
+        z-index: $block-hero-text-z-index;
         top: 0px;
         height: 100%;
         width: 100%;
-     }
+    }
 }
-

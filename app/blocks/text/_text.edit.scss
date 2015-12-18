@@ -1,14 +1,14 @@
 .medium-editor-action {
-    width: 20px;
-    height: 20px;
+    width: $medium-edictor-icon-size;
+    height: $medium-edictor-icon-size;
     div {
-        width: 20px;
-        height: 20px;
+        width: $medium-edictor-icon-size;
+        height: $medium-edictor-icon-size;
     }
     svg {
-        width: 20px;
-        height: 20px;
-        fill: #ffffff;
+        width: $medium-edictor-icon-size;
+        height: $medium-edictor-icon-size;
+        fill: $medium-edictor-icon-color;
     }
 }
 

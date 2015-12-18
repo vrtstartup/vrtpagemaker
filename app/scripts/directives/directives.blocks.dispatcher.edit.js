@@ -3,7 +3,7 @@
 angular.module('immersiveAngularApp')
     .directive('blocksDispatcherEdit', function($compile, valuesService) {
         return {
-            template: '<div></div>',
+            template: '<div ></div>',
             restrict: 'E',
             scope: {
                 type: '=',
@@ -16,6 +16,9 @@ angular.module('immersiveAngularApp')
                 var compiled = $compile(template)(scope);
                 elem.empty().append(compiled);
 
+
             }
         };
     });
+
+

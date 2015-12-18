@@ -1,6 +1,6 @@
 .masonry {
-    column-count: 4;
-    column-gap: 0;
+    column-count: $block-masonry-column-count;
+    column-gap: $block-masonry-column-gap;
 }
 
 .masonry img {

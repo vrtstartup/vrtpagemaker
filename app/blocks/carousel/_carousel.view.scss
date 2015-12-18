@@ -1,67 +1,55 @@
-.carousel {
+.c-carousel {
     position: relative;
-
+    @include e('button') {
+        z-index: $block-carousel-button-z-index;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        color: $block-carousel-icon-color;
+        cursor: pointer;
+        svg {
+            fill: $block-carousel-icon-color;
+            height: $block-carousel-icon-size;
+            width: auto;
+        }
+        &:hover,
+        &:active {
+            svg {
+                fill: $block-carousel-icon-color;
+            }
+        }
+        &:focus {
+            outline: none;
+        }
+        @include m('left') {
+            left: 0;
+        }
+        @include m('right') {
+            right: 0;
+        }
+    }
     figure {
-    	position: relative;
-    	padding-bottom: 56.25%; /* 16:9 */
-    	height: 0;
+        position: relative;
+        padding-bottom: 56.25%;
+        /* 16:9 */
+        height: 0;
         overflow: hidden;
-
         div {
             position: relative;
         }
     }
-
-    img {
+    @include e('image') {
         position: absolute;
         width: 100%;
         height: auto;
         opacity: 0;
         transition: opacity 2s;
+        @include m('show') {
+            opacity: 1;
+        }
     }
-
-    img.show {
-        opacity: 1;
-    }
-
-    .ap {
+    @include e('audioplayer') {
         position: absolute;
         width: 100%;
-    }
-
-    .btn {
-        z-index: 10;
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-        color: #ffffff;
-        cursor: pointer;
-
-        svg {
-            fill: rgba(255, 255, 255, .5);
-            height: 60px;
-            width: auto;
-        }
-    }
-
-    .btn:hover,
-    .btn:active {
-        svg {
-            fill: rgba(255, 255, 255, .9);
-        }
-    }
-
-    .btn:focus {
-        outline: none;
-    }
-
-    .btn-left {
-        @extend .btn;
-        left: 0;
-    }
-
-    .btn-right {
-        @extend .btn;
-        right: 0;
     }
 }

@@ -21,7 +21,8 @@
     "angular-css": "~1.0.7",
     "medium-editor": "~5.11.0",
     "vivus": "~0.2.3",
-    "angular-audio": "~1.7.1"
+    "angular-audio": "~1.7.1",
+    "angular-inview": "~1.5.6"
   },
   "overrides": {
     "angulartics": {

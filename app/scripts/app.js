@@ -27,7 +27,9 @@ angular
         'angular-mapbox',
         '720kb.socialshare',
         'door3.css',
-        'ngAudio'
+        'ngAudio',
+        'duScroll',
+        'angular-inview'
     ])
     .constant("firebaseURL", {
         "FURL": "https://immersiveangular.firebaseio.com/",

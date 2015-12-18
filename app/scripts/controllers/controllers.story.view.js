@@ -26,7 +26,7 @@ angular.module('immersiveAngularApp')
 
 
 
-        }
+        };
 
         getArticle();
 

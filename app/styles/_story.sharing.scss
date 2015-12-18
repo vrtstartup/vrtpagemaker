@@ -1,13 +1,8 @@
 .o-sharing {
     svg {
-        margin: 5px;
-        width: 20px;
-        height: 20px;
-        fill: #ffffff;
-    }
-    svg.arrow-bottom {
-        fill: #ffffff;
-        height: 50px;
+        margin: $sharing-icon-margin;
+        width: $sharing-icon-size;
+        height: $sharing-icon-size;
     }
     a {
         text-decoration: none;
