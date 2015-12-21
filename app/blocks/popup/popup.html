@@ -1,0 +1,13 @@
+<div>
+    <div ng-init="showPopup = false" ng-click="showPopup = true" class="o-popup" ng-click="showPopup($event)">{{text}}</div>
+    <div class="o-popup__thepopup" ng-show="showPopup">
+        <div class="o-popup__insidepopup">
+            <div ng-click="showPopup = false" class="o-popup__close">X</div>
+            <div layout="column">
+                <md-content flex layout-padding>
+                    <div ng-bind-html="content"></div>
+                </md-content>
+            </div>
+        </div>
+    </div>
+</div>

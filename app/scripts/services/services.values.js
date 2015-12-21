@@ -113,8 +113,8 @@ angular.module('immersiveAngularApp')
             '11': {
                 'type': 'audioscroll',
                 'dialog': 'blocks/audioscroll/audioscroll.dialog.html',
-                'edit': '<edit-audioscroll class="o-container__block" id="id" article="article" parameters="parameters"></edit-audioscroll>',
-                'view': '<view-audioscroll class="o-container__block" id="id" article="article" parameters="parameters"></view-audioscroll>',
+                'edit': '<edit-audioscroll class="o-container__block" view="view" id="id" article="article" parameters="parameters"></edit-audioscroll>',
+                'view': '<view-audioscroll class="o-container__block" view="view" id="id" article="article" parameters="parameters"></view-audioscroll>',
                 'button': {
                     'type': 'audioscroll',
                     'name': 'Audioscroll'
@@ -123,8 +123,8 @@ angular.module('immersiveAngularApp')
             '12': {
                 'type': 'audioplayer',
                 'dialog': 'blocks/audioplayer/audioplayer.dialog.html',
-                'edit': '<edit-audioplayer class="o-container__block" id="id" article="article" parameters="parameters"></edit-audioplayer>',
-                'view': '<view-audioplayer class="o-container__block" id="id" article="article" parameters="parameters"></view-audioplayer>',
+                'edit': '<edit-audioplayer class="o-container__block"  view="view" id="id" article="article" parameters="parameters"></edit-audioplayer>',
+                'view': '<view-audioplayer class="o-container__block"  view="view" id="id" article="article" parameters="parameters"></view-audioplayer>',
                 'button': {
                     'type': 'audioplayer',
                     'name': 'Audioplayer'
@@ -189,6 +189,16 @@ angular.module('immersiveAngularApp')
                     'type': 'gif',
                     'name': 'Gif'
                 }
+            },
+               '19': {
+                'type': 'popup',
+                'dialog': 'blocks/popup/popup.dialog.html',
+                'edit': '<edit-popup class="o-container__block" id="id" article="article" parameters="parameters"></edit-popup>',
+                'view': '<view-popup class="o-container__block" id="id" article="article" parameters="parameters"></view-popup>',
+                'button': {
+                    'type': 'popup',
+                    'name': 'Popup'
+                }
             }
         };
 
@@ -222,7 +232,6 @@ angular.module('immersiveAngularApp')
         return {
             dialogs: function(type) {
                 var deferred = $q.defer();
-                var template;
                 /* Depending of the type of the dialog, we choose a template, and after that open up the dialog. */
                 for (var key in blocks) {
                     if (blocks.hasOwnProperty(key)) {

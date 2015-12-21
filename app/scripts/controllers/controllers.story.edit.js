@@ -61,8 +61,8 @@ angular.module('immersiveAngularApp')
 
         /* Listeners for dragging */
         $scope.dragControlListeners = {
-            itemMoved: function(event) {},
-            orderChanged: function(event) {
+            itemMoved: function() {},
+            orderChanged: function() {
                 reorderList();
             }
         };
@@ -89,7 +89,7 @@ angular.module('immersiveAngularApp')
         $scope.setActiveBlock = function(block) {
             $scope.activeBlock = block;
         };
-        $scope.removeActiveBlock = function(block) {
+        $scope.removeActiveBlock = function() {
             $scope.activeBlock = '';
         };
 

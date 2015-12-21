@@ -1,3 +1,13 @@
 .u-clickable {
     cursor: pointer;
 }
+
+.noheight {
+    margin-bottom: 0 !important;
+}
+
+.nofocus {
+    &:focus {
+        outline: none;
+    }
+}

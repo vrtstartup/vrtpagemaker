@@ -96,16 +96,6 @@ angular.module('immersiveAngularApp')
 
 
 
-        getMeta: function(articleId) {
-            var deferred = $q.defer();
-            var ref = new Firebase(FURLStaging).child('articles/' + articleId + '/meta/');
-            var obj = $firebaseObject(ref);
-            obj.$loaded().then(function() {
-                deferred.resolve(obj);
-            });
-            return deferred.promise;
-        },
-
 
         live: function(articleId) {
             var deferred = $q.defer();
@@ -139,7 +129,7 @@ angular.module('immersiveAngularApp')
             var deferred = $q.defer();
             var ref = new Firebase(FURLLive).child('articles/' + articleId);
             var obj = $firebaseObject(ref);
-            obj.$remove().then(function(ref) {
+            obj.$remove().then(function() {
                 var stagingRef = new Firebase(FURLStaging).child('articles/' + articleId + '/live');
                 var obj = $firebaseObject(stagingRef);
                 obj.$value = false;

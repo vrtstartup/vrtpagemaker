@@ -1,16 +1,14 @@
 <div class="o-audioplayer" layout="row" layout-align="center center">
-    <div class="o-audioplayer__play" ng-click="play()">
-        <span class="o-audioplayer__playicon" ng-class="{'pause': !audio.paused}"></span>
+    <div ng-click="play()">
+        <div ng-include="'icons/play.html'" class=" o-audioplayer__play nofocus" ng-show="audio.paused"></div>
+        <div ng-include="'icons/pause.html'" class=" o-audioplayer__pause nofocus" ng-show="!audio.paused"></div>
     </div>
     <div class="o-audioplayer__progress">
-        <md-slider flex ng-model="audio.progress" step="0.001" min="0" max="1">
+        <md-slider flex aria-label="progress" aria-controls="audio-slider" ng-model="audio.progress" step="0.001" min="0" max="1">
         </md-slider>
     </div>
     <div class="o-audioplayer__timing">{{ audio.currentTime | audioTime }} / {{ audio.currentTime + audio.remaining | audioTime }}</div>
     <div class="o-audioplayer__mute clickable" ng-click="mute()" ng-class="{'mute': audio.muting}">
         <span></span>
     </div>
-    <!-- <span class="clickable" ng-hide="audio.muting" ng-click="mute()" ng-include="'icons/volume-on.html'"></span>
-    <span class="clickable" ng-show="audio.muting" ng-click="mute()" ng-include="'icons/volume-off.html'"></span> -->
 </div>
-<!-- id="{{ id }}" du-smooth-scroll du-scrollspy="{{ id }}" -->

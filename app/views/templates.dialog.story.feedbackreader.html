@@ -1,32 +1,39 @@
-<md-content>
-    <md-toolbar class="md-warn">
-        <div class="md-toolbar-tools">
-            <h2 class="md-flex">Geef je feedback</h2>
+<md-content class="o-feedback__content">
+    <div class="heart-wrapper" ng-class="hasSend ? 'active' : ''">
+        <div class="heart">
+            <div class="tl"></div>
+            <div class="tr"></div>
+            <div class="bl"></div>
+            <div class="br"></div>
         </div>
-    </md-toolbar>
-    <br/>
-    <section ng-hide="hasSend" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-input-container flex>
-            <label>Wat is je naam?</label>
-            <input ng-model="feedback.name">
-        </md-input-container>
-    </section>
-     <section ng-hide="hasSend" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-input-container flex>
-            <label>Wat is je feedback?</label>
-            <textarea ng-model="feedback.text" columns="10"></textarea>
-        </md-input-container>
-    </section>
-    <section ng-show="hasSend">
-        Bedankt! <span class="heartbeat">Love...</span>
-    </section>
-    <div class="md-actions" layout="row">
-        <md-button ng-hide="hasSend" ng-click="addFeedback(feedback.name, feedback.text)" target="_blank" md-autofocus>
-            Verstuur
-        </md-button>
-        <span flex></span>
-        <md-button ng-click="closeDialog()" style="margin-right:20px;">
-            Sluit
-        </md-button>
+        <div class="ring"></div>
+        <div class="circles"></div>
+    </div>
+
+
+    <div layout="column " class="o-feedback__form" layout-align="space-between center">
+        <section ng-hide="hasSend" layout="row" layout-sm="column" layout-align="space-between center" layout-wrap>
+            <md-input-container flex>
+                <label>Wat is je naam?</label>
+                <input ng-model="feedback.name">
+            </md-input-container>
+        </section>
+           <span flex></span>
+        <section ng-hide="hasSend" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-input-container flex>
+                <label>Wat vind je van het verhaal?</label>
+                <textarea ng-model="feedback.text" columns="10"></textarea>
+            </md-input-container>
+        </section>
+        <div class="md-actions" layout="row">
+            <md-button ng-hide="hasSend" ng-click="addFeedback(feedback.name, feedback.text)" target="_blank" md-autofocus>
+                Verstuur
+            </md-button>
+            <span flex></span>
+
+        </div>
+         <md-button ng-show="hasSend"ng-click="closeDialog()" style="margin-right:20px;">
+                Sluit
+            </md-button>
     </div>
 </md-content>

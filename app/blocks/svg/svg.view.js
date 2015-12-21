@@ -14,9 +14,7 @@ angular.module('immersiveAngularApp')
             link: function postLink(scope, ele) {
 
                 scope.$watch('view', function(newValue) {
-                    console.log(scope.view);
                     if (newValue === 'top') {
-                        console.log(newValue);
                          ele.html(scope.parameters.svg);
                         $compile(ele.contents())(scope);
                     }

@@ -28,6 +28,7 @@
     }
     }
     @include e('item') {
+        background-color: $color2;
         margin-bottom: 1rem;
         height: $editpage-sidemenu-sortable-block-height;
         width: 100%;

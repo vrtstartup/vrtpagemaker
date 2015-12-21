@@ -6,13 +6,24 @@
     overflow: hidden;
     background-position: top;
     background-size: cover;
+    color: $color3;
     @media (min-width: 600px) {
         height: 100vh;
+    }
+    @include e('referal') {
+        color: $color2;
+        font-size: 1rem;
+        a {
+            text-decoration: none;
+        }
     }
     @include e('content') {
         padding: 5px;
     }
     @include e('title') {
+        color: $color3;
+        font-size: 5rem;
+
         @include m('mobile') {
             margin: $storyheader-title-mobile-margin;
         }

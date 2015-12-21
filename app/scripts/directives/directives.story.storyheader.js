@@ -1,10 +1,6 @@
 (function() {
     'use strict';
 
-    angular
-        .module('immersiveAngularApp')
-        .directive('storyHeader', storyHeader);
-
     function storyHeader() {
         var directive = {
             restrict: 'E',
@@ -19,4 +15,9 @@
         };
         return directive;
     }
+    angular
+        .module('immersiveAngularApp')
+        .directive('storyHeader', storyHeader);
+
+
 })();

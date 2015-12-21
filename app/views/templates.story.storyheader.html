@@ -1,6 +1,6 @@
-<header class="c-storyheader" layout="column" layout-align="space-around center" ng-hide="image == null" layout-padding ng-style="{ 'background-image':'url(' + image + ')' }">
+<header class="c-storyheader" layout="column" layout-align="space-between center" ng-hide="image == null" layout-padding ng-style="{ 'background-image':'url(' + image + ')' }">
     <div flex="33" layout="row" layout-align="space-between start" style="width: 100%">
-        <div hide-sm flex></div>
+        <div hide-sm flex class="c-storyheader__referal"><a href="{{brand.referalUrl}}" target="blank">{{brand.referalText}}</a></div>
         <div hide-sm flex layout="row" layout-align="center center" class="c-storyheader__logo">
             <img class="t-brand__logo" src="{{ brand.url }}">
         </div>
@@ -8,8 +8,8 @@
             <sharing text="" image=""></sharing>
         </div>
     </div>
-    <h1 class="c-storyheader__title" hide-sm flex="33" layout="row" layout-padding layout-align="center center" ng-hide="title == null">{{ title }}</h1>
-    <p class="c-storyheader__title" hide-sm flex="13" layout="row" layout-padding layout-align="center center" ng-hide="author == null">Door {{ author }}</p>
+    <h1 class="c-storyheader__title" hide-sm flex="33" layout="row" layout-padding layout-align="center center" ng-hide="title == ''">{{ title }}</h1>
+    <p class="c-storyheader__subtitle" hide-sm flex="13" layout="row" layout-padding layout-align="center center" ng-hide="author == ''">Door {{ author }}</p>
     <div flex="20" layout="row" layout-padding layout-align="center end" href="#page-start" du-smooth-scroll duration="3000">
         <svg hide-sm class="c-storyheader__arrow" enable-background="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="50px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect fill="none" height="50" width="50" />

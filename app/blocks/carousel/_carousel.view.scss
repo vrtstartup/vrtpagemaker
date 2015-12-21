@@ -23,9 +23,11 @@
         }
         @include m('left') {
             left: 0;
+
         }
         @include m('right') {
             right: 0;
+
         }
     }
     figure {
@@ -44,12 +46,16 @@
         height: auto;
         opacity: 0;
         transition: opacity 2s;
-        @include m('show') {
-            opacity: 1;
-        }
+
     }
     @include e('audioplayer') {
         position: absolute;
         width: 100%;
     }
+}
+
+.showSlide {
+
+                opacity: 1;
+
 }

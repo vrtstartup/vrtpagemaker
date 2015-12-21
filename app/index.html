@@ -55,8 +55,6 @@
 
     ga('create', 'UA-66111173-2', 'auto');
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
-    <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
@@ -84,7 +82,7 @@
     <script src="bower_components/waypoints/lib/noframework.waypoints.min.js"></script>
     <script src="bower_components/SHA-1/sha1.js"></script>
     <script src="bower_components/angulartics/src/angulartics.js"></script>
-    <script src="bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js"></script>
+    <script src="bower_components/angulartics-google-analytics/lib/angulartics-google-analytics.js"></script>
     <script src="bower_components/angular-socialshare/dist/angular-socialshare.min.js"></script>
     <script src="bower_components/angular-css/angular-css.js"></script>
     <script src="bower_components/medium-editor/dist/js/medium-editor.js"></script>
@@ -109,7 +107,6 @@
     <script src="scripts/services/services.firebase.users.js"></script>
     <script src="scripts/services/services.tools.dialog.js"></script>
     <script src="scripts/services/services.tools.uploader.js"></script>
-    <script src="scripts/services/services.blocks.map.mapbox.js"></script>
     <script src="scripts/services/services.blocks.twitter.load.js"></script>
     <script src="scripts/services/services.values.js"></script>
     <script src="scripts/services/services.audio.background.js"></script>
@@ -122,7 +119,6 @@
     <script src="scripts/directives/directives.story.feedbackreader.js"></script>
     <script src="scripts/directives/directives.story.soundicon.js"></script>
     <script src="scripts/directives/directives.thirdparty.angularmediumeditor.js"></script>
-    <!-- <script src="scripts/directives/directives.story.soundcite.js"></script> -->
     <!-- Directives __ Blocks -->
     <script src="scripts/directives/directives.blocks.dispatcher.edit.js"></script>
     <script src="scripts/directives/directives.blocks.dispatcher.view.js"></script>
@@ -137,6 +133,7 @@
     <script src="blocks/video/video.view.js"></script>
     <!-- Directives __ Blocks __ Parallax -->
     <script src="blocks/parallax/parallax.edit.js"></script>
+    <script src="blocks/parallax/parallax.view.js"></script>
     <!-- Directives __ Blocks __ Twitter -->
     <script src="blocks/twitter/twitter.edit.js"></script>
     <!-- Directives __ Blocks __ Facebook -->
@@ -175,8 +172,9 @@
     <!-- Directives __ Blocks __ Carousel -->
     <script src="blocks/masonry/masonry.edit.js"></script>
     <script src="blocks/masonry/masonry.view.js"></script>
-    <!-- Directives __ Blocks __ GIF -->
-    <script src="blocks/gif/gif.edit.js"></script>
+    <!-- Directives __ Blocks __ Popup -->
+    <script src="blocks/popup/popup.edit.js"></script>
+    <script src="blocks/popup/popup.view.js"></script>
     <!-- endbuild -->
 </body>
 

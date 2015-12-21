@@ -1,0 +1,40 @@
+.o-popup__thepopup {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vw;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 40;
+
+}
+
+.o-popup__insidepopup {
+    overflow: scroll;
+    padding: 2rem;
+    height: 70vw;
+    width: 84vw;
+    background-color: #fff;
+    margin: 5vw;
+    z-index: 41;
+
+}
+
+.o-popup__close {
+    position: fixed;
+    z-index: 42;
+    top: 0;
+    right: 0;
+    margin-top: 7vw;
+    margin-right: 6rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.o-popup {
+    background-color: $color2;
+    color: $color3;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+}

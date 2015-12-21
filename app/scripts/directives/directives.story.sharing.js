@@ -1,11 +1,7 @@
 (function() {
     'use strict';
 
-    angular
-        .module('immersiveAngularApp')
-        .directive('sharing', sharing);
-
-    function sharing() {
+function sharing() {
         var directive = {
             restrict: 'E',
             templateUrl: 'views/templates.story.sharing.html',
@@ -17,4 +13,10 @@
 
         return directive;
     }
+
+    angular
+        .module('immersiveAngularApp')
+        .directive('sharing', sharing);
+
+
 })();

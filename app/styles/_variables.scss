@@ -18,7 +18,7 @@ $text-grid-padding: 1em;
 
 // Colors
 $color1: #37393A;
-$color2: #7DD1D1;
+$color2: #86C255;
 $color3: #fff;
 $color4: grey;
 
@@ -73,19 +73,19 @@ $nav-content-color: $color2;
 // Sharing
 $sharing-icon-margin: 5px;
 $sharing-icon-size: 1rem;
-$sharing-icon-color: $color3;
+$sharing-icon-color: $color2;
 
 /*
     Blocks
 */
 
 // Audio
-$block-audio-icon-size: 1rem;
+$block-audio-icon-size: 2rem;
 $block-audio-range-width: calc(100% - 146px);
 
 // Audio Background
 $block-audiobackground-icon-size: 2rem;
-$block-audiobackground-icon-color: rgba(0, 0, 0, .5);;
+$block-audiobackground-icon-color: $color2;;
 
 // Carousel
 $block-carousel-icon-color: #fff;

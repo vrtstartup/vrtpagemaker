@@ -1,0 +1,9 @@
+<div class="c-carousel" in-view="view = $inviewpart" >
+    <div class="c-carousel__button c-carousel__button--left" ng-click="onClickPrevious()" ng-include="'icons/left-arrow.html'" ng-hide="parameters.media"></div>
+    <div class="c-carousel__button c-carousel__button--right" ng-click="onClickNext()" ng-include="'icons/right-arrow.html'" ng-hide="parameters.media"></div>
+    <figure class="{{filter}}">
+        <img class="c-carousel__image" ng-class="{ showSlide: current == $index }" ng-repeat="image in parameters.images" ng-src="{{ image }}">
+
+        </figure>
+    <view-audioplayer class="c-carousel__audioplayer" ng-if="parameters.media" start="view" id="id" parameters="parameters" progress="onProgress"></view-audioplayer>
+</div>

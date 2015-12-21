@@ -13,6 +13,14 @@
     </ul> -->
     </section>
 
+     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-input-container flex>
+            <label>Hoe lang moet een foto blijven staan?</label>
+            <input ng-model="block.parameters.time" ng-init="block.parameters.time = 5000">
+        </md-input-container>
+    </section>
+
+
 
     <div ng-include="templates.filters"></div>
     <div ng-include="templates.style"></div>

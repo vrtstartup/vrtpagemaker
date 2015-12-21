@@ -43,62 +43,36 @@ angular.module('immersiveAngularApp')
                 };
 
 
-                function SoundCite() {
+                function quote() {
                     this.button = document.createElement('button');
                     this.button.className = 'medium-editor-action';
-                    this.button.innerText = 'S';
+                    this.button.innerText = 'Q';
                     this.button.onclick = this.onClick.bind(this);
-                    this.classApplier = rangy.createCssClassApplier('sound', {
-                        elementTagName: 'sound',
+                    this.classApplier = rangy.createCssClassApplier('quote', {
+                        elementTagName: 'blockquote',
                         normalize: true
                     });
                 }
-                SoundCite.prototype.onClick = function() {
+                quote.prototype.onClick = function() {
                     this.classApplier.toggleSelection();
                 };
-                SoundCite.prototype.getButton = function() {
+                quote.prototype.getButton = function() {
                     return this.button;
                 };
-                SoundCite.prototype.checkState = function(node) {
-                    if (node.tagName == 'SOUND') {
+                quote.prototype.checkState = function(node) {
+                    if (node.tagName == 'QUOTE') {
                         this.button.classList.add('medium-editor-button-active');
                     }
                 };
-
-
-
-                function social() {
-                    this.button = document.createElement('button');
-                    this.button.className = 'medium-editor-action';
-                    this.button.innerText = 'L';
-                    this.button.onclick = this.onClick.bind(this);
-                    this.classApplier = rangy.createCssClassApplier('social', {
-                        elementTagName: 'social',
-                        normalize: true
-                    });
-                }
-                social.prototype.onClick = function() {
-                    this.classApplier.toggleSelection();
-                };
-                social.prototype.getButton = function() {
-                    return this.button;
-                };
-                social.prototype.checkState = function(node) {
-                    if (node.tagName == 'SOCIAL') {
-                        this.button.classList.add('medium-editor-button-active');
-                    }
-                };
-
-
 
 
 
                 scope.mediumBindOptions = {
                     extensions: {
                         highlight: new Highlighter(),
-                        sound: new SoundCite(),
-                        social: new social()
+                        sound: new quote()
                     },
+                    targetBlank: true,
                     toolbar: {
                         buttons: ['bold', {
                                 name: 'italic',
@@ -133,6 +107,9 @@ angular.module('immersiveAngularApp')
                             }, {
                                 name: 'subscript',
                                 contentDefault: 'dw'
+                            },  {
+                                name: 'quote',
+                                contentDefault: 'q'
                             }, {
                                 name: 'h1',
                                 action: 'append-h2',

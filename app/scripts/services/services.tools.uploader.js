@@ -38,5 +38,5 @@ angular.module('immersiveAngularApp')
             );
 
             return deferred.promise;
-        }
+        };
     });

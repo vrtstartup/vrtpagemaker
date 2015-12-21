@@ -1,58 +1,10 @@
 .o-audioplayer {
     @include e('play') {
-        margin: 1rem auto;
-        max-width: 1rem;
-        text-align: center;
-        margin-right: 2rem;
-        margin-left: 1rem;
-    }
-    @include e('playicon') {
-        $size: 1rem;
-        width: $size;
-        height: $size;
-        overflow: hidden;
-        display: flex;
-        position: relative;
-        clip-path: polygon(0% 0%, 100% 50%, 100% 50%, 0% 100%);
-        user-select: none;
-        appearance: none;
-        cursor: pointer;
-        will-change: clip-path;
-        transform: translateZ(0);
-        &:active {
-            &:before,
-            &:after {
-                transition: none;
-            }
-        }
-        &:before,
-        &:after {
-            background-color: $color2;
-            display: block;
-            content: '';
-            height: 100%;
-            width: 50%;
-        }
-        &:after {
-            margin-left: 0%;
-        }
-        &,
-        &:after {
-            transition: all 250ms ease;
-        }
-        &.pause {
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-            &:after {
-                margin-left: 12.5%;
-            }
-        }
+        margin-top: .5rem;
     }
     @include e('pause') {
-        svg {
-            fill: $color2;
-            width: 1rem;
-            width: 1rem;
-        }
+        margin-top: .5rem;
+
     }
     @include e('range') {
         width: $block-audio-range-width;
@@ -65,6 +17,7 @@
     svg {
         width: $block-audio-icon-size;
         height: $block-audio-icon-size;
+        fill: $color2;
     }
     @include e('progress') {
         margin-right: 1rem;

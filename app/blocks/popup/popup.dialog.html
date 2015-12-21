@@ -1,19 +1,22 @@
 <md-content>
     <md-toolbar class="md-warn">
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Je voegt een parallax toe</h2>
+            <h2 class="md-flex">Je voegt een Popup toe</h2>
         </div>
     </md-toolbar>
     <br/>
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-button ng-click="getFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe afbeelding</md-button>
+        <md-input-container flex>
+            <label>Typ hier de tekst die in je popup moet.</label>
+            <input ng-model="block.parameters.content">
+        </md-input-container>
     </section>
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <input type="number" ng-model="block.parameters.height" >
+        <md-input-container flex>
+            <label>Typ hier de tekst voor de popupknop.</label>
+            <input ng-model="block.parameters.text">
+        </md-input-container>
     </section>
-    <!-- Instagram filters selector -->
-    <div ng-include="templates.filters"></div>
-    <!-- Width selector -->
     <div ng-include="templates.style"></div>
     <md-divider></md-divider>
     <!-- Add / close buttons -->

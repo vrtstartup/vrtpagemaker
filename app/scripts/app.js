@@ -24,7 +24,6 @@ angular
         'ngMaterial',
         'angulartics',
         'angulartics.google.analytics',
-        'angular-mapbox',
         '720kb.socialshare',
         'door3.css',
         'ngAudio',

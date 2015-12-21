@@ -14,19 +14,11 @@ angular.module('immersiveAngularApp')
                 $scope.meta = meta;
                 // $css.add('styles/' + $scope.meta.brandname + '.css');
                 firebaseStoryService.getLiveBlocks($scope.articleId).then(function(blocks) {
-                    console.log(blocks);
                     $scope.blocks = blocks;
                     $scope.loading = false;
                 });
-
-
-
-
             });
-
-
-
-        };
+        }
 
         getArticle();
 

@@ -12,13 +12,13 @@
 <md-content ng-hide="loading">
     <div class="o-container">
         <div layout="row" layout-wrap layout-align="center start">
-            <story-header class="flex-100" image="meta.headerImage" title="meta.headerTitle" author="meta.author" brand="{url: 'http://news.mediaspecs.be/sites/default/files/canvas.png'}"></story-header>
+            <story-header class="flex-100" image="meta.headerImage" title="meta.headerTitle" author="meta.author" brand="{url: 'https://dl.dropboxusercontent.com/u/5959551/imagesKatrienVerhaal/deredactie_logo_2013_klein.jpg', referalText: meta.referalText, referalUrl: meta.referalUrl}"></story-header>
 
-            <div  class="o-block {{value.parameters.class}}" ng-repeat="(key,value) in blocks" flex-gt-sm="{{value.parameters.width}}" offset-gt-sm="{{value.parameters.offset}}" flex-sm="100" offset-sm="0">
+            <div  class="o-block {{value.parameters.class}} flex-{{value.parameters.width}}" ng-class="{noheight: value.type == 'audioscroll'}" ng-repeat="(key,value) in blocks" flex-gt-sm="{{value.parameters.width}}" flex-sm="100" offset-sm="0">
                 <blocks-dispatcher-view  in-view="view = $inviewpart" view="view" type="value.type" parameters="value.parameters" id="key" article="articleId"></blocks-dispatcher-view>
             </div>
              <sound-icon></sound-icon>
-            <feedback-reader></feedback-reader>
+            <feedback-reader article="articleId"></feedback-reader>
         </div>
     </div>
 </md-content>

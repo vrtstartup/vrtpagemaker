@@ -10,7 +10,7 @@ angular.module('immersiveAngularApp')
                 parameters: '='
             },
             link: function postLink(scope, ele) {
-                ele.html('<div class="o-block__text">' + scope.parameters.text + '</div><view-audioplayer ng-if="parameters.media" id="id" parameters="parameters"></view-audioplayer>');
+                ele.html('<div class="o-block__text" in-view="view = $inviewpart">' + scope.parameters.text + '</div><view-audioplayer start="view" ng-if="parameters.media" id="id" parameters="parameters"></view-audioplayer>');
                 $compile(ele.contents())(scope);
 
 

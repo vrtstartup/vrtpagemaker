@@ -1,11 +1,6 @@
 (function() {
     'use strict';
 
-    angular
-        .module('immersiveAngularApp')
-        .directive('feedbackReader', feedbackReader);
-
-    feedbackReader.$inject = [ '$mdDialog' ];
 
     function feedbackReader($mdDialog) {
         var directive = {
@@ -16,6 +11,7 @@
             },
             link: function postLink($scope) {
 
+                console.log($scope.article);
 
                 function showDialog($event) {
                     var parentEl = angular.element(document.body);
@@ -44,6 +40,7 @@
 
     function FeedbackController($scope, $window, $mdDialog, firebaseMainService, article) {
 
+
         $scope.closeDialog = function() {
             $mdDialog.cancel();
         };
@@ -62,4 +59,12 @@
         };
 
     }
+
+    angular
+        .module('immersiveAngularApp')
+        .directive('feedbackReader', feedbackReader);
+
+    feedbackReader.$inject = ['$mdDialog'];
+
+
 })();
