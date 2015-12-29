@@ -44,22 +44,26 @@ angular.module('immersiveAngularApp')
                                     return null;
                                 }
                                 id = m[1];
+                                scope.parameters.hosted = 'youtube';
                             }
+
                             return "https://www.youtube.com/embed/" + id;
+
 
                         case 'vimeo':
                             m = path.match(/\/(\w+\/\w+\/){0,1}(\d+)/i);
                             if (!m) {
                                 return null;
                             }
+                            scope.parameters.hosted = 'vimeo';
                             return "https://player.vimeo.com/video/" + m[2];
 
-                        case 'deredactie':
-                            m = path.match(/\/(\D+)(.+)/i);
-                            if (!m) {
-                                return null;
-                            }
-                            return "http://deredactie.be/static/embed/?permalink=" + m[2];
+                        // case 'deredactie':
+                        //     m = path.match(/\/(\D+)(.+)/i);
+                        //     if (!m) {
+                        //         return null;
+                        //     }
+
                     }
                     return null;
                 };
@@ -72,13 +76,13 @@ angular.module('immersiveAngularApp')
                         var videoUrl = getEmbedVideoURL(newValue);
                         var template;
                         var compiled;
-                        if (scope.parameters.client) {
+                        if (!scope.parameters.hosted) {
                             console.log('self hosted video');
                             template = '<div class="{{style}}"><figure class="{{parameters.filter}}"><video src=" ' + scope.parameters.url + ' " controls>Your browser does not support the <code>video</code> element.</video></figure></div>';
                             compiled = $compile(template)(scope);
                             elem.empty().append(compiled);
 
-                        } else if (videoUrl && !scope.parameters.client) {
+                        } else if (videoUrl && scope.parameters.client) {
                             console.log('embedded video');
                             var source = $sce.trustAsResourceUrl(videoUrl);
                             template = '<div class="{{style}}"><div class="o-video__player youtube embeds"><iframe  src="' + source + '" frameborder="0" allowfullscreen></iframe><figure class="{{parameters.filter}}"></figure></div></div>';

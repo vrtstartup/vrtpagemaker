@@ -6,7 +6,7 @@
     </md-toolbar>
     <br/>
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-button ng-click="pickFile('video/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe filmpje</md-button>
+        <md-button ng-click="getFile('video/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe filmpje</md-button>
     </section>
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
         <md-input-container flex>
@@ -16,13 +16,13 @@
     </section>
 
     <!-- Instagram filters selector -->
-    <div ng-include="templates.filters"></div>
+    <div ng-include="'views/includes.dialog.filters.html'"></div>
 
     <!-- Width selector -->
-    <div ng-include="templates.style"></div>
+    <div ng-include="'views/includes.dialog.style.html'"></div>
     <md-divider></md-divider>
     <!-- Add / close buttons -->
-    <div ng-include="templates.buttons"></div>
+    <div ng-include="'views/includes.dialog.buttons.html'"></div>
 
 
 

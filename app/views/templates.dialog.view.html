@@ -1,0 +1,24 @@
+<md-dialog aria-label="Disclaimer" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Opgepast</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <p>Deze pagina is een experiment van <a href="http://www.vrtstartup.be/" target="blank">VRT Startup</a>, samen met <a href="http://deredactie.be/cm/vrtnieuws" target="blank">deredactie.be</a>.</p>
+                <p>Deze pagina werkt niet helemaal naar behoren op een mobiel toestel, en is dus beter te bekijken op een computer.</p>
+                <p>We houden je echter niet tegen om de pagina op dit toestel te bekijken.</p>
+            </div>
+            <md-button ng-click="closeDialog()" style="margin-right:20px;">
+                Bekijk artikel
+            </md-button>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+    </form>
+</md-dialog>
