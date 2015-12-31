@@ -32,7 +32,8 @@ angular
         'com.2fdevs.videogular',
         'com.2fdevs.videogular.plugins.controls',
         'com.2fdevs.videogular.plugins.overlayplay',
-        'info.vietnamcode.nampnq.videogular.plugins.youtube'
+        'info.vietnamcode.nampnq.videogular.plugins.youtube',
+        'angular-carousel'
     ])
     .constant("firebaseURL", {
         "FURL": "https://immersiveangular.firebaseio.com/",

@@ -18,6 +18,13 @@
             }
         }
     }
+    @include e('title') {
+        color: $color2;
+        cursor: pointer;
+        p {
+            outline: none;
+        }
+    }
     @include e('icon') {
         margin-right: $editpage-sidemenu-blocks-icon-size / 2;
         svg {

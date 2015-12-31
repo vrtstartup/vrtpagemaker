@@ -1,0 +1,9 @@
+<div class="c-carousel" in-view="view = $inviewpart">
+    <ul rn-carousel-index="carouselIndex" rn-carousel="" rn-carousel-controls rn-carousel-auto-slide="{{parameters.time}}" rn-carousel-transition="{{parameters.transition}}">
+        <li ng-repeat="image in parameters.images">
+            <img ng-src="{{image}}" alt="" />
+        </li>
+    </ul>
+    <div  ng-show="parameters.indicators" rn-carousel-indicators ng-if="parameters.images.length > 1" slides="parameters.images" rn-carousel-index="carouselIndex"></div>
+    <view-audioplayer class="c-carousel__audioplayer" ng-if="parameters.media" start="view" id="id" parameters="parameters" progress="onProgress"></view-audioplayer>
+</div>

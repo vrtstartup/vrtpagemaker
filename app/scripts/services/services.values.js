@@ -71,6 +71,16 @@ angular.module('immersiveAngularApp')
                 }
             },
             '7': {
+                'type': 'carousel',
+                'dialog': 'blocks/carousel/carousel.dialog.html',
+                'edit': '<edit-carousel class="o-container__block carousel" id="id" article="article" parameters="parameters"></edit-carousel>',
+                'view': '<view-carousel class="o-container__block carousel" id="id" article="article" parameters="parameters"></view-carousel>',
+                'button': {
+                    'type': 'carousel',
+                    'name': 'Slideshow'
+                }
+            },
+            '8': {
                 'type': 'break',
                 'dialog': 'blocks/break/break.dialog.html',
                 'edit': '<edit-break class="o-container__block" id="id" article="article" parameters="parameters"></edit-break>',
@@ -80,7 +90,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Break'
                 }
             },
-            '8': {
+            '9': {
                 'type': 'map',
                 'dialog': 'blocks/map/map.dialog.html',
                 'edit': '<edit-map class="o-container__block" id="id" article="article" parameters="parameters"></edit-map>',
@@ -90,7 +100,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Map'
                 }
             },
-            '9': {
+            '10': {
                 'type': 'facebook',
                 'dialog': 'blocks/facebook/facebook.dialog.html',
                 'edit': '<edit-facebook class="o-container__block" id="id" article="article" parameters="parameters"></edit-facebook>',
@@ -100,7 +110,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Facebook'
                 }
             },
-            '10': {
+            '11': {
                 'type': 'instagram',
                 'dialog': 'blocks/instagram/instagram.dialog.html',
                 'edit': '<edit-instagram class="o-container__block" id="id" article="article" parameters="parameters"></edit-instagram>',
@@ -110,7 +120,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Instagram'
                 }
             },
-            '11': {
+            '12': {
                 'type': 'audioscroll',
                 'dialog': 'blocks/audioscroll/audioscroll.dialog.html',
                 'edit': '<edit-audioscroll class="o-container__block" view="view" id="id" article="article" parameters="parameters"></edit-audioscroll>',
@@ -120,7 +130,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Audioscroll'
                 }
             },
-            '12': {
+            '13': {
                 'type': 'audioplayer',
                 'dialog': 'blocks/audioplayer/audioplayer.dialog.html',
                 'edit': '<edit-audioplayer class="o-container__block"  view="view" id="id" article="article" parameters="parameters"></edit-audioplayer>',
@@ -130,7 +140,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Audioplayer'
                 }
             },
-            '13': {
+            '14': {
                 'type': 'twitter',
                 'dialog': 'blocks/twitter/twitter.dialog.html',
                 'edit': '<edit-twitter class="o-container__block" id="id" article="article" parameters="parameters"></edit-twitter>',
@@ -140,7 +150,7 @@ angular.module('immersiveAngularApp')
                     'name': 'twitter'
                 }
             },
-            '14': {
+            '15': {
                 'type': 'linepainter',
                 'dialog': 'blocks/linepainter/linepainter.dialog.html',
                 'edit': '<edit-linepainter class="o-container__block" id="id" article="article" parameters="parameters"></edit-linepainter>',
@@ -150,7 +160,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Lijnentekening'
                 }
             },
-            '15': {
+            '16': {
                 'type': 'svg',
                 'dialog': 'blocks/svg/svg.dialog.html',
                 'edit': '<edit-svg class="o-container__block" id="id" view="view" article="article" parameters="parameters"></edit-svg>',
@@ -158,16 +168,6 @@ angular.module('immersiveAngularApp')
                 'button': {
                     'type': 'svg',
                     'name': 'SVG-afbeelding'
-                }
-            },
-            '16': {
-                'type': 'carousel',
-                'dialog': 'blocks/carousel/carousel.dialog.html',
-                'edit': '<edit-carousel class="o-container__block carousel" id="id" article="article" parameters="parameters"></edit-carousel>',
-                'view': '<view-carousel class="o-container__block carousel" id="id" article="article" parameters="parameters"></view-carousel>',
-                'button': {
-                    'type': 'carousel',
-                    'name': 'Carousel'
                 }
             },
             '17': {
@@ -190,7 +190,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Gif'
                 }
             },
-               '19': {
+            '19': {
                 'type': 'popup',
                 'dialog': 'blocks/popup/popup.dialog.html',
                 'edit': '<edit-popup class="o-container__block" id="id" article="article" parameters="parameters"></edit-popup>',

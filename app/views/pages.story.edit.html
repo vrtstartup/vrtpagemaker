@@ -7,7 +7,7 @@
     <div class="c-editpage__left" ng-class="{'c-editpage__left--preview': preview==true}">
         <md-content layout="column" class="c-sidemenu">
             <md-list class="c-sidemenu__list">
-                <md-subheader class="md-sticky" ng-show="!preview">
+                <md-subheader class="c-sidemenu__title" ng-show="!preview">
                     Meta informatie
                 </md-subheader>
                 <md-list-item ng-click="openDialog(articleId, 'meta')">
@@ -36,14 +36,14 @@
                     <p>Ga naar overzicht</p>
                 </md-list-item>
                 <md-divider></md-divider ng-show="!preview">
-                <md-subheader class="md-no-sticky" ng-init="showBlocks = true" ng-show="!preview">
+                <md-subheader class="c-sidemenu__title" ng-init="showBlocks = true" ng-show="!preview">
                     <p ng-click="showBlocks = !showBlocks">Bouwblokken</p>
                 </md-subheader>
                 <md-list-item ng-show="showBlocks" ng-click="openDialog(articleId, b.type, null)" ng-repeat="b in buttons">
                     <div ng-include="'icons/block-'+b.type+'.html'" class="c-sidemenu__icon"></div>
                     <p>{{b.name}}</p>
                 </md-list-item>
-                <md-subheader ng-show="!preview" class="md-no-sticky" ng-init="showOverview = true">
+                <md-subheader ng-show="!preview" class="c-sidemenu__title" ng-init="showOverview = true">
                     <p ng-click="showOverview = !showOverview">Overzicht</p>
                 </md-subheader>
                 <div ng-show="!preview">
