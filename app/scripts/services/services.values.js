@@ -47,7 +47,7 @@ angular.module('immersiveAngularApp')
                 'view': '<view-iframe class="o-container__block" id="id" article="article" parameters="parameters"></view-iframe>',
                 'button': {
                     'type': 'iframe',
-                    'name': 'iframe'
+                    'name': 'Website'
                 }
             },
             '5': {

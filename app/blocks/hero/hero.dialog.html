@@ -1,56 +1,82 @@
-<md-content>
-    <md-toolbar class="md-warn">
+<md-content ng-init="block.parameters.xaxis = 'center' ; block.parameters.yaxis = 'center' ;  ">
+    <md-toolbar>
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Je voegt een afbeelding toe</h2>
+            <h2 class="md-flex" ng-show="!editing">Je voegt een afbeelding toe</h2>
+            <h2 class="md-flex" ng-show="editing">Je past je afbeelding aan</h2>
         </div>
     </md-toolbar>
     <br/>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-button ng-click="pickFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe afbeelding</md-button>
-        <!-- Of kies eentje van de reeds geuploade afbeeldingen: -->
-        <!--     <ul>
-        <li ng-repeat="f in files">{{f.url}}</li>
-    </ul> -->
+    <section layout="column" layout-padding>
+        <p>
+            Wil je een afbeelding of een filmpje als achtergrond?
+        </p>
     </section>
-<!--         <section layout layout-sm="column">
-        <md-input-container flex>
-            <label>Rotation</label>
-            <input ng-model="block.parameters.rotation" placeholder="10">
+    <section layout="row" layout-padding>
+        <md-button ng-click="block.parameters.mimetype = 'image'" class="md-raised" md-autofocus>Afbeelding</md-button>
+        <md-button ng-click="block.parameters.mimetype = 'video'" class="md-raised" md-autofocus>Filmpje</md-button>
+    </section>
+    <section layout="column" layout-padding ng-show="block.parameters.mimetype == 'image'">
+        <md-input-container ng-show="editing" class=" md-block">
+            <label>Dit is de url van je afbeelding</label>
+            <input name="image" ng-model="block.parameters.url" />
         </md-input-container>
-        <md-input-container flex>
-            <label>SlideIn</label>
-            <input ng-model="block.parameters.slideIn" placeholder="10">
-        </md-input-container>
-        <md-input-container flex>
-            <label>Easing</label>
-            <input ng-model="block.parameters.easing" placeholder="10">
-        </md-input-container>
-        <md-input-container flex>
-            <label>Max</label>
-            <input ng-model="block.parameters.max" placeholder="10">
-        </md-input-container>
-        <md-input-container flex>
-            <label>Min</label>
-            <input ng-model="block.parameters.min" placeholder="10">
-        </md-input-container>
-        <md-input-container flex>
-            <label>Offset</label>
-            <input ng-model="block.parameters.offset" placeholder="10">
+        <md-input-container class="md-icon-float md-block">
+            <md-button ng-click="getFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe afbeelding</md-button>
         </md-input-container>
     </section>
- -->
-
-    <!-- Instagram filters selector -->
-    <div ng-include="'views/includes.dialog.filters.html'"></div>
-
-    <!-- Width selector -->
-    <div ng-include="'views/includes.dialog.style.html'"></div>
-    <md-divider></md-divider>
-    <!-- Add / close buttons -->
-    <div ng-include="'views/includes.dialog.buttons.html'"></div>
-
-
-
-
-
+    <section layout="column" layout-padding ng-show="block.parameters.mimetype == 'video'">
+        <p>kies een filmpje (Enkel zelfgemaakt / geupload of van Youtube!)</p>
+        <md-button ng-click="getFile('video/*')" target="_blank" class="md-raised" md-autofocus>Kies of maak een nieuw filmpje</md-button>
+        <md-input-container flex>
+            <label>Of plaats een url</label>
+            <input type="url" ng-model="blocks.parameters.url" ng-change="processVideo(blocks.parameters.url)">
+        </md-input-container>
+        <md-input-container>
+            <md-checkbox ng-model="block.parameters.autoplay" aria-label="Video Autostart">
+                Laat het filmpje automatisch starten wanneer het in beeld verschijnt.
+            </md-checkbox>
+            <div class="c-dialog__hint">Dit is niet mogelijk met filmpjes van Vimeo, Deredactie.be of Sporza!</div>
+        </md-input-container>
+        <md-input-container>
+            <md-checkbox ng-model="block.parameters.loop" aria-label="Video Loop">
+                Laat het filmpje automatisch herstarten (loop).
+            </md-checkbox>
+            <div class="c-dialog__hint">Dit is niet mogelijk met filmpjes van Vimeo, Deredactie.be of Sporza!</div>
+        </md-input-container>
+        <md-input-container>
+            <md-checkbox ng-model="block.parameters.buttons" aria-label="Video buttons">
+                Wil je de bedieningsknoppen verstoppen?
+            </md-checkbox>
+        </md-input-container>
+    </section>
+    <section layout="column" layout-padding>
+        <p>Kies de positie van de tekst op de foto:</p>
+        <div layout="row" class="c-hero__dialog" layout-wrap layout-align="center center">
+            <div flex="30" ng-click="block.parameters.xaxis = 'start' ; block.parameters.yaxis = 'start'" ng-class="{'selectedposition': block.parameters.xaxis == 'start' && block.parameters.yaxis == 'start'}">links boven
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'center' ; block.parameters.yaxis = 'start'" ng-class="{'selectedposition': block.parameters.xaxis == 'center' && block.parameters.yaxis == 'start'}">midden boven
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'end' ; block.parameters.yaxis = 'start'" ng-class="{'selectedposition': block.parameters.xaxis == 'end' && block.parameters.yaxis == 'start'}">rechts boven
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'start' ; block.parameters.yaxis = 'center'" ng-class="{'selectedposition': block.parameters.xaxis == 'start' && block.parameters.yaxis == 'center'}">links
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'center' ; block.parameters.yaxis = 'center'" ng-class="{'selectedposition': block.parameters.xaxis == 'center' && block.parameters.yaxis == 'center'}">midden
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'end' ; block.parameters.yaxis = 'center'" ng-class="{'selectedposition': block.parameters.xaxis == 'end' && block.parameters.yaxis == 'center'}">rechts
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'start' ; block.parameters.yaxis = 'end'" ng-class="{'selectedposition': block.parameters.xaxis == 'start' && block.parameters.yaxis == 'end'}">links onder
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'center' ; block.parameters.yaxis = 'end'" ng-class="{'selectedposition': block.parameters.xaxis == 'center' && block.parameters.yaxis == 'end'}">midden onder
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'end' ; block.parameters.yaxis = 'end'" ng-class="{'selectedposition': block.parameters.xaxis == 'end' && block.parameters.yaxis == 'end'}">rechts onder
+            </div>
+        </div>
+        <div ng-include="'views/includes.dialog.filters.html'"></div>
+        <div ng-include="'views/includes.dialog.style.html'"></div>
+        <div ng-include="'views/includes.dialog.audio.html'"></div>
+    </section>
+</md-content>
+<md-divider></md-divider>
+<!-- Add / close buttons -->
+<div ng-include="'views/includes.dialog.buttons.html'"></div>
 </md-content>

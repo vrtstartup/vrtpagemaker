@@ -28,7 +28,11 @@ angular
         'door3.css',
         'ngAudio',
         'duScroll',
-        'angular-inview'
+        'angular-inview',
+        'com.2fdevs.videogular',
+        'com.2fdevs.videogular.plugins.controls',
+        'com.2fdevs.videogular.plugins.overlayplay',
+        'info.vietnamcode.nampnq.videogular.plugins.youtube'
     ])
     .constant("firebaseURL", {
         "FURL": "https://immersiveangular.firebaseio.com/",
@@ -60,4 +64,9 @@ angular
     })
     .config(function(filepickerProvider) {
         filepickerProvider.setKey('A1hmStH38TSfDN1qwiJOez');
+    })
+    .config(function($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('pink')
+            .accentPalette('orange');
     });

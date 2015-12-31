@@ -3,7 +3,8 @@
 angular.module('immersiveAngularApp')
     .directive('viewParallax', function() {
         return {
-            template: '<div hide-xs class=" o-parallax" ng-style="style"></div>',
+            templateUrl: 'blocks/parallax/parallax.html',
+
             restrict: 'E',
             scope: {
                 parameters: '='
@@ -11,14 +12,15 @@ angular.module('immersiveAngularApp')
             link: function postLink(scope) {
 
 
-                scope.$watchGroup(['parameters.url', 'parameters.height'], function(newValues, oldValues, scope) {
-                    if (newValues) {
-                        scope.style = {
-                            'background-image': 'url(' + newValues[0] + ')',
-                            'height': newValues[1] + 'rem'
-                        };
-                    }
-                });
+
+
+                scope.style = {
+                    'background-image': 'url(' + scope.parameters.url + ')',
+                    'height': scope.parameters.height
+                };
+
+
+
             }
         };
     });

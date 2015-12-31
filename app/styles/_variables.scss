@@ -48,6 +48,7 @@ $sidebar-width-preview: 3.5em;
 
 //sidemenu
 $editpage-sidemenu-toggle-icon-size: 1rem;
+$editpage-sidemenu-blocks-icon-size: 1.5rem;
 $editpage-sidemenu-sortable-block-height: 2rem;
 $editpage-sidemenu-sortable-block-background-size: 50% 50%;
 
@@ -95,10 +96,11 @@ $block-carousel-icon-size: 3rem;
 $block-masonry-column-count: 4;
 $block-masonry-column-gap: 0; // in px of rem
 
-// Text
-
-// Hero
-
+// Video
+$block-video-icon-color: $color2;
+$block-video-icon-color-hover: $color3;
+$block-video-icon-size: 1rem;
+$block-video-controls-background: rgba( $color1, .3 );
 
 
 

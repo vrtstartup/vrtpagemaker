@@ -1,0 +1,24 @@
+<div class="o-hero">
+    <div class="o-hero__img">
+        <figure class="o-cssfilter {{filter}}">
+            <img ng-show="mimetype == 'image'" class="o-hero__image" ng-src="{{parameters.url}}">
+            <div class="o-videogular" ng-show="mimetype == 'video'">
+                <videogular in-view="view = $inviewpart" vg-player-ready="onPlayerReady($API)">
+                    <vg-media vg-loop="loop" vg-src="videogularConfig.sources" vg-youtube="rel=1;showinfo=1" vg-tracks="videogularConfig.tracks" vg-native-controls="false"></vg-media>
+                    <div ng-hide="buttons">
+                        <vg-controls vg-autohide="videogularConfig.plugins.controls.autoHide" vg-autohide-time="videogularConfig.plugins.controls.autoHideTime">
+                            <div ng-click="videoAPI.play()"  class='o-videogular__playback'>
+                                <div ng-include="'icons/replay.html'"></div>
+                        </vg-controls>
+                        </div>
+                        <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+                </videogular>
+                </div>
+        </figure>
+        <div class="o-hero__text" layout="row" layout-align="{{data.parameters.xaxis}} {{data.parameters.yaxis}}">
+            <div>
+                <p ng-model="data.parameters.text" medium-editor bind-options="mediumBindOptions"></p>
+            </div>
+        </div>
+        </div>
+    </div>

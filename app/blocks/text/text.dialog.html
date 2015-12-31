@@ -1,13 +1,15 @@
 <md-content ng-init="block.parameters.text = ''">
-    <md-toolbar class="md-warn">
+    <md-toolbar>
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Je voegt tekst toe</h2>
+            <h2 class="md-flex" ng-show="!editing">Je voegt tekst toe</h2>
+            <h2 class="md-flex" ng-show="editing">Je past iets aan je tekstblokje aan.</h2>
         </div>
     </md-toolbar>
     <br/>
-    <div ng-include="'views/includes.dialog.style.html'"></div>
-    <div ng-include="'views/includes.dialog.audio.html'"></div>
-
+    <section layout="column" layout-padding>
+        <div ng-include="'views/includes.dialog.style.html'"></div>
+        <div ng-include="'views/includes.dialog.audio.html'"></div>
+    </section>
     <md-divider></md-divider>
     <!-- Add / close buttons -->
     <div ng-include="'views/includes.dialog.buttons.html'"></div>

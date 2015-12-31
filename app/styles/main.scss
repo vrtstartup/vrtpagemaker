@@ -28,10 +28,12 @@
 
 @import "story.edit";
 @import "story.edit.sidemenu";
+@import "story.edit.dialog";
 
 @import "blocks";
 @import "blocks.filters";
 @import "blocks.embeds";
+// @import "blocks.parallax";
 
 @import "../blocks/text/text.edit";
 @import "../blocks/text/text.view";
@@ -59,6 +61,7 @@
 
 @import "../blocks/audioscroll/audioscroll.view";
 
+@import "../blocks/hero/hero.dialog";
 @import "../blocks/hero/hero.view";
 
 @import "../blocks/break/break.view";

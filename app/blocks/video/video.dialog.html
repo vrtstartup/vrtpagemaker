@@ -1,31 +1,39 @@
 <md-content>
-    <md-toolbar class="md-warn">
+    <md-toolbar class="md">
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Je voegt een filmpje toe</h2>
+            <h2 class="md-flex" ng-show="!editing">Je voegt een filmpje toe</h2>
+            <h2 class="md-flex" ng-show="editing">Je past je filmpje aan.</h2>
         </div>
     </md-toolbar>
     <br/>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-button ng-click="getFile('video/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe filmpje</md-button>
-    </section>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <section layout="column" layout-padding>
+        <md-button ng-click="getFile('video/*')" target="_blank" class="md-raised" md-autofocus>Kies of maak een nieuw filmpje</md-button>
         <md-input-container flex>
             <label>Of plaats een url</label>
-            <input ng-model="block.parameters.url">
+            <input type="url" ng-model="blocks.parameters.url" ng-change="processVideo(blocks.parameters.url)">
         </md-input-container>
+        <div class="c-dialog__hint">Plak gewoon de url van Youtube, Vimeo of een zelfgehost filmpje hier. Of plak de permalink van deredactie.be of Sporza.be.</div>
+        <md-input-container>
+            <md-checkbox ng-model="block.parameters.autoplay" aria-label="Video Autostart">
+                Laat het filmpje automatisch starten wanneer het in beeld verschijnt.
+            </md-checkbox>
+            <div class="c-dialog__hint">Dit is niet mogelijk met filmpjes van Vimeo, Deredactie.be of Sporza!</div>
+        </md-input-container>
+        <md-input-container>
+            <md-checkbox ng-model="block.parameters.loop" aria-label="Video Loop">
+                Laat het filmpje automatisch herstarten (loop).
+            </md-checkbox>
+            <div class="c-dialog__hint">Dit is niet mogelijk met filmpjes van Vimeo, Deredactie.be of Sporza!</div>
+        </md-input-container>
+        <md-input-container>
+            <md-checkbox ng-model="block.parameters.buttons" aria-label="Video buttons">
+                Wil je de bedieningsknoppen verstoppen?
+            </md-checkbox>
+            <div class="c-dialog__hint">Dit is niet mogelijk met filmpjes van Vimeo, Deredactie.be of Sporza!</div>
+        </md-input-container>
+        <div ng-include="'views/includes.dialog.filters.html'"></div>
+        <div ng-include="'views/includes.dialog.style.html'"></div>
     </section>
-
-    <!-- Instagram filters selector -->
-    <div ng-include="'views/includes.dialog.filters.html'"></div>
-
-    <!-- Width selector -->
-    <div ng-include="'views/includes.dialog.style.html'"></div>
     <md-divider></md-divider>
-    <!-- Add / close buttons -->
     <div ng-include="'views/includes.dialog.buttons.html'"></div>
-
-
-
-
-
 </md-content>

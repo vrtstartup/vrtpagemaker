@@ -6,7 +6,7 @@
     <!-- <div ng-init="mobilePreview = false" ng-click="mobilePreview = !mobilePreview">IOS</div> -->
     <div class="c-editpage__left" ng-class="{'c-editpage__left--preview': preview==true}">
         <md-content layout="column" class="c-sidemenu">
-            <md-list>
+            <md-list class="c-sidemenu__list">
                 <md-subheader class="md-sticky" ng-show="!preview">
                     Meta informatie
                 </md-subheader>
@@ -40,7 +40,7 @@
                     <p ng-click="showBlocks = !showBlocks">Bouwblokken</p>
                 </md-subheader>
                 <md-list-item ng-show="showBlocks" ng-click="openDialog(articleId, b.type, null)" ng-repeat="b in buttons">
-                    <div ng-include="'icons/home.html'" class="c-sidemenu__icon"></div>
+                    <div ng-include="'icons/block-'+b.type+'.html'" class="c-sidemenu__icon"></div>
                     <p>{{b.name}}</p>
                 </md-list-item>
                 <md-subheader ng-show="!preview" class="md-no-sticky" ng-init="showOverview = true">
@@ -49,8 +49,10 @@
                 <div ng-show="!preview">
                     <md-content layout-padding ng-show="showOverview">
                         <ul data-as-sortable="dragControlListeners" class="o-sortable__list" data-ng-model="list" layout="row" layout-wrap layout-align="center start">
-                            <li flex="{{value.parameters.width}}" data-ng-repeat="(key,value) in list" ng-click="openDialog(articleId, value.type, value.$id)" data-as-sortable-item ng-mouseover="setActiveBlock(value.$id)" ng-mouseleave="removeActiveBlock()">
-                                <div data-as-sortable-item-handle class="o-sortable__item o-sortable__{{value.type}}"></div>
+                            <li flex="{{value.parameters.width}}"  class="o-sortable__item" data-ng-repeat="(key,value) in list" ng-click="openDialog(articleId, value.type, value.$id)" data-as-sortable-item ng-mouseover="setActiveBlock(value.$id)" ng-mouseleave="removeActiveBlock()">
+                                <div data-as-sortable-item-handle  layout="row" layout-align="center center" >
+                                    <div ng-include="'icons/block-'+value.type+'.html'"></div>
+                                </div>
                             </li>
                             </a>
                         </ul>

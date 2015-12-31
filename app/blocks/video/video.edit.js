@@ -1,99 +1,90 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .directive('editVideo', function($sce, $compile) {
+    .directive('editVideo', function($sce, $compile, $templateRequest) {
         return {
             restrict: 'E',
+            templateUrl: 'blocks/video/video.html',
             scope: {
                 parameters: '='
             },
             link: function postLink(scope, elem) {
-                var getEmbedVideoURL = function(url) {
-                    var domains, i, id, kv, len, m, netloc, params, paramsStr, parser, path, ref;
-                    domains = {
-                        'www.youtube.com': 'youtube',
-                        'youtu.be': 'youtube',
-                        'vimeo.com': 'vimeo',
-                        'deredactie.be': 'deredactie'
-                    };
-                    parser = document.createElement('a');
-                    parser.href = url;
-                    netloc = parser.hostname.toLowerCase();
-                    path = parser.pathname;
-                    if (path !== null && path.substr(0, 1) !== "/") {
-                        path = "/" + path;
-                    }
-                    params = {};
-                    paramsStr = parser.search.slice(1);
-                    ref = paramsStr.split('&');
-                    for (i = 0, len = ref.length; i < len; i++) {
-                        kv = ref[i];
-                        kv = kv.split("=");
-                        params[kv[0]] = kv[1];
-                    }
-                    switch (domains[netloc]) {
-                        case 'youtube':
-                            if (path.toLowerCase() === '/watch') {
-                                if (!params.v) {
-                                    return null;
-                                }
-                                id = params.v;
-                            } else {
-                                m = path.match(/\/([A-Za-z0-9_-]+)$/i);
-                                if (!m) {
-                                    return null;
-                                }
-                                id = m[1];
-                                scope.parameters.hosted = 'youtube';
-                            }
 
-                            return "https://www.youtube.com/embed/" + id;
+                scope.videoAPI = null;
+                scope.videoStartedOnce = false;
+                scope.autoplay = false;
+                scope.loop = false;
+                scope.buttons = false;
 
+                scope.$watch('parameters.autoplay', function(newValue) {
+                    scope.autoplay = newValue;
+                });
 
-                        case 'vimeo':
-                            m = path.match(/\/(\w+\/\w+\/){0,1}(\d+)/i);
-                            if (!m) {
-                                return null;
-                            }
-                            scope.parameters.hosted = 'vimeo';
-                            return "https://player.vimeo.com/video/" + m[2];
+                scope.$watch('parameters.loop', function(newValue) {
+                    scope.loop = newValue;
+                });
 
-                        // case 'deredactie':
-                        //     m = path.match(/\/(\D+)(.+)/i);
-                        //     if (!m) {
-                        //         return null;
-                        //     }
+                scope.$watch('parameters.buttons', function(newValue) {
+                    scope.buttons = newValue;
+                });
 
-                    }
-                    return null;
+                scope.onPlayerReady = function(API) {
+                    scope.videoAPI = API;
                 };
+
+                scope.$watch('view', function(newValue) {
+                    if (newValue === 'both' && scope.videoStartedOnce === false && scope.autoplay === true) {
+                        scope.videoAPI.play();
+                        scope.videoStartedOnce = true;
+                    }
+                });
 
 
 
 
                 scope.$watch('parameters.url', function(newValue) {
                     if (newValue) {
-                        var videoUrl = getEmbedVideoURL(newValue);
                         var template;
                         var compiled;
-                        if (!scope.parameters.hosted) {
-                            console.log('self hosted video');
-                            template = '<div class="{{style}}"><figure class="{{parameters.filter}}"><video src=" ' + scope.parameters.url + ' " controls>Your browser does not support the <code>video</code> element.</video></figure></div>';
-                            compiled = $compile(template)(scope);
-                            elem.empty().append(compiled);
-
-                        } else if (videoUrl && scope.parameters.client) {
-                            console.log('embedded video');
-                            var source = $sce.trustAsResourceUrl(videoUrl);
+                        if (['vimeo', 'deredactie', 'sporza'].indexOf(scope.parameters.host) > -1) {
+                            var source = $sce.trustAsResourceUrl(newValue);
                             template = '<div class="{{style}}"><div class="o-video__player youtube embeds"><iframe  src="' + source + '" frameborder="0" allowfullscreen></iframe><figure class="{{parameters.filter}}"></figure></div></div>';
                             compiled = $compile(template)(scope);
                             elem.empty().append(compiled);
+                        } else {
+
+                            scope.videogularConfig = {
+                                preload: 'none',
+                                autoPlay: false,
+                                sources: [{
+                                    src: $sce.trustAsResourceUrl(newValue),
+                                    type: 'video/mp4'
+                                }],
+                                analytics: {
+                                    category: 'Video',
+                                    label: newValue,
+                                    events: {
+                                        ready: true,
+                                        play: true,
+                                        pause: true,
+                                        stop: true,
+                                        complete: true,
+                                        progress: 10
+                                    }
+                                },
+                                plugins: {
+                                    poster: scope.parameters.poster,
+                                    controls: {
+                                        autoHide: true,
+                                        autoHideTime: 3000
+                                    }
+                                }
+
+                            };
+
                         }
-                    } else {
-                        console.log('chilling');
                     }
                 });
-
 
                 scope.$watch('parameters.css', function(newValue) {
                     if (newValue) {
@@ -102,10 +93,6 @@ angular.module('immersiveAngularApp')
                         scope.style = 'u-width--normal';
                     }
                 });
-
-
-
-
             }
         };
     });

@@ -1,8 +1,8 @@
-// This is the overlay that creates the filter (maybe use a class?
+.o-cssfilter {
 
-figure {
-    pointer-events: none;
-    margin: 0;
+
+    top: 0;
+    left: 0;
 }
 
 // The filters. If you add one here, you also have to add it in services.value.js
@@ -139,22 +139,6 @@ figure {
     background: -webkit-radial-gradient(circle, rgba(168, 223, 193, .4) 70%, #c4b7c8);
     background: radial-gradient(circle, rgba(168, 223, 193, .4) 70%, #c4b7c8);
     mix-blend-mode: overlay
-}
-
-._1977,
-.aden,
-.brooklyn,
-.earlybird,
-.gingham,
-.hudson,
-.lofi,
-.mayfair,
-.perpetua,
-.reyes,
-.toaster,
-.walden,
-.xpro2 {
-    position: relative
 }
 
 ._1977:after,

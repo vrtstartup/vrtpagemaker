@@ -54,6 +54,12 @@ module.exports = function(config) {
       'bower_components/vivus/dist/vivus.js',
       'bower_components/angular-audio/app/angular.audio.js',
       'bower_components/angular-inview/angular-inview.js',
+      'bower_components/videogular/videogular.js',
+      'bower_components/videogular-overlay-play/vg-overlay-play.js',
+      'bower_components/videogular-controls/vg-controls.js',
+      'bower_components/videogular-angulartics/vg-analytics.js',
+      'bower_components/videogular-poster/vg-poster.js',
+      'bower_components/bower-videogular-youtube/youtube.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

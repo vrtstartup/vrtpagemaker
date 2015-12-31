@@ -3,7 +3,7 @@
 angular.module('immersiveAngularApp')
     .directive('editIframe', function($sce) {
         return {
-            template: '<div class="iframe google-maps"><iframe width="100%" height="150%" src="{{iframe}}" frameborder="0" webkit-playsinline allowfullscreen></iframe></div><edit-audioplayer ng-if="parameters.media" id="id" parameters="parameters"></edit-audioplayer></div>',
+            template: '<div class="c-embed-container"><iframe src="{{iframe}}" frameborder="0"></iframe><edit-audioplayer ng-if="parameters.media" id="id" parameters="parameters"></edit-audioplayer></div>',
             restrict: 'E',
             scope: {
                 id: '=',

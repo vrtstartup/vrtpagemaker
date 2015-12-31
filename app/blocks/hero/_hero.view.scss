@@ -1,4 +1,9 @@
 .o-hero {
+    @include e('image') {
+        width: 100%;
+        height: auto;
+        margin-bottom: -0.6rem;
+    }
     // color: $color1;
     // text-shadow: .2px .2px grey;
     h3,
@@ -13,5 +18,6 @@
         top: 0px;
         height: 100%;
         width: 100%;
+
     }
 }

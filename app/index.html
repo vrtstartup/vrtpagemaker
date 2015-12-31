@@ -89,6 +89,12 @@
     <script src="bower_components/vivus/dist/vivus.js"></script>
     <script src="bower_components/angular-audio/app/angular.audio.js"></script>
     <script src="bower_components/angular-inview/angular-inview.js"></script>
+    <script src="bower_components/videogular/videogular.js"></script>
+    <script src="bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
+    <script src="bower_components/videogular-controls/vg-controls.js"></script>
+    <script src="bower_components/videogular-angulartics/vg-analytics.js"></script>
+    <script src="bower_components/videogular-poster/vg-poster.js"></script>
+    <script src="bower_components/bower-videogular-youtube/youtube.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -108,22 +114,24 @@
     <script src="scripts/services/services.firebase.users.js"></script>
     <script src="scripts/services/services.tools.dialog.js"></script>
     <script src="scripts/services/services.tools.uploader.js"></script>
+    <script src="scripts/services/services.tools.urlprocessing.js"></script>
     <script src="scripts/services/services.blocks.twitter.load.js"></script>
     <script src="scripts/services/services.values.js"></script>
     <script src="scripts/services/services.audio.background.js"></script>
     <script src="scripts/services/services.audio.player.js"></script>
-    <!-- Directives __  general -->
+    <script src="scripts/services/services.text.mediumeditor.js"></script>
+    <!-- Directives __  general __ Edit-->
     <script src="scripts/directives/directives.story.feedback.js"></script>
+    <!-- Directives __  general __ View-->
     <script src="scripts/directives/directives.story.positioninpage.js"></script>
     <script src="scripts/directives/directives.story.storyheader.js"></script>
     <script src="scripts/directives/directives.story.sharing.js"></script>
     <script src="scripts/directives/directives.story.feedbackreader.js"></script>
-    <script src="scripts/directives/directives.story.soundicon.js"></script>
-    <script src="scripts/directives/directives.thirdparty.angularmediumeditor.js"></script>
     <!-- Directives __ Blocks -->
     <script src="scripts/directives/directives.blocks.dispatcher.edit.js"></script>
     <script src="scripts/directives/directives.blocks.dispatcher.view.js"></script>
     <!-- Directives __ Blocks __ Text -->
+    <script src="scripts/directives/directives.thirdparty.angularmediumeditor.js"></script>
     <script src="blocks/text/text.edit.js"></script>
     <script src="blocks/text/text.view.js"></script>
     <!-- Directives __ Blocks __ Image -->
@@ -157,10 +165,11 @@
     <!-- Directives __ Blocks __ Linepainter -->
     <script src="blocks/linepainter/linepainter.edit.js"></script>
     <script src="blocks/linepainter/linepainter.view.js"></script>
-    <!-- Directives __ Blocks __ Linepainter -->
+    <!-- Directives __ Blocks __ Svg -->
     <script src="blocks/svg/svg.edit.js"></script>
     <script src="blocks/svg/svg.view.js"></script>
     <!-- Directives __ Blocks __ Audioscroll -->
+    <script src="scripts/directives/directives.story.soundicon.js"></script>
     <script src="blocks/audioscroll/audioscroll.edit.js"></script>
     <script src="blocks/audioscroll/audioscroll.view.js"></script>
     <!-- Directives __ Blocks __ Audioplayer -->
@@ -170,7 +179,7 @@
     <!-- Directives __ Blocks __ Carousel -->
     <script src="blocks/carousel/carousel.edit.js"></script>
     <script src="blocks/carousel/carousel.view.js"></script>
-    <!-- Directives __ Blocks __ Carousel -->
+    <!-- Directives __ Blocks __ Masonry -->
     <script src="blocks/masonry/masonry.edit.js"></script>
     <script src="blocks/masonry/masonry.view.js"></script>
     <!-- Directives __ Blocks __ Popup -->

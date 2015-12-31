@@ -3,7 +3,7 @@
 angular.module('immersiveAngularApp')
     .directive('viewIframe', function($sce) {
         return {
-            template: '<div class="iframe google-maps"><iframe width="100%" height="auto" src="{{iframe}}" frameborder="0" webkit-playsinline allowfullscreen></iframe></div><view-audioplayer ng-if="parameters.media" id="id" parameters="parameters"></view-audioplayer></div>',
+            template: '<div class="c-embed-container"><iframe ng-src="{{iframe}}" frameborder="0"></iframe><view-audioplayer ng-if="parameters.media" id="id" parameters="parameters"></view-audioplayer></div>',
             restrict: 'E',
             scope: {
                 id: '=',
@@ -11,34 +11,13 @@ angular.module('immersiveAngularApp')
             },
 
             link: function postLink(scope) {
-                var code = scope.parameters.code;
-                scope.iframe = getUrl(code);
 
-                scope.$watch('parameters.code', function(newValue, oldValue) {
-                    if (newValue) {
-                        scope.iframe = getUrl(newValue);
-                    };
-                });
+
+                scope.iframe = $sce.trustAsResourceUrl(scope.parameters.code);
+
+
+
 
             }
         };
-
-        function getUrl(value) {
-            var regex1 = /<iframe.*?src="(.*?)"/;
-            var regex2 = /<iframe.*?src='(.*?)'/;
-            var parts = regex1.exec(value);
-            var url;
-
-            if (!parts) {
-                parts = regex2.exec(value);
-            }
-
-            if (parts) {
-                url = parts[1];
-            } else {
-                url = value;
-            }
-
-            return $sce.trustAsResourceUrl(url);
-        }
     });

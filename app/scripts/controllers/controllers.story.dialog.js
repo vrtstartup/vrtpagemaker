@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('storyDialogController', function($scope, $window, $mdDialog, id, article, type, firebaseStoryService, firebaseBlocksService, valuesService, toolsUploaderService) {
+    .controller('storyDialogController', function($scope, $window, $mdDialog, id, article, type, firebaseStoryService, firebaseBlocksService, valuesService, toolsUploaderService, toolsUrlprocessing) {
 
         $scope.article = article;
         $scope.filters = valuesService.filters();
@@ -32,10 +32,30 @@ angular.module('immersiveAngularApp')
             });
         };
 
+
+        $scope.processIframe = function(url) {
+            toolsUrlprocessing.processIframe(url).then(function() {
+                $scope.block.parameters.code = url;
+            });
+
+        };
+
+        $scope.processVideo = function(url) {
+            if (url) {
+                toolsUrlprocessing.processVideo(url).then(function(response) {
+                    console.log(response.url, response.host);
+                    $scope.block.parameters.url = response.url;
+                    $scope.block.parameters.host = response.host;
+                });
+            }
+        };
+
+
         $scope.getFile = function(type) {
             toolsUploaderService.uploadFile(type).then(function(Blob) {
                 if ($scope.block) {
                     $scope.block.parameters.url = Blob.url;
+                    $scope.block.parameters.mimetype = Blob.mimetype;
                 } else {
                     $scope.block = {
                         parameters: {
@@ -58,7 +78,7 @@ angular.module('immersiveAngularApp')
                     };
                 }
 
-                Blobs.forEach(function (Blob) {
+                Blobs.forEach(function(Blob) {
                     $scope.block.parameters.images.push(Blob.url);
                 });
             });
@@ -67,8 +87,7 @@ angular.module('immersiveAngularApp')
         /* Save the meta info of a story */
         var getMeta = function() {
             firebaseStoryService.getMeta($scope.article).then(function(obj) {
-                obj.$bindTo($scope, "meta").then(function() {
-                });
+                obj.$bindTo($scope, "meta").then(function() {});
             });
         };
 
@@ -76,8 +95,9 @@ angular.module('immersiveAngularApp')
         var populateDialog = function() {
             /* There is and id already, so we are editing this */
             if (id) {
-                /* Load the object from the Firebase */
+                $scope.editing = true;
 
+                /* Load the object from the Firebase */
                 firebaseBlocksService.getObject($scope.article, id).then(function(obj) {
                     obj.$bindTo($scope, "block").then(function() {
                         $scope.size = obj.parameters.width;
@@ -87,6 +107,9 @@ angular.module('immersiveAngularApp')
 
             /* There is no id, so we are not editing, but creating */
             else {
+
+                $scope.editing = false;
+
                 $scope.block = {
                     'type': type,
                     'parameters': {

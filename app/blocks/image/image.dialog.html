@@ -1,27 +1,29 @@
 <md-content>
-    <md-toolbar class="md-warn">
+    <md-toolbar>
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Je voegt een afbeelding toe</h2>
+            <h2 class="md-flex" ng-show="!editing">Je voegt een afbeelding toe</h2>
+            <h2 class="md-flex" ng-show="editing">Je past je afbeelding aan</h2>
         </div>
     </md-toolbar>
     <br/>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-button ng-click="getFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe afbeelding</md-button>
+    <section layout="column" layout-padding>
+        <md-input-container ng-show="editing" class=" md-block">
+            <label>Dit is de url van je afbeelding</label>
+            <input name="image" ng-model="block.parameters.url" />
+        </md-input-container>
+        <md-input-container class="md-icon-float md-block">
+            <md-button ng-click="getFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe afbeelding</md-button>
+        </md-input-container>
         <!-- Of kies eentje van de reeds geuploade afbeeldingen: -->
         <!--     <ul>
         <li ng-repeat="f in files">{{f.url}}</li>
     </ul> -->
-    </section>
-
-
-     <div ng-include="'views/includes.dialog.filters.html'"></div>
-     <div ng-include="'views/includes.dialog.style.html'"></div>
-     <div ng-include="'views/includes.dialog.audio.html'"></div>
-  <md-divider></md-divider>
-    <!-- Add / close buttons -->
-    <div ng-include="'views/includes.dialog.buttons.html'"></div>
-
-
-
-
+        <div ng-include="'views/includes.dialog.filters.html'"></div>
+        <div ng-include="'views/includes.dialog.style.html'"></div>
+        <div ng-include="'views/includes.dialog.audio.html'"></div>
+      </section>
+</md-content>
+<md-divider></md-divider>
+<!-- Add / close buttons -->
+<div ng-include="'views/includes.dialog.buttons.html'"></div>
 </md-content>

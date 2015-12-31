@@ -23,7 +23,6 @@ angular.module('angular-medium-editor', [])
 
             angular.element(iElement).addClass('angular-medium-editor');
 
-
             // Global MediumEditor
 
             scope.$watch('bindOptions', function(bindOptions) {
@@ -48,9 +47,6 @@ angular.module('angular-medium-editor', [])
                 ngModel.editor.subscribe('editableInput', function(event, editable) {
                     ngModel.$setViewValue(editable.innerHTML.trim());
                 });
-
-
-
             });
         }
     };

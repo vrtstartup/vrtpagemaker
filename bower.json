@@ -22,7 +22,13 @@
     "medium-editor": "~5.11.0",
     "vivus": "~0.2.3",
     "angular-audio": "~1.7.1",
-    "angular-inview": "~1.5.6"
+    "angular-inview": "~1.5.6",
+    "videogular": "~1.4.0",
+    "videogular-overlay-play": "~1.4.0",
+    "videogular-controls": "~1.4.0",
+    "videogular-angulartics": "~1.4.0",
+    "videogular-poster": "~1.4.0",
+    "bower-videogular-youtube": "videogular-youtube#~2.0.5"
   },
   "overrides": {
     "angulartics": {

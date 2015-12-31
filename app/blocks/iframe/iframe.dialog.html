@@ -1,18 +1,21 @@
 <md-content>
     <md-toolbar class="md-warn">
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Je voegt een embedcode toe</h2>
+            <h2 class="md-flex" ng-show="!editing">Je voegt een webpagina in</h2>
+            <h2 class="md-flex" ng-show="editing">Je past je ingesloten webpagina aan</h2>
         </div>
     </md-toolbar>
     <br/>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-input-container flex>
-            <label>Plak je embedcode hier</label>
-            <input ng-model="block.parameters.code">
+    <section layout="column" layout-padding>
+        <md-input-container class="md-block">
+            <label ng-show="!editing" >Plak de url naar de website hier</label>
+            <label ng-show="editing" >Pas je url aan</label>
+            <input type="url" ng-model="iframecode" ng-change="processIframe(iframecode)">
         </md-input-container>
-    </section>
+
     <div ng-include="'views/includes.dialog.style.html'"></div>
     <div ng-include="'views/includes.dialog.audio.html'"></div>
+    </section>
     <md-divider></md-divider>
     <!-- Add / close buttons -->
     <div ng-include="'views/includes.dialog.buttons.html'"></div>

@@ -3,7 +3,7 @@
 angular.module('immersiveAngularApp')
     .directive('editImage', function() {
         return {
-            template: '<div><figure class="{{filter}}"><img ng-src="{{url}}"></figure><edit-audioplayer ng-if="parameters.media" id="id" parameters="parameters"></edit-audioplayer></div>',
+            template: '<div><figure class="o-cssfilter {{filter}}"><img class="c-imageblock__image" ng-src="{{url}}"></figure><edit-audioplayer ng-if="parameters.media" id="id" parameters="parameters"></edit-audioplayer></div>',
             restrict: 'E',
             scope: {
                 id: '=',

@@ -1,9 +1,6 @@
-<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-    <p>Kies een instagramfilter:</p>
-    <md-input-container>
-        <label>Filters</label>
-        <md-select ng-model="block.parameters.filter">
-            <md-option value="{{f}}" ng-repeat="f in filters">{{f}}</md-option>
-        </md-select>
-    </md-input-container>
-</section>
+<md-input-container>
+    <label>Kies een Instagramfilter</label>
+    <md-select ng-model="block.parameters.filter">
+        <md-option value="{{f}}" ng-repeat="f in filters">{{f}}</md-option>
+    </md-select>
+</md-input-container>

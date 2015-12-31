@@ -1,12 +1,12 @@
 <div class="md-actions" layout="row">
-    <md-button ng-hide="block.$id" ng-click="addBlock(block)" target="_blank" md-autofocus>
+    <md-button ng-hide="block.$id" ng-click="addBlock(block)" target="_blank" >
         Voeg toe
     </md-button>
-    <md-button  ng-hide="!block.$id" ng-click="deleteBlock()" target="_blank" md-autofocus>
+    <md-button  ng-hide="!block.$id" ng-click="deleteBlock()" target="_blank" >
         Verwijder
     </md-button>
     <span flex></span>
-    <md-button ng-click="closeDialog()" style="margin-right:20px;">
+    <md-button ng-click="closeDialog()" style="margin-right:20px;" md-autofocus>
         Sluit
     </md-button>
 </div>

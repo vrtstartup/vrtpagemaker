@@ -1,4 +1,7 @@
-<header class="c-storyheader" layout="column" layout-align="space-between center" ng-hide="image == null" layout-padding ng-style="{ 'background-image':'url(' + image + ')' }">
+<header class="c-storyheader" layout="column" layout-align="space-between center" ng-hide="image == null || image == ''" layout-padding ng-style="{ 'background-image':'url(' + image + ')' }">
+<!--     <div class="c-storyheader__videobackground" ng-show="!articleMeta.headerVideo">
+        <video-bg video-id="'E4FbcyQhOiM'" ratio="16/9" loop="articleMeta.videoAutoplay" mute="articleMeta.videoSound" mobile-image="articleMeta.headerImage" start="articleMeta.videoBegin" end="articleMeta.videoEnd"></video-bg>
+    </div> -->
     <div flex="33" layout="row" layout-align="space-between start" style="width: 100%">
         <div hide-sm flex class="c-storyheader__referal"><a href="{{brand.referalUrl}}" target="blank">{{brand.referalText}}</a></div>
         <div hide-sm flex layout="row" layout-align="center center" class="c-storyheader__logo">
@@ -17,14 +20,13 @@
         </svg>
     </div>
 </header>
-<div class="c-nav" >
+<div class="c-nav">
     <div layout="row" class="c-nav__content" flex layout="row" layout-align="space-between center">
-            <img class="c-nav__brand" src="{{brand.url}}">
-            <sharing text="" image=""></sharing>
+        <img class="c-nav__brand" src="{{brand.url}}">
+        <sharing text="" image=""></sharing>
     </div>
     <position-in-page article="articleId"></position-in-page>
 </div>
-
 <div id="page-start"></div>
 <h1 class="c-storyheader__title--mobile" id="title" hide-gt-sm>{{ title }}</h1>
 <p class="c-storyheader__subtitle--mobile" hide-gt-sm>{{ author }}</p>

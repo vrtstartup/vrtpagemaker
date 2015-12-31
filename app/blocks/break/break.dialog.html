@@ -1,11 +1,11 @@
 <md-content ng-init="size = '100'">
     <md-toolbar class="md-warn">
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Je voegt een break toe</h2>
+            <h2 class="md-flex" ng-show="!editing">Je voegt een break toe</h2>
+            <h2 class="md-flex" ng-show="editing">Je wilt iets aan je break aanpassen</h2>
         </div>
     </md-toolbar>
     <br/>
     <md-divider></md-divider>
-    <!-- Add / close buttons -->
     <div ng-include="'views/includes.dialog.buttons.html'"></div>
 </md-content>

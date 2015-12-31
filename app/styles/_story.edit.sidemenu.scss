@@ -1,7 +1,30 @@
 .c-sidemenu {
     width: $sidebar-width;
+    @include e('list') {
+        .md-list-item-inner {
+            color: $color1;
+            transition: color 0.5s ease;
+            svg {
+                fill: $color1;
+                transition: fill 0.5s ease;
+            }
+            &:hover {
+                color: $color2;
+                transition: color 0.5s ease;
+                svg {
+                    fill: $color2;
+                    transition: fill 0.5s ease;
+                }
+            }
+        }
+    }
     @include e('icon') {
-        margin-right: $editpage-sidemenu-toggle-icon-size;
+        margin-right: $editpage-sidemenu-blocks-icon-size / 2;
+        svg {
+            margin-top: $editpage-sidemenu-blocks-icon-size/3;
+            height: $editpage-sidemenu-blocks-icon-size;
+            width: $editpage-sidemenu-blocks-icon-size;
+        }
         &.c-sidemenu__icon--live {
             padding-top: .0em;
         }
@@ -16,40 +39,31 @@
     }
 }
 
-
-
 .o-sortable {
     @include e('list') {
-    margin: 0;
-    padding: 0;
-    padding-bottom: 5rem;
-    li {
-        padding-right: 2px;
-    }
+        margin: 0;
+        padding: 0;
+        padding-bottom: 5rem;
+        li {
+            padding-right: 2px;
+        }
     }
     @include e('item') {
-        background-color: $color2;
-        margin-bottom: 1rem;
-        height: $editpage-sidemenu-sortable-block-height;
-        width: 100%;
-        border-color: $color3;
-        border-style: solid;
-    }
-    @include e('text') {
-        background: $color2 url('../images/sortable-text.svg') no-repeat center;
-        background-size: $editpage-sidemenu-sortable-block-background-size;
-    }
-    @include e('video') {
-        background: $color2 url('../images/sortable-video.svg') no-repeat center;
-        background-size: $editpage-sidemenu-sortable-block-background-size;
-    }
-    @include e('image') {
-        background: $color2 url('../images/sortable-image.svg') no-repeat center;
-        background-size: $editpage-sidemenu-sortable-block-background-size;
-    }
-    @include e('embed') {
-        background: $color2 url('../images/sortable-embed.svg') no-repeat center;
-        background-size: $editpage-sidemenu-sortable-block-background-size;
+        outline: none;
+        > div {
+            background-color: $color2;
+            margin-bottom: 1rem;
+            height: $editpage-sidemenu-sortable-block-height;
+            width: 100%;
+            border-color: $color3;
+            border-style: solid;
+            svg {
+                fill: $color3;
+                margin-top: $editpage-sidemenu-blocks-icon-size/3;
+                height: $editpage-sidemenu-blocks-icon-size;
+                width: $editpage-sidemenu-blocks-icon-size;
+            }
+        }
     }
 }
 
