@@ -1,32 +1,38 @@
 <header class="c-storyheader" layout="column" layout-align="space-between center" ng-hide="image == null || image == ''" layout-padding ng-style="{ 'background-image':'url(' + image + ')' }">
-<!--     <div class="c-storyheader__videobackground" ng-show="!articleMeta.headerVideo">
-        <video-bg video-id="'E4FbcyQhOiM'" ratio="16/9" loop="articleMeta.videoAutoplay" mute="articleMeta.videoSound" mobile-image="articleMeta.headerImage" start="articleMeta.videoBegin" end="articleMeta.videoEnd"></video-bg>
-    </div> -->
-    <div flex="33" layout="row" layout-align="space-between start" style="width: 100%">
-        <div hide-sm flex class="c-storyheader__referal"><a href="{{brand.referalUrl}}" target="blank">{{brand.referalText}}</a></div>
-        <div hide-sm flex layout="row" layout-align="center center" class="c-storyheader__logo">
-            <img class="t-brand__logo" src="{{ brand.url }}">
-        </div>
-        <div hide-sm flex class="c-storyheader__sharing" layout="row" layout-align="end start">
+    <div class="c-storyheader__video" ng-style="style">
+        <vid-bg resources="resources" full-screen="fullScreen" muted="muted" z-index="zIndex"></vid-bg>
+    </div>
+    <div></div>
+    <div>
+        <h1 class="c-storyheader__title" hide-sm flex="33" layout="row" layout-padding layout-align="center center" ng-hide="title == ''">{{ maintitle }}</h1>
+        <p class="c-storyheader__subtitle" hide-sm flex="13" layout="row" layout-padding layout-align="center center" ng-hide="subtitle == ''">{{ subtitle }}</p>
+    </div>
+    <a href="#page-start" du-smooth-scroll duration="3000">
+        <div class="c-storyheader__arrow"></div>
+    </a>
+</header>
+<div class="c-nav" ng-class="sharing.show ? 'c-nav--sharing' : 'c-nav--nosharing'">
+    <div layout="row" class="c-nav__content" flex layout="row" layout-align="space-between center">
+        <img class="c-nav__brand" src="{{brandLogo}}">
+        <div ng-show="sharing.show">
             <sharing text="" image=""></sharing>
         </div>
     </div>
-    <h1 class="c-storyheader__title" hide-sm flex="33" layout="row" layout-padding layout-align="center center" ng-hide="title == ''">{{ title }}</h1>
-    <p class="c-storyheader__subtitle" hide-sm flex="13" layout="row" layout-padding layout-align="center center" ng-hide="author == ''">Door {{ author }}</p>
-    <div flex="20" layout="row" layout-padding layout-align="center end" href="#page-start" du-smooth-scroll duration="3000">
-        <svg hide-sm class="c-storyheader__arrow" enable-background="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="50px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <rect fill="none" height="50" width="50" />
-            <polygon points="47.25,15 45.164,12.914 25,33.078 4.836,12.914 2.75,15 25,37.25 " />
-        </svg>
-    </div>
-</header>
-<div class="c-nav">
+    <position-in-page article="articleId"></position-in-page>
+</div>
+
+<div class="c-nav" ng-class="sharing.show ? 'c-nav--sharing' : 'c-nav--nosharing'">
     <div layout="row" class="c-nav__content" flex layout="row" layout-align="space-between center">
-        <img class="c-nav__brand" src="{{brand.url}}">
-        <sharing text="" image=""></sharing>
+        <a href="{{refer}}" target="blank"><img class="c-nav__brand" src="{{brandLogo}}">
+        </a>
+        <div ng-show="sharing.show">
+            <sharing text="" image=""></sharing>
+        </div>
     </div>
     <position-in-page article="articleId"></position-in-page>
 </div>
+
+
 <div id="page-start"></div>
-<h1 class="c-storyheader__title--mobile" id="title" hide-gt-sm>{{ title }}</h1>
-<p class="c-storyheader__subtitle--mobile" hide-gt-sm>{{ author }}</p>
+<h1 class="c-storyheader__title--mobile" id="title" hide-gt-sm>{{ maintitle }}</h1>
+<p class="c-storyheader__subtitle--mobile" hide-gt-sm>{{ subtitle }}</p>

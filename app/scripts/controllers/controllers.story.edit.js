@@ -1,7 +1,28 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('StoryEditController', function($scope, $routeParams, firebaseStoryService, firebaseBlocksService, firebaseStoriesService, $window, $mdDialog, valuesService, $timeout, $mdSidenav, $mdUtil, $log, $location) {
+    .controller('StoryEditController', function($scope, $routeParams, firebaseStoryService, firebaseBlocksService, firebaseStoriesService, $window, $mdDialog, valuesService, $timeout, $mdSidenav, $mdUtil, $log, $location, $css, Auth) {
+
+
+        /*
+            Check user id
+        */
+        $scope.auth = Auth;
+
+        $scope.auth.$onAuth(function(authData) {
+            if (authData === null) {
+                console.log("Not logged in yet");
+
+            } else {
+                console.log("Logged in as", authData.uid);
+
+            }
+            $scope.authData = authData;
+
+        });
+
+
+
 
         /*
             values used in page
@@ -23,11 +44,16 @@ angular.module('immersiveAngularApp')
         function getArticle() {
             /*  Get meta of the article */
             firebaseStoryService.getMeta($scope.articleId).then(function(obj) {
-                obj.$bindTo($scope, "articleMeta");
+                obj.$bindTo($scope, "articleMeta").then(function() {
+                    $css.add('styles/' + $scope.articleMeta.brand + '.css');
+                });
+
+
 
                 /*  Get the array of blocks */
                 firebaseStoryService.getBlocks($scope.articleId).then(function(list) {
                     $scope.list = list;
+
                 });
             });
 

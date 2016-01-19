@@ -61,6 +61,7 @@ module.exports = function(config) {
       'bower_components/videogular-poster/vg-poster.js',
       'bower_components/bower-videogular-youtube/youtube.js',
       'bower_components/angular-carousel/dist/angular-carousel.js',
+      'bower_components/angular-messages/angular-messages.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

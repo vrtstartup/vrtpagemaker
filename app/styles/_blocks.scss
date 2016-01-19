@@ -1,19 +1,19 @@
 .o-container {
-    width: $container;
-    max-width: $container;
-    min-width: $container;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
     position: relative;
 }
 
 .o-block {
     position: relative;
-    margin-bottom: $blockPaddingBottom;
+    margin-bottom: $block-padding-bottom;
     @include m('hovered') {
         position: absolute;
         z-index: $block-container-hovered-z-index;
         height: 100%;
         width: 100%;
-        background-color: $color2;
+        background-color: $view-color2;
         opacity: .5;
     }
 }

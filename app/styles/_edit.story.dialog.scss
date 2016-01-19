@@ -1,0 +1,6 @@
+.c-dialog {
+    @include e('hint') {
+        font-size: $edit-dialog-hint-font-size;
+        opacity: .5;
+    }
+}

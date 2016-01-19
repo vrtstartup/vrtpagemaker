@@ -1,0 +1,29 @@
+
+//sidemenu
+$edit-sidemenu-toggle-icon-size: 1rem;
+$edit-sidemenu-blocks-icon-size: 1.5rem;
+$edit-sidemenu-sortable-block-height: 2rem;
+$edit-sidemenu-sortable-block-background-size: 50% 50%;
+$edit-sidemenu-width: 250px;
+$edit-sidemenu-width-preview: 3.5em;
+
+// Medium
+$medium-edictor-icon-size: 1rem;
+$medium-edictor-icon-color: #fff;
+
+// Colors
+$edit-color1: #37393A;
+$edit-color2: rgb(233,30,99);
+$edit-color3: #fff;
+$edit-color4: grey;
+
+
+// Fonts
+$edit-text-font-family: 'Roboto', sans-serif;
+$edit-text-size: .9rem;
+$edit-dialog-hint-font-size: ($edit-text-size/10*8)rem;
+
+
+// Z-index
+$edit-sidemenu-zindex: 100;
+$edit-sidemenu-toggle-zindex: 101;

@@ -3,8 +3,8 @@
 angular.module('immersiveAngularApp')
     .directive('editSvg', function($compile) {
         return {
-            template: '<svg du-scrollspy version="1.1" id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1280 800"  xml:space="preserve">{{svg}}</svg>',
-            templateNamespace: 'svg',
+            template: '<div  in-view="view = $inviewpart"></div>',
+            // templateNamespace: 'svg',
             restrict: 'E',
             replace: 'true',
             scope: {
@@ -13,8 +13,13 @@ angular.module('immersiveAngularApp')
             link: function postLink(scope, ele) {
                 scope.$watch('parameters.svg', function(newValue) {
                     if (newValue) {
-                        ele.html(scope.parameters.svg);
-                        $compile(ele.contents())(scope);
+                        var template = newValue;
+
+                        ele.empty();
+                        ele.append(template);
+                        $compile(template)(scope);
+
+
                     }
                 });
             }

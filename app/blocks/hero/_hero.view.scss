@@ -1,23 +1,22 @@
 .o-hero {
-    @include e('image') {
+    @include e('content') {
         width: 100%;
         height: auto;
         margin-bottom: -0.6rem;
     }
-    // color: $color1;
-    // text-shadow: .2px .2px grey;
-    h3,
-    h4 {
-        // color: $color1;
-        // text-shadow: .2px .2px grey;
-    }
     position: relative;
     @include e('text') {
-        position: absolute;
-        z-index: $block-hero-text-z-index;
-        top: 0px;
-        height: 100%;
         width: 100%;
-
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: $block-hero-text-z-index;
+        > div {
+            background-color: $hero-background-color;
+            margin: 2%;
+            padding: 2%;
+            width: 40%;
+        }
     }
 }

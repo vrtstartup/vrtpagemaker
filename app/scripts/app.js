@@ -15,6 +15,7 @@ angular
         'ngResource',
         'ngRoute',
         'ngSanitize',
+        'ngMessages',
         'ngTouch',
         'firebase',
         'duParallax',
@@ -33,31 +34,58 @@ angular
         'com.2fdevs.videogular.plugins.controls',
         'com.2fdevs.videogular.plugins.overlayplay',
         'info.vietnamcode.nampnq.videogular.plugins.youtube',
-        'angular-carousel'
+        'angular-carousel',
+        'ngVidBg'
     ])
     .constant("firebaseURL", {
-        "FURL": "https://immersiveangular.firebaseio.com/",
-        "FURLStaging": "https://immersiveangular.firebaseio.com/staging/",
-        "FURLLive": "https://immersiveangular.firebaseio.com/live/"
+        "FURL": "https://immersivevrtstartup.firebaseio.com/",
+        "FURLStaging": "https://immersivevrtstartup.firebaseio.com/staging/",
+        "FURLLive": "https://immersivevrtstartup.firebaseio.com/live/"
     })
-    .config(function($routeProvider) {
+    .run(["$rootScope", "$location", function($rootScope, $location) {
+        $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+            // We can catch the error thrown when the $requireAuth promise is rejected
+            // and redirect the user back to the home page
+            if (error === "AUTH_REQUIRED") {
+                $location.path("/home");
+            }
+        });
+    }])
+
+.config(function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/pages.main.html',
-                controller: 'MainController',
+                controller: 'MainController'
 
             })
             .when('/articles/:article', {
                 templateUrl: 'views/pages.story.view.html',
-                controller: 'StoryViewController',
+                controller: 'StoryViewController'
             })
             .when('/edit/:article', {
                 templateUrl: 'views/pages.story.edit.html',
                 controller: 'StoryEditController',
+                resolve: {
+                    // controller will not be loaded until $waitForAuth resolves
+                    // Auth refers to our $firebaseAuth wrapper in the example above
+                    "currentAuth": ["Auth", function(Auth) {
+                        // $waitForAuth returns a promise so the resolve waits for it to complete
+                        return Auth.$waitForAuth();
+                    }]
+                }
             })
             .when('/edit', {
                 templateUrl: 'views/pages.stories.edit.html',
                 controller: 'StoriesEditController',
+                resolve: {
+                    // controller will not be loaded until $waitForAuth resolves
+                    // Auth refers to our $firebaseAuth wrapper in the example above
+                    "currentAuth": ["Auth", function(Auth) {
+                        // $waitForAuth returns a promise so the resolve waits for it to complete
+                        return Auth.$waitForAuth();
+                    }]
+                }
             })
             .otherwise({
                 redirectTo: '/'

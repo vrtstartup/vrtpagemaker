@@ -3,32 +3,43 @@
 
 
 @import "reset";
-@import "variables";
+
+
+
+@import "templates.default";
+// @import "templates.karrewiet";
+
+@import "variables.edit";
+@import "variables.view";
+
+
+
 @import "utilities";
 
+@import "messages.scss";
 
-
-
-@import "sassline";
-@import "type";
-
-
-
-@import "media";
 @import "mixin.bem";
 
 
 
 
-@import "story.feedback";
-@import "story.positioninpage";
-@import "story.storyheader";
-@import "story.loadscreen";
-@import "story.sharing";
+// Edit
+@import "edit.login";
+@import "edit.story";
+@import "edit.story.sidemenu";
+@import "edit.story.dialog";
 
-@import "story.edit";
-@import "story.edit.sidemenu";
-@import "story.edit.dialog";
+
+
+// View
+@import "view.type";
+@import "view.feedback";
+@import "view.positioninpage";
+@import "view.storyheader";
+@import "view.loadscreen";
+@import "view.sharing";
+
+
 
 @import "blocks";
 @import "blocks.filters";

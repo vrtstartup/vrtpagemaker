@@ -1,5 +1,5 @@
 {
-  "firebase": "immersiveangular",
+  "firebase": "immersivevrtstartup",
   "public": "dist",
   "ignore": [
     "firebase.json",

@@ -1,20 +1,23 @@
 <md-input-container>
     <label>Kies een grootte</label>
     <md-select ng-model="size" ng-change="changeStyle(size)">
+      <md-option value="10">
+            Mini (1/10 van het scherm)
+        </md-option>
         <md-option value="20">
-            Zeer klein (20% van het scherm)
+            kleiner (1/5 van het scherm)
         </md-option>
         <md-option value="33">
-            Klein (33% van het scherm)
+            Klein (1/3 van het scherm)
         </md-option>
         <md-option value="50">
-            Normaal (50% van het scherm)
+            Normaal (Helft van het scherm)
         </md-option>
         <md-option value="80">
             Breed (80% van het scherm)
         </md-option>
         <md-option value="100">
-            Volledige breedte (100% van het scherm)
+            Volledige breedte
         </md-option>
     </md-select>
 </md-input-container>

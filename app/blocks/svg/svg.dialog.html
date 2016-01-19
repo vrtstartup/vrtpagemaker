@@ -7,8 +7,10 @@
     <br/>
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
         <md-input-container flex>
+
             <label>Plak je code van je tekening hier</label>
-            <input ng-model="block.parameters.svg">
+            <textarea ng-model="block.parameters.svg" columns="1" rows="10"></textarea>
+
         </md-input-container>
     </section>
     <div ng-include="'views/includes.dialog.style.html'"></div>

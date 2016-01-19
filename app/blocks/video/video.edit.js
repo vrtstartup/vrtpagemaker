@@ -16,6 +16,8 @@ angular.module('immersiveAngularApp')
                 scope.loop = false;
                 scope.buttons = false;
 
+
+
                 scope.$watch('parameters.autoplay', function(newValue) {
                     scope.autoplay = newValue;
                 });
@@ -36,6 +38,8 @@ angular.module('immersiveAngularApp')
                     if (newValue === 'both' && scope.videoStartedOnce === false && scope.autoplay === true) {
                         scope.videoAPI.play();
                         scope.videoStartedOnce = true;
+                    } else if (!newValue &&  scope.videoStartedOnce === true) {
+                        scope.videoAPI.pause();
                     }
                 });
 

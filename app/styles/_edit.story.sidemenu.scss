@@ -1,0 +1,85 @@
+.c-sidemenu {
+    width: $edit-sidemenu-width;
+    @include e('list') {
+        .md-list-item-inner {
+            color: $edit-color1;
+            transition: color 0.5s ease;
+            svg {
+                fill: $edit-color1;
+                transition: fill 0.5s ease;
+            }
+            &:hover {
+                color: $edit-color2;
+                transition: color 0.5s ease;
+                svg {
+                    fill: $edit-color2;
+                    transition: fill 0.5s ease;
+                }
+            }
+        }
+    }
+    @include e('title') {
+        color: $edit-color2;
+        cursor: pointer;
+        p {
+            outline: none;
+        }
+    }
+    @include e('icon') {
+        margin-right: $edit-sidemenu-blocks-icon-size / 2;
+        svg {
+            margin-top: $edit-sidemenu-blocks-icon-size/3;
+            height: $edit-sidemenu-blocks-icon-size;
+            width: $edit-sidemenu-blocks-icon-size;
+        }
+        &.c-sidemenu__icon--live {
+            padding-top: .0em;
+        }
+    }
+    @include e('toggle') {
+        height: $edit-sidemenu-toggle-icon-size;
+        width: $edit-sidemenu-toggle-icon-size;
+        position: fixed;
+        // top: $edit-sidemenu-toggle-icon-size;
+        left: $edit-sidemenu-toggle-icon-size;
+        z-index: $edit-sidemenu-toggle-zindex;
+        outline: none;
+    }
+}
+
+.o-sortable {
+    @include e('list') {
+        margin: 0;
+        padding: 0;
+        padding-bottom: 5rem;
+        li {
+            padding-right: 2px;
+        }
+    }
+    @include e('item') {
+        outline: none;
+        > div {
+            background-color: $edit-color2;
+            margin-bottom: 1rem;
+            height: $edit-sidemenu-sortable-block-height;
+            width: 100%;
+            border-color: $edit-color3;
+            border-style: solid;
+            svg {
+                fill: $edit-color3;
+                margin-top: $edit-sidemenu-blocks-icon-size/3;
+                height: $edit-sidemenu-blocks-icon-size;
+                width: $edit-sidemenu-blocks-icon-size;
+            }
+        }
+    }
+}
+
+.as-sortable-dragging {
+    opacity: .8;
+}
+
+.as-sortable-placeholder {
+    background-color: $edit-color2;
+    opacity: .3;
+}

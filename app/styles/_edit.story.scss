@@ -1,0 +1,52 @@
+.c-editpage__left,
+.c-editpage__center,
+.c-editpage__right {
+    height: auto;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+}
+
+.c-editpage__left::-webkit-scrollbar,
+.c-editpage__center::-webkit-scrollbar,
+.c-editpage__right::-webkit-scrollbar {
+    display: none;
+}
+
+.c-editpage {
+
+    font-family: $edit-text-font-family;
+    display: flex;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    font-size: $edit-text-size;
+    backface-visibility: hidden;
+    will-change: overflow;
+    @include e('left') {
+        background-color: #fff;
+        position: fixed;
+        width: $edit-sidemenu-width;
+        height: 100vh;
+        overflow-y: auto;
+        border: none;
+        z-index: $edit-sidemenu-zindex;
+        box-shadow: 1px 0px 1px #eee;
+        padding-top: 2em;
+        @include m('preview') {
+            width: $edit-sidemenu-width-preview;
+        }
+    }
+    @include e('center') {
+        margin-left: $edit-sidemenu-width;
+        width: 100%;
+        @include m('preview') {
+            margin-left: $edit-sidemenu-width-preview;
+        }
+    }
+    .storyheader {
+        @include e('nav') {
+            left: $edit-sidemenu-width !important;
+        }
+    }
+}

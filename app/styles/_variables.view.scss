@@ -1,0 +1,64 @@
+// Font
+$text-h1-size: 5em;
+
+
+// Rythm
+$block-padding-bottom: 3em;
+$text-blockquote-lineheight: 2em;
+
+
+// Storyheader
+$storyheader-title-mobile-margin: 1rem;
+$storyheader-arrow-height: 3rem;
+
+
+// Nav
+$nav-background-color: rgba($view-color3, .3);
+$nav-content-color: $view-color2;
+
+
+// Sharing
+$sharing-icon-margin: 5px;
+$sharing-icon-size: 1rem;
+$sharing-icon-color: $view-color2;
+
+/*
+    Blocks
+*/
+
+// Audio
+$block-audio-icon-size: 2rem;
+$block-audio-range-width: calc(100% - 146px);
+
+// Audio Background
+$block-audiobackground-icon-size: 2rem;
+$block-audiobackground-icon-color: $view-color2;;
+
+// Carousel
+$block-carousel-icon-color: $view-color3;
+$block-carousel-icon-size: 3rem;
+
+// Masonry
+$block-masonry-column-count: 4;
+$block-masonry-column-gap: 0; // in px of rem
+
+// Video
+$block-video-icon-color: $view-color2;
+$block-video-icon-color-hover: $view-color3;
+$block-video-icon-size: 1rem;
+$block-video-controls-background: rgba( $view-color1, .3 );
+
+
+
+
+/*
+    Z-index
+*/
+
+$block-mutebackground-icon-z-index: 30;
+$block-carousel-button-z-index: 10;
+$block-hero-text-z-index: 2;
+$block-video-player-z-index: 20;
+$block-container-hovered-z-index: 2;
+$view-nav: 5;
+$view-storyheader-zindex: 4;

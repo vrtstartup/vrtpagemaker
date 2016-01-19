@@ -1,0 +1,102 @@
+.c-storyheader {
+    z-index: $view-storyheader-zindex;
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    background-position: top;
+    background-size: cover;
+    color: $text-header1-font-color;
+    @media (min-width: 600px) {
+        height: 100vh;
+    }
+    @include e('videobackground') {
+        width: 100vw;
+        height: 100vh;
+    }
+    @include e('referal') {
+        color: $view-color2;
+        font-size: 1rem;
+        a {
+            text-decoration: none;
+        }
+    }
+    @include e('content') {
+        padding: 5px;
+    }
+    @include e('title') {
+        color: $text-header1-font-color;
+        font-size: 5rem;
+        @include m('mobile') {
+            margin: $storyheader-title-mobile-margin;
+        }
+    }
+    @include e('subtitle') {
+
+        color: $text-header1-font-color !important;
+        @extend .t-header__extra;
+        font-size: 2rem !important;
+
+    }
+    @include e('arrow') {
+        &::before {
+            content: url($storyheader-arrow-icon);
+        }
+        height: $storyheader-arrow-height;
+        width: $storyheader-arrow-height;
+        margin-bottom: $storyheader-arrow-margin-bottom;
+    }
+    @include e('video') {
+        pointer-events: none;
+        height: 100vh;
+        width: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        video.vidBg-body {
+            background-size: cover;
+            -webkit-transition: 1s opacity;
+            transition: 1s opacity;
+        }
+        video.vidBg-fade {
+            opacity: .5;
+        }
+        video.vidBg-fullScreen {
+            position: relative;
+            right: 0;
+            bottom: 0;
+            min-width: 100vw;
+            min-height: 100vh;
+            width: auto;
+            height: auto;
+        }
+        video.vidBg-autoWidth {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.c-nav {
+    z-index: $view-nav;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: $storyheader-brand-logo-height;
+
+    @include m('sharing') {
+    background-color: $nav-background-color;
+    }
+    @include m('nosharing') {
+        background-color: none;
+    }
+    @include e('brand') {
+        padding-left: 1rem;
+        width: auto;
+        height: $storyheader-brand-logo-height;
+    }
+    svg {
+        fill: $nav-content-color;
+    }
+}

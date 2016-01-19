@@ -80,87 +80,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Slideshow'
                 }
             },
-            '8': {
-                'type': 'break',
-                'dialog': 'blocks/break/break.dialog.html',
-                'edit': '<edit-break class="o-container__block" id="id" article="article" parameters="parameters"></edit-break>',
-                'view': '<view-break class="o-container__block" id="id" article="article" parameters="parameters"></view-break>',
-                'button': {
-                    'type': 'break',
-                    'name': 'Break'
-                }
-            },
-            '9': {
-                'type': 'map',
-                'dialog': 'blocks/map/map.dialog.html',
-                'edit': '<edit-map class="o-container__block" id="id" article="article" parameters="parameters"></edit-map>',
-                'view': '<view-map class="o-container__block" id="id" article="article" parameters="parameters"></view-map>',
-                'button': {
-                    'type': 'map',
-                    'name': 'Map'
-                }
-            },
-            '10': {
-                'type': 'facebook',
-                'dialog': 'blocks/facebook/facebook.dialog.html',
-                'edit': '<edit-facebook class="o-container__block" id="id" article="article" parameters="parameters"></edit-facebook>',
-                'view': '<view-facebook class="o-container__block" id="id" article="article" parameters="parameters"></view-facebook>',
-                'button': {
-                    'type': 'facebook',
-                    'name': 'Facebook'
-                }
-            },
-            '11': {
-                'type': 'instagram',
-                'dialog': 'blocks/instagram/instagram.dialog.html',
-                'edit': '<edit-instagram class="o-container__block" id="id" article="article" parameters="parameters"></edit-instagram>',
-                'view': '<view-instagram class="o-container__block" id="id" article="article" parameters="parameters"></view-instagram>',
-                'button': {
-                    'type': 'instagram',
-                    'name': 'Instagram'
-                }
-            },
-            '12': {
-                'type': 'audioscroll',
-                'dialog': 'blocks/audioscroll/audioscroll.dialog.html',
-                'edit': '<edit-audioscroll class="o-container__block" view="view" id="id" article="article" parameters="parameters"></edit-audioscroll>',
-                'view': '<view-audioscroll class="o-container__block" view="view" id="id" article="article" parameters="parameters"></view-audioscroll>',
-                'button': {
-                    'type': 'audioscroll',
-                    'name': 'Audioscroll'
-                }
-            },
-            '13': {
-                'type': 'audioplayer',
-                'dialog': 'blocks/audioplayer/audioplayer.dialog.html',
-                'edit': '<edit-audioplayer class="o-container__block"  view="view" id="id" article="article" parameters="parameters"></edit-audioplayer>',
-                'view': '<view-audioplayer class="o-container__block"  view="view" id="id" article="article" parameters="parameters"></view-audioplayer>',
-                'button': {
-                    'type': 'audioplayer',
-                    'name': 'Audioplayer'
-                }
-            },
-            '14': {
-                'type': 'twitter',
-                'dialog': 'blocks/twitter/twitter.dialog.html',
-                'edit': '<edit-twitter class="o-container__block" id="id" article="article" parameters="parameters"></edit-twitter>',
-                'view': '<view-twitter class="o-container__block" id="id" article="article" parameters="parameters"></view-twitter>',
-                'button': {
-                    'type': 'twitter',
-                    'name': 'twitter'
-                }
-            },
-            '15': {
-                'type': 'linepainter',
-                'dialog': 'blocks/linepainter/linepainter.dialog.html',
-                'edit': '<edit-linepainter class="o-container__block" id="id" article="article" parameters="parameters"></edit-linepainter>',
-                'view': '<view-linepainter class="o-container__block" id="id" article="article" parameters="parameters"></view-linepainter>',
-                'button': {
-                    'type': 'linepainter',
-                    'name': 'Lijnentekening'
-                }
-            },
-            '16': {
+               '8': {
                 'type': 'svg',
                 'dialog': 'blocks/svg/svg.dialog.html',
                 'edit': '<edit-svg class="o-container__block" id="id" view="view" article="article" parameters="parameters"></edit-svg>',
@@ -170,7 +90,88 @@ angular.module('immersiveAngularApp')
                     'name': 'SVG-afbeelding'
                 }
             },
-            '17': {
+            '9': {
+                'type': 'break',
+                'dialog': 'blocks/break/break.dialog.html',
+                'edit': '<edit-break class="o-container__block" id="id" article="article" parameters="parameters"></edit-break>',
+                'view': '<view-break class="o-container__block" id="id" article="article" parameters="parameters"></view-break>',
+                'button': {
+                    'type': 'break',
+                    'name': 'Break'
+                }
+            },
+            '10': {
+                'type': 'map',
+                'dialog': 'blocks/map/map.dialog.html',
+                'edit': '<edit-map class="o-container__block" id="id" article="article" parameters="parameters"></edit-map>',
+                'view': '<view-map class="o-container__block" id="id" article="article" parameters="parameters"></view-map>',
+                'button': {
+                    'type': 'map',
+                    'name': 'Map'
+                }
+            },
+            '11': {
+                'type': 'facebook',
+                'dialog': 'blocks/facebook/facebook.dialog.html',
+                'edit': '<edit-facebook class="o-container__block" id="id" article="article" parameters="parameters"></edit-facebook>',
+                'view': '<view-facebook class="o-container__block" id="id" article="article" parameters="parameters"></view-facebook>',
+                'button': {
+                    'type': 'facebook',
+                    'name': 'Facebook'
+                }
+            },
+            '12': {
+                'type': 'instagram',
+                'dialog': 'blocks/instagram/instagram.dialog.html',
+                'edit': '<edit-instagram class="o-container__block" id="id" article="article" parameters="parameters"></edit-instagram>',
+                'view': '<view-instagram class="o-container__block" id="id" article="article" parameters="parameters"></view-instagram>',
+                'button': {
+                    'type': 'instagram',
+                    'name': 'Instagram'
+                }
+            },
+            '13': {
+                'type': 'audioscroll',
+                'dialog': 'blocks/audioscroll/audioscroll.dialog.html',
+                'edit': '<edit-audioscroll class="o-container__block" view="view" id="id" article="article" parameters="parameters"></edit-audioscroll>',
+                'view': '<view-audioscroll class="o-container__block" view="view" id="id" article="article" parameters="parameters"></view-audioscroll>',
+                'button': {
+                    'type': 'audioscroll',
+                    'name': 'Audioscroll'
+                }
+            },
+            '14': {
+                'type': 'audioplayer',
+                'dialog': 'blocks/audioplayer/audioplayer.dialog.html',
+                'edit': '<edit-audioplayer class="o-container__block"  view="view" id="id" article="article" parameters="parameters"></edit-audioplayer>',
+                'view': '<view-audioplayer class="o-container__block"  view="view" id="id" article="article" parameters="parameters"></view-audioplayer>',
+                'button': {
+                    'type': 'audioplayer',
+                    'name': 'Audioplayer'
+                }
+            },
+            '15': {
+                'type': 'twitter',
+                'dialog': 'blocks/twitter/twitter.dialog.html',
+                'edit': '<edit-twitter class="o-container__block" id="id" article="article" parameters="parameters"></edit-twitter>',
+                'view': '<view-twitter class="o-container__block" id="id" article="article" parameters="parameters"></view-twitter>',
+                'button': {
+                    'type': 'twitter',
+                    'name': 'twitter'
+                }
+            },
+            // '15': {
+            //     'type': 'linepainter',
+            //     'dialog': 'blocks/linepainter/linepainter.dialog.html',
+            //     'edit': '<edit-linepainter class="o-container__block" id="id" article="article" parameters="parameters"></edit-linepainter>',
+            //     'view': '<view-linepainter class="o-container__block" id="id" article="article" parameters="parameters"></view-linepainter>',
+            //     'button': {
+            //         'type': 'linepainter',
+            //         'name': 'Lijnentekening'
+            //     }
+            // },
+
+            '16': {
                 'type': 'masonry',
                 'dialog': 'blocks/masonry/masonry.dialog.html',
                 'edit': '<edit-masonry class="o-container__block" id="id" article="article" parameters="parameters"></edit-masonry>',
@@ -180,7 +181,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Masonry'
                 }
             },
-            '18': {
+            '17': {
                 'type': 'gif',
                 'dialog': 'blocks/gif/gif.dialog.html',
                 'edit': '<edit-gif class="o-container__block" id="id" article="article" parameters="parameters"></edit-gif>',
@@ -190,7 +191,7 @@ angular.module('immersiveAngularApp')
                     'name': 'Gif'
                 }
             },
-            '19': {
+            '18': {
                 'type': 'popup',
                 'dialog': 'blocks/popup/popup.dialog.html',
                 'edit': '<edit-popup class="o-container__block" id="id" article="article" parameters="parameters"></edit-popup>',
@@ -222,7 +223,11 @@ angular.module('immersiveAngularApp')
             '4': {
                 'type': '20',
                 'width': 20
-            }
+            },
+             '5': {
+                'type': '10',
+                'width': 10
+            },
         };
 
         var filters = [

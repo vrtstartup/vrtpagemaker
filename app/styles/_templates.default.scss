@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'ProximaNova-Regular';
+    src: url('../brands/karrewiet/fonts/2EBDF1_5_0.eot');
+    src: url('../brands/karrewiet/fonts/2EBDF1_5_0.eot?#iefix') format('embedded-opentype'), url('../brands/karrewiet/fonts/2EBDF1_5_0.woff2') format('woff2'), url('../brands/karrewiet/fonts/2EBDF1_5_0.woff') format('woff'), url('../brands/karrewiet/fonts/2EBDF1_5_0.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ProximaNova-Bold';
+    src: url('../brands/karrewiet/fonts/2EBDF1_4_0.eot');
+    src: url('../brands/karrewiet/fonts/2EBDF1_4_0.eot?#iefix') format('embedded-opentype'), url('../brands/karrewiet/fonts/2EBDF1_4_0.woff2') format('woff2'), url('../brands/karrewiet/fonts/2EBDF1_4_0.woff') format('woff'), url('../brands/karrewiet/fonts/2EBDF1_4_0.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ProximaNova-BoldIt';
+    src: url('../brands/karrewiet/fonts/2EBDF1_A_0.eot');
+    src: url('../brands/karrewiet/fonts/2EBDF1_A_0.eot?#iefix') format('embedded-opentype'), url('../brands/karrewiet/fonts/2EBDF1_A_0.woff2') format('woff2'), url('../brands/karrewiet/fonts/2EBDF1_A_0.woff') format('woff'), url('../brands/karrewiet/fonts/2EBDF1_A_0.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ProximaNova-RegularIt';
+    src: url('../brands/karrewiet/fonts/2EBDF1_B_0.eot');
+    src: url('../brands/karrewiet/fonts/2EBDF1_B_0.eot?#iefix') format('embedded-opentype'), url('../brands/karrewiet/fonts/2EBDF1_B_0.woff2') format('woff2'), url('../brands/karrewiet/fonts/2EBDF1_B_0.woff') format('woff'), url('../brands/karrewiet/fonts/2EBDF1_B_0.ttf') format('truetype');
+}
+
+$view-color1: #37393A;
+$view-color2: blue;
+$view-color3: #fff;
+$view-color4: #FEF937;
+$view-color5: #0E1569;
+$text-header1-color: $view-color1;
+$text-header1-font-family: 'ProximaNova-Regular-bold',
+sans-serif;
+$text-main-font-family: 'ProximaNova-Bold',
+sans-serif;
+$text-main-font-weight: bold;
+$text-main-font-size: 1.5rem;
+$text-main-font-lineheight: 2rem;
+$text-main-font-color: $view-color2;
+$text-header1-font-family: 'ProximaNova-Bold',
+sans-serif;
+$text-header1-font-weight: 800;
+$text-header1-font-size: 5rem;
+$text-header1-font-lineheight: 8rem;
+$text-header1-font-color: $view-color3;
+.t-header__extra {
+    text-shadow: 2px 2px $view-color1;
+}
+
+$text-header2-font-family: 'ProximaNova-Bold',
+sans-serif;
+$text-header2-font-weight: bold;
+$text-header2-font-size: 2rem;
+$text-header2-font-lineheight: 3.3rem;
+$text-header2-font-color: $view-color2;
+$text-header3-font-family: 'ProximaNova-Bold',
+sans-serif;
+$text-header3-font-weight: regular;
+$text-header3-font-size: 1.5rem;
+$text-header3-font-lineheight: 3rem;
+$text-header3-font-color: $view-color2;
+$text-link-font-color: complement($view-color2);
+$text-header2-color: $view-color1;
+$text-paragraph-color: $view-color2;
+$text-anchor-color: $view-color2;
+$text-anchor-color-hover: $view-color1;
+$video-play-icon-url: '../brands/karrewiet/play.svg';
+$storyheader-arrow-icon: '../brands/karrewiet/arrow.svg';
+$storyheader-arrow-height: 3rem;
+$storyheader-arrow-margin-bottom: 2rem;
+$storyheader-brand-logo-height: 4rem;
+$carousel-arrow-icon: '../brands/karrewiet/arrow.svg';
+$carousel-arrow-size: 2rem;
+$hero-background-color: $view-color5;
+.brand-special-style-one {
+    color: $view-color4;
+}
+
+.brand-special-style-two {
+    color: $view-color3;
+}

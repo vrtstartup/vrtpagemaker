@@ -11,8 +11,6 @@
             },
             link: function postLink($scope) {
 
-                console.log($scope.article);
-
                 function showDialog($event) {
                     var parentEl = angular.element(document.body);
                     $mdDialog.show({

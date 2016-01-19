@@ -50,10 +50,11 @@
     .rn-carousel-control {
         -webkit-transition: opacity 0.2s ease-out;
         transition: opacity 0.2s ease-out;
-        font-size: 2rem;
         position: absolute;
-        top: 40%;
+        // zoom: $carousel-arrow-height;
+        top: 50%;
         opacity: 0.75;
+
         cursor: pointer;
     }
     .rn-carousel-control:hover {
@@ -61,15 +62,24 @@
     }
     .rn-carousel-control.rn-carousel-control-prev {
         left: 0.5em;
+        transform: rotate(90deg);
+                height: $carousel-arrow-size;
+        width: $carousel-arrow-size;
+
     }
     .rn-carousel-control.rn-carousel-control-prev:before {
-        content: "<";
+        content: url($carousel-arrow-icon);
+
+
     }
     .rn-carousel-control.rn-carousel-control-next {
         right: 0.5em;
+        transform: rotate(-90deg);
+        height: $carousel-arrow-size;
+        width: $carousel-arrow-size;
     }
     .rn-carousel-control.rn-carousel-control-next:before {
-        content: ">";
+        content: url($carousel-arrow-icon);
     }
 
 

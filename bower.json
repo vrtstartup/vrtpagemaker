@@ -29,7 +29,8 @@
     "videogular-angulartics": "~1.4.0",
     "videogular-poster": "~1.4.0",
     "bower-videogular-youtube": "videogular-youtube#~2.0.5",
-    "angular-carousel": "~1.0.1"
+    "angular-carousel": "~1.0.1",
+    "angular-messages": "~1.4.8"
   },
   "overrides": {
     "angulartics": {

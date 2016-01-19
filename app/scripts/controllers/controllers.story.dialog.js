@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('storyDialogController', function($scope, $window, $mdDialog, id, article, type, firebaseStoryService, firebaseBlocksService, valuesService, toolsUploaderService, toolsUrlprocessing) {
+    .controller('storyDialogController', function($scope, $window, $mdDialog, id, article, type, firebaseStoryService, firebaseBlocksService, valuesService, templatesService, toolsUploaderService, toolsUrlprocessing) {
 
         $scope.article = article;
         $scope.filters = valuesService.filters();
+        $scope.brands = templatesService.brands();
 
         /* Add a new block */
         $scope.addBlock = function(block) {
@@ -13,6 +14,14 @@ angular.module('immersiveAngularApp')
                 $scope.closeDialog();
             });
         };
+
+        /* When changing the brand, this function is called */
+        $scope.changeBrand = function(brand) {
+            var b = templatesService.getBrand(brand);
+            $scope.meta.brand = b.name;
+
+        };
+
 
         /* When changing the width of the block, this function is called */
         $scope.changeStyle = function(style) {
@@ -66,6 +75,20 @@ angular.module('immersiveAngularApp')
             });
         };
 
+        $scope.getMetaVideo = function(type) {
+            toolsUploaderService.uploadFile(type).then(function(Blob) {
+                if ($scope.meta) {
+                    $scope.meta.video = {
+                        url: Blob.url,
+                        mimetype: Blob.mimetype
+                    };
+
+                }
+            });
+        };
+
+
+
         $scope.getFiles = function(type) {
             toolsUploaderService.uploadMultiple(type).then(function(Blobs) {
                 if ($scope.block) {
@@ -87,7 +110,11 @@ angular.module('immersiveAngularApp')
         /* Save the meta info of a story */
         var getMeta = function() {
             firebaseStoryService.getMeta($scope.article).then(function(obj) {
-                obj.$bindTo($scope, "meta").then(function() {});
+                obj.$bindTo($scope, "meta").then(function() {
+                    if ($scope.meta.brand) {
+                        $scope.brand = $scope.meta.brand;
+                    }
+                });
             });
         };
 

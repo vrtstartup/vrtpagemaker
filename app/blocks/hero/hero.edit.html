@@ -1,5 +1,5 @@
 <div class="o-hero">
-    <div class="o-hero__img">
+    <div class="o-hero__content">
         <figure class="o-cssfilter {{filter}}">
             <img ng-show="mimetype == 'image'" class="o-hero__image" ng-src="{{parameters.url}}">
             <div class="o-videogular" ng-show="mimetype == 'video'">
@@ -11,7 +11,7 @@
                                 <div ng-include="'icons/replay.html'"></div>
                         </vg-controls>
                         </div>
-                        <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+                        <!-- <vg-poster vg-url='controller.config.plugins.poster'></vg-poster> -->
                 </videogular>
                 </div>
         </figure>

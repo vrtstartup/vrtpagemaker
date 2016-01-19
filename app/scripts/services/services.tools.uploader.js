@@ -5,13 +5,15 @@ angular.module('immersiveAngularApp')
 
         this.uploadFile = function(type) {
             var deferred = $q.defer();
+
             function onSuccess(Blob) {
                 deferred.resolve(Blob);
             }
 
             filepickerService.pick({
                     imageQuality: 80,
-                     imageMax: [2500, null],
+                    imageMax: [2500, null],
+                    webcamDim: [1280, 720],
                     mimetype: type,
                     Language: 'nl'
                 },
@@ -21,7 +23,7 @@ angular.module('immersiveAngularApp')
             return deferred.promise;
         };
 
-        this.uploadMultiple = function (type) {
+        this.uploadMultiple = function(type) {
             var deferred = $q.defer();
 
             function onSuccess(Blob) {

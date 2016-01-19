@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .directive('viewVideo', function($sce, $compile, $templateRequest) {
+    .directive('viewVideo', function($sce, $compile) {
         return {
             restrict: 'E',
             templateUrl: 'blocks/video/video.html',
@@ -12,9 +12,16 @@ angular.module('immersiveAngularApp')
 
                 scope.videoAPI = null;
                 scope.videoStartedOnce = false;
-                scope.autoplay = scope.parameters.autoplay;
-                scope.loop = scope.parameters.loop;
-                scope.buttons = scope.parameters.buttons;
+
+                scope.$watch('parameters', function(newValue) {
+
+                    scope.autoplay = newValue.autoplay;
+                    scope.loop = newValue.loop;
+                    scope.buttons = newValue.buttons;
+                });
+
+
+
 
                 scope.onPlayerReady = function(API) {
                     scope.videoAPI = API;
@@ -24,8 +31,11 @@ angular.module('immersiveAngularApp')
                     if (newValue === 'both' && scope.videoStartedOnce === false && scope.autoplay === true) {
                         scope.videoAPI.play();
                         scope.videoStartedOnce = true;
+                    } else if (!newValue &&  scope.videoStartedOnce === true) {
+                        scope.videoAPI.pause();
                     }
                 });
+
 
                 scope.$watch('parameters.url', function(newValue) {
                     if (newValue) {

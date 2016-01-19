@@ -17,26 +17,26 @@
     svg {
         width: $block-audio-icon-size;
         height: $block-audio-icon-size;
-        fill: $color2;
+        fill: $view-color2;
     }
     @include e('progress') {
         margin-right: 1rem;
         width: 100%;
         md-slider.md-default-theme,
         md-slider .md-track.md-track-fill {
-            background-color: $color2;
+            background-color: $view-color2;
         }
         md-slider .md-thumb:after {
             display: none;
         }
         md-slider.md-default-theme,
         md-slider .md-focus-ring {
-            background-color: $color2;
+            background-color: $view-color2;
         }
         md-slider.md-default-theme,
         md-slider .md-thumb:after {
-            background-color: $color2;
-            border-color: $color2;
+            background-color: $view-color2;
+            border-color: $view-color2;
         }
     }
     @include e('timing') {
@@ -55,7 +55,7 @@
             display: block;
             width: 8px;
             height: 8px;
-            background: $color2;
+            background: $view-color2;
             margin: 11px 0 0 2px;
             &:after {
                 content: '';
@@ -63,7 +63,7 @@
                 width: 0;
                 height: 0;
                 border-style: solid;
-                border-color: transparent $color2 transparent transparent;
+                border-color: transparent $view-color2 transparent transparent;
                 border-width: 10px 14px 10px 15px;
                 left: -13px;
                 top: 5px;
@@ -76,7 +76,7 @@
                 width: 5px;
                 height: 5px;
                 border-style: double;
-                border-color: $color2;
+                border-color: $view-color2;
                 border-width: 7px 7px 0 0;
                 left: 18px;
                 top: 9px;

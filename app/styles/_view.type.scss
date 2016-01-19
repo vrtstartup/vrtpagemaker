@@ -1,0 +1,45 @@
+.c-viewpage {
+    h1 {
+        font-size: $text-header1-font-size;
+        font-family: $text-header1-font-family;
+        font-weight: $text-header1-font-weight;
+        line-height: $text-header1-font-lineheight;
+        color: $text-header1-font-color;
+        @extend .t-header__extra;
+    }
+    h2 {
+        font-size: $text-header2-font-size;
+        font-family: $text-header2-font-family;
+        font-weight: $text-header2-font-weight;
+        line-height: $text-header2-font-lineheight;
+        color: $text-header2-font-color;
+    }
+    h3 {
+        font-size: $text-header3-font-size;
+        font-family: $text-header3-font-family;
+        font-weight: $text-header3-font-weight;
+        line-height: $text-header3-font-lineheight;
+        color: $text-header3-font-color;
+    }
+    p {
+        font-size: $text-main-font-size;
+        font-family: $text-main-font-family;
+        font-weight: $text-main-font-weight;
+        line-height: $text-main-font-lineheight;
+        color: $text-main-font-color;
+    }
+    a {
+        color: $text-link-font-color;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    blockquote {
+        border-left: .2em solid $view-color2;
+        padding: 1em;
+        font-style: italic;
+        background-color: rgba( $view-color2, .2);
+        line-height: $text-blockquote-lineheight;
+    }
+}

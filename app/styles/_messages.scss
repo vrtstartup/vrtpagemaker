@@ -1,0 +1,9 @@
+.my-messages {
+  transition:1s linear all;
+}
+.my-messages.ng-active {
+
+}
+.my-messages.ng-inactive {
+  // messages are hidden
+}

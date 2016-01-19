@@ -1,0 +1,34 @@
+.o-loading {
+    height: 100vh;
+    width: 100vw;
+
+    line-height: 100vh;
+    text-align: center;
+    background: radial-gradient(#fff, #fff);
+    svg {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    path {
+        stroke: cyan;
+        stroke-width: 6;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        stroke-dasharray: 193.904983521;
+        fill: none;
+        animation: load 4s linear infinite, color 3s linear infinite;
+    }
+    @keyframes load {
+        from {
+            stroke-dashoffset: 775.6199340820312;
+        }
+    }
+    @keyframes color {
+        33% {
+            stroke: yellow;
+        }
+        66% {
+            stroke: magenta;
+        }
+    }
+}

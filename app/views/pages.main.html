@@ -1,34 +1,47 @@
-<md-content>
-    <md-toolbar class="md-warn">
-        <div class="md-toolbar-tools">
-            <h2 class="md-flex">Log in</h2>
-        </div>
-    </md-toolbar>
-    <br/>
-    <section ng-hide="hasSend" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-input-container flex>
-            <label>Wat is je mailadres?</label>
-            <input type="email" ng-model="user.mail" md-autofocus>
-        </md-input-container>
-    </section>
-     <section ng-hide="hasSend" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-input-container flex>
-            <label>Wat is je paswoord?</label>
-            <input type="password" ng-model="user.password" columns="10"></textarea>
-        </md-input-container>
-    </section>
-
-    <div class="md-actions" layout="row">
-        <md-button  ng-click="logIn(user)"  >
-            Verstuur
-        </md-button>
-    </div>
-</md-content>
-
-
+<div class="o-login" layout="row" layout-align="center center">
+    <md-whiteframe class="md-whiteframe-4dp" flex-sm="90" flex-gt-sm="50" flex-gt-md="30">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 class="md-flex">Inloggen</h2>
+            </div>
+        </md-toolbar>
+        <md-content flex layout-padding>
+            <form name="loginForm">
+                <section>
+                    <md-input-container flex>
+                        <label>Wat is je emailadres?</label>
+                        <input type="email" ng-model="user.mail" name="emailAddress" required md-autofocus>
+                    </md-input-container>
+                    <ng-messages for="loginForm.emailAddress.$error" ng-if='loginForm.emailAddress.$touched' multiple>
+                        <ng-message when="required">Je moet je emailadres invullen.</ng-message>
+                        <ng-message when="email">Je moet een geldig emailadres invullen.</ng-message>
+                    </ng-messages>
+                </section>
+                <section>
+                    <md-input-container flex>
+                        <label>Wat is je paswoord?</label>
+                        <input type="password" ng-model="user.password" name="password" required>
+                        </textarea>
+                    </md-input-container>
+                    <ng-messages for="loginForm.password.$error" ng-if='loginForm.password.$touched' multiple>
+                        <ng-message when="required">Je moet je paswoord invullen.</ng-message>
+                    </ng-messages>
+                </section>
+                <div class="md-actions" layout="row">
+                    <span flex></span>
+                    <!-- <md-button class="md-raised" ng-click="'auth.authWithPassword(user.mail, user.password)'"> -->
+                    <md-button class="md-raised" ng-click="login()">
+                        Verstuur
+                    </md-button>
+                </div>
+            </form>
+        </md-content>
+    </md-whiteframe>
+</div>
 <!--
 
 Rules:
+
 
 {
   "rules": {

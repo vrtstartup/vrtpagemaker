@@ -1,7 +1,30 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('StoriesEditController', function($scope, $mdDialog, firebaseStoriesService, firebaseStoryService, $location) {
+    .controller('StoriesEditController', function($scope, $mdDialog, firebaseStoriesService, firebaseStoryService, $location, Auth) {
+
+
+        $scope.auth = Auth;
+
+        $scope.auth.$onAuth(function(authData) {
+            if (authData === null) {
+                console.log("Not logged in yet");
+
+            } else {
+                console.log("Logged in as", authData.uid);
+
+            }
+            $scope.authData = authData;
+
+        });
+
+
+
+
+
+        $scope.logout = function() {
+            Auth.$unauth();
+        };
 
         /* Get  the article from the Firebase */
         function getArticles(place) {
@@ -57,11 +80,20 @@ angular.module('immersiveAngularApp')
         };
 
         $scope.createStory = function(title) {
-            firebaseStoriesService.add(title).then(function(id) {
-                console.log(id);
-                console.log($location);
-                $location.path('/edit/' + id);
-            });
+            if ($scope.authData === null) {
+                console.log("Not logged in yet");
+
+
+            } else {
+                console.log("Logged in as", $scope.authData.uid);
+                firebaseStoriesService.add(title, $scope.authData.uid).then(function(id) {
+                    console.log(id);
+                    console.log($location);
+                    $location.path('/edit/' + id);
+                });
+
+            }
+
         };
 
 
