@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .controller('storyDialogController', function($scope, $window, $mdDialog, id, article, type, firebaseStoryService, firebaseBlocksService, valuesService, templatesService, toolsUploaderService, toolsUrlprocessing) {
+    .controller('storyDialogController', function($scope, $window, $mdDialog, $location, id, article, type, firebaseStoriesService, firebaseStoryService, firebaseBlocksService, valuesService, templatesService, toolsUploaderService, toolsUrlprocessing) {
 
         $scope.article = article;
         $scope.filters = valuesService.filters();
@@ -74,6 +74,20 @@ angular.module('immersiveAngularApp')
                 }
             });
         };
+
+
+        $scope.getMetaImage = function(type) {
+            toolsUploaderService.uploadFile(type).then(function(Blob) {
+                console.log(Blob);
+                if ($scope.meta) {
+                    $scope.meta.headerImage = Blob.url;
+
+                }
+            });
+        };
+
+
+
 
         $scope.getMetaVideo = function(type) {
             toolsUploaderService.uploadFile(type).then(function(Blob) {
@@ -148,10 +162,23 @@ angular.module('immersiveAngularApp')
             }
         };
 
+
+        /* Delete the article, actually moving it to another branch in the Firebase */
+        $scope.deleteArticle = function() {
+
+            firebaseStoriesService.delete($scope.article, 'live').then(function() {
+                firebaseStoriesService.delete($scope.article, 'staging').then(function() {
+                    $location.path('/edit/');
+                });
+            });
+        };
+
+
+
         // Start
-        if (type && type !== 'meta' && $scope.article) {
+        if (type && type !== 'meta' && type !== 'header' && type !== 'delete' && $scope.article) {
             populateDialog();
-        } else if (type === 'meta') {
+        } else if (type === 'meta' || type === 'header') {
             getMeta();
         } else {
             console.log('do nothing');

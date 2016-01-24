@@ -82,14 +82,23 @@ angular.module('immersiveAngularApp')
             console.log('deleting article ' + articleId);
             var deferred = $q.defer();
             var ref = new Firebase(FURL).child('articles/' + articleId);
+            ref.once('value', function(snapshot) {
+                if (snapshot.exists()) {
+                    var obj = $firebaseObject(ref);
+                    obj.$remove().then(function() {
+                        deferred.resolve(obj);
+                    }, function(error) {
+                        console.log("Error:", error);
+                        deferred.reject(error);
+                    });
+                } else {
+                    console.log('live does not exist');
+                    deferred.resolve();
+                }
 
-            var obj = $firebaseObject(ref);
-            obj.$remove().then(function() {
-                deferred.resolve(obj);
-            }, function(error) {
-                console.log("Error:", error);
-                deferred.reject(error);
             });
+
+
             return deferred.promise;
         },
 

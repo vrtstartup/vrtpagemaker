@@ -17,7 +17,8 @@ angular.module('immersiveAngularApp')
                 'view': '<view-text class="o-container__block" id="id" article="article" parameters="parameters"></view-text>',
                 'button': {
                     'type': 'text',
-                    'name': 'tekst'
+                    'name': 'Tekst',
+                    'group': 'primary'
                 }
             },
             '2': {
@@ -27,8 +28,10 @@ angular.module('immersiveAngularApp')
                 'view': '<view-image class="o-container__block" view="view" id="id" article="article" parameters="parameters"></view-image>',
                 'button': {
                     'type': 'image',
-                    'name': 'afbeelding'
+                    'name': 'Afbeelding',
+                    'group': 'primary'
                 }
+
             },
             '3': {
                 'type': 'video',
@@ -37,8 +40,10 @@ angular.module('immersiveAngularApp')
                 'view': '<view-video class="o-container__block" id="id" article="article" parameters="parameters"></view-video>',
                 'button': {
                     'type': 'video',
-                    'name': 'Film'
+                    'name': 'Film',
+                    'group': 'primary'
                 }
+
             },
             '4': {
                 'type': 'iframe',
@@ -47,8 +52,10 @@ angular.module('immersiveAngularApp')
                 'view': '<view-iframe class="o-container__block" id="id" article="article" parameters="parameters"></view-iframe>',
                 'button': {
                     'type': 'iframe',
-                    'name': 'Website'
+                    'name': 'Website',
+                    'group': 'primary'
                 }
+
             },
             '5': {
                 'type': 'hero',
@@ -57,8 +64,10 @@ angular.module('immersiveAngularApp')
                 'view': '<view-hero class="o-container__block" id="id" article="article" parameters="parameters"></view-hero>',
                 'button': {
                     'type': 'hero',
-                    'name': 'Afbeelding met tekst'
+                    'name': 'Beeld met tekst',
+                    'group': 'primary'
                 }
+
             },
             '6': {
                 'type': 'parallax',
@@ -67,8 +76,10 @@ angular.module('immersiveAngularApp')
                 'view': '<view-parallax class="o-container__block" id="id" article="article" parameters="parameters"></view-parallax>',
                 'button': {
                     'type': 'parallax',
-                    'name': 'Parallax foto'
+                    'name': 'Parallax foto',
+                    'group': 'secundary'
                 }
+
             },
             '7': {
                 'type': 'carousel',
@@ -77,18 +88,22 @@ angular.module('immersiveAngularApp')
                 'view': '<view-carousel class="o-container__block carousel" id="id" article="article" parameters="parameters"></view-carousel>',
                 'button': {
                     'type': 'carousel',
-                    'name': 'Slideshow'
+                    'name': 'Slideshow',
+                    'group': 'secundary'
                 }
+
             },
-               '8': {
+            '8': {
                 'type': 'svg',
                 'dialog': 'blocks/svg/svg.dialog.html',
                 'edit': '<edit-svg class="o-container__block" id="id" view="view" article="article" parameters="parameters"></edit-svg>',
                 'view': '<view-svg class="o-container__block" id="id" view="view" article="article" parameters="parameters"></view-svg>',
                 'button': {
                     'type': 'svg',
-                    'name': 'SVG-afbeelding'
+                    'name': 'SVG-afbeelding',
+                    'group': 'secundary'
                 }
+
             },
             '9': {
                 'type': 'break',
@@ -97,8 +112,10 @@ angular.module('immersiveAngularApp')
                 'view': '<view-break class="o-container__block" id="id" article="article" parameters="parameters"></view-break>',
                 'button': {
                     'type': 'break',
-                    'name': 'Break'
+                    'name': 'Break',
+                    'group': 'primary'
                 }
+
             },
             // '10': {
             //     'type': 'map',
@@ -117,7 +134,8 @@ angular.module('immersiveAngularApp')
             //     'view': '<view-facebook class="o-container__block" id="id" article="article" parameters="parameters"></view-facebook>',
             //     'button': {
             //         'type': 'facebook',
-            //         'name': 'Facebook'
+            //         'name': 'Facebook',
+            //         'group': 'social'
             //     }
             // },
             '12': {
@@ -127,8 +145,10 @@ angular.module('immersiveAngularApp')
                 'view': '<view-instagram class="o-container__block" id="id" article="article" parameters="parameters"></view-instagram>',
                 'button': {
                     'type': 'instagram',
-                    'name': 'Instagram'
+                    'name': 'Instagram',
+                    'group': 'social'
                 }
+
             },
             // '13': {
             //     'type': 'audioscroll',
@@ -157,9 +177,19 @@ angular.module('immersiveAngularApp')
                 'view': '<view-twitter class="o-container__block" id="id" article="article" parameters="parameters"></view-twitter>',
                 'button': {
                     'type': 'twitter',
-                    'name': 'twitter'
-                }
-            }
+                    'name': 'Twitter',
+                    'group': 'social'
+                },
+
+            },
+            '16': {
+                'type': 'header',
+                'dialog': 'views/templates.dialog.story.header.html',
+            },
+            '17': {
+                'type': 'delete',
+                'dialog': 'views/templates.dialog.story.delete.html',
+            },
             // '15': {
             //     'type': 'linepainter',
             //     'dialog': 'blocks/linepainter/linepainter.dialog.html',
@@ -224,7 +254,7 @@ angular.module('immersiveAngularApp')
                 'type': '20',
                 'width': 20
             },
-             '5': {
+            '5': {
                 'type': '10',
                 'width': 10
             },

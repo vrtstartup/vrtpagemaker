@@ -23,7 +23,7 @@ angular
         'angular-filepicker',
         'as.sortable',
         'ngMaterial',
-        // 'angulartics',
+        'angulartics',
         // 'angulartics.google.analytics',
         '720kb.socialshare',
         'door3.css',

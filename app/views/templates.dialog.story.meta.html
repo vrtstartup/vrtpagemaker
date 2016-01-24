@@ -1,7 +1,7 @@
 <md-content>
     <md-toolbar class="md-warn">
         <div class="md-toolbar-tools">
-            <h2 class="md-flex">Informatie over dit artikel</h2>
+            <h2 class="md-flex">Basisinfo</h2>
         </div>
     </md-toolbar>
     <br/>
@@ -15,29 +15,6 @@
             <md-select ng-model="brand" ng-change="changeBrand(brand)">
                 <md-option value="{{b.name}}" ng-repeat="b in brands">{{b.name}}</md-option>
             </md-select>
-        </md-input-container>
-        <md-input-container flex>
-            <label>Titel bovenaan op pagina</label>
-            <input ng-model="meta.headerTitle">
-        </md-input-container>
-        <md-input-container flex>
-            <label>Ondertitel</label>
-            <textarea ng-model="meta.subTitle" columns="10"></textarea>
-        </md-input-container>
-        <md-input-container flex>
-            <label>Hoofdafbeelding</label>
-
-            <md-button ng-click="getMetaImage('video/*')" target="_blank" class="md-raised" md-autofocus>Voeg een foto toe</md-button>
-        </md-input-container>
-        <md-button ng-click="getMetaVideo('video/*')" target="_blank" class="md-raised" md-autofocus>Kies of maak een nieuw filmpje</md-button>
-        <md-input-container>
-            <md-checkbox ng-model="meta.sharing.show" aria-label="Sharing true" ng-init="true">
-                Toon de shareknoppen
-            </md-checkbox>
-        </md-input-container>
-        <md-input-container flex>
-            <label>Link naar homepage</label>
-            <textarea ng-model="meta.referalUrl" columns="10"></textarea>
         </md-input-container>
     </section>
     <div class="md-actions" layout="row">

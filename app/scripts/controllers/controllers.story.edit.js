@@ -14,7 +14,7 @@ angular.module('immersiveAngularApp')
                 console.log("Not logged in yet");
 
             } else {
-                console.log("Logged in as", authData.uid);
+                console.log("Logged in as ", authData.uid);
 
             }
             $scope.authData = authData;
@@ -162,16 +162,16 @@ angular.module('immersiveAngularApp')
             }
         };
 
-        /* Delete the article completely */
-        $scope.deleteArticle = function(articleId) {
-            firebaseStoriesService.delete(articleId, 'live').then(function() {
-                firebaseStoriesService.delete(articleId, 'staging').then(function() {
-                    console.log('deleted everything');
-                    $location.path('/edit/');
+        // /* Delete the article completely */
+        // $scope.deleteArticle = function(articleId) {
+        //     firebaseStoriesService.delete(articleId, 'live').then(function() {
+        //         firebaseStoriesService.delete(articleId, 'staging').then(function() {
+        //             console.log('deleted everything');
+        //             $location.path('/edit/');
 
-                });
-            });
-        };
+        //         });
+        //     });
+        // };
 
         /*
             In the beginning, there was the article.

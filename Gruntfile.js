@@ -299,6 +299,9 @@ module.exports = function (grunt) {
           ],
           '<%= yeoman.dist %>/styles/deredactie.css': [
             '.tmp/styles/deredactie.css'
+          ],
+          '<%= yeoman.dist %>/styles/karrewiet.css': [
+            '.tmp/styles/karrewiet.css'
           ]
         }
       }

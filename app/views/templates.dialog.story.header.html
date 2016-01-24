@@ -1,0 +1,38 @@
+<md-content>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Startbeeld</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+    <section layout="column" layout-padding>
+        <md-input-container flex>
+            <label>Titel bovenaan het artikel</label>
+            <input ng-model="meta.headerTitle">
+        </md-input-container>
+        <md-input-container flex>
+            <label>Ondertitel (niet verplicht)</label>
+            <textarea ng-model="meta.subTitle" columns="10"></textarea>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Afbeelding of filmpje</label>
+            <md-button ng-click="getMetaImage('image/*')" target="_blank" class="md-raised" md-autofocus>Voeg een foto toe</md-button>
+        </md-input-container>
+        <md-button ng-click="getMetaVideo('video/*')" target="_blank" class="md-raised" md-autofocus>Kies een filmpje</md-button>
+        <md-input-container>
+            <md-checkbox ng-model="meta.sharing.show" aria-label="Sharing true" ng-init="true">
+                Toon de shareknoppen
+            </md-checkbox>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Link naar homepage</label>
+            <textarea ng-model="meta.referalUrl" columns="10"></textarea>
+        </md-input-container>
+    </section>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="closeDialog()" style="margin-right:20px;">
+            Sluit
+        </md-button>
+    </div>
+</md-content>

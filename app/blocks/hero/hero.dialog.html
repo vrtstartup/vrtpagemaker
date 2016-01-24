@@ -1,4 +1,4 @@
-<md-content ng-init="block.parameters.xaxis = 'center' ; block.parameters.yaxis = 'center' ;  ">
+<md-content ng-init="block.parameters.xaxis = 'center' ; block.parameters.yaxis = 'center' ;  " class="c-dialog">
     <md-toolbar>
         <div class="md-toolbar-tools">
             <h2 class="md-flex" ng-show="!editing">Je voegt een afbeelding toe</h2>
@@ -8,13 +8,14 @@
     <br/>
     <section layout="column" layout-padding>
         <p>
-            Wil je een afbeelding of een filmpje als achtergrond?
+            Wil je een afbeelding of een video als achtergrond?
         </p>
+        <md-radio-group ng-model="block.parameters.mimetype">
+            <md-radio-button value="image" class="md-primary">Afbeelding</md-radio-button>
+            <md-radio-button value="video">Video</md-radio-button>
+        </md-radio-group>
     </section>
-    <section layout="row" layout-padding>
-        <md-button ng-click="block.parameters.mimetype = 'image'" class="md-raised" md-autofocus>Afbeelding</md-button>
-        <md-button ng-click="block.parameters.mimetype = 'video'" class="md-raised" md-autofocus>Filmpje</md-button>
-    </section>
+
     <section layout="column" layout-padding ng-show="block.parameters.mimetype == 'image'">
         <md-input-container ng-show="editing" class=" md-block">
             <label>Dit is de url van je afbeelding</label>
@@ -23,6 +24,32 @@
         <md-input-container class="md-icon-float md-block">
             <md-button ng-click="getFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe afbeelding</md-button>
         </md-input-container>
+
+        <p>Kies de positie van de tekst op de foto:</p>
+        <div layout="row" class="c-hero__dialog" layout-wrap layout-align="center center">
+            <div flex="30" ng-click="block.parameters.xaxis = 'start' ; block.parameters.yaxis = 'start'" ng-class="{'selectedposition': block.parameters.xaxis == 'start' && block.parameters.yaxis == 'start'}">links boven
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'center' ; block.parameters.yaxis = 'start'" ng-class="{'selectedposition': block.parameters.xaxis == 'center' && block.parameters.yaxis == 'start'}">midden boven
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'end' ; block.parameters.yaxis = 'start'" ng-class="{'selectedposition': block.parameters.xaxis == 'end' && block.parameters.yaxis == 'start'}">rechts boven
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'start' ; block.parameters.yaxis = 'center'" ng-class="{'selectedposition': block.parameters.xaxis == 'start' && block.parameters.yaxis == 'center'}">links
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'center' ; block.parameters.yaxis = 'center'" ng-class="{'selectedposition': block.parameters.xaxis == 'center' && block.parameters.yaxis == 'center'}">midden
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'end' ; block.parameters.yaxis = 'center'" ng-class="{'selectedposition': block.parameters.xaxis == 'end' && block.parameters.yaxis == 'center'}">rechts
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'start' ; block.parameters.yaxis = 'end'" ng-class="{'selectedposition': block.parameters.xaxis == 'start' && block.parameters.yaxis == 'end'}">links onder
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'center' ; block.parameters.yaxis = 'end'" ng-class="{'selectedposition': block.parameters.xaxis == 'center' && block.parameters.yaxis == 'end'}">midden onder
+            </div>
+            <div flex="30" ng-click="block.parameters.xaxis = 'end' ; block.parameters.yaxis = 'end'" ng-class="{'selectedposition': block.parameters.xaxis == 'end' && block.parameters.yaxis == 'end'}">rechts onder
+            </div>
+        </div>
+        <div ng-include="'views/includes.dialog.filters.html'"></div>
+        <div ng-include="'views/includes.dialog.style.html'"></div>
+        <div ng-include="'views/includes.dialog.audio.html'"></div>
+
     </section>
     <section layout="column" layout-padding ng-show="block.parameters.mimetype == 'video'">
         <p>kies een filmpje (Enkel zelfgemaakt / geupload of van Youtube!)</p>
@@ -48,8 +75,7 @@
                 Wil je de bedieningsknoppen verstoppen?
             </md-checkbox>
         </md-input-container>
-    </section>
-    <section layout="column" layout-padding>
+
         <p>Kies de positie van de tekst op de foto:</p>
         <div layout="row" class="c-hero__dialog" layout-wrap layout-align="center center">
             <div flex="30" ng-click="block.parameters.xaxis = 'start' ; block.parameters.yaxis = 'start'" ng-class="{'selectedposition': block.parameters.xaxis == 'start' && block.parameters.yaxis == 'start'}">links boven
@@ -74,7 +100,9 @@
         <div ng-include="'views/includes.dialog.filters.html'"></div>
         <div ng-include="'views/includes.dialog.style.html'"></div>
         <div ng-include="'views/includes.dialog.audio.html'"></div>
+
     </section>
+
 </md-content>
 <md-divider></md-divider>
 <!-- Add / close buttons -->

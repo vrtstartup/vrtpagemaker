@@ -1,4 +1,4 @@
-<md-content>
+<md-content class="c-dialog">
     <md-toolbar class="md">
         <div class="md-toolbar-tools">
             <h2 class="md-flex" ng-show="!editing">Je voegt een filmpje toe</h2>
@@ -7,7 +7,7 @@
     </md-toolbar>
     <br/>
     <section layout="column" layout-padding>
-        <md-button ng-click="getFile('video/*')" target="_blank" class="md-raised" md-autofocus>Kies of maak een nieuw filmpje</md-button>
+        <md-button ng-click="getFile('video/*')" target="_blank" class="md-raised" md-autofocus>Voeg een filmpje toe</md-button>
         <md-input-container flex>
             <label>Of plaats een url</label>
             <input type="url" ng-model="blocks.parameters.url" ng-change="processVideo(blocks.parameters.url)">
@@ -17,19 +17,19 @@
             <md-checkbox ng-model="block.parameters.autoplay" aria-label="Video Autostart">
                 Laat het filmpje automatisch starten wanneer het in beeld verschijnt.
             </md-checkbox>
-            <div class="c-dialog__hint">Dit is niet mogelijk met filmpjes van Vimeo, Deredactie.be of Sporza!</div>
+            <div class="c-dialog__hint">Dit is <span class="underline">niet mogelijk</span> met filmpjes van Vimeo, Deredactie.be of Sporza!</div>
         </md-input-container>
         <md-input-container>
             <md-checkbox ng-model="block.parameters.loop" aria-label="Video Loop">
                 Laat het filmpje automatisch herstarten (loop).
             </md-checkbox>
-            <div class="c-dialog__hint">Dit is niet mogelijk met filmpjes van Vimeo, Deredactie.be of Sporza!</div>
+            <div class="c-dialog__hint">Dit is <span class="underline">niet mogelijk</span> met filmpjes van Vimeo, Deredactie.be of Sporza!</div>
         </md-input-container>
         <md-input-container>
             <md-checkbox ng-model="block.parameters.buttons" aria-label="Video buttons">
                 Wil je de bedieningsknoppen verstoppen?
             </md-checkbox>
-            <div class="c-dialog__hint">Dit is niet mogelijk met filmpjes van Vimeo, Deredactie.be of Sporza!</div>
+            <div class="c-dialog__hint">Dit is <span class="underline">niet mogelijk</span> met filmpjes van Vimeo, Deredactie.be of Sporza!</div>
         </md-input-container>
         <div ng-include="'views/includes.dialog.filters.html'"></div>
         <div ng-include="'views/includes.dialog.style.html'"></div>

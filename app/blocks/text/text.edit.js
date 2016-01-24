@@ -121,13 +121,6 @@ angular.module('immersiveAngularApp')
                 };
 
 
-
-
-
-
-
-
-
                 /*
 
                     Options for medium editor. For more options: https://github.com/yabwe/medium-editor
@@ -144,7 +137,7 @@ angular.module('immersiveAngularApp')
                     },
                     targetBlank: true,
                     toolbar: {
-                        buttons: ['bold', {
+                        buttons: ['bold','h1','h2','h3', {
                                 name: 'italic',
                                 contentDefault: '<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4z"/></svg>'
                             }, {
@@ -180,19 +173,6 @@ angular.module('immersiveAngularApp')
                             }, {
                                 name: 'quote',
                                 contentDefault: 'q'
-                            }, {
-                                name: 'h1',
-                                action: 'append-h2',
-                                aria: 'header type 1',
-                                tagNames: ['h2'],
-                                contentDefault: '<b>H1</b>',
-                                classList: ['custom-class-h1'],
-                                attrs: {
-                                    'data-custom-attr': 'attr-value-h1'
-                                }
-                            }, {
-                                name: 'h3',
-                                contentDefault: 'h2'
                             },
                             'specialOne',
                             'specialTwo',

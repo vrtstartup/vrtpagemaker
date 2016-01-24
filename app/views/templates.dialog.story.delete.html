@@ -1,0 +1,21 @@
+<md-content>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Verwijder het artikel?</h2>
+        </div>
+    </md-toolbar>
+    <br/>
+    <div class="md-actions" layout="row">
+        <section layout="column" layout-padding>
+            Ben je zeker dat je dit artikel wil verwijderen?
+        </section>
+
+        <md-button ng-click="closeDialog()" style="margin-right:20px;">
+            Sluit
+        </md-button>
+        <span flex></span>
+        <md-button ng-click="deleteArticle()" style="margin-right:20px;">
+            Verwijder
+        </md-button>
+    </div>
+</md-content>

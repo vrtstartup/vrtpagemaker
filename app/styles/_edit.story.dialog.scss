@@ -4,7 +4,10 @@ md-dialog {
 }
 
 .c-dialog {
-
+    font-family: $edit-text-font-family;
+h2 {
+    font-family: $edit-text-font-family;
+}
     @include e('hint') {
         font-size: $edit-dialog-hint-font-size;
         opacity: .5;

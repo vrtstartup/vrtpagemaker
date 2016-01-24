@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+
 
 //sidemenu
 $edit-sidemenu-toggle-icon-size: 1rem;
@@ -21,7 +23,7 @@ $edit-color4: #A8DBA8;
 
 
 // Fonts
-$edit-text-font-family: 'Roboto', sans-serif;
+$edit-text-font-family: 'Open Sans', sans-serif;
 $edit-text-size: .9rem;
 $edit-dialog-hint-font-size: ($edit-text-size/10*8)rem;
 

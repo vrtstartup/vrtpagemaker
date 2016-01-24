@@ -27,7 +27,7 @@
                     <div ng-include="'icons/viewLive.html'" class="c-sidemenu__icon"></div>
                     <p>Open live Artikel</p>
                 </md-list-item>
-                <md-list-item ng-click="deleteArticle(articleId, articleMeta.live)">
+                <md-list-item ng-click="openDialog(articleId, 'delete')">
                     <div ng-include="'icons/delete.html'" class="c-sidemenu__icon"></div>
                     <p>Verwijder artikel</p>
                 </md-list-item>
@@ -36,21 +36,33 @@
                     <p>Ga naar overzicht</p>
                 </md-list-item>
                 <md-divider></md-divider ng-show="!preview">
+                <md-list-item ng-click="openDialog(articleId, 'header')">
+                    <div ng-include="'icons/header.html'" class="c-sidemenu__icon"></div>
+                    <p>Hoofding</p>
+                </md-list-item>
+                <md-divider></md-divider ng-show="!preview">
                 <md-subheader class="c-sidemenu__title" ng-init="showBlocks = true" ng-show="!preview">
                     <p ng-click="showBlocks = !showBlocks">Bouwblokken</p>
                 </md-subheader>
-                <md-list-item ng-show="showBlocks" ng-click="openDialog(articleId, b.type, null)" ng-repeat="b in buttons">
-                    <div ng-include="'icons/block-'+b.type+'.html'" class="c-sidemenu__icon"></div>
-                    <p>{{b.name}}</p>
-                </md-list-item>
+                <div>
+                    <md-radio-group ng-model="group" ng-init="group = 'primary'" layout="row" layout-sm="column" layout-align="center center" ng-show="!preview">
+                        <md-radio-button value="primary" selected class="md-primary"></md-radio-button>
+                        <md-radio-button value="secundary"></md-radio-button>
+                        <md-radio-button value="social"></md-radio-button>
+                    </md-radio-group>
+                    <md-list-item ng-show="showBlocks" ng-click="openDialog(articleId, b.type, null)" ng-repeat="b in buttons | filter: group as results">
+                        <div ng-include="'icons/block-'+b.type+'.html'" class="c-sidemenu__icon "></div>
+                        <p>{{b.name}}</p>
+                    </md-list-item>
+                </div>
                 <md-subheader ng-show="!preview" class="c-sidemenu__title" ng-init="showOverview = true">
                     <p ng-click="showOverview = !showOverview">Overzicht</p>
                 </md-subheader>
                 <div ng-show="!preview">
                     <md-content layout-padding ng-show="showOverview">
                         <ul data-as-sortable="dragControlListeners" class="o-sortable__list" data-ng-model="list" layout="row" layout-wrap layout-align="center start">
-                            <li flex="{{value.parameters.width}}"  class="o-sortable__item" data-ng-repeat="(key,value) in list" ng-click="openDialog(articleId, value.type, value.$id)" data-as-sortable-item ng-mouseover="setActiveBlock(value.$id)" ng-mouseleave="removeActiveBlock()">
-                                <div data-as-sortable-item-handle  layout="row" layout-align="center center" >
+                            <li flex="{{value.parameters.width}}" class="o-sortable__item" data-ng-repeat="(key,value) in list" ng-click="openDialog(articleId, value.type, value.$id)" data-as-sortable-item ng-mouseover="setActiveBlock(value.$id)" ng-mouseleave="removeActiveBlock()">
+                                <div data-as-sortable-item-handle layout="row" layout-align="center center">
                                     <div ng-include="'icons/block-'+value.type+'.html'"></div>
                                 </div>
                             </li>
@@ -66,7 +78,7 @@
         <md-content>
             <div class="o-container">
                 <div layout="row" layout-wrap layout-align="center start" layout-margin layout-fill>
-                    <story-header class="flex-100" image="articleMeta.headerImage" maintitle="meta.headerTitle" author="articleMeta.author" brand="{url: 'http://news.mediaspecs.be/sites/default/files/canvas.png'}"></story-header>
+                    <story-header class="flex-100" image="articleMeta.headerImage" maintitle="articleMeta.headerTitle" subtitle="articleMeta.subTitle" author="articleMeta.author" brand="{url: 'http://news.mediaspecs.be/sites/default/files/canvas.png'}"></story-header>
                     <div class="dividerMainPage"></div>
                     <div class="o-block size-{{value.parameters.width}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
                         <div class="o-block--hovered" ng-show="value.$id == activeBlock"></div>

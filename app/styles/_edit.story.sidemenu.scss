@@ -1,3 +1,8 @@
+.c-sidemenu__item--secundary:nth-of-type(1)
+{
+    border:5px solid red;
+}
+
 .c-sidemenu {
     width: $edit-sidemenu-width;
     @include e('list') {
@@ -18,9 +23,21 @@
             }
         }
     }
+    @include e('item') {
+        @include m('secundary') {
+            &:first-of-type {
+                // background: #ff0000;
+            }
+        }
+    }
     @include e('title') {
         color: $edit-color2;
         cursor: pointer;
+        span {
+            font-size: 1rem;
+            text-align: center;
+            font-weight: 800;
+        }
         p {
             outline: none;
         }
