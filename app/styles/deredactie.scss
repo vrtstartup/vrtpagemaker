@@ -1,4 +1,96 @@
-body {
-  padding: 0;
-  // display: none;
-}
+// bower:scss
+// endbower
+
+
+@import "reset";
+
+
+
+@import "templates.default";
+@import "templates.deredactie";
+
+@import "variables.edit";
+@import "variables.view";
+
+
+
+@import "utilities";
+
+
+
+
+// @import "sassline";
+
+
+
+
+
+@import "mixin.bem";
+
+
+
+// Edit
+@import "edit.story";
+@import "edit.story.sidemenu";
+@import "edit.story.dialog";
+
+
+
+// View
+@import "view.type";
+@import "view.feedback";
+@import "view.positioninpage";
+@import "view.storyheader";
+@import "view.loadscreen";
+@import "view.sharing";
+
+
+
+@import "blocks";
+@import "blocks.filters";
+@import "blocks.embeds";
+// @import "blocks.parallax";
+
+@import "../blocks/text/text.edit";
+@import "../blocks/text/text.view";
+
+@import "../blocks/image/image.view";
+@import "../blocks/image/image.dialog";
+
+@import "../blocks/parallax/parallax.view";
+@import "../blocks/parallax/parallax.dialog";
+
+@import "../blocks/video/video.view";
+@import "../blocks/video/video.dialog";
+
+@import "../blocks/twitter/twitter.view";
+@import "../blocks/twitter/twitter.dialog";
+
+@import "../blocks/facebook/facebook.view";
+@import "../blocks/facebook/facebook.dialog";
+
+@import "../blocks/iframe/iframe.view";
+@import "../blocks/iframe/iframe.dialog";
+
+@import "../blocks/linepainter/linepainter.view";
+@import "../blocks/linepainter/linepainter.dialog";
+
+@import "../blocks/audioscroll/audioscroll.view";
+
+@import "../blocks/hero/hero.dialog";
+@import "../blocks/hero/hero.view";
+
+@import "../blocks/break/break.view";
+
+@import "../blocks/map/map.view";
+
+@import "../blocks/audioplayer/audioplayer.view";
+
+@import "../blocks/carousel/carousel.view";
+
+@import "../blocks/masonry/masonry.view";
+
+@import "../blocks/popup/popup.view";
+
+
+@import "shame";

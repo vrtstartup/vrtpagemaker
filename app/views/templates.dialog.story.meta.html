@@ -21,12 +21,13 @@
             <input ng-model="meta.headerTitle">
         </md-input-container>
         <md-input-container flex>
-            <label>Ondertitle</label>
+            <label>Ondertitel</label>
             <textarea ng-model="meta.subTitle" columns="10"></textarea>
         </md-input-container>
         <md-input-container flex>
             <label>Hoofdafbeelding</label>
-            <input ng-model="meta.headerImage">
+
+            <md-button ng-click="getMetaImage('video/*')" target="_blank" class="md-raised" md-autofocus>Voeg een foto toe</md-button>
         </md-input-container>
         <md-button ng-click="getMetaVideo('video/*')" target="_blank" class="md-raised" md-autofocus>Kies of maak een nieuw filmpje</md-button>
         <md-input-container>

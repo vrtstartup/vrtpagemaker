@@ -14,7 +14,6 @@
 }
 
 .c-editpage {
-
     font-family: $edit-text-font-family;
     display: flex;
     height: 100vh;
@@ -42,6 +41,11 @@
         width: 100%;
         @include m('preview') {
             margin-left: $edit-sidemenu-width-preview;
+        }
+        .dividerMainPage {
+            height: $storyheader-brand-logo-height;
+            width: 100%;
+            display: block;
         }
     }
     .storyheader {

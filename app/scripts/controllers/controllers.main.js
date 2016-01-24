@@ -6,8 +6,6 @@ angular.module('immersiveAngularApp')
         function($scope, Auth, $location) {
 
             $scope.auth = Auth;
-
-
             $scope.login = function() {
                 var ref = new Firebase("https://immersivevrtstartup.firebaseio.com/");
                 ref.authWithPassword({
@@ -22,13 +20,9 @@ angular.module('immersiveAngularApp')
                     }
                 });
             };
-
             // any time auth status updates, add the user data to scope
             $scope.auth.$onAuth(function(authData) {
                 $scope.authData = authData;
             });
-
-
-
         }
     ]);

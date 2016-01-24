@@ -28,7 +28,7 @@ angular.module('immersiveAngularApp')
 
 
 
-
+                // jshint ignore: start
                 /* Add an extra function, can be any CSS class */
                 function specialStyleOne() {
                     this.button = document.createElement('button');
@@ -213,7 +213,7 @@ angular.module('immersiveAngularApp')
 
                 scope.mediumBindOptions = options;
 
-
+                // jshint ignore: end
 
 
 

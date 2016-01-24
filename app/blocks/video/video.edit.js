@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('immersiveAngularApp')
-    .directive('editVideo', function($sce, $compile, $templateRequest) {
+    .directive('editVideo', function($sce, $compile) {
         return {
             restrict: 'E',
             templateUrl: 'blocks/video/video.html',

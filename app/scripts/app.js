@@ -23,8 +23,8 @@ angular
         'angular-filepicker',
         'as.sortable',
         'ngMaterial',
-        'angulartics',
-        'angulartics.google.analytics',
+        // 'angulartics',
+        // 'angulartics.google.analytics',
         '720kb.socialshare',
         'door3.css',
         'ngAudio',
@@ -95,7 +95,12 @@ angular
         filepickerProvider.setKey('A1hmStH38TSfDN1qwiJOez');
     })
     .config(function($mdThemingProvider) {
+        var neonRedMap = $mdThemingProvider.extendPalette('red', {
+            '500': '79BD9A'
+        });
+        // Register the new color palette map with the name <code>neonRed</code>
+        $mdThemingProvider.definePalette('neonRed', neonRedMap);
+        // Use that theme for the primary intentions
         $mdThemingProvider.theme('default')
-            .primaryPalette('pink')
-            .accentPalette('orange');
+            .primaryPalette('neonRed');
     });

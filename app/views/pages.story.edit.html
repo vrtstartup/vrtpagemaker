@@ -67,6 +67,7 @@
             <div class="o-container">
                 <div layout="row" layout-wrap layout-align="center start" layout-margin layout-fill>
                     <story-header class="flex-100" image="articleMeta.headerImage" maintitle="meta.headerTitle" author="articleMeta.author" brand="{url: 'http://news.mediaspecs.be/sites/default/files/canvas.png'}"></story-header>
+                    <div class="dividerMainPage"></div>
                     <div class="o-block size-{{value.parameters.width}}" ng-repeat="(key,value) in list" flex-gt-sm="{{value.parameters.width}}" flex-sm="100">
                         <div class="o-block--hovered" ng-show="value.$id == activeBlock"></div>
                         <blocks-dispatcher-edit type="value.type" analytics-on="scrollby" parameters="value.parameters" id="value.$id" article="articleId"></blocks-dispatcher-edit>

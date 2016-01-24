@@ -1,3 +1,4 @@
+// jshint ignore: start
 (function() {
   angular.module('ngVidBg', ['vidBgTemplate']).constant('vidBgDefaults', {
     muted: true,

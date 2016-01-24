@@ -1,4 +1,10 @@
+md-dialog {
+  // max-width: 50%;
+  // max-height: 90%;
+}
+
 .c-dialog {
+
     @include e('hint') {
         font-size: $edit-dialog-hint-font-size;
         opacity: .5;

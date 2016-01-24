@@ -100,26 +100,26 @@ angular.module('immersiveAngularApp')
                     'name': 'Break'
                 }
             },
-            '10': {
-                'type': 'map',
-                'dialog': 'blocks/map/map.dialog.html',
-                'edit': '<edit-map class="o-container__block" id="id" article="article" parameters="parameters"></edit-map>',
-                'view': '<view-map class="o-container__block" id="id" article="article" parameters="parameters"></view-map>',
-                'button': {
-                    'type': 'map',
-                    'name': 'Map'
-                }
-            },
-            '11': {
-                'type': 'facebook',
-                'dialog': 'blocks/facebook/facebook.dialog.html',
-                'edit': '<edit-facebook class="o-container__block" id="id" article="article" parameters="parameters"></edit-facebook>',
-                'view': '<view-facebook class="o-container__block" id="id" article="article" parameters="parameters"></view-facebook>',
-                'button': {
-                    'type': 'facebook',
-                    'name': 'Facebook'
-                }
-            },
+            // '10': {
+            //     'type': 'map',
+            //     'dialog': 'blocks/map/map.dialog.html',
+            //     'edit': '<edit-map class="o-container__block" id="id" article="article" parameters="parameters"></edit-map>',
+            //     'view': '<view-map class="o-container__block" id="id" article="article" parameters="parameters"></view-map>',
+            //     'button': {
+            //         'type': 'map',
+            //         'name': 'Map'
+            //     }
+            // },
+            // '11': {
+            //     'type': 'facebook',
+            //     'dialog': 'blocks/facebook/facebook.dialog.html',
+            //     'edit': '<edit-facebook class="o-container__block" id="id" article="article" parameters="parameters"></edit-facebook>',
+            //     'view': '<view-facebook class="o-container__block" id="id" article="article" parameters="parameters"></view-facebook>',
+            //     'button': {
+            //         'type': 'facebook',
+            //         'name': 'Facebook'
+            //     }
+            // },
             '12': {
                 'type': 'instagram',
                 'dialog': 'blocks/instagram/instagram.dialog.html',
@@ -130,26 +130,26 @@ angular.module('immersiveAngularApp')
                     'name': 'Instagram'
                 }
             },
-            '13': {
-                'type': 'audioscroll',
-                'dialog': 'blocks/audioscroll/audioscroll.dialog.html',
-                'edit': '<edit-audioscroll class="o-container__block" view="view" id="id" article="article" parameters="parameters"></edit-audioscroll>',
-                'view': '<view-audioscroll class="o-container__block" view="view" id="id" article="article" parameters="parameters"></view-audioscroll>',
-                'button': {
-                    'type': 'audioscroll',
-                    'name': 'Audioscroll'
-                }
-            },
-            '14': {
-                'type': 'audioplayer',
-                'dialog': 'blocks/audioplayer/audioplayer.dialog.html',
-                'edit': '<edit-audioplayer class="o-container__block"  view="view" id="id" article="article" parameters="parameters"></edit-audioplayer>',
-                'view': '<view-audioplayer class="o-container__block"  view="view" id="id" article="article" parameters="parameters"></view-audioplayer>',
-                'button': {
-                    'type': 'audioplayer',
-                    'name': 'Audioplayer'
-                }
-            },
+            // '13': {
+            //     'type': 'audioscroll',
+            //     'dialog': 'blocks/audioscroll/audioscroll.dialog.html',
+            //     'edit': '<edit-audioscroll class="o-container__block" view="view" id="id" article="article" parameters="parameters"></edit-audioscroll>',
+            //     'view': '<view-audioscroll class="o-container__block" view="view" id="id" article="article" parameters="parameters"></view-audioscroll>',
+            //     'button': {
+            //         'type': 'audioscroll',
+            //         'name': 'Audioscroll'
+            //     }
+            // },
+            // '14': {
+            //     'type': 'audioplayer',
+            //     'dialog': 'blocks/audioplayer/audioplayer.dialog.html',
+            //     'edit': '<edit-audioplayer class="o-container__block"  view="view" id="id" article="article" parameters="parameters"></edit-audioplayer>',
+            //     'view': '<view-audioplayer class="o-container__block"  view="view" id="id" article="article" parameters="parameters"></view-audioplayer>',
+            //     'button': {
+            //         'type': 'audioplayer',
+            //         'name': 'Audioplayer'
+            //     }
+            // },
             '15': {
                 'type': 'twitter',
                 'dialog': 'blocks/twitter/twitter.dialog.html',
@@ -159,7 +159,7 @@ angular.module('immersiveAngularApp')
                     'type': 'twitter',
                     'name': 'twitter'
                 }
-            },
+            }
             // '15': {
             //     'type': 'linepainter',
             //     'dialog': 'blocks/linepainter/linepainter.dialog.html',
@@ -171,36 +171,36 @@ angular.module('immersiveAngularApp')
             //     }
             // },
 
-            '16': {
-                'type': 'masonry',
-                'dialog': 'blocks/masonry/masonry.dialog.html',
-                'edit': '<edit-masonry class="o-container__block" id="id" article="article" parameters="parameters"></edit-masonry>',
-                'view': '<view-masonry class="o-container__block" id="id" article="article" parameters="parameters"></view-masonry>',
-                'button': {
-                    'type': 'masonry',
-                    'name': 'Masonry'
-                }
-            },
-            '17': {
-                'type': 'gif',
-                'dialog': 'blocks/gif/gif.dialog.html',
-                'edit': '<edit-gif class="o-container__block" id="id" article="article" parameters="parameters"></edit-gif>',
-                'view': '<view-gif class="o-container__block" id="id" article="article" parameters="parameters"></view-gif>',
-                'button': {
-                    'type': 'gif',
-                    'name': 'Gif'
-                }
-            },
-            '18': {
-                'type': 'popup',
-                'dialog': 'blocks/popup/popup.dialog.html',
-                'edit': '<edit-popup class="o-container__block" id="id" article="article" parameters="parameters"></edit-popup>',
-                'view': '<view-popup class="o-container__block" id="id" article="article" parameters="parameters"></view-popup>',
-                'button': {
-                    'type': 'popup',
-                    'name': 'Popup'
-                }
-            }
+            // '16': {
+            //     'type': 'masonry',
+            //     'dialog': 'blocks/masonry/masonry.dialog.html',
+            //     'edit': '<edit-masonry class="o-container__block" id="id" article="article" parameters="parameters"></edit-masonry>',
+            //     'view': '<view-masonry class="o-container__block" id="id" article="article" parameters="parameters"></view-masonry>',
+            //     'button': {
+            //         'type': 'masonry',
+            //         'name': 'Masonry'
+            //     }
+            // },
+            // '17': {
+            //     'type': 'gif',
+            //     'dialog': 'blocks/gif/gif.dialog.html',
+            //     'edit': '<edit-gif class="o-container__block" id="id" article="article" parameters="parameters"></edit-gif>',
+            //     'view': '<view-gif class="o-container__block" id="id" article="article" parameters="parameters"></view-gif>',
+            //     'button': {
+            //         'type': 'gif',
+            //         'name': 'Gif'
+            //     }
+            // },
+            // '18': {
+            //     'type': 'popup',
+            //     'dialog': 'blocks/popup/popup.dialog.html',
+            //     'edit': '<edit-popup class="o-container__block" id="id" article="article" parameters="parameters"></edit-popup>',
+            //     'view': '<view-popup class="o-container__block" id="id" article="article" parameters="parameters"></view-popup>',
+            //     'button': {
+            //         'type': 'popup',
+            //         'name': 'Popup'
+            //     }
+            // }
         };
 
         var styles = {

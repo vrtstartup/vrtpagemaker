@@ -11,16 +11,18 @@ angular.module('immersiveAngularApp')
             },
 
             link: function postLink(scope) {
-                scope.$watch('parameters.url', function(newValue, oldValue) {
-                    if (newValue) {
+                scope.$watch('parameters.url', function(newValue) {
+                    if (newValue && newValue !== null && newValue !== '') {
                         scope.url = newValue;
-                    };
+                    } else {
+                        scope.url = 'images/placeholder.png';
+                    }
                 });
 
-                scope.$watch('parameters.filter', function(newValue, oldValue) {
+                scope.$watch('parameters.filter', function(newValue) {
                     if (newValue) {
                         scope.filter = newValue;
-                    };
+                    }
                 });
             }
         };

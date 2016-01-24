@@ -11,34 +11,37 @@ angular.module('immersiveAngularApp')
             },
 
             link: function postLink(scope) {
+                function getUrl(value) {
+                    var regex1 = /<iframe.*?src="(.*?)"/;
+                    var regex2 = /<iframe.*?src='(.*?)'/;
+                    var parts = regex1.exec(value);
+                    var url;
+
+                    if (!parts) {
+                        parts = regex2.exec(value);
+                    }
+
+                    if (parts) {
+                        url = parts[1];
+                    } else {
+                        url = value;
+                    }
+
+                    return $sce.trustAsResourceUrl(url);
+                }
+
                 var code = scope.parameters.code;
                 scope.iframe = getUrl(code);
 
-                scope.$watch('parameters.code', function(newValue, oldValue) {
+                scope.$watch('parameters.code', function(newValue) {
                     if (newValue) {
+                        console.log(newValue);
                         scope.iframe = getUrl(newValue);
-                    };
+                    }
                 });
 
             }
         };
 
-        function getUrl(value) {
-            var regex1 = /<iframe.*?src="(.*?)"/;
-            var regex2 = /<iframe.*?src='(.*?)'/;
-            var parts = regex1.exec(value);
-            var url;
 
-            if (!parts) {
-                parts = regex2.exec(value);
-            }
-
-            if (parts) {
-                url = parts[1];
-            } else {
-                url = value;
-            }
-
-            return $sce.trustAsResourceUrl(url);
-        }
     });

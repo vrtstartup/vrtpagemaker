@@ -9,7 +9,6 @@ angular.module('immersiveAngularApp')
 
         /* Add a new block */
         $scope.addBlock = function(block) {
-            $scope.changeStyle($scope.size);
             firebaseBlocksService.add($scope.article, block).then(function() {
                 $scope.closeDialog();
             });
@@ -17,9 +16,10 @@ angular.module('immersiveAngularApp')
 
         /* When changing the brand, this function is called */
         $scope.changeBrand = function(brand) {
-            var b = templatesService.getBrand(brand);
-            $scope.meta.brand = b.name;
 
+            templatesService.getBrand(brand).then(function(b) {
+                $scope.meta.brand = b.name;
+            });
         };
 
 
@@ -77,6 +77,7 @@ angular.module('immersiveAngularApp')
 
         $scope.getMetaVideo = function(type) {
             toolsUploaderService.uploadFile(type).then(function(Blob) {
+                console.log(Blob);
                 if ($scope.meta) {
                     $scope.meta.video = {
                         url: Blob.url,

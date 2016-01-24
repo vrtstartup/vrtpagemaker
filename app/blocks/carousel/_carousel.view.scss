@@ -54,7 +54,6 @@
         // zoom: $carousel-arrow-height;
         top: 50%;
         opacity: 0.75;
-
         cursor: pointer;
     }
     .rn-carousel-control:hover {
@@ -63,14 +62,11 @@
     .rn-carousel-control.rn-carousel-control-prev {
         left: 0.5em;
         transform: rotate(90deg);
-                height: $carousel-arrow-size;
+        height: $carousel-arrow-size;
         width: $carousel-arrow-size;
-
     }
     .rn-carousel-control.rn-carousel-control-prev:before {
         content: url($carousel-arrow-icon);
-
-
     }
     .rn-carousel-control.rn-carousel-control-next {
         right: 0.5em;
@@ -81,23 +77,14 @@
     .rn-carousel-control.rn-carousel-control-next:before {
         content: url($carousel-arrow-icon);
     }
-
-
-
     ul[rn-carousel] > li {
-  position: relative;
-  margin-left: -100%;
-}
-
-ul[rn-carousel] > li:first-child {
-  margin-left: 0;
-}
-
-ul[rn-carousel] img {
-  max-width: 100%;
-}
-
-
-
-
+        position: relative;
+        margin-left: -100%;
+    }
+    ul[rn-carousel] > li:first-child {
+        margin-left: 0;
+    }
+    ul[rn-carousel] img {
+        max-width: 100%;
+    }
 }

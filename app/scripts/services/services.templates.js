@@ -9,7 +9,7 @@ angular.module('immersiveAngularApp')
              '0': {
                 'name': 'geen',
                 'logo': 'main.png',
-                'css': 'main'
+                'css': 'default'
             },
             '1': {
                 'name': 'karrewiet',
@@ -28,10 +28,12 @@ angular.module('immersiveAngularApp')
 
 
             getBrand: function(brand) {
+                console.log(brand);
                 var deferred = $q.defer();
                 for (var key in brands) {
                     if (brands.hasOwnProperty(key)) {
                         if (brand === brands[key].name) {
+                            console.log(brands[key]);
                             deferred.resolve(brands[key]);
                         }
                     }

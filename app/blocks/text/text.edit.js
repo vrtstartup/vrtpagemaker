@@ -1,4 +1,3 @@
-/* globals rangy */
 'use strict';
 
 angular.module('immersiveAngularApp')
@@ -19,7 +18,7 @@ angular.module('immersiveAngularApp')
                 });
 
 
-
+                // jshint ignore: start
 
                 /* Add an extra function, can be any CSS class */
                 function specialStyleOne() {
@@ -205,7 +204,7 @@ angular.module('immersiveAngularApp')
 
                 scope.mediumBindOptions = options;
 
-
+                // jshint ignore: end
 
 
             }

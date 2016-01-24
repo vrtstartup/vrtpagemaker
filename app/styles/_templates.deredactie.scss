@@ -23,20 +23,20 @@
 }
 
 $view-color1: #37393A;
-$view-color2: #37393A;
+$view-color2: black;
 $view-color3: #fff;
-$view-color4: #37393A;
-$view-color5: white;
+$view-color4: #FEF937;
+$view-color5: #0E1569;
 $text-header1-color: $view-color1;
-$text-header1-font-family: 'helvetica',
+$text-header1-font-family: 'ProximaNova-Regular-bold',
 sans-serif;
-$text-main-font-family: 'helvetica',
+$text-main-font-family: 'ProximaNova-Bold',
 sans-serif;
-$text-main-font-weight: normal;
-$text-main-font-size: 1rem;
-$text-main-font-lineheight: 1.5rem;
+$text-main-font-weight: bold;
+$text-main-font-size: 1.5rem;
+$text-main-font-lineheight: 2rem;
 $text-main-font-color: $view-color2;
-$text-header1-font-family: 'helvetica',
+$text-header1-font-family: 'ProximaNova-Bold',
 sans-serif;
 $text-header1-font-weight: 800;
 $text-header1-font-size: 5rem;
@@ -46,13 +46,13 @@ $text-header1-font-color: $view-color3;
     text-shadow: 2px 2px $view-color1;
 }
 
-$text-header2-font-family: 'helvetica',
+$text-header2-font-family: 'ProximaNova-Bold',
 sans-serif;
 $text-header2-font-weight: bold;
 $text-header2-font-size: 2rem;
 $text-header2-font-lineheight: 3.3rem;
 $text-header2-font-color: $view-color2;
-$text-header3-font-family: 'helvetica',
+$text-header3-font-family: 'ProximaNova-Bold',
 sans-serif;
 $text-header3-font-weight: regular;
 $text-header3-font-size: 1.5rem;
