@@ -1,27 +1,27 @@
-<md-toolbar class="md-warn">
-    <div class="md-toolbar-tools">
-        <md-button  ng-click="startStory()">
-            Nieuw verhaal
-        </md-button>
-        <span flex></span>
-        <md-button ng-click="auth.$unauth()" aria-label="Log uit">
-            Log uit
-        </md-button>
-    </div>
-</md-toolbar>
-<md-content>
-    <md-list>
-        <md-subheader class="md-no-sticky">Artikels</md-subheader>
-        <md-list-item class="md-3-line" ng-repeat="(key,value) in list">
-            <img ng-src="{{value.meta.headerImage}}" class="md-avatar" alt="{{value.title}}">
-            <div class="md-list-item-text">
-                <h4 ng-click="editArticle(value.$id)">{{ value.meta.title }}</h4>
-                <p>{{ value.meta.author }}</p>
-                <p>{{ value.$id }}</p>
-            </div>
-            <md-switch ng-model="value.meta.live" ng-change="changeLive(value.$id, value.meta.live)" class="md-primary" aria-label="Live">
-            </md-switch>
-            <md-button class="md-raised md-warn" ng-click="removeArticle(value.$id)">Verwijder</md-button>
-        </md-list-item>
-    </md-list>
-</md-content>
+<div class="c-editstories">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-raised c-editstories__button" ng-click="startStory()">
+                Nieuw artikel
+            </md-button>
+            <span flex></span>
+            <md-button class="md-raised c-editstories__button" ng-click="auth.$unauth()" classaria-label="Log uit">
+                Log uit
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-list-item class="md-3-line c-editstories__item" ng-repeat="(key,value) in list" >
+                <img ng-src="{{value.meta.headerImage}}" class="md-avatar" alt="{{value.title}}">
+                <div class="md-list-item-text" ng-click="editArticle(value.$id)">
+                    {{ value.meta.title }}
+                </div>
+                <div>Live:</div>
+                <md-switch ng-model="value.meta.live" ng-change="changeLive(value.$id, value.meta.live)" class="md-primary" aria-label="Live">
+                </md-switch>
+                <md-button class="md-raised md-warn" ng-click="removeArticle(value.$id)">Verwijder</md-button>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</div>

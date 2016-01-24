@@ -1,0 +1,14 @@
+.c-editstories {
+    font-family: $edit-text-font-family;
+    @include e('button') {
+        span {
+            color: $edit-color1;
+        }
+    }
+    @include e('item') {
+        font-size: 1.5rem;
+        .md-list-item-inner {
+            align-items: center !important;
+        }
+    }
+}

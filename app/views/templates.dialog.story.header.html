@@ -1,5 +1,5 @@
-<md-content>
-    <md-toolbar class="md-warn">
+<md-content class="c-dialog">
+    <md-toolbar>
         <div class="md-toolbar-tools">
             <h2 class="md-flex">Startbeeld</h2>
         </div>
@@ -15,7 +15,6 @@
             <textarea ng-model="meta.subTitle" columns="10"></textarea>
         </md-input-container>
         <md-input-container flex>
-            <label>Afbeelding of filmpje</label>
             <md-button ng-click="getMetaImage('image/*')" target="_blank" class="md-raised" md-autofocus>Voeg een foto toe</md-button>
         </md-input-container>
         <md-button ng-click="getMetaVideo('video/*')" target="_blank" class="md-raised" md-autofocus>Kies een filmpje</md-button>

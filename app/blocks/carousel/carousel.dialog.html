@@ -10,7 +10,7 @@
         <md-button ng-click="getFiles('image/*')" target="_blank" class="md-raised" md-autofocus>Kies nieuwe afbeeldingen</md-button>
         <md-input-container flex>
             <label>Hoeveel milliseconden wil je de afbeelding laten staan? (1000 miliseconden = 1 seconde)</label>
-            <input ng-model="block.parameters.time" ng-init="block.parameters.time = 300">
+            <input ng-model="block.parameters.time" ng-init="block.parameters.time = 1000">
         </md-input-container>
         <md-input-container>
             <label>Kies de overgang van de fotos</label>
@@ -32,11 +32,11 @@
                 </md-option>
             </md-select>
         </md-input-container>
-        <md-input-container>
+       <!--  <md-input-container>
             <md-checkbox ng-model="block.parameters.indicators" aria-label="Indicators">
                 Wil je dat er een indicatie staat over hoeveel foto's er in de slideshow zitten?
             </md-checkbox>
-        </md-input-container>
+        </md-input-container> -->
         <div ng-include="'views/includes.dialog.filters.html'"></div>
         <div ng-include="'views/includes.dialog.style.html'"></div>
         <div ng-include="'views/includes.dialog.audio.html'"></div>
