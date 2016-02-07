@@ -46,6 +46,7 @@
     @include e('subtitle') {
         color: $text-header1-font-color !important;
         margin-top: 1.5rem;
+        font-weight: 800;
         font-size: 2rem !important;
         @extend .t-header__extra;
 

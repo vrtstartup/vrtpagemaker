@@ -64,7 +64,7 @@
                     scope.$watch('start', function(newValue) {
                         if (newValue === 'both' && scope.playing === false) {
 
-                            play();
+                            // play();
 
                         }
                     });

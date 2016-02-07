@@ -1,9 +1,9 @@
 $header-font: 'din-condensed-web';
-$main-font: 'helvetica';
+$main-font: 'proxima-nova';
 $view-color1: #37393A;
 $view-color2: black;
 $view-color3: #fff;
-$view-color4: #FEF937;
+$view-color4: #59AF27;
 $view-color5: #0E1569;
 // General Text
 $text-main-font-family: $main-font;
@@ -33,7 +33,6 @@ $text-header2-font-color: $view-color2;
 $text-header2-color: $view-color1;
 .t-h2__extra {
     text-transform: uppercase;
-    text-align: center;
     border-bottom: .1rem solid $text-header1-underline-color;
 }
 
@@ -98,6 +97,7 @@ $hero-background-color: $view-color5;
 .brand-special-style-four {
     background-color: $view-color4;
     padding: 1rem;
+    color: #fff !important;
     &:before {
         position: absolute;
         z-index: 1;
