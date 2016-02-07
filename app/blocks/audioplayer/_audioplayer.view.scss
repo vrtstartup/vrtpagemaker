@@ -1,9 +1,9 @@
 .o-audioplayer {
     @include e('play') {
-        margin-top: .5rem;
+        margin-top: .1rem;
     }
     @include e('pause') {
-        margin-top: .5rem;
+        margin-top: .1rem;
 
     }
     @include e('range') {
@@ -17,33 +17,36 @@
     svg {
         width: $block-audio-icon-size;
         height: $block-audio-icon-size;
-        fill: $view-color2;
+        fill: $audioplayer-color;
     }
     @include e('progress') {
         margin-right: 1rem;
         width: 100%;
         md-slider.md-default-theme,
         md-slider .md-track.md-track-fill {
-            background-color: $view-color2;
+            background-color: $audioplayer-color;
         }
         md-slider .md-thumb:after {
             display: none;
         }
         md-slider.md-default-theme,
         md-slider .md-focus-ring {
-            background-color: $view-color2;
+            background-color: $audioplayer-color;
         }
         md-slider.md-default-theme,
         md-slider .md-thumb:after {
-            background-color: $view-color2;
-            border-color: $view-color2;
+            background-color: $audioplayer-color;
+            border-color: $audioplayer-color;
         }
     }
     @include e('timing') {
         white-space: nowrap;
         font-size: 1rem;
+        color: $audioplayer-color;
+        margin-top: -.1rem;
     }
     @include e('mute') {
+        margin-top: -.1rem;
         margin-left: 1rem;
         padding-right: 2rem;
         height: 30px;
@@ -55,7 +58,7 @@
             display: block;
             width: 8px;
             height: 8px;
-            background: $view-color2;
+            background: $audioplayer-color;
             margin: 11px 0 0 2px;
             &:after {
                 content: '';
@@ -63,7 +66,7 @@
                 width: 0;
                 height: 0;
                 border-style: solid;
-                border-color: transparent $view-color2 transparent transparent;
+                border-color: transparent $audioplayer-color transparent transparent;
                 border-width: 10px 14px 10px 15px;
                 left: -13px;
                 top: 5px;
@@ -76,7 +79,7 @@
                 width: 5px;
                 height: 5px;
                 border-style: double;
-                border-color: $view-color2;
+                border-color: $audioplayer-color;
                 border-width: 7px 7px 0 0;
                 left: 18px;
                 top: 9px;

@@ -1,80 +1,116 @@
-@font-face {
-    font-family: 'ProximaNova-Regular';
-    src: url('../brands/karrewiet/fonts/2EBDF1_5_0.eot');
-    src: url('../brands/karrewiet/fonts/2EBDF1_5_0.eot?#iefix') format('embedded-opentype'), url('../brands/karrewiet/fonts/2EBDF1_5_0.woff2') format('woff2'), url('../brands/karrewiet/fonts/2EBDF1_5_0.woff') format('woff'), url('../brands/karrewiet/fonts/2EBDF1_5_0.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'ProximaNova-Bold';
-    src: url('../brands/karrewiet/fonts/2EBDF1_4_0.eot');
-    src: url('../brands/karrewiet/fonts/2EBDF1_4_0.eot?#iefix') format('embedded-opentype'), url('../brands/karrewiet/fonts/2EBDF1_4_0.woff2') format('woff2'), url('../brands/karrewiet/fonts/2EBDF1_4_0.woff') format('woff'), url('../brands/karrewiet/fonts/2EBDF1_4_0.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'ProximaNova-BoldIt';
-    src: url('../brands/karrewiet/fonts/2EBDF1_A_0.eot');
-    src: url('../brands/karrewiet/fonts/2EBDF1_A_0.eot?#iefix') format('embedded-opentype'), url('../brands/karrewiet/fonts/2EBDF1_A_0.woff2') format('woff2'), url('../brands/karrewiet/fonts/2EBDF1_A_0.woff') format('woff'), url('../brands/karrewiet/fonts/2EBDF1_A_0.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'ProximaNova-RegularIt';
-    src: url('../brands/karrewiet/fonts/2EBDF1_B_0.eot');
-    src: url('../brands/karrewiet/fonts/2EBDF1_B_0.eot?#iefix') format('embedded-opentype'), url('../brands/karrewiet/fonts/2EBDF1_B_0.woff2') format('woff2'), url('../brands/karrewiet/fonts/2EBDF1_B_0.woff') format('woff'), url('../brands/karrewiet/fonts/2EBDF1_B_0.ttf') format('truetype');
-}
-
+$header-font: 'din-condensed-web';
+$main-font: 'helvetica';
 $view-color1: #37393A;
 $view-color2: black;
 $view-color3: #fff;
 $view-color4: #FEF937;
 $view-color5: #0E1569;
-$text-header1-color: $view-color1;
-$text-header1-font-family: 'ProximaNova-Regular-bold',
-sans-serif;
-$text-main-font-family: 'ProximaNova-Bold',
-sans-serif;
-$text-main-font-weight: bold;
-$text-main-font-size: 1.5rem;
+// General Text
+$text-main-font-family: $main-font;
+$text-main-font-weight: 400;
+$text-main-font-size: 1rem;
 $text-main-font-lineheight: 2rem;
 $text-main-font-color: $view-color2;
-$text-header1-font-family: 'ProximaNova-Bold',
-sans-serif;
+// H1
+$text-header1-color: $view-color1;
+$text-header1-font-family: $header-font;
 $text-header1-font-weight: 800;
 $text-header1-font-size: 5rem;
 $text-header1-font-lineheight: 8rem;
 $text-header1-font-color: $view-color3;
+$text-header1-underline-color: $view-color4;
 .t-header__extra {
-    text-shadow: 2px 2px $view-color1;
+    text-transform: uppercase;
+    text-shadow: 1px 1px $view-color1;
 }
 
-$text-header2-font-family: 'ProximaNova-Bold',
-sans-serif;
+// H2
+$text-header2-font-family: $header-font;
 $text-header2-font-weight: bold;
 $text-header2-font-size: 2rem;
 $text-header2-font-lineheight: 3.3rem;
 $text-header2-font-color: $view-color2;
-$text-header3-font-family: 'ProximaNova-Bold',
-sans-serif;
+$text-header2-color: $view-color1;
+.t-h2__extra {
+    text-transform: uppercase;
+    border-bottom: .1rem solid $text-header1-underline-color;
+}
+
+// H3
+$text-header3-font-family: $header-font;
 $text-header3-font-weight: regular;
 $text-header3-font-size: 1.5rem;
 $text-header3-font-lineheight: 3rem;
 $text-header3-font-color: $view-color2;
+.t-h3__extra {
+    text-transform: uppercase;
+    border-bottom: .1rem solid $view-color1;
+}
+
+// A
 $text-link-font-color: complement($view-color2);
-$text-header2-color: $view-color1;
+// P
 $text-paragraph-color: $view-color2;
 $text-anchor-color: $view-color2;
 $text-anchor-color-hover: $view-color1;
-$video-play-icon-url: '../brands/karrewiet/play.svg';
-$storyheader-arrow-icon: '../brands/karrewiet/arrow.svg';
+$video-play-icon-url: '../brands/deredactie/play.svg';
+$storyheader-arrow-icon: '../brands/deredactie/arrow.svg';
 $storyheader-arrow-height: 3rem;
 $storyheader-arrow-margin-bottom: 2rem;
 $storyheader-brand-logo-height: 4rem;
-$carousel-arrow-icon: '../brands/karrewiet/arrow.svg';
+$carousel-arrow-icon: '../brands/deredactie/arrow.svg';
 $carousel-arrow-size: 2rem;
 $hero-background-color: $view-color5;
 .brand-special-style-one {
-    color: $view-color4;
+    font-weight: 800;
+    color: $view-color2;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+    padding-left: .1rem;
+    padding-right: .1rem;
+    background-color: $text-header1-underline-color;
 }
 
 .brand-special-style-two {
-    color: $view-color3;
+    padding: 1em;
+    text-align: right;
+    font-size: 1.2rem;
+    display: block;
+    position: relative;
+    color: $view-color5;
+    &:before {
+        content: "";
+        position: absolute;
+        right: -1rem;
+        top: 1.5rem;
+        height: calc(100% - 3rem);
+        margin-left: 25%;
+        border-right: 0.4em solid $view-color4;
+    }
 }
+
+.brand-special-style-three {
+    font-size: 1rem;
+    color: $view-color5;
+}
+
+.brand-special-style-four {
+    background-color: $view-color4;
+    padding: 1rem;
+    &:before {
+        position: absolute;
+        z-index: 1;
+        background-color: $view-color4;
+        width: 500%;
+        height: 100%;
+        left: -250%;
+    }
+    .brand-special-header-two {
+        background-color: $view-color1 !important;
+        color: $view-color4 !important;
+        text-align: center;
+    }
+}
+
+// Players
+$audioplayer-color: $view-color5;

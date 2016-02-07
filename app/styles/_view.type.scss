@@ -5,22 +5,31 @@
         font-weight: $text-header1-font-weight;
         line-height: $text-header1-font-lineheight;
         color: $text-header1-font-color;
-        @extend .t-header__extra;
+        display: inline-block;
     }
-    h2 {
+    .brand-special-header-one {
         font-size: $text-header2-font-size;
         font-family: $text-header2-font-family;
         font-weight: $text-header2-font-weight;
         line-height: $text-header2-font-lineheight;
         color: $text-header2-font-color;
+        display: inline-block;
+        @extend .t-h2__extra;
     }
-    h3 {
+
+
+
+    .brand-special-header-two {
         font-size: $text-header3-font-size;
         font-family: $text-header3-font-family;
         font-weight: $text-header3-font-weight;
         line-height: $text-header3-font-lineheight;
         color: $text-header3-font-color;
+        display: inline-block;
+        @extend .t-h3__extra;
     }
+
+
     p {
         font-size: $text-main-font-size;
         font-family: $text-main-font-family;
@@ -35,11 +44,36 @@
             text-decoration: underline;
         }
     }
-    blockquote {
-        border-left: .2em solid $view-color2;
-        padding: 1em;
+    .special-quote {
+        // font-size: $text-main-font-size;
+        // font-family: $text-main-font-family;
+        font-weight: $text-main-font-weight;
+        line-height: $text-main-font-lineheight;
+        color: $text-main-font-color;
+        font-weight: 800;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        &::before {
+            content: '';
+            -ms-transform: rotate(180deg);
+            /* IE 9 */
+
+            -webkit-transform: rotate(180deg);
+            /* Chrome, Safari, Opera */
+            transform: rotate(180deg);
+            width: 1.2rem;
+            height: 1rem;
+            display: block;
+            color: red;
+            position: relative;
+            left: -10px;
+            background-image: url(../icons/quote.svg)
+        }
+    }
+    b {
+        font-weight: 800;
+    }
+    i {
         font-style: italic;
-        background-color: rgba( $view-color2, .2);
-        line-height: $text-blockquote-lineheight;
     }
 }

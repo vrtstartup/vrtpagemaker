@@ -20,6 +20,83 @@ angular.module('immersiveAngularApp')
 
                 // jshint ignore: start
 
+
+
+                /* Add special styling for header one */
+                function specialHeaderOne() {
+                    this.button = document.createElement('button');
+                    this.button.className = 'medium-editor-action';
+                    this.button.innerText = 'H1';
+                    this.button.onclick = this.onClick.bind(this);
+                    this.classApplier = rangy.createCssClassApplier('brand-special-header-one', {
+                        elementTagName: 'div',
+                        normalize: true
+                    });
+                }
+                specialHeaderOne.prototype.onClick = function() {
+                    this.classApplier.toggleSelection();
+                };
+                specialHeaderOne.prototype.getButton = function() {
+                    return this.button;
+                };
+                specialHeaderOne.prototype.checkState = function(node) {
+                    if (node.tagName === 'HEADERONE') {
+                        this.button.classList.add('medium-editor-button-active');
+                    }
+                };
+
+                        /* Add special styling for header one */
+                function specialHeaderTwo() {
+                    this.button = document.createElement('button');
+                    this.button.className = 'medium-editor-action';
+                    this.button.innerText = 'H2';
+                    this.button.onclick = this.onClick.bind(this);
+                    this.classApplier = rangy.createCssClassApplier('brand-special-header-two', {
+                        elementTagName: 'div',
+                        normalize: true
+                    });
+                }
+                specialHeaderTwo.prototype.onClick = function() {
+                    this.classApplier.toggleSelection();
+                };
+                specialHeaderTwo.prototype.getButton = function() {
+                    return this.button;
+                };
+                specialHeaderTwo.prototype.checkState = function(node) {
+                    if (node.tagName === 'HEADERTWO') {
+                        this.button.classList.add('medium-editor-button-active');
+                    }
+                };
+
+
+
+                /* Add an extra function, can be any CSS class */
+                function specialQuote() {
+                    this.button = document.createElement('button');
+                    this.button.className = 'medium-editor-action';
+                    this.button.innerText = '"';
+                    this.button.onclick = this.onClick.bind(this);
+                    this.classApplier = rangy.createCssClassApplier('special-quote', {
+                        elementTagName: 'div',
+                        normalize: true
+                    });
+                }
+                specialQuote.prototype.onClick = function() {
+                    this.classApplier.toggleSelection();
+                };
+                specialQuote.prototype.getButton = function() {
+                    return this.button;
+                };
+                specialQuote.prototype.checkState = function(node) {
+                    if (node.tagName === 'SPECIALQUOTE') {
+                        this.button.classList.add('medium-editor-button-active');
+                    }
+                };
+
+
+
+
+
                 /* Add an extra function, can be any CSS class */
                 function specialStyleOne() {
                     this.button = document.createElement('button');
@@ -104,7 +181,7 @@ angular.module('immersiveAngularApp')
                     this.button.innerText = 'S4';
                     this.button.onclick = this.onClick.bind(this);
                     this.classApplier = rangy.createCssClassApplier('brand-special-style-four', {
-                        elementTagName: 'specialfour',
+                        elementTagName: 'p',
                         normalize: true
                     });
                 }
@@ -133,11 +210,15 @@ angular.module('immersiveAngularApp')
                         specialOne: new specialStyleOne(),
                         specialTwo: new specialStyleTwo(),
                         specialThree: new specialStyleThree(),
-                        specialFour: new specialStyleFour()
+                        specialFour: new specialStyleFour(),
+                        specialHeaderOne: new specialHeaderOne(),
+                        specialHeaderTwo: new specialHeaderTwo(),
+                        specialQuote: new specialQuote()
                     },
                     targetBlank: true,
+                    forcePlainText: false,
                     toolbar: {
-                        buttons: ['bold','h1','h2','h3', {
+                        buttons: ['bold', 'specialHeaderOne','specialHeaderTwo',{
                                 name: 'italic',
                                 contentDefault: '<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4z"/></svg>'
                             }, {
@@ -170,10 +251,8 @@ angular.module('immersiveAngularApp')
                             }, {
                                 name: 'subscript',
                                 contentDefault: 'dw'
-                            }, {
-                                name: 'quote',
-                                contentDefault: 'q'
                             },
+                            'specialQuote',
                             'specialOne',
                             'specialTwo',
                             'specialThree',

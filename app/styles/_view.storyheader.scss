@@ -27,15 +27,27 @@
     @include e('title') {
         color: $text-header1-font-color;
         font-size: 5rem;
+        position: relative;
+        @extend .t-header__extra;
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: .2rem;
+            width: 50%;
+            margin-left: 25%;
+            border-bottom: .2rem solid $text-header1-underline-color;
+        }
         @include m('mobile') {
             margin: $storyheader-title-mobile-margin;
         }
     }
     @include e('subtitle') {
-
         color: $text-header1-font-color !important;
-        @extend .t-header__extra;
+        margin-top: 1.5rem;
         font-size: 2rem !important;
+        @extend .t-header__extra;
 
     }
     @include e('arrow') {
@@ -84,9 +96,8 @@
     right: 0;
     left: 0;
     height: $storyheader-brand-logo-height;
-
     @include m('sharing') {
-    background-color: $nav-background-color;
+        background-color: $nav-background-color;
     }
     @include m('nosharing') {
         background-color: none;

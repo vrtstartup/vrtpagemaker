@@ -10,7 +10,7 @@ angular.module('immersiveAngularApp')
                 parameters: '=',
             },
 
-            link: function postLink(scope) {
+            link: function postLink() {
 
 
             },

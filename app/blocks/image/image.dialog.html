@@ -11,6 +11,10 @@
             <label>Dit is de url van je afbeelding</label>
             <input name="image" ng-model="block.parameters.url" />
         </md-input-container>
+        <md-input-container ng-show="!editing" class=" md-block">
+            <label>Plak de url van je afbeelding hier.</label>
+            <input name="image" ng-model="block.parameters.url" />
+        </md-input-container>
         <md-input-container class="md-icon-float md-block">
             <md-button ng-click="getFile('image/*')" target="_blank" class="md-raised" md-autofocus>Kies een nieuwe afbeelding</md-button>
         </md-input-container>
@@ -21,7 +25,7 @@
     </section>
     <section layout="column" layout-padding>
         <label>Kies een Instagramfilter</label>
-<!--         <div ng-repeat="f in filters" class="o-cssfilter__preview" flex="20" ng-click="block.parameters.filter = f" ng-class="{selectedfilter: block.parameters.filter == f}">
+        <!--         <div ng-repeat="f in filters" class="o-cssfilter__preview" flex="20" ng-click="block.parameters.filter = f" ng-class="{selectedfilter: block.parameters.filter == f}">
             <figure class="{{f}}"><img ng-src="{{block.parameters.url}}"></figure>
         </div> -->
     </section>
