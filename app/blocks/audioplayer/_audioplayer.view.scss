@@ -1,9 +1,16 @@
 .o-audioplayer {
     @include e('play') {
         margin-top: .1rem;
+
+        width: 50px;
+
+height: 36px;
     }
     @include e('pause') {
         margin-top: .1rem;
+        width: 50px;
+
+height: 36px;
 
     }
     @include e('range') {
