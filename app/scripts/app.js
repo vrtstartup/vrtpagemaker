@@ -24,7 +24,7 @@ angular
         'as.sortable',
         'ngMaterial',
         'angulartics',
-        // 'angulartics.google.analytics',
+        'angulartics.google.analytics',
         '720kb.socialshare',
         'door3.css',
         'ngAudio',

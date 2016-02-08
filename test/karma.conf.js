@@ -22,7 +22,6 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // bower:js
-      'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-cookies/angular-cookies.js',
@@ -45,7 +44,6 @@ module.exports = function(config) {
       'bower_components/rangy/rangy-textrange.js',
       'bower_components/angular-scroll/angular-scroll.js',
       'bower_components/ng-parallax/angular-parallax.min.js',
-      'bower_components/waypoints/waypoints.js',
       'bower_components/SHA-1/sha1.js',
       'bower_components/angulartics/src/angulartics.js',
       'bower_components/angulartics-google-analytics/lib/angulartics-google-analytics.js',

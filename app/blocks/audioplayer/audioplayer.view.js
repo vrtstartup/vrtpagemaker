@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('immersiveAngularApp')
-        .directive('viewAudioplayer', function(AudioPlayerService) {
+        .directive('viewAudioplayer', function(AudioPlayerService, $analytics) {
             return {
                 templateUrl: 'blocks/audioplayer/audioplayer.html',
                 restrict: 'E',
@@ -34,6 +34,10 @@
 
                         AudioPlayerService.play(scope.id);
                         scope.playing = true;
+                        $analytics.eventTrack('play', {
+                            category: 'audio',
+                            label: scope.parameters.media
+                        });
                     }
 
                     function mute() {
@@ -68,8 +72,6 @@
 
                         }
                     });
-
-
 
 
                     el[0].parentElement.addEventListener('click', function() {
