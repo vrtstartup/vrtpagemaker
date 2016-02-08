@@ -46,8 +46,9 @@
     }
     .special-quote {
         font-size: $text-main-font-size;
-        font-family: $text-main-font-family;
+        font-family: $text-main-font-family !important;
         font-weight: $text-main-font-weight;
+
         line-height: $text-main-font-lineheight;
         color: $text-main-font-color;
         font-weight: 800;
