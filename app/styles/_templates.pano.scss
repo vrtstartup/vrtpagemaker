@@ -103,4 +103,6 @@ $hero-background-color: $view-color5;
     }
 }
 
-.brand-special-style-two {}
+.c-storyheader__title, .c-storyheader__subtitle {
+    text-transform: none !important;
+}
