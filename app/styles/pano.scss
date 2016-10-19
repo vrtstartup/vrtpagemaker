@@ -1,15 +1,16 @@
 // bower:scss
-//endbower
-
+// endbower
 @import "reset";
 @import "templates.default";
-@import "templates.karrewiet";
+@import "templates.pano";
 @import "variables.edit";
 @import "variables.view";
 @import "utilities";
-// @import "sassline";
+@import "messages.scss";
 @import "mixin.bem";
 // Edit
+@import "edit.login";
+@import "edit.stories";
 @import "edit.story";
 @import "edit.story.sidemenu";
 @import "edit.story.dialog";

@@ -28,7 +28,9 @@
         color: $text-header1-font-color;
         font-size: 5rem;
         position: relative;
-        @extend .t-header__extra;
+        text-align: center;
+        @extend .t-header__extra !optional;
+        @extend .t-title__extra !optional;
         &:before {
             content: "";
             position: absolute;
@@ -41,6 +43,8 @@
         }
         @include m('mobile') {
             margin: $storyheader-title-mobile-margin;
+            color: $text-header2-font-color !important;
+            line-height: 5rem !important;
         }
     }
     @include e('subtitle') {
@@ -48,8 +52,11 @@
         margin-top: 1.5rem;
         font-weight: 800;
         font-size: 2rem !important;
-        @extend .t-header__extra;
-
+        @extend .t-header__extra !optional;
+        @include m('mobile') {
+            margin: $storyheader-title-mobile-margin;
+            color: $text-header2-font-color !important;
+        }
     }
     @include e('arrow') {
         &::before {
@@ -90,12 +97,14 @@
     }
 }
 
+$storyheader-brand-padding: 0 0 0 0 !default;
 .c-nav {
     z-index: $view-nav;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
+    padding: $storyheader-brand-padding;
     height: $storyheader-brand-logo-height;
     @include m('sharing') {
         background-color: $nav-background-color;

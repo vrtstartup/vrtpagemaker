@@ -56,7 +56,6 @@ angular.module('immersiveAngularApp')
                             compiled = $compile(template)(scope);
                             elem.empty().append(compiled);
                         } else {
-
                             scope.videogularConfig = {
                                 preload: 'none',
                                 autoPlay: false,
@@ -83,9 +82,7 @@ angular.module('immersiveAngularApp')
                                         autoHideTime: 3000
                                     }
                                 }
-
                             };
-
                         }
                     }
                 });

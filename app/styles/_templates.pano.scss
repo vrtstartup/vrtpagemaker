@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'pano-text';
+    src: url('../brands/pano/fonts/NHaasGroteskDSPro-25Th.otf');
+    // src: url('../brands/karrewiet/fonts/2EBDF1_5_0.eot?#iefix') format('embedded-opentype'), url('../brands/karrewiet/fonts/2EBDF1_5_0.woff2') format('woff2'), url('../brands/karrewiet/fonts/2EBDF1_5_0.woff') format('woff'), url('../brands/karrewiet/fonts/2EBDF1_5_0.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'pano-h1';
+    src: url('../brands/pano/fonts/NHaasGroteskDSPro-75Bd.otf');
+    // src: url('../brands/karrewiet/fonts/2EBDF1_5_0.eot?#iefix') format('embedded-opentype'), url('../brands/karrewiet/fonts/2EBDF1_5_0.woff2') format('woff2'), url('../brands/karrewiet/fonts/2EBDF1_5_0.woff') format('woff'), url('../brands/karrewiet/fonts/2EBDF1_5_0.ttf') format('truetype');
+}
+
+$view-color1: #37393A;
+$view-color2: #101A43;
+$view-color3: #fff;
+$view-color4: #0000FF;
+$view-color5: #0000FF;
+$text-header1-color: $view-color1;
+$text-header1-font-family: 'ProximaNova-Regular-bold',
+sans-serif;
+$text-main-font-family: 'pano-text',
+sans-serif;
+$text-main-font-weight: bold;
+$text-main-font-size: 1.5rem;
+$text-main-font-lineheight: 3rem;
+$text-main-font-color: $view-color2;
+$text-header1-font-family: 'pano-h1',
+sans-serif;
+$storyheader-brand-padding: 20px 0px 15px 10px;
+$text-header1-font-weight: 800;
+$text-header1-font-size: 5rem;
+$text-header1-font-lineheight: 8rem;
+$text-header1-font-color: $view-color3;
+$text-header1-underline-color: $view-color4;
+.t-header__extra {
+    // text-shadow: 2px 2px $view-color1;
+}
+
+.t-title__extra {
+    &::after {
+        content: "";
+        display: inline-flex;
+        background-size: 28px 28px;
+        height: 28px;
+        width: 28px;
+        margin-left: 10px;
+        border-bottom: none;
+        background-image: url('../brands/pano/dot.png'); // position: absolute;
+    }
+}
+
+$text-header2-font-family: 'pano-h1',
+sans-serif;
+$text-header2-font-weight: bold;
+$text-header2-font-size: 2rem;
+$text-header2-font-lineheight: 3.3rem;
+$text-header2-font-color: $view-color2;
+$text-header3-font-family: 'pano-h1',
+sans-serif;
+$text-header3-font-weight: regular;
+$text-header3-font-size: 1.5rem;
+$text-header3-font-lineheight: 3rem;
+$text-header3-font-color: $view-color2;
+$text-link-font-color: complement($view-color2);
+$text-header2-color: $view-color1;
+$text-paragraph-color: $view-color2;
+$text-anchor-color: $view-color2;
+$text-anchor-color-hover: $view-color1;
+$video-play-icon-url: '../brands/pano/play.svg';
+$storyheader-arrow-icon: '../brands/pano/arrow.svg';
+$storyheader-arrow-height: 3rem;
+$storyheader-arrow-margin-bottom: 2rem;
+$storyheader-brand-logo-height: 2rem;
+$carousel-arrow-icon: '../brands/pano/arrow.svg';
+$carousel-arrow-size: 2rem;
+$hero-background-color: $view-color5;
+.special-quote {
+    font-size: 2rem !important;
+    font-family: "pano-h1", sans-serif !important;
+    // font-weight: bold;
+    line-height: 4rem !important;
+    font-weight: 800 !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    color: #fff !important;
+    background-color: $view-color4 !important;
+    display: block !important;
+    padding-bottom: 1rem;
+    &::before {
+        content: '';
+        -ms-transform: rotate(180deg);
+        /* IE 9 */
+        -webkit-transform: rotate(180deg);
+        /* Chrome, Safari, Opera */
+        transform: rotate(180deg);
+        width: 1.2rem;
+        height: 1rem;
+        display: block;
+        color: red;
+        position: relative;
+        left: -10px;
+        background: none !important;
+    }
+}
+
+.brand-special-style-two {}

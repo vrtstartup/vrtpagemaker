@@ -6,7 +6,7 @@ angular.module('immersiveAngularApp')
 
 
         var brands = {
-             '0': {
+            '0': {
                 'name': 'deredactie',
                 'logo': 'deredactie.png',
                 'css': 'default'
@@ -15,8 +15,12 @@ angular.module('immersiveAngularApp')
                 'name': 'karrewiet',
                 'logo': 'karrewiet.png',
                 'css': 'karrewiet'
+            },
+            '2': {
+                'name': 'pano',
+                'logo': 'panoLogoTransparent.png',
+                'css': 'pano'
             }
-
         };
 
 

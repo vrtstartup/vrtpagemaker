@@ -15,8 +15,6 @@ angular.module('immersiveAngularApp')
                 var template = valuesService.editdirectives(scope.type);
                 var compiled = $compile(template)(scope);
                 elem.empty().append(compiled);
-
-
             }
         };
     });
